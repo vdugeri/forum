@@ -1,0 +1,33 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100vw;
+  height: 5rem;
+  font-size: 1.2rem;
+  font-weight: 400;
+  border-bottom: 1px solid #e6e6e6;
+  &__logo {
+    display: flex;
+    align-items: center;
+    flex: 0 0 30%;
+    margin-left: 2rem;
+    cursor: pointer;
+
+    & img {
+      width: 4rem;
+      height: auto;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex: 0 0 40%;
+    margin-left: auto;
+    &--item {
+      cursor: pointer;
+    }
+  }
+}
