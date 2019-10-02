@@ -7,6 +7,7 @@ export default [
     name: "General Health",
     posts: [
       {
+        id: 1,
         author: {
           image: healthIcon,
           username: "verem"
@@ -17,6 +18,7 @@ export default [
         title: `Eyes can't focus`
       },
       {
+        id: 2,
         author: {
           image: healthIcon,
           username: "Kenis"
@@ -27,6 +29,7 @@ export default [
         title: `Eyes can't focus`
       },
       {
+        id: 3,
         author: {
           image: healthIcon,
           username: "David"
@@ -37,6 +40,7 @@ export default [
         title: `Eyes can't focus`
       },
       {
+        id: 4,
         author: {
           image: healthIcon,
           username: "Ken"
@@ -54,6 +58,7 @@ export default [
     icon: politicsIcon,
     posts: [
       {
+        id: 5,
         author: { image: healthIcon, username: "Dan" },
         body: `My eyes are sensitive to light but they are especially sensitive at
         night even when I’m at home? It’s really hard for my eyes to focus on
@@ -61,6 +66,7 @@ export default [
         title: `Eyes can't focus`
       },
       {
+        id: 6,
         author: { image: healthIcon, username: "Mnena" },
         body: `My eyes are sensitive to light but they are especially sensitive at
         night even when I’m at home? It’s really hard for my eyes to focus on
@@ -68,6 +74,7 @@ export default [
         title: `Eyes can't focus`
       },
       {
+        id: 7,
         author: { image: healthIcon, username: "Mercy" },
         body: `My eyes are sensitive to light but they are especially sensitive at
         night even when I’m at home? It’s really hard for my eyes to focus on
@@ -75,6 +82,7 @@ export default [
         title: `Eyes can't focus`
       },
       {
+        id: 8,
         author: { image: healthIcon, username: "Nguamo" },
         body: `My eyes are sensitive to light but they are especially sensitive at
         night even when I’m at home? It’s really hard for my eyes to focus on
@@ -88,6 +96,7 @@ export default [
     icon: economyIcon,
     posts: [
       {
+        id: 9,
         author: { image: healthIcon, username: "Debby" },
         body: `My eyes are sensitive to light but they are especially sensitive at
         night even when I’m at home? It’s really hard for my eyes to focus on
@@ -95,6 +104,7 @@ export default [
         title: `Eyes can't focus`
       },
       {
+        id: 10,
         author: { image: healthIcon, username: "Alex" },
         body: `My eyes are sensitive to light but they are especially sensitive at
         night even when I’m at home? It’s really hard for my eyes to focus on
@@ -102,6 +112,7 @@ export default [
         title: `Eyes can't focus`
       },
       {
+        id: 11,
         author: { image: healthIcon, username: "Bendozy" },
         body: `My eyes are sensitive to light but they are especially sensitive at
         night even when I’m at home? It’s really hard for my eyes to focus on
@@ -109,6 +120,7 @@ export default [
         title: `Eyes can't focus`
       },
       {
+        id: 12,
         author: { image: healthIcon, username: "DaroTobi" },
         body: `My eyes are sensitive to light but they are especially sensitive at
         night even when I’m at home? It’s really hard for my eyes to focus on

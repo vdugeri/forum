@@ -1,0 +1,33 @@
+.custom-input {
+  position: relative;
+  margin-top: 1rem;
+  &__field {
+    padding: 1.3rem 2rem;
+    border: 1px solid #ccc;
+    outline: none;
+    border-radius: 2px;
+    width: 24rem;
+    color: #777;
+    font-size: 1.2rem;
+
+    &:focus ~ label {
+      position: absolute;
+      top: 10%;
+      font-size: 0.8rem;
+      font-weight: 400;
+      color: #419a1b;
+    }
+
+    &:active ~ label {
+      display: none;
+    }
+  }
+}
+
+label {
+  position: absolute;
+  top: 25%;
+  left: 5%;
+  font-size: 1.2rem;
+  color: #777;
+}

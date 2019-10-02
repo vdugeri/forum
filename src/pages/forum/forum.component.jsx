@@ -31,7 +31,7 @@ const Forum = () => (
     </div>
     <div className="forum__cta">
       <h2>Have a question of your own</h2>
-      <CustomButton primary="true">Write a post</CustomButton>
+      <CustomButton primary>Write a post</CustomButton>
     </div>
     <div className="forum__popular">
       {categories.map((category, index) => (

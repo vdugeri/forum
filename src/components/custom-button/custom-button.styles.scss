@@ -8,6 +8,11 @@
   font-weight: 600;
   cursor: pointer;
 
+  &.large {
+    width: 20rem;
+    padding: 1rem 1.8rem;
+  }
+
   &--ghost {
     outline: none;
     border: 1px solid #419a1b;
@@ -19,5 +24,9 @@
     background-color: #419a1b;
     border: none;
     color: #fff;
+
+    &:hover {
+      background-color: #123304;
+    }
   }
 }

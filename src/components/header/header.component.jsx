@@ -1,4 +1,5 @@
 import React from "react";
+import { withRouter, Link } from "react-router-dom";
 
 import logo from "../../assets/logo.png";
 
@@ -6,21 +7,27 @@ import CustomButton from "../custom-button/custom-button.component";
 
 import "./header.styles.scss";
 
-const Header = () => (
+const Header = ({ history }) => (
   <div className="header">
     <div className="header__logo">
-      <img src={logo} alt="folktales logo" />
+      <Link to="/">
+        <img src={logo} alt="folktales logo" />
+      </Link>
     </div>
     <div className="header__nav">
       <div className="header__nav--item">Community</div>
       <div className="header__nav--item">
-        <CustomButton ghost="true">Sign in</CustomButton>
+        <CustomButton onClick={() => history.push("/login")} ghost>
+          Sign in
+        </CustomButton>
       </div>
       <div className="header__nav--item">
-        <CustomButton primary="true">Create account</CustomButton>
+        <CustomButton primary onClick={() => history.push("/register")}>
+          Create account
+        </CustomButton>
       </div>
     </div>
   </div>
 );
 
-export default Header;
+export default withRouter(Header);
