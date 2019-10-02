@@ -24,10 +24,10 @@
   }
 
   &__categories {
-    display: flex;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: 1rem;
     margin-top: 4rem;
-    align-items: center;
-    flex-wrap: wrap;
     width: 100%;
   }
 

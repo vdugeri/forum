@@ -1,8 +1,19 @@
 .post-preview {
   display: flex;
   flex-direction: column;
-  width: 50%;
-  margin: 2rem 4rem 0 0;
+
+  &--author-image {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    background-color: #419a1b;
+    color: #fff;
+    margin-right: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+  }
 
   &__author {
     font-size: 1.3rem;
@@ -37,6 +48,9 @@
 
     & span {
       margin-top: 3rem;
+      color: #419a1b;
+      font-size: 0.8rem;
+      cursor: pointer;
     }
   }
   &__topic {

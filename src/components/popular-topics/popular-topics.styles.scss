@@ -3,11 +3,15 @@
   width: 100%;
   margin-top: 4rem;
   flex-direction: column;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #ccc;
 
   &__posts {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    margin-top: 2rem;
+    display: grid;
+    grid-gap: 50px;
+    grid-template-columns: auto auto;
+    margin-bottom: 2rem;
   }
 
   &__header {

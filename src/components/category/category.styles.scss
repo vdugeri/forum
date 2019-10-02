@@ -1,13 +1,11 @@
 .category {
   display: flex;
   flex-direction: column;
-  width: 12rem;
-  height: 8rem;
+  height: 10rem;
   border: 1px solid #ccc;
   border-radius: 0.8rem;
   align-items: center;
   justify-content: center;
-  margin: 0.5rem;
   cursor: pointer;
 
   &__icon {
