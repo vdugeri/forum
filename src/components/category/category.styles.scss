@@ -1,0 +1,24 @@
+.category {
+  display: flex;
+  flex-direction: column;
+  width: 12rem;
+  height: 8rem;
+  border: 1px solid #ccc;
+  border-radius: 0.8rem;
+  align-items: center;
+  justify-content: center;
+  margin: 0.5rem;
+  cursor: pointer;
+
+  &__icon {
+    padding: 1rem;
+    & img {
+      width: 2.5rem;
+      height: auto;
+    }
+  }
+
+  &__name {
+    font-size: 1.2rem;
+  }
+}

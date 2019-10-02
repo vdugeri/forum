@@ -1,0 +1,53 @@
+.post-preview {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: 2rem 4rem 0 0;
+
+  &__author {
+    font-size: 1.3rem;
+    font-weight: 400;
+    display: flex;
+    align-self: flex-start;
+  }
+
+  &__metadata {
+    display: flex;
+    margin-bottom: 1rem;
+
+    & img {
+      height: 2rem;
+      width: auto;
+      margin-right: 1rem;
+    }
+
+    &--right {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  &__date {
+    font-size: 0.8rem;
+  }
+
+  &__details {
+    display: flex;
+    flex-direction: column;
+
+    & span {
+      margin-top: 3rem;
+    }
+  }
+  &__topic {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+  }
+
+  &__summary {
+    width: 100%;
+    font-size: 0.8rem;
+    line-height: 1.4;
+  }
+}

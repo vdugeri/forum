@@ -2,6 +2,8 @@ import React from "react";
 
 import logo from "../../assets/logo.png";
 
+import CustomButton from "../custom-button/custom-button.component";
+
 import "./header.styles.scss";
 
 const Header = () => (
@@ -11,8 +13,12 @@ const Header = () => (
     </div>
     <div className="header__nav">
       <div className="header__nav--item">Community</div>
-      <div className="header__nav--item">Sign In</div>
-      <div className="header__nav--item">Create Account</div>
+      <div className="header__nav--item">
+        <CustomButton ghost="true">Sign in</CustomButton>
+      </div>
+      <div className="header__nav--item">
+        <CustomButton primary="true">Create account</CustomButton>
+      </div>
     </div>
   </div>
 );

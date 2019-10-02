@@ -1,0 +1,32 @@
+.popular-topics {
+  display: flex;
+  width: 100%;
+  margin-top: 4rem;
+  flex-direction: column;
+
+  &__posts {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 1rem;
+
+    & img {
+      height: 2rem;
+      width: auto;
+    }
+
+    & h2 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #333;
+    }
+  }
+}
