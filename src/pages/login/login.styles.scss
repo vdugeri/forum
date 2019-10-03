@@ -1,17 +1,18 @@
 .login {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 50%;
   height: 100%;
   align-items: center;
   justify-content: center;
   margin-top: 5rem;
+  margin: 5rem auto;
 
   &__button-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 27%;
+    width: 100%;
   }
 
   & h2 {

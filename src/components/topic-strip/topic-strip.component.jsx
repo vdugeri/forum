@@ -1,25 +1,21 @@
 import React from "react";
-import { withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
 import { toggleTopicsDropdown } from "../../redux/topics/topics.actions";
 
 import "./topic-strip.styles.scss";
 
-const TopicStrip = ({ topic, history, toggleTopicsDropdown }) => {
-  const goToTopic = () => {
-    toggleTopicsDropdown();
-    history.push(`/${topic.linkUrl}`);
-  };
-  return (
-    <div onClick={goToTopic} className="topic-strip">
+const TopicStrip = ({ topic, toggleTopicsDropdown }) => (
+  <div className="topic-strip">
+    <Link onClick={toggleTopicsDropdown} to={`/${topic.linkUrl}`}>
       <span className="topic-strip__name">{topic.name}</span>
       <span className="topic-strip__icon">
         <img src={topic.icon} alt={topic.name} />
       </span>
-    </div>
-  );
-};
+    </Link>
+  </div>
+);
 
 const mapDispatchToProps = dispatch => ({
   toggleTopicsDropdown: () => dispatch(toggleTopicsDropdown())
@@ -28,4 +24,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   null,
   mapDispatchToProps
-)(withRouter(TopicStrip));
+)(TopicStrip);

@@ -2,7 +2,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 4rem;
+  margin: 5rem auto;
+  width: 60%;
+
+  & form {
+    width: 100%;
+  }
 
   & h2 {
     font-size: 1.5rem;

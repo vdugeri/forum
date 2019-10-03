@@ -23,4 +23,13 @@
       width: auto;
     }
   }
+
+  & a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    color: inherit;
+  }
 }

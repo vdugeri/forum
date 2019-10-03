@@ -30,7 +30,7 @@ const Forum = () => (
       <Category categoryName="General Health" icon={healthIcon}></Category>
     </div>
     <div className="forum__cta">
-      <h2>Have a question of your own</h2>
+      <h2>Have a question of your own?</h2>
       <CustomButton primary>Write a post</CustomButton>
     </div>
     <div className="forum__popular">
