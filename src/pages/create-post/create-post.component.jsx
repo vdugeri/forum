@@ -5,6 +5,7 @@ import { createStructuredSelector } from "reselect";
 import CustomInput from "../../components/custom-input/custom-input.component";
 import CustomButton from "../../components/custom-button/custom-button.component";
 import TopicSelect from "../../components/topic-select/topic-select.component";
+import CustomCheckbox from "../../components/custom-checkbox/custom-checkbox.component";
 
 import { selectTopicList } from "../../redux/topics/topics.selectors";
 
@@ -24,8 +25,7 @@ const CreatePost = ({ topics }) => {
           <span>Add username</span>
         </div>
         <div className="create-post__author--anon">
-          <span>Post anonymously</span>
-          <input type="checkbox" />
+          <CustomCheckbox label="Post anonymously" />
         </div>
       </div>
       <div className="create-post__post">

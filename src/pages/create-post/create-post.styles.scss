@@ -44,15 +44,18 @@
       color: #419a1b;
       justify-content: space-between;
       width: 12rem;
+
+      & span {
+        margin-right: 1rem;
+      }
     }
 
     &--anon {
       border: 1px solid #ccc;
-      width: 28%;
+      width: 30%;
       display: flex;
       align-items: center;
-      justify-content: space-around;
-      height: 3rem;
+      height: 3.5rem;
     }
 
     &--image {
