@@ -1,0 +1,30 @@
+$color-black: #000;
+
+.topic-dropdown {
+  display: flex;
+  position: absolute;
+  flex-direction: column;
+  width: 22rem;
+  min-height: 20rem;
+  top: 3.8rem;
+  left: 0;
+  box-shadow: 0 0 2rem rgba($color-black, 0.14);
+  z-index: 999;
+  background-color: #fff;
+
+  & h2 {
+    margin: 2rem 0 2rem 2rem;
+  }
+
+  &__cta {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 1rem;
+    padding: 1.4rem 0;
+
+    & button {
+      width: 8rem;
+    }
+  }
+}

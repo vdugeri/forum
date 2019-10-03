@@ -3,6 +3,7 @@ import { persistReducer } from "redux-persist";
 import storage from "localforage";
 
 import userReducer from "./user/user.reducer";
+import topicsReducer from "./topics/topics.reducer";
 
 const persistConfig = {
   key: "root",
@@ -11,7 +12,8 @@ const persistConfig = {
 };
 
 const rootReducer = combineReducers({
-  user: userReducer
+  user: userReducer,
+  topics: topicsReducer
 });
 
 export default persistReducer(persistConfig, rootReducer);

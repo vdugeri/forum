@@ -7,6 +7,13 @@
   justify-content: center;
   margin-top: 5rem;
 
+  &__button-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 27%;
+  }
+
   & h2 {
     font-size: 2rem;
     font-weight: 400;

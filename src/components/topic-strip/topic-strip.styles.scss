@@ -1,0 +1,26 @@
+.topic-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+  width: 95%;
+  padding: 1rem;
+  cursor: pointer;
+
+  &:not(:last-child) {
+    border-bottom: 1px solid #ccc;
+  }
+
+  &__name {
+    margin-left: 2rem;
+  }
+
+  &__icon {
+    margin-right: 2rem;
+
+    & img {
+      height: 2rem;
+      width: auto;
+    }
+  }
+}

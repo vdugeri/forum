@@ -2,7 +2,6 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-  width: 100vw;
   height: 5rem;
   font-size: 1.2rem;
   font-weight: 400;
@@ -10,7 +9,7 @@
   &__logo {
     display: flex;
     align-items: center;
-    flex: 0 0 30%;
+    width: 30%;
     margin-left: 2rem;
     cursor: pointer;
 
@@ -23,12 +22,13 @@
   &__nav {
     display: flex;
     align-items: center;
-    justify-content: space-around;
-    width: 50%;
+    justify-content: space-between;
+    width: 30rem;
+    margin-right: 2rem;
     margin-left: auto;
+    position: relative;
     &--item {
       cursor: pointer;
-      flex: 0 0 33%;
     }
   }
 }

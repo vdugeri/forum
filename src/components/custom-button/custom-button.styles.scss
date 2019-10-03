@@ -2,7 +2,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.7rem 1.8rem;
+  width: 10rem;
+  height: 2.5rem;
+  padding: 0 1rem;
   font-size: 1rem;
   border-radius: 2rem;
   font-weight: 600;
@@ -10,7 +12,6 @@
 
   &.large {
     width: 20rem;
-    padding: 1rem 1.8rem;
   }
 
   &--ghost {

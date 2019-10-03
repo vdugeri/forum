@@ -44,11 +44,12 @@ const Login = ({ onSignInStart }) => {
         value={password}
         handleChange={handleChange}
       />
-      <Link to="/reset-password">Forgot password?</Link>
-
-      <CustomButton type="submit" primary large>
-        Sign In
-      </CustomButton>
+      <div className="login__button-container">
+        <Link to="/reset-password">Forgot password?</Link>
+        <CustomButton type="submit" primary>
+          Sign In
+        </CustomButton>
+      </div>
     </form>
   );
 };
