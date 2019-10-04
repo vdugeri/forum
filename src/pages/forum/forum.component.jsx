@@ -1,11 +1,13 @@
 import React from "react";
+import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
 
 import SearchField from "../../components/search-field/search-field.component";
-import Category from "../../components/category/category.component";
+import Topic from "../../components/topic/topic.component";
 import CustomButton from "../../components/custom-button/custom-button.component";
 import PopularTopics from "../../components/popular-topics/popular-topics.component";
 
-import healthIcon from "../../assets/icons/doctor.png";
+import { selectTopicList } from "../../redux/topics/topics.selectors";
 
 import categories from "./category.data";
 
@@ -13,7 +15,7 @@ import "./forum.styles.scss";
 
 console.log(categories);
 
-const Forum = () => (
+const Forum = ({ topics }) => (
   <div className="forum">
     <div className="forum__header">
       <div className="forum__header--tag">Community</div>
@@ -22,12 +24,9 @@ const Forum = () => (
       </div>
     </div>
     <div className="forum__categories">
-      <Category categoryName="General Health" icon={healthIcon}></Category>
-      <Category categoryName="General Health" icon={healthIcon}></Category>
-      <Category categoryName="General Health" icon={healthIcon}></Category>
-      <Category categoryName="General Health" icon={healthIcon}></Category>
-      <Category categoryName="General Health" icon={healthIcon}></Category>
-      <Category categoryName="General Health" icon={healthIcon}></Category>
+      {topics.map(topic => (
+        <Topic topic={topic} key={topic.id} />
+      ))}
     </div>
     <div className="forum__cta">
       <h2>Have a question of your own?</h2>
@@ -41,4 +40,8 @@ const Forum = () => (
   </div>
 );
 
-export default Forum;
+const mapStateToProps = createStructuredSelector({
+  topics: selectTopicList
+});
+
+export default connect(mapStateToProps)(Forum);
