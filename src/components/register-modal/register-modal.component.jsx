@@ -30,6 +30,7 @@ const RegisterModal = ({ toggleModalStatus, onSignupStart }) => {
   const handleSubmit = e => {
     e.preventDefault();
     onSignupStart(userCreds);
+    toggleModalStatus();
   };
   return (
     <div className="register-modal">
@@ -51,6 +52,7 @@ const RegisterModal = ({ toggleModalStatus, onSignupStart }) => {
               value={emailAddress}
               handleChange={handleChange}
               label="Email address"
+              required
             />
           </div>
           <div className="register-modal__form--middle-row">
@@ -60,6 +62,7 @@ const RegisterModal = ({ toggleModalStatus, onSignupStart }) => {
               name="firstName"
               handleChange={handleChange}
               label="First name"
+              required
             />
             <CustomInput
               type="text"
@@ -67,6 +70,7 @@ const RegisterModal = ({ toggleModalStatus, onSignupStart }) => {
               name="lastName"
               handleChange={handleChange}
               label="Last name"
+              required
             />
             <CustomInput
               type="text"
@@ -74,6 +78,7 @@ const RegisterModal = ({ toggleModalStatus, onSignupStart }) => {
               name="username"
               handleChange={handleChange}
               label="Username"
+              required
             />
             <CustomInput
               type="password"
@@ -81,6 +86,7 @@ const RegisterModal = ({ toggleModalStatus, onSignupStart }) => {
               name="password"
               handleChange={handleChange}
               label="Password"
+              required
             />
           </div>
 

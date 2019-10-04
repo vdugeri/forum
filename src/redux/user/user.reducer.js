@@ -18,14 +18,16 @@ const userReducer = (state = INITIAL_STATE, { type, payload }) => {
     case userActionTypes.SIGNUP_FAILURE:
       return {
         ...state,
-        error: payload
+        error: payload,
+        isLoading: false
       };
     case userActionTypes.LOGIN_SUCCESS:
     case userActionTypes.SIGNUP_SUCCESS:
       return {
         ...state,
         currentUser: payload,
-        error: null
+        error: null,
+        isLoading: false
       };
     case userActionTypes.TOGGLE_REGISTRATION_MODAL:
       return {

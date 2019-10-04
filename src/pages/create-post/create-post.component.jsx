@@ -8,19 +8,26 @@ import CustomButton from "../../components/custom-button/custom-button.component
 import TopicSelect from "../../components/topic-select/topic-select.component";
 import CustomCheckbox from "../../components/custom-checkbox/custom-checkbox.component";
 import RegisterModal from "../../components/register-modal/register-modal.component";
+import WithSpinner from "../../components/with-spinner/with-spinner.component";
 
 import { selectTopicList } from "../../redux/topics/topics.selectors";
-import { selectModalShown } from "../../redux/user/user.selectors";
+import {
+  selectModalShown,
+  selectIsLoading
+} from "../../redux/user/user.selectors";
 import { startPostCreate } from "../../redux/posts/posts.actions";
 import { toggleModalStatus } from "../../redux/user/user.actions";
 
 import "./create-post.styles.scss";
 
+const RegisterModalWithSpinner = WithSpinner(RegisterModal);
+
 const CreatePost = ({
   topics,
   onStartPostCreate,
   modalShown,
-  toggleModalStatus
+  toggleModalStatus,
+  isLoading
 }) => {
   const [postData, setPostData] = useState({
     anon: false,
@@ -46,7 +53,7 @@ const CreatePost = ({
 
   return (
     <React.Fragment>
-      {modalShown ? <RegisterModal /> : null}
+      {modalShown ? <RegisterModalWithSpinner isLoading={isLoading} /> : null}
       <form onSubmit={handleSubmit} className="create-post">
         <h2>Write a post</h2>
         <div className="create-post__author">
@@ -112,7 +119,8 @@ const CreatePost = ({
 
 const mapStatetoProps = createStructuredSelector({
   topics: selectTopicList,
-  modalShown: selectModalShown
+  modalShown: selectModalShown,
+  isLoading: selectIsLoading
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -6,3 +6,8 @@ export const selectModalShown = createSelector(
   [selectUser],
   user => user.modalShown
 );
+
+export const selectIsLoading = createSelector(
+  [selectUser],
+  user => user.isLoading
+);
