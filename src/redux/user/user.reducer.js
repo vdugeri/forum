@@ -2,7 +2,8 @@ import userActionTypes from "./user.types";
 const INITIAL_STATE = {
   currentUser: null,
   error: null,
-  isLoading: false
+  isLoading: false,
+  modalShown: false
 };
 
 const userReducer = (state = INITIAL_STATE, { type, payload }) => {
@@ -25,6 +26,11 @@ const userReducer = (state = INITIAL_STATE, { type, payload }) => {
         ...state,
         currentUser: payload,
         error: null
+      };
+    case userActionTypes.TOGGLE_REGISTRATION_MODAL:
+      return {
+        ...state,
+        modalShown: !state.modalShown
       };
     default:
       return state;

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
 import { createStructuredSelector } from "reselect";
 
 import CustomInput from "../../components/custom-input/custom-input.component";
@@ -11,19 +10,24 @@ import CustomCheckbox from "../../components/custom-checkbox/custom-checkbox.com
 import RegisterModal from "../../components/register-modal/register-modal.component";
 
 import { selectTopicList } from "../../redux/topics/topics.selectors";
+import { selectModalShown } from "../../redux/user/user.selectors";
 import { startPostCreate } from "../../redux/posts/posts.actions";
+import { toggleModalStatus } from "../../redux/user/user.actions";
 
 import "./create-post.styles.scss";
 
-const CreatePost = ({ topics, onStartPostCreate }) => {
+const CreatePost = ({
+  topics,
+  onStartPostCreate,
+  modalShown,
+  toggleModalStatus
+}) => {
   const [postData, setPostData] = useState({
     anon: false,
     title: "",
     body: "",
     topicId: ""
   });
-
-  const [modalShown, setModalShown] = useState(false);
 
   const handleChange = e => {
     const { target } = e;
@@ -36,10 +40,6 @@ const CreatePost = ({ topics, onStartPostCreate }) => {
   const handleSubmit = e => {
     e.preventDefault();
     onStartPostCreate(postData);
-  };
-
-  const toggleModal = () => {
-    setModalShown(!modalShown);
   };
 
   const { anon, title, body, topicId } = postData;
@@ -56,7 +56,7 @@ const CreatePost = ({ topics, onStartPostCreate }) => {
               {anon ? (
                 "Anonymous"
               ) : (
-                <div className="add-user" onClick={toggleModal}>
+                <div className="add-user" onClick={toggleModalStatus}>
                   Add username
                 </div>
               )}
@@ -111,11 +111,13 @@ const CreatePost = ({ topics, onStartPostCreate }) => {
 };
 
 const mapStatetoProps = createStructuredSelector({
-  topics: selectTopicList
+  topics: selectTopicList,
+  modalShown: selectModalShown
 });
 
 const mapDispatchToProps = dispatch => ({
-  onStartPostCreate: postData => dispatch(startPostCreate(postData))
+  onStartPostCreate: postData => dispatch(startPostCreate(postData)),
+  toggleModalStatus: () => dispatch(toggleModalStatus())
 });
 
 export default connect(

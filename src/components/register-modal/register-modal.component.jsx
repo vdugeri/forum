@@ -1,12 +1,17 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
 import CustomInput from "../custom-input/custom-input.component";
 import CustomButton from "../custom-button/custom-button.component";
 
+import { toggleModalStatus } from "../../redux/user/user.actions";
+
+import { userSignUpStart } from "../../redux/user/user.actions";
+
 import "./register-modal.styles.scss";
 
-const RegisterModal = () => {
+const RegisterModal = ({ toggleModalStatus, onSignupStart }) => {
   const [userCreds, setUserCreds] = useState({
     emailAddress: "",
     firstName: "",
@@ -22,11 +27,16 @@ const RegisterModal = () => {
 
   const { username, password, emailAddress, firstName, lastName } = userCreds;
 
-  const handleSubmit = e => {};
+  const handleSubmit = e => {
+    e.preventDefault();
+    onSignupStart(userCreds);
+  };
   return (
     <div className="register-modal">
       <div className="register-modal__content">
-        <div className="register-modal__close">&#10005;</div>
+        <div className="register-modal__close" onClick={toggleModalStatus}>
+          &#10005;
+        </div>
         <h2>Join the conversation</h2>
         <p>
           Ask a question and get an answer from our community and seasoned
@@ -90,4 +100,12 @@ const RegisterModal = () => {
   );
 };
 
-export default RegisterModal;
+const mapDispatchToProps = dispatch => ({
+  onSignupStart: userCreds => dispatch(userSignUpStart(userCreds)),
+  toggleModalStatus: () => dispatch(toggleModalStatus())
+});
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(RegisterModal);

@@ -29,3 +29,7 @@ export const userSignUpFailure = error => ({
   type: userActionTypes.SIGNUP_FAILURE,
   payload: error
 });
+
+export const toggleModalStatus = () => ({
+  type: userActionTypes.TOGGLE_REGISTRATION_MODAL
+});
