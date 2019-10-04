@@ -9,7 +9,7 @@ const TopicSelect = ({ topic, handleChange }) => {
     <div className="topic-select">
       <CustomRadioButton
         label={topic.name}
-        name="topic"
+        name="topicId"
         handleChange={handleChange}
         value={topic.id}
       />

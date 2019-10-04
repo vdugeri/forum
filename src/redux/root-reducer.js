@@ -4,6 +4,7 @@ import storage from "localforage";
 
 import userReducer from "./user/user.reducer";
 import topicsReducer from "./topics/topics.reducer";
+import postsReducer from "./posts/posts.reducer";
 
 const persistConfig = {
   key: "root",
@@ -13,7 +14,8 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
   user: userReducer,
-  topics: topicsReducer
+  topics: topicsReducer,
+  posts: postsReducer
 });
 
 export default persistReducer(persistConfig, rootReducer);

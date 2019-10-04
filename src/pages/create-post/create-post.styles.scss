@@ -1,7 +1,7 @@
 .create-post {
   display: flex;
   flex-direction: column;
-  width: 60%;
+  width: 50%;
   justify-content: center;
   margin: 5rem auto;
   font-size: 1rem;
@@ -47,6 +47,11 @@
 
       & span {
         margin-right: 1rem;
+        font-weight: 600;
+      }
+
+      & .add-user {
+        cursor: pointer;
       }
     }
 
@@ -67,6 +72,7 @@
       align-items: center;
       justify-content: center;
       color: #fff;
+      font-weight: 600;
     }
   }
 
