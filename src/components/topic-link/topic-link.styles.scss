@@ -1,0 +1,22 @@
+.topic-link {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem;
+  border-bottom: 1px solid #ccc;
+  font-size: 0.8rem;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+
+  &:first-child {
+    border-top: 1px solid #ccc;
+  }
+
+  &__icon {
+    color: #419a1b;
+    font-size: 2rem;
+    font-weight: 500;
+  }
+}

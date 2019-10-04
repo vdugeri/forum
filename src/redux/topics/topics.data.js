@@ -8,25 +8,25 @@ const topics = [
     id: 1,
     name: "General Health",
     icon: healthIcon,
-    linkUrl: "general-health"
+    linkUrl: "forum/general-health"
   },
   {
     id: 2,
     name: "Politics",
     icon: politicsIcon,
-    linkUrl: "politics"
+    linkUrl: "forum/politics"
   },
   {
     id: 3,
     name: "Economy",
     icon: economyIcon,
-    linkUrl: "economy"
+    linkUrl: "forum/economy"
   },
   {
     id: 4,
     name: "Sexuality",
     icon: sexualityIcon,
-    linkUrl: "sexuality"
+    linkUrl: "forum/exuality"
   }
 ];
 

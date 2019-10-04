@@ -1,60 +1,7 @@
 .forum {
   display: flex;
+  width: 50%;
   align-items: center;
-  justify-content: center;
   flex-direction: column;
-  margin: 0 auto;
-  width: 65vw;
-
-  &__header {
-    display: flex;
-    width: 100%;
-    align-items: center;
-    margin-top: 5rem;
-
-    &--tag {
-      font-size: 2rem;
-      font-weight: 600;
-      margin-right: auto;
-    }
-
-    &--search {
-      margin-right: 1.5rem;
-    }
-  }
-
-  &__categories {
-    display: grid;
-    grid-template-columns: auto auto auto;
-    grid-gap: 1rem;
-    margin-top: 4rem;
-    width: 100%;
-  }
-
-  &__cta {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    background-color: #eee;
-    height: 7rem;
-    margin-top: 2rem;
-    border-radius: 5px;
-
-    & h2 {
-      font-weight: 600;
-      font-size: 1.1rem;
-      margin-left: 2rem;
-      margin-right: auto;
-    }
-
-    & button {
-      margin-right: 2rem;
-    }
-  }
-
-  &__popular {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-  }
+  margin: 3rem auto;
 }
