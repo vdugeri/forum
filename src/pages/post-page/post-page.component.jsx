@@ -18,20 +18,23 @@ import "./post-page.styles.scss";
 
 const PostWithSpinner = WithSpinner(Post);
 
-const PostPage = ({ currentPost, isPostLoading }) => (
-  <div className="post-page">
-    <BackLink linkText="All Topics" linkUrl="/" />
-    <div className="post-page__header">
-      <h2>Join The Conversation</h2>
-      <SearchField placeholder="what are you looking for?" />
+const PostPage = ({ currentPost, isPostLoading, showReply }) => {
+  return (
+    <div className="post-page">
+      <BackLink linkText="All Topics" linkUrl="/" />
+      <div className="post-page__header">
+        <h2>Join The Conversation</h2>
+        <SearchField placeholder="what are you looking for?" />
+      </div>
+      <PostWithSpinner isLoading={isPostLoading} post={currentPost} />
+      {showReply ? <CreateReply /> : null}
+
+      {currentPost.replies.map(reply => (
+        <Reply reply={reply} key={reply.id} />
+      ))}
     </div>
-    <PostWithSpinner isLoading={isPostLoading} post={currentPost} />
-    {currentPost.replies.map(reply => (
-      <Reply reply={reply} key={reply.id} />
-    ))}
-    <CreateReply />
-  </div>
-);
+  );
+};
 const mapStateToProps = createStructuredSelector({
   currentPost: selectCurrentPost,
   isPostLoading: selectIsPostLoading

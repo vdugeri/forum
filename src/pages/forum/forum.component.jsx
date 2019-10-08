@@ -1,6 +1,5 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
 import { createStructuredSelector } from "reselect";
 
 import TopicLink from "../../components/topic-link/topic-link.component";
@@ -18,25 +17,22 @@ import {
 
 import "./forum.styles.scss";
 
-const Forum = ({ topics, match }) => {
-  console.log(match);
-  return (
-    <div className="forum">
-      <BackLink linkText="All Topics" linkUrl="/" />
-      <div className="forum__header">
-        <h2>{titleCase(removeDashes(match.params.topic))}</h2>
-        <SearchField placeholder="what are you looking for?" />
-      </div>
-      <div className="forum__links">
-        {topics.map(topic => (
-          <TopicLink topic={topic} key={topic.id} />
-        ))}
-      </div>
-      <WritePost />
-      <h2 className="forum__posts-heading">Recent Posts</h2>
+const Forum = ({ topics, match }) => (
+  <div className="forum">
+    <BackLink linkText="All Topics" linkUrl="/" />
+    <div className="forum__header">
+      <h2>{titleCase(removeDashes(match.params.topic))}</h2>
+      <SearchField placeholder="what are you looking for?" />
     </div>
-  );
-};
+    <div className="forum__links">
+      {topics.map(topic => (
+        <TopicLink topic={topic} key={topic.id} />
+      ))}
+    </div>
+    <WritePost />
+    <h2 className="forum__posts-heading">Recent Posts</h2>
+  </div>
+);
 
 const mapStateToProps = createStructuredSelector({
   topics: selectTopicList,

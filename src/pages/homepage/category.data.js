@@ -60,7 +60,7 @@ export default [
         createdAt: new Date().toLocaleDateString(),
         replies: [
           {
-            id: 1,
+            id: 3,
             author: {
               name: "Adaora Kenis",
               designation: "Optician",
@@ -87,7 +87,7 @@ export default [
         createdAt: new Date().toLocaleDateString(),
         replies: [
           {
-            id: 1,
+            id: 4,
             author: {
               name: "David Oblorn",
               designation: "Optician",
@@ -145,7 +145,7 @@ export default [
         createdAt: new Date().toLocaleDateString(),
         replies: [
           {
-            id: 5,
+            id: 6,
             author: {
               name: "Dan Hitchins",
               designation: "Optician",
@@ -169,7 +169,7 @@ export default [
         createdAt: new Date().toLocaleDateString(),
         replies: [
           {
-            id: 1,
+            id: 7,
             author: {
               name: "Mnena Merna",
               designation: "Optician",
@@ -193,7 +193,7 @@ export default [
         createdAt: new Date().toLocaleDateString(),
         replies: [
           {
-            id: 1,
+            id: 8,
             author: {
               name: "Mercy Kent",
               designation: "Optician",
@@ -216,7 +216,7 @@ export default [
         createdAt: new Date().toLocaleDateString(),
         replies: [
           {
-            id: 1,
+            id: 9,
             author: {
               name: "Nguamo Kent",
               designation: "Optician",
@@ -245,7 +245,7 @@ export default [
         createdAt: new Date().toLocaleDateString(),
         replies: [
           {
-            id: 1,
+            id: 10,
             author: {
               name: "Debby Curtis",
               designation: "Optician",
@@ -268,7 +268,7 @@ export default [
         createdAt: new Date().toLocaleDateString(),
         replies: [
           {
-            id: 1,
+            id: 11,
             author: {
               name: "Alex Borris",
               designation: "Optician",
@@ -291,7 +291,7 @@ export default [
         createdAt: new Date().toLocaleDateString(),
         replies: [
           {
-            id: 1,
+            id: 12,
             author: {
               name: "Bendozy Kerry",
               designation: "Optician",
@@ -314,7 +314,7 @@ export default [
         createdAt: new Date().toLocaleDateString(),
         replies: [
           {
-            id: 1,
+            id: 13,
             author: {
               name: "DaraTobi Gibbs",
               designation: "Optician",
