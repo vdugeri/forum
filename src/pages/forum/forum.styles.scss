@@ -4,4 +4,47 @@
   align-items: center;
   flex-direction: column;
   margin: 3rem auto;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 1rem;
+
+    & h2 {
+      display: flex;
+      font-size: 1.2rem;
+      font-weight: 600;
+      padding: 3rem 0;
+      align-self: flex-start;
+    }
+  }
+
+  &__back-link {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    align-self: flex-start;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    text-decoration: none;
+    color: #419a1b;
+    font-weight: 600;
+
+    & .icon {
+      font-size: 2rem;
+      margin-right: 0.5rem;
+      margin-top: -6px;
+    }
+  }
+
+  &__posts-heading {
+    display: flex;
+    width: 100%;
+    align-self: flex-start;
+    margin-top: 2rem;
+    font-weight: 600;
+    font-size: 1.4rem;
+  }
 }

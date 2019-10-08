@@ -18,7 +18,8 @@ $color-black: #000;
     justify-self: center;
     width: 65%;
     background-color: #fff;
-
+    position: relative;
+    animation: fadeIn 0.8s linear;
     & h2 {
       align-self: center;
       font-size: 1.4rem;
@@ -81,5 +82,20 @@ $color-black: #000;
       margin-left: 0.2rem;
       color: #419a1b;
     }
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 0.5;
+    transform: translateY(1%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

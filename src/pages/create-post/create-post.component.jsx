@@ -58,7 +58,7 @@ const CreatePost = ({
         <h2>Write a post</h2>
         <div className="create-post__author">
           <div className="create-post__author--details">
-            <div className="create-post__author--image">{anon ? "?" : `#`}</div>
+            <div className="create-post__author--image">{anon ? "?" : "#"}</div>
             <span>
               {anon ? (
                 "Anonymous"

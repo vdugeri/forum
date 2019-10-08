@@ -26,7 +26,7 @@ const topics = [
     id: 4,
     name: "Sexuality",
     icon: sexualityIcon,
-    linkUrl: "forum/exuality"
+    linkUrl: "forum/sexuality"
   }
 ];
 

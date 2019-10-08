@@ -15,7 +15,8 @@ export default [
         body: `My eyes are sensitive to light but they are especially sensitive at
         night even when I’m at home? It’s really hard for my eyes to focus on
 				anything and I don’t know why because I wear glasses. Why …`,
-        title: `Eyes can't focus`
+        title: `Eyes can't focus`,
+        createdAt: new Date().toLocaleDateString()
       },
       {
         id: 2,
@@ -26,7 +27,9 @@ export default [
         body: `My eyes are sensitive to light but they are especially sensitive at
         night even when I’m at home? It’s really hard for my eyes to focus on
 				anything and I don’t know why because I wear glasses. Why …`,
-        title: `Eyes can't focus`
+        title: `Eyes can't focus`,
+        createdAt: new Date().toLocaleDateString(),
+        replies: []
       },
       {
         id: 3,
@@ -37,7 +40,8 @@ export default [
         body: `My eyes are sensitive to light but they are especially sensitive at
         night even when I’m at home? It’s really hard for my eyes to focus on
 				anything and I don’t know why because I wear glasses. Why …`,
-        title: `Eyes can't focus`
+        title: `Eyes can't focus`,
+        createdAt: new Date().toLocaleDateString()
       },
       {
         id: 4,
@@ -48,7 +52,8 @@ export default [
         body: `My eyes are sensitive to light but they are especially sensitive at
         night even when I’m at home? It’s really hard for my eyes to focus on
 				anything and I don’t know why because I wear glasses. Why …`,
-        title: `Eyes can't focus`
+        title: `Eyes can't focus`,
+        createdAt: new Date().toLocaleDateString()
       }
     ],
     icon: healthIcon
@@ -63,7 +68,8 @@ export default [
         body: `My eyes are sensitive to light but they are especially sensitive at
         night even when I’m at home? It’s really hard for my eyes to focus on
 				anything and I don’t know why because I wear glasses. Why …`,
-        title: `Eyes can't focus`
+        title: `Eyes can't focus`,
+        createdAt: new Date().toLocaleDateString()
       },
       {
         id: 6,
@@ -71,7 +77,8 @@ export default [
         body: `My eyes are sensitive to light but they are especially sensitive at
         night even when I’m at home? It’s really hard for my eyes to focus on
 				anything and I don’t know why because I wear glasses. Why …`,
-        title: `Eyes can't focus`
+        title: `Eyes can't focus`,
+        createdAt: new Date().toLocaleDateString()
       },
       {
         id: 7,
@@ -79,7 +86,8 @@ export default [
         body: `My eyes are sensitive to light but they are especially sensitive at
         night even when I’m at home? It’s really hard for my eyes to focus on
 				anything and I don’t know why because I wear glasses. Why …`,
-        title: `Eyes can't focus`
+        title: `Eyes can't focus`,
+        createdAt: new Date().toLocaleDateString()
       },
       {
         id: 8,
@@ -87,7 +95,8 @@ export default [
         body: `My eyes are sensitive to light but they are especially sensitive at
         night even when I’m at home? It’s really hard for my eyes to focus on
 				anything and I don’t know why because I wear glasses. Why …`,
-        title: `Eyes can't focus`
+        title: `Eyes can't focus`,
+        createdAt: new Date().toLocaleDateString()
       }
     ]
   },
@@ -101,7 +110,8 @@ export default [
         body: `My eyes are sensitive to light but they are especially sensitive at
         night even when I’m at home? It’s really hard for my eyes to focus on
 				anything and I don’t know why because I wear glasses. Why …`,
-        title: `Eyes can't focus`
+        title: `Eyes can't focus`,
+        createdAt: new Date().toLocaleDateString()
       },
       {
         id: 10,
@@ -109,7 +119,8 @@ export default [
         body: `My eyes are sensitive to light but they are especially sensitive at
         night even when I’m at home? It’s really hard for my eyes to focus on
 				anything and I don’t know why because I wear glasses. Why …`,
-        title: `Eyes can't focus`
+        title: `Eyes can't focus`,
+        createdAt: new Date().toLocaleDateString()
       },
       {
         id: 11,
@@ -117,15 +128,17 @@ export default [
         body: `My eyes are sensitive to light but they are especially sensitive at
         night even when I’m at home? It’s really hard for my eyes to focus on
 				anything and I don’t know why because I wear glasses. Why …`,
-        title: `Eyes can't focus`
+        title: `Eyes can't focus`,
+        createdAt: new Date().toLocaleDateString()
       },
       {
         id: 12,
-        author: { image: healthIcon, username: "DaroTobi" },
+        author: { image: healthIcon, username: "DaraTobi" },
         body: `My eyes are sensitive to light but they are especially sensitive at
         night even when I’m at home? It’s really hard for my eyes to focus on
 				anything and I don’t know why because I wear glasses. Why …`,
-        title: `Eyes can't focus`
+        title: `Eyes can't focus`,
+        createdAt: new Date().toLocaleDateString()
       }
     ]
   }

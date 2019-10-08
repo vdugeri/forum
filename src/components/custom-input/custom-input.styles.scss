@@ -2,6 +2,7 @@
   position: relative;
   margin-top: 1rem;
   width: 100%;
+
   &__field {
     padding: 1.3rem 2rem;
     border: 1px solid #ccc;
@@ -10,6 +11,10 @@
     width: 100%;
     color: #777;
     font-size: 1.2rem;
+
+    &:focus {
+      border: 2px solid #419a1b;
+    }
 
     &:focus ~ label {
       position: absolute;

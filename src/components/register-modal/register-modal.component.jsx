@@ -95,7 +95,7 @@ const RegisterModal = ({ toggleModalStatus, onSignupStart }) => {
           </CustomButton>
           <span>
             By registering a new account I agree to the
-            <Link to="/terms-conditions">terms and conditions</Link>
+            <Link to="/terms-conditions">terms &amp; conditions</Link>
           </span>
           <span>
             Already have an account? <Link to="/login">Sign in</Link>

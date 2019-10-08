@@ -3,8 +3,8 @@
   flex-direction: column;
 
   &--author-image {
-    width: 5rem;
-    height: 5rem;
+    width: 2rem;
+    height: 2rem;
     border-radius: 50%;
     background-color: #419a1b;
     color: #fff;
@@ -12,7 +12,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2rem;
+    font-size: 1rem;
+    font-weight: 600;
   }
 
   &__author {
@@ -45,6 +46,11 @@
   &__details {
     display: flex;
     flex-direction: column;
+
+    & a {
+      color: inherit;
+      text-decoration: none;
+    }
 
     & span {
       margin-top: 3rem;

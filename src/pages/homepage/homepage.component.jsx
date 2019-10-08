@@ -1,12 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
-import { Link } from "react-router-dom";
 
 import SearchField from "../../components/search-field/search-field.component";
 import Topic from "../../components/topic/topic.component";
-import CustomButton from "../../components/custom-button/custom-button.component";
 import PopularTopics from "../../components/popular-topics/popular-topics.component";
+import WritePost from "../../components/write-post/write-post.component";
 
 import { selectTopicList } from "../../redux/topics/topics.selectors";
 
@@ -27,12 +26,7 @@ const Homepage = ({ topics }) => (
         <Topic topic={topic} key={topic.id} />
       ))}
     </div>
-    <div className="homepage__cta">
-      <h2>Have a question of your own?</h2>
-      <Link to="/posts/create">
-        <CustomButton primary>Write a post</CustomButton>
-      </Link>
-    </div>
+    <WritePost />
     <div className="homepage__popular">
       {categories.map((category, index) => (
         <PopularTopics category={category} key={index} />

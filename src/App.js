@@ -7,6 +7,7 @@ import Login from "./pages/login/login.component";
 import Register from "./pages/register/register.component";
 import CreatePost from "./pages/create-post/create-post.component";
 import Forum from "./pages/forum/forum.component";
+import PostPage from "./pages/post-page/post-page.component";
 
 import "./App.css";
 
@@ -20,6 +21,7 @@ function App() {
         <Route path="/register" component={Register} />
         <Route path="/posts/create" component={CreatePost} />
         <Route path="/forum/:topic" component={Forum} />
+        <Route path="/posts/:id" component={PostPage} />
       </Switch>
     </div>
   );

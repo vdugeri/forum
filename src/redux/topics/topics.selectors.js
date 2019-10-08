@@ -11,3 +11,8 @@ export const selectTopicList = createSelector(
   [selectTopics],
   topics => topics.topicList
 );
+
+export const selectCurrentTopic = createSelector(
+  [selectTopics],
+  topics => topics.currentTopic
+);
