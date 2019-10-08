@@ -17,7 +17,33 @@ export default [
         night even when I’m at home? It’s really hard for my eyes to focus on
 				anything and I don’t know why because I wear glasses. Why …`,
         title: `Eyes can't focus`,
-        createdAt: new Date().toLocaleDateString()
+        createdAt: new Date().toLocaleDateString(),
+        replies: [
+          {
+            id: 1,
+            author: {
+              name: "Adaora Kenis",
+              designation: "Optician",
+              image: profileImage
+            },
+            text: `Hi!
+							This could be due to infection or other causes. 
+							I would likely need more detail to advise you properly. 
+							Please feel free to schedule a virtual visit with me to discuss.`
+          },
+          {
+            id: 1,
+            author: {
+              name: "Adaora Kenis",
+              designation: "Optician",
+              image: profileImage
+            },
+            text: `Hi!
+							This could be due to infection or other causes. 
+							I would likely need more detail to advise you properly. 
+							Please feel free to schedule a virtual visit with me to discuss.`
+          }
+        ]
       },
       {
         id: 2,
@@ -55,7 +81,21 @@ export default [
         night even when I’m at home? It’s really hard for my eyes to focus on
 				anything and I don’t know why because I wear glasses. Why …`,
         title: `Eyes can't focus`,
-        createdAt: new Date().toLocaleDateString()
+        createdAt: new Date().toLocaleDateString(),
+        replies: [
+          {
+            id: 1,
+            author: {
+              name: "David Oblorn",
+              designation: "Optician",
+              image: profileImage
+            },
+            text: `Hi!
+							This could be due to infection or other causes. 
+							I would likely need more detail to advise you properly. 
+							Please feel free to schedule a virtual visit with me to discuss.`
+          }
+        ]
       },
       {
         id: 4,
@@ -67,7 +107,21 @@ export default [
         night even when I’m at home? It’s really hard for my eyes to focus on
 				anything and I don’t know why because I wear glasses. Why …`,
         title: `Eyes can't focus`,
-        createdAt: new Date().toLocaleDateString()
+        createdAt: new Date().toLocaleDateString(),
+        replies: [
+          {
+            id: 1,
+            author: {
+              name: "Ken Kon",
+              designation: "Optician",
+              image: profileImage
+            },
+            text: `Hi!
+							This could be due to infection or other causes. 
+							I would likely need more detail to advise you properly. 
+							Please feel free to schedule a virtual visit with me to discuss.`
+          }
+        ]
       }
     ],
     icon: healthIcon
@@ -83,7 +137,21 @@ export default [
         night even when I’m at home? It’s really hard for my eyes to focus on
 				anything and I don’t know why because I wear glasses. Why …`,
         title: `Eyes can't focus`,
-        createdAt: new Date().toLocaleDateString()
+        createdAt: new Date().toLocaleDateString(),
+        replies: [
+          {
+            id: 1,
+            author: {
+              name: "Dan Hitchins",
+              designation: "Optician",
+              image: profileImage
+            },
+            text: `Hi!
+							This could be due to infection or other causes. 
+							I would likely need more detail to advise you properly. 
+							Please feel free to schedule a virtual visit with me to discuss.`
+          }
+        ]
       },
       {
         id: 6,
@@ -92,7 +160,21 @@ export default [
         night even when I’m at home? It’s really hard for my eyes to focus on
 				anything and I don’t know why because I wear glasses. Why …`,
         title: `Eyes can't focus`,
-        createdAt: new Date().toLocaleDateString()
+        createdAt: new Date().toLocaleDateString(),
+        replies: [
+          {
+            id: 1,
+            author: {
+              name: "Mnena Merna",
+              designation: "Optician",
+              image: profileImage
+            },
+            text: `Hi!
+							This could be due to infection or other causes. 
+							I would likely need more detail to advise you properly. 
+							Please feel free to schedule a virtual visit with me to discuss.`
+          }
+        ]
       },
       {
         id: 7,
@@ -101,7 +183,21 @@ export default [
         night even when I’m at home? It’s really hard for my eyes to focus on
 				anything and I don’t know why because I wear glasses. Why …`,
         title: `Eyes can't focus`,
-        createdAt: new Date().toLocaleDateString()
+        createdAt: new Date().toLocaleDateString(),
+        replies: [
+          {
+            id: 1,
+            author: {
+              name: "Mercy Kent",
+              designation: "Optician",
+              image: profileImage
+            },
+            text: `Hi!
+							This could be due to infection or other causes. 
+							I would likely need more detail to advise you properly. 
+							Please feel free to schedule a virtual visit with me to discuss.`
+          }
+        ]
       },
       {
         id: 8,
@@ -110,7 +206,21 @@ export default [
         night even when I’m at home? It’s really hard for my eyes to focus on
 				anything and I don’t know why because I wear glasses. Why …`,
         title: `Eyes can't focus`,
-        createdAt: new Date().toLocaleDateString()
+        createdAt: new Date().toLocaleDateString(),
+        replies: [
+          {
+            id: 1,
+            author: {
+              name: "Nguamo Kent",
+              designation: "Optician",
+              image: profileImage
+            },
+            text: `Hi!
+							This could be due to infection or other causes. 
+							I would likely need more detail to advise you properly. 
+							Please feel free to schedule a virtual visit with me to discuss.`
+          }
+        ]
       }
     ]
   },
@@ -125,7 +235,21 @@ export default [
         night even when I’m at home? It’s really hard for my eyes to focus on
 				anything and I don’t know why because I wear glasses. Why …`,
         title: `Eyes can't focus`,
-        createdAt: new Date().toLocaleDateString()
+        createdAt: new Date().toLocaleDateString(),
+        replies: [
+          {
+            id: 1,
+            author: {
+              name: "Debby Curtis",
+              designation: "Optician",
+              image: profileImage
+            },
+            text: `Hi!
+							This could be due to infection or other causes. 
+							I would likely need more detail to advise you properly. 
+							Please feel free to schedule a virtual visit with me to discuss.`
+          }
+        ]
       },
       {
         id: 10,
@@ -134,7 +258,21 @@ export default [
         night even when I’m at home? It’s really hard for my eyes to focus on
 				anything and I don’t know why because I wear glasses. Why …`,
         title: `Eyes can't focus`,
-        createdAt: new Date().toLocaleDateString()
+        createdAt: new Date().toLocaleDateString(),
+        replies: [
+          {
+            id: 1,
+            author: {
+              name: "Alex Borris",
+              designation: "Optician",
+              image: profileImage
+            },
+            text: `Hi!
+							This could be due to infection or other causes. 
+							I would likely need more detail to advise you properly. 
+							Please feel free to schedule a virtual visit with me to discuss.`
+          }
+        ]
       },
       {
         id: 11,
@@ -143,7 +281,21 @@ export default [
         night even when I’m at home? It’s really hard for my eyes to focus on
 				anything and I don’t know why because I wear glasses. Why …`,
         title: `Eyes can't focus`,
-        createdAt: new Date().toLocaleDateString()
+        createdAt: new Date().toLocaleDateString(),
+        replies: [
+          {
+            id: 1,
+            author: {
+              name: "Bendozy Kerry",
+              designation: "Optician",
+              image: profileImage
+            },
+            text: `Hi!
+							This could be due to infection or other causes. 
+							I would likely need more detail to advise you properly. 
+							Please feel free to schedule a virtual visit with me to discuss.`
+          }
+        ]
       },
       {
         id: 12,
@@ -152,7 +304,21 @@ export default [
         night even when I’m at home? It’s really hard for my eyes to focus on
 				anything and I don’t know why because I wear glasses. Why …`,
         title: `Eyes can't focus`,
-        createdAt: new Date().toLocaleDateString()
+        createdAt: new Date().toLocaleDateString(),
+        replies: [
+          {
+            id: 1,
+            author: {
+              name: "DaraTobi Gibbs",
+              designation: "Optician",
+              image: profileImage
+            },
+            text: `Hi!
+							This could be due to infection or other causes. 
+							I would likely need more detail to advise you properly. 
+							Please feel free to schedule a virtual visit with me to discuss.`
+          }
+        ]
       }
     ]
   }

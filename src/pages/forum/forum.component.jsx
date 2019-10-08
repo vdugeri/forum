@@ -6,6 +6,7 @@ import { createStructuredSelector } from "reselect";
 import TopicLink from "../../components/topic-link/topic-link.component";
 import SearchField from "../../components/search-field/search-field.component";
 import WritePost from "../../components/write-post/write-post.component";
+import BackLink from "../../components/back-link/back-link.component";
 
 import titleCase from "../../utils/title-case";
 import removeDashes from "../../utils/remove-dashes";
@@ -21,10 +22,7 @@ const Forum = ({ topics, match }) => {
   console.log(match);
   return (
     <div className="forum">
-      <Link to="/" className="forum__back-link">
-        <span className="icon">&#8249;</span>
-        All Topics
-      </Link>
+      <BackLink linkText="All Topics" linkUrl="/" />
       <div className="forum__header">
         <h2>{titleCase(removeDashes(match.params.topic))}</h2>
         <SearchField placeholder="what are you looking for?" />

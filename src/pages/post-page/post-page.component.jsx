@@ -7,6 +7,7 @@ import WithSpinner from "../../components/with-spinner/with-spinner.component";
 import CreateReply from "../../components/create-reply/create-reply.component";
 import Reply from "../../components/reply/reply.component";
 import SearchField from "../../components/search-field/search-field.component";
+import BackLink from "../../components/back-link/back-link.component";
 
 import {
   selectCurrentPost,
@@ -19,6 +20,7 @@ const PostWithSpinner = WithSpinner(Post);
 
 const PostPage = ({ currentPost, isPostLoading }) => (
   <div className="post-page">
+    <BackLink linkText="All Topics" linkUrl="/" />
     <div className="post-page__header">
       <h2>Join The Conversation</h2>
       <SearchField placeholder="what are you looking for?" />
