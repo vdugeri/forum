@@ -3,8 +3,8 @@
   align-items: center;
   justify-content: space-between;
   margin: 0 auto;
-  width: 95%;
-  padding: 0.8rem;
+  width: 90%;
+  padding: 1.2rem 0;
   cursor: pointer;
 
   &:not(:last-child) {
@@ -12,14 +12,14 @@
   }
 
   &__name {
-    margin-left: 2rem;
+    margin-left: 0;
   }
 
   &__icon {
-    margin-right: 2rem;
+    margin-right: 0;
 
     & img {
-      height: 2rem;
+      height: 3rem;
       width: auto;
     }
   }

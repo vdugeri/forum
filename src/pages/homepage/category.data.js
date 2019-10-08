@@ -24,7 +24,8 @@ export default [
             author: {
               name: "Adaora Kenis",
               designation: "Optician",
-              image: profileImage
+              image: profileImage,
+              isPractitioner: true
             },
             text: `Hi!
 							This could be due to infection or other causes. 
@@ -32,11 +33,12 @@ export default [
 							Please feel free to schedule a virtual visit with me to discuss.`
           },
           {
-            id: 1,
+            id: 2,
             author: {
               name: "Adaora Kenis",
               designation: "Optician",
-              image: profileImage
+              image: profileImage,
+              isPractitioner: true
             },
             text: `Hi!
 							This could be due to infection or other causes. 
@@ -62,7 +64,8 @@ export default [
             author: {
               name: "Adaora Kenis",
               designation: "Optician",
-              image: profileImage
+              image: profileImage,
+              isPractitioner: true
             },
             text: `Hi!
 							This could be due to infection or other causes. 
@@ -88,7 +91,8 @@ export default [
             author: {
               name: "David Oblorn",
               designation: "Optician",
-              image: profileImage
+              image: profileImage,
+              isPractitioner: true
             },
             text: `Hi!
 							This could be due to infection or other causes. 
@@ -110,11 +114,12 @@ export default [
         createdAt: new Date().toLocaleDateString(),
         replies: [
           {
-            id: 1,
+            id: 5,
             author: {
               name: "Ken Kon",
               designation: "Optician",
-              image: profileImage
+              image: profileImage,
+              isPractitioner: true
             },
             text: `Hi!
 							This could be due to infection or other causes. 
@@ -140,11 +145,12 @@ export default [
         createdAt: new Date().toLocaleDateString(),
         replies: [
           {
-            id: 1,
+            id: 5,
             author: {
               name: "Dan Hitchins",
               designation: "Optician",
-              image: profileImage
+              image: profileImage,
+              isPractitioner: true
             },
             text: `Hi!
 							This could be due to infection or other causes. 
@@ -167,7 +173,8 @@ export default [
             author: {
               name: "Mnena Merna",
               designation: "Optician",
-              image: profileImage
+              image: profileImage,
+              isPractitioner: true
             },
             text: `Hi!
 							This could be due to infection or other causes. 
