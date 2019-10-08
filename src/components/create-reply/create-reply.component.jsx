@@ -67,6 +67,7 @@ const CreateReply = ({
           name="text"
           value={text}
           handleChange={handleChange}
+          label="Write your reply..."
         />
       </div>
       <CustomButton onClick={handleSubmit} primary>

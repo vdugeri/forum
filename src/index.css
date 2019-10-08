@@ -8,6 +8,8 @@
 
 html {
   line-height: 1.45;
+  font-size: 62.5%;
+  font-weight: 300;
 }
 
 body {
@@ -15,8 +17,6 @@ body {
   font-family: "Open Sans", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-size: 62.5%;
-  font-weight: 300;
 }
 
 code {

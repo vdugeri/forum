@@ -4,7 +4,7 @@
   width: 50%;
   justify-content: center;
   margin: 5rem auto;
-  font-size: 1rem;
+  font-size: 1.6rem;
 
   & h2 {
     margin-bottom: 2rem;
@@ -43,10 +43,11 @@
       align-items: center;
       color: #00856f;
       justify-content: space-between;
-      width: 12rem;
+      min-width: 12rem;
 
       & span {
-        margin-right: 1rem;
+        margin-right: 1.5rem;
+        margin-left: 1rem;
         font-weight: 600;
       }
 
@@ -64,8 +65,8 @@
     }
 
     &--image {
-      width: 3rem;
-      height: 3rem;
+      width: 4rem;
+      height: 4rem;
       background-color: #00856f;
       border-radius: 50%;
       display: flex;
@@ -78,5 +79,8 @@
 
   & button {
     margin-top: 2rem;
+    width: 2rem;
+    height: 4rem;
+    align-self: center;
   }
 }

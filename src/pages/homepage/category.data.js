@@ -1,6 +1,7 @@
 import healthIcon from "../../assets/icons/doctor.png";
 import politicsIcon from "../../assets/icons/candidates.png";
 import economyIcon from "../../assets/icons/euro.png";
+import profileImage from "../../assets/images/profile_image.jpg";
 
 export default [
   {
@@ -34,7 +35,8 @@ export default [
             id: 1,
             author: {
               name: "Adaora Kenis",
-              designation: "Optician"
+              designation: "Optician",
+              image: profileImage
             },
             text: `Hi!
 							This could be due to infection or other causes. 

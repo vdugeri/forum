@@ -14,10 +14,11 @@
 
     & h2 {
       display: flex;
-      font-size: 1.2rem;
+      font-size: 2rem;
       font-weight: 600;
       padding: 3rem 0;
       align-self: flex-start;
+      font-family: "Domine", serif;
     }
   }
 
@@ -27,13 +28,13 @@
     align-items: center;
     align-self: flex-start;
     margin-bottom: 1.5rem;
-    font-size: 1rem;
+    font-size: 1.6rem;
     text-decoration: none;
     color: #00856f;
     font-weight: 600;
 
     & .icon {
-      font-size: 2rem;
+      font-size: 3rem;
       margin-right: 0.5rem;
       margin-top: -6px;
     }
@@ -43,8 +44,16 @@
     display: flex;
     width: 100%;
     align-self: flex-start;
-    margin-top: 2rem;
+    margin-top: 6rem;
     font-weight: 600;
-    font-size: 1.4rem;
+    font-size: 2rem;
+    font-family: "Domine", serif;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 1rem;
+  }
+
+  &__links {
+    width: 100%;
+    margin-bottom: 3rem;
   }
 }

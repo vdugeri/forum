@@ -27,12 +27,13 @@ const Forum = ({ topics, match }) => {
       </Link>
       <div className="forum__header">
         <h2>{titleCase(removeDashes(match.params.topic))}</h2>
-        <SearchField />
+        <SearchField placeholder="what are you looking for?" />
       </div>
-      {topics.map(topic => (
-        <TopicLink topic={topic} key={topic.id} />
-      ))}
-
+      <div className="forum__links">
+        {topics.map(topic => (
+          <TopicLink topic={topic} key={topic.id} />
+        ))}
+      </div>
       <WritePost />
       <h2 className="forum__posts-heading">Recent Posts</h2>
     </div>

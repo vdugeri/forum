@@ -1,27 +1,33 @@
 .search-field {
   display: flex;
   position: relative;
+
   &__input {
     background-color: #f6f6f6;
-    padding: 1rem 2.5rem;
-    width: 22rem;
+    padding: 1.2rem 3rem;
+    width: 33rem;
     outline: none;
     border: none;
     border-radius: 5rem;
-    font-size: 0.8rem;
+    font-size: 1.4rem;
+    color: #333;
 
     &:focus {
-      transform: scale(1.01);
+      transform: scale(1.1);
+    }
+
+    &:focus ~ .search-field__icon {
+      left: 0;
     }
   }
 
   &__icon {
-    width: 0.8rem;
-    height: 0.8rem;
+    width: 1.2rem;
+    height: 1.2rem;
     position: absolute;
     top: 40%;
-    left: 5%;
+    left: 3%;
     z-index: 999;
-    fill: #777;
+    fill: #333;
   }
 }

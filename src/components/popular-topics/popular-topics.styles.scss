@@ -23,14 +23,15 @@
     padding-bottom: 1rem;
 
     & img {
-      height: 2rem;
+      height: 4rem;
       width: auto;
     }
 
     & h2 {
-      font-size: 1.3rem;
+      font-size: 2rem;
       font-weight: 600;
       color: #333;
+      font-family: "Domine", serif;
     }
   }
 }

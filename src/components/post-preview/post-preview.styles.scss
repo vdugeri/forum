@@ -3,8 +3,8 @@
   flex-direction: column;
 
   &--author-image {
-    width: 2rem;
-    height: 2rem;
+    width: 4rem;
+    height: 4rem;
     border-radius: 50%;
     background-color: #00856f;
     color: #fff;
@@ -12,13 +12,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1rem;
+    font-size: 1.6rem;
     font-weight: 600;
   }
 
   &__author {
-    font-size: 1.3rem;
-    font-weight: 400;
+    font-size: 1.6rem;
+    font-weight: 600;
     display: flex;
     align-self: flex-start;
   }
@@ -40,7 +40,7 @@
   }
 
   &__date {
-    font-size: 0.8rem;
+    font-size: 1.2rem;
   }
 
   &__details {
@@ -52,22 +52,28 @@
       text-decoration: none;
     }
 
+    & h2 {
+      font-family: "Domine", serif;
+      font-weight: 300;
+    }
+
     & span {
-      margin-top: 3rem;
+      margin-top: 4rem;
       color: #00856f;
-      font-size: 0.8rem;
+      font-size: 1.4rem;
+      font-weight: 600;
       cursor: pointer;
     }
   }
   &__topic {
-    font-size: 1.1rem;
+    font-size: 1.8rem;
     font-weight: 600;
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.6rem;
   }
 
   &__summary {
     width: 100%;
-    font-size: 0.8rem;
+    font-size: 1.5rem;
     line-height: 1.4;
   }
 }

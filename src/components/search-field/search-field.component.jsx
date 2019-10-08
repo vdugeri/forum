@@ -6,7 +6,6 @@ import "./search-field.styles.scss";
 
 const SearchField = ({ value, placeholder, handleChange }) => (
   <div className="search-field">
-    <SearchIcon className="search-field__icon" />
     <input
       type="search"
       className="search-field__input"
@@ -14,6 +13,7 @@ const SearchField = ({ value, placeholder, handleChange }) => (
       onChange={handleChange}
       value={value}
     />
+    <SearchIcon className="search-field__icon" />
   </div>
 );
 

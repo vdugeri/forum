@@ -4,6 +4,8 @@ import { connect } from "react-redux";
 
 import { openPostStart } from "../../redux/posts/posts.actions";
 
+import titleCase from "../../utils/title-case";
+
 import "./post-preview.styles.scss";
 
 const PostPreview = ({ post, onOpenPostStart }) => (
@@ -13,7 +15,9 @@ const PostPreview = ({ post, onOpenPostStart }) => (
         {post.author.username.substring(0, 1).toUpperCase()}
       </div>
       <div className="post-preview__metadata--right">
-        <div className="post-preview__author">{post.author.username}</div>
+        <div className="post-preview__author">
+          {titleCase(post.author.username)}
+        </div>
         <div className="post-preview__date">{post.createdAt}</div>
       </div>
     </div>
