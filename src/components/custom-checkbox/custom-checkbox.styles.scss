@@ -18,7 +18,7 @@
   }
 
   &:hover input ~ .checkmark {
-    background-color: #419a1b;
+    background-color: #00856f;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -27,7 +27,7 @@
   }
 
   & input:checked ~ .checkmark {
-    background-color: #419a1b;
+    background-color: #00856f;
     display: flex;
     align-items: center;
     justify-content: center;

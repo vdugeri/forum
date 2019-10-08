@@ -56,7 +56,6 @@ const CreateReply = ({
         <div className="create-reply__author--anon">
           <CustomCheckbox
             handleChange={handleChange}
-            name="anonymous"
             label="Post anonymously"
             name="anon"
           />

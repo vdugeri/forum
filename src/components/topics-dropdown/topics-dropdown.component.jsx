@@ -9,7 +9,7 @@ import CustomButton from "../custom-button/custom-button.component";
 import { selectTopicList } from "../../redux/topics/topics.selectors";
 import { toggleTopicsDropdown } from "../../redux/topics/topics.actions";
 
-import "./topic-dropdown.styles.scss";
+import "./topics-dropdown.styles.scss";
 
 const TopicsDropdown = ({ topics, history, toggleTopicsDropdown }) => {
   const goToPostPage = () => {

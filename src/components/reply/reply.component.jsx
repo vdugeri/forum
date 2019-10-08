@@ -9,15 +9,15 @@ const Reply = ({ reply }) => (
     <div className="reply__author">
       <div className="reply__author--image"></div>
       <div className="reply__author--credentials">
-        <span>{reply.author.name}</span>
-        <span>{reply.author.designation}</span>
-        <span>Book Appointment</span>
+        <span className="name">{reply.author.name}</span>
+        <span className="designation">{reply.author.designation}</span>
+        <span className="cta">Book Appointment</span>
       </div>
     </div>
     <p className="reply__text">{reply.text}</p>
     <div className="reply__cta">
       <span>Have more questions for {reply.author.name}?</span>
-      <CustomButton>Send a private message</CustomButton>
+      <CustomButton ghost>Send a private message</CustomButton>
     </div>
   </div>
 );

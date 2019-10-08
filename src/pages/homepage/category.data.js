@@ -29,7 +29,19 @@ export default [
 				anything and I don’t know why because I wear glasses. Why …`,
         title: `Eyes can't focus`,
         createdAt: new Date().toLocaleDateString(),
-        replies: []
+        replies: [
+          {
+            id: 1,
+            author: {
+              name: "Adaora Kenis",
+              designation: "Optician"
+            },
+            text: `Hi!
+							This could be due to infection or other causes. 
+							I would likely need more detail to advise you properly. 
+							Please feel free to schedule a virtual visit with me to discuss.`
+          }
+        ]
       },
       {
         id: 3,

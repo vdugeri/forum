@@ -13,7 +13,7 @@
     font-size: 1.2rem;
 
     &:focus {
-      border: 2px solid #419a1b;
+      border: 2px solid #00856f;
     }
 
     &:focus ~ label {
@@ -21,7 +21,7 @@
       top: 10%;
       font-size: 0.8rem;
       font-weight: 400;
-      color: #419a1b;
+      color: #00856f;
     }
 
     &:active ~ label {
