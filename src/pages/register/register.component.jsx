@@ -32,7 +32,7 @@ const Register = ({ onSignUpStart }) => {
   return (
     <div className="register">
       <AuthMenu />
-      <h2>Hi there! Let's get to know each other.</h2>
+      <h2>Get Started!</h2>
       <form onSubmit={handleSubmit}>
         <CustomInput
           label="First Name"
