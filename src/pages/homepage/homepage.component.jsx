@@ -6,8 +6,11 @@ import SearchField from "../../components/search-field/search-field.component";
 import Topic from "../../components/topic/topic.component";
 import PopularTopics from "../../components/popular-topics/popular-topics.component";
 import WritePost from "../../components/write-post/write-post.component";
+import ExplorePractitioners from "../../components/explore-practitioners/explore-practitioners.component";
 
 import { selectTopicList } from "../../redux/topics/topics.selectors";
+
+import users from "../../redux/user/user.data";
 
 import categories from "./category.data";
 
@@ -32,6 +35,7 @@ const Homepage = ({ topics }) => (
         <PopularTopics category={category} key={index} />
       ))}
     </div>
+    <ExplorePractitioners topExperts={users.topExperts} />
   </div>
 );
 

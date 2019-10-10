@@ -8,11 +8,15 @@ import CreateReply from "../../components/create-reply/create-reply.component";
 import Reply from "../../components/reply/reply.component";
 import SearchField from "../../components/search-field/search-field.component";
 import BackLink from "../../components/back-link/back-link.component";
+import ExplorePractitioners from "../../components/explore-practitioners/explore-practitioners.component";
+import WritePost from "../../components/write-post/write-post.component";
 
 import {
   selectCurrentPost,
   selectIsPostLoading
 } from "../../redux/posts/post.selectors";
+
+import users from "../../redux/user/user.data";
 
 import "./post-page.styles.scss";
 
@@ -32,6 +36,10 @@ const PostPage = ({ currentPost, isPostLoading, showReply }) => {
       {currentPost.replies.map(reply => (
         <Reply reply={reply} key={reply.id} />
       ))}
+      <div className="post-page__write-post">
+        <WritePost />
+      </div>
+      <ExplorePractitioners topExperts={users.topExperts} />
     </div>
   );
 };

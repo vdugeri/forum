@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 
 import CustomInput from "../../components/custom-input/custom-input.component";
 import CustomButton from "../../components/custom-button/custom-button.component";
+import AuthMenu from "../../components/auth-menu/auth-menu.component";
 
 import { userSignUpStart } from "../../redux/user/user.actions";
 
@@ -30,6 +31,7 @@ const Register = ({ onSignUpStart }) => {
 
   return (
     <div className="register">
+      <AuthMenu />
       <h2>Hi there! Let's get to know each other.</h2>
       <form onSubmit={handleSubmit}>
         <CustomInput
