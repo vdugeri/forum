@@ -1,6 +1,7 @@
 import React from "react";
 
-import PostPreview from "../post-preview/post-preview.component";
+import PostOverview from "../post-overview/post-overview.component";
+import ForwardLink from "../forward-link/forward-link.component";
 
 import "./popular-topics.styles.scss";
 
@@ -12,8 +13,14 @@ const PopularTopics = ({ category }) => (
     </div>
     <div className="popular-topics__posts">
       {category.posts.map(post => (
-        <PostPreview post={post} key={post.id} />
+        <PostOverview post={post} key={post.id} />
       ))}
+    </div>
+    <div className="popular-topics__popular-posts">
+      <ForwardLink
+        linkText="View all popular posts"
+        linkUrl={category.linkUrl}
+      />
     </div>
   </div>
 );

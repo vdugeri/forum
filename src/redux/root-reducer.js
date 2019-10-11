@@ -9,7 +9,7 @@ import postsReducer from "./posts/posts.reducer";
 const persistConfig = {
   key: "root",
   storage,
-  whitelist: ["posts"]
+  whitelist: ["posts", "topics"]
 };
 
 const rootReducer = combineReducers({

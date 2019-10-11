@@ -6,6 +6,7 @@ import profileImage from "../../assets/images/profile_image.jpg";
 export default [
   {
     name: "General Health",
+    linkUrl: "/forum/general-health",
     posts: [
       {
         id: 1,
@@ -134,6 +135,7 @@ export default [
   {
     name: "Politics",
     icon: politicsIcon,
+    linkUrl: "/forum/politics",
     posts: [
       {
         id: 5,
@@ -234,6 +236,7 @@ export default [
   {
     name: "Economy",
     icon: economyIcon,
+    linkUrl: "/forum/economy",
     posts: [
       {
         id: 9,

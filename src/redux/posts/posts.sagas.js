@@ -8,10 +8,12 @@ import {
   openPostSuccess,
   openPostFailure,
   createReplyFailure,
-  createReplySuccess
+  createReplySuccess,
+  fetchPostsFailure,
+  fetchPostsSuccess
 } from "./posts.actions";
 
-const endpoint = "/posts";
+let endpoint = "/posts";
 const repliesEndpoint = "/replies";
 
 export function* createPost({ payload }) {
@@ -40,6 +42,16 @@ export function* replyToPost({ payload }) {
   }
 }
 
+export function* fetchPosts({ payload }) {
+  try {
+    endpoint = `/topics/${payload}/posts`;
+    const { data } = yield axios.get(endpoint);
+    yield put(fetchPostsSuccess(data));
+  } catch (error) {
+    yield put(fetchPostsFailure(error));
+  }
+}
+
 export function* onCreatePostStart() {
   yield takeLatest(postsActionTypes.START_CREATE_POST, createPost);
 }
@@ -52,6 +64,15 @@ export function* onAddReply() {
   yield takeLatest(postsActionTypes.REPLY_CREATE_START, replyToPost);
 }
 
+export function* onFetchPosts() {
+  yield takeLatest(postsActionTypes.FETCH_POSTS_START, fetchPosts);
+}
+
 export function* postsSagas() {
-  yield all([call(onCreatePostStart), call(onOpenPostStart), call(onAddReply)]);
+  yield all([
+    call(onCreatePostStart),
+    call(onOpenPostStart),
+    call(onAddReply),
+    call(onFetchPosts)
+  ]);
 }

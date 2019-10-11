@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-  height: 6rem;
+  height: 8rem;
   font-size: 1.6rem;
   font-weight: 400;
   border-bottom: 1px solid #e6e6e6;
@@ -10,13 +10,24 @@
   &__logo {
     display: flex;
     align-items: center;
-    width: 30%;
+    justify-content: center;
+    width: 10%;
     margin-left: 2rem;
     cursor: pointer;
+    object-fit: contain;
+
+    & a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+    }
 
     & img {
-      width: 5rem;
-      height: auto;
+      width: auto;
+      height: 8rem;
+      margin-bottom: -2rem;
     }
   }
 

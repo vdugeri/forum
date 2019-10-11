@@ -11,3 +11,8 @@ export const selectIsPostLoading = createSelector(
   [selectPost],
   posts => posts.isPostLoading
 );
+
+export const selectPostList = createSelector(
+  [selectPost],
+  posts => posts.postList
+);

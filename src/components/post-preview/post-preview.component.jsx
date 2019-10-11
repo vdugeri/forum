@@ -1,41 +1,32 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { connect } from "react-redux";
-
-import { openPostStart } from "../../redux/posts/posts.actions";
+import moment from "moment";
 
 import titleCase from "../../utils/title-case";
 
 import "./post-preview.styles.scss";
 
-const PostPreview = ({ post, onOpenPostStart }) => (
+const PostPreview = ({ post }) => (
   <div className="post-preview">
-    <div className="post-preview__metadata">
-      <div className="post-preview--author-image">
+    <div className="post-preview__author">
+      <div className="post-preview__author--image">
         {post.author.username.substring(0, 1).toUpperCase()}
       </div>
-      <div className="post-preview__metadata--right">
-        <div className="post-preview__author">
+      <div className="post-preview__author--details">
+        <div className="post-preview__author--name">
           {titleCase(post.author.username)}
         </div>
-        <div className="post-preview__date">{post.createdAt}</div>
+        <div className="post-preview__author--date">
+          {moment(post.createdAt).format("ll")}
+        </div>
       </div>
     </div>
-    <div className="post-preview__details">
-      <Link to={`/posts/${post.id}`} onClick={() => onOpenPostStart(post.id)}>
-        <h2 className="post-preview__topic">{post.title}</h2>
-      </Link>
-      <p className="post-preview__summary">{post.body}</p>
-      <span>Be the first to reply</span>
-    </div>
+    <span className="post-preview__title">{post.title}</span>
+    <p className="post-preview__body">{post.body}</p>
+    <span>
+      <Link to={`/posts/${post.id}`}>Be the first to reply</Link>
+    </span>
   </div>
 );
 
-const mapDispatchToProps = dispatch => ({
-  onOpenPostStart: postId => dispatch(openPostStart(postId))
-});
-
-export default connect(
-  null,
-  mapDispatchToProps
-)(PostPreview);
+export default PostPreview;

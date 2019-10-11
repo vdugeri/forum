@@ -20,7 +20,7 @@ function App() {
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />
         <Route path="/posts/create" component={CreatePost} />
-        <Route path="/forum/:topic" component={Forum} />
+        <Route exact path="/forum/:topic" component={Forum} />
         <Route path="/posts/:id" component={PostPage} />
       </Switch>
     </div>

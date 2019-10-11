@@ -35,6 +35,7 @@ const Homepage = ({ topics }) => (
         <PopularTopics category={category} key={index} />
       ))}
     </div>
+
     <ExplorePractitioners topExperts={users.topExperts} />
   </div>
 );
