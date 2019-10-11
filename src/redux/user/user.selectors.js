@@ -11,3 +11,13 @@ export const selectIsLoading = createSelector(
   [selectUser],
   user => user.isLoading
 );
+
+export const selectCurrentUser = createSelector(
+  [selectUser],
+  user => user.currentUser
+);
+
+export const selectIsAccountOpen = createSelector(
+  [selectUser],
+  user => user.isAccountOpen
+);

@@ -1,9 +1,12 @@
 import userActionTypes from "./user.types";
+import userData from "./user.data";
+
 const INITIAL_STATE = {
-  currentUser: null,
+  currentUser: userData.currentUser,
   error: null,
   isLoading: false,
-  modalShown: false
+  modalShown: false,
+  isAccountOpen: false
 };
 
 const userReducer = (state = INITIAL_STATE, { type, payload }) => {
@@ -33,6 +36,11 @@ const userReducer = (state = INITIAL_STATE, { type, payload }) => {
       return {
         ...state,
         modalShown: !state.modalShown
+      };
+    case userActionTypes.TOGGLE_ACCOUNT_DROPDOWN:
+      return {
+        ...state,
+        isAccountOpen: !state.isAccountOpen
       };
     default:
       return state;

@@ -1,0 +1,74 @@
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+
+  &__waving-hand {
+    width: 5rem;
+    height: 5rem;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    margin-left: -3rem;
+  }
+
+  &__salutation {
+    color: #263633;
+    font-size: 2.5rem;
+    font-family: "Domine", serif;
+    font-weight: 600;
+    margin-top: 2rem;
+  }
+
+  &__welcome-text {
+    font-size: 1.4rem;
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 300;
+    margin-top: 0.5rem;
+    border-bottom: 1px solid #e7e7e7;
+    padding-bottom: 3rem;
+  }
+
+  &__intro {
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+    font-family: "Domine", serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+  }
+
+  &__topics {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 10px;
+    width: 60%;
+    border-bottom: 1px solid #e7e7e7;
+    padding-bottom: 6rem;
+  }
+
+  &__info-header {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 2rem;
+  }
+
+  &__info {
+    display: flex;
+    margin-top: 3rem;
+    font-size: 1.4rem;
+    font-weight: 400;
+  }
+
+  & a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  & button {
+    margin-top: 2rem;
+  }
+}

@@ -8,6 +8,7 @@ import Register from "./pages/register/register.component";
 import CreatePost from "./pages/create-post/create-post.component";
 import Forum from "./pages/forum/forum.component";
 import PostPage from "./pages/post-page/post-page.component";
+import Dashboard from "./pages/dashboard/dashboard.component";
 
 import "./App.css";
 
@@ -20,8 +21,9 @@ function App() {
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />
         <Route path="/posts/create" component={CreatePost} />
-        <Route exact path="/forum/:topic" component={Forum} />
+        <Route path="/forum/:topic" component={Forum} />
         <Route path="/posts/:id" component={PostPage} />
+        <Route path="/dashboard" component={Dashboard} />
       </Switch>
     </div>
   );

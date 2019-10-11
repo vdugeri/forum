@@ -1,0 +1,82 @@
+.welcome-modal {
+  &__overlay {
+    position: fixed;
+    background: rgba(0, 0, 0, 0.4);
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+  }
+
+  &__content {
+    width: 50%;
+    min-height: 50%;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+
+    &--close {
+      align-self: flex-end;
+      margin-right: 2rem;
+      margin-top: 1rem;
+      font-size: 2rem;
+      cursor: pointer;
+    }
+
+    & button {
+      width: 2rem;
+      margin-left: 4rem;
+    }
+  }
+
+  &__profile-image {
+    width: 7rem;
+    height: 7rem;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    margin-left: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & img {
+      width: 7rem;
+      height: 7rem;
+      border-radius: 50%;
+    }
+  }
+
+  &__salutation {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin: 2rem 0 2rem 4rem;
+  }
+
+  &__message {
+    font-size: 1.4rem;
+    margin-left: 4rem;
+    margin-bottom: 1.5rem;
+  }
+
+  &__action {
+    font-size: 1.4rem;
+    margin-left: 4rem;
+    margin-bottom: 1.5rem;
+  }
+
+  &__closing-salutation {
+    font-size: 1.4rem;
+    margin-left: 4rem;
+  }
+
+  &__signature {
+    display: block;
+    margin-left: 4rem;
+    font-size: 1.4rem;
+    margin-bottom: 2rem;
+  }
+}

@@ -33,3 +33,7 @@ export const userSignUpFailure = error => ({
 export const toggleModalStatus = () => ({
   type: userActionTypes.TOGGLE_REGISTRATION_MODAL
 });
+
+export const toggleAccountDropdown = () => ({
+  type: userActionTypes.TOGGLE_ACCOUNT_DROPDOWN
+});

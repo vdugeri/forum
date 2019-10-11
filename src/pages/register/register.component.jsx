@@ -40,6 +40,7 @@ const Register = ({ onSignUpStart }) => {
           name="firstName"
           value={firstName}
           handleChange={handleChange}
+          autoFocus
         />
         <CustomInput
           label="Last Name"

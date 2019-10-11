@@ -38,6 +38,7 @@ const Login = ({ onSignInStart }) => {
         name="emailAddress"
         value={emailAddress}
         handleChange={handleChange}
+        autoFocus
       />
       <CustomInput
         label="Password"
