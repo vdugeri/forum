@@ -19,7 +19,7 @@ const AccountDropdown = ({ user, toggleDropdown }) => (
     </div>
     <div className="account-dropdown__links">
       <ForwardLink linkText="My Posts" linkUrl={`/users/${user.id}/posts`} />
-      <ForwardLink linkText="Messages" linkUrl={`/users/${user.id}/messages`} />
+      <ForwardLink linkText="Messages" linkUrl="/dashboard/messages" />
       <ForwardLink linkText="Help & contects" linkUrl="/help-contact" />
     </div>
 

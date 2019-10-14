@@ -21,7 +21,10 @@ const PostPreview = ({ post }) => (
         </div>
       </div>
     </div>
-    <span className="post-preview__title">{post.title}</span>
+
+    <span className="post-preview__title">
+      <Link to={`/posts/${post.id}`}>{post.title}</Link>
+    </span>
     <p className="post-preview__body">{post.body}</p>
     <span>
       <Link to={`/posts/${post.id}`}>Be the first to reply</Link>

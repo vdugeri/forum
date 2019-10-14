@@ -1,0 +1,15 @@
+.messages {
+  display: flex;
+  min-height: 100vh;
+
+  &__preview-area {
+    border-right: 1px solid #e7e7e7;
+    width: 50%;
+    background-color: #fff;
+  }
+
+  &__message-area {
+    background-color: #f8f8f8;
+    width: 50%;
+  }
+}

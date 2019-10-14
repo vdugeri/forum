@@ -9,6 +9,7 @@ import CreatePost from "./pages/create-post/create-post.component";
 import Forum from "./pages/forum/forum.component";
 import PostPage from "./pages/post-page/post-page.component";
 import Dashboard from "./pages/dashboard/dashboard.component";
+import Messages from "./pages/messages/messages.component";
 
 import "./App.css";
 
@@ -23,7 +24,8 @@ function App() {
         <Route path="/posts/create" component={CreatePost} />
         <Route path="/forum/:topic" component={Forum} />
         <Route path="/posts/:id" component={PostPage} />
-        <Route path="/dashboard" component={Dashboard} />
+        <Route exact path="/dashboard" component={Dashboard} />
+        <Route path="/dashboard/messages" component={Messages} />
       </Switch>
     </div>
   );
