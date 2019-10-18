@@ -30,6 +30,19 @@ export const userSignUpFailure = error => ({
   payload: error
 });
 
+export const userSignoutStart = () => ({
+  type: userActionTypes.SIGN_OUT_START
+});
+
+export const userSignoutSuccess = () => ({
+  type: userActionTypes.SIGN_OUT_SUCCESS
+});
+
+export const userSignoutFailure = error => ({
+  type: userActionTypes.SIGN_OUT_FAILURE,
+  payload: error
+});
+
 export const toggleModalStatus = () => ({
   type: userActionTypes.TOGGLE_REGISTRATION_MODAL
 });

@@ -37,7 +37,7 @@ const Header = ({
         Community
       </div>
       {isDropdownOpen ? <TopicsDropdown /> : null}
-      {isAccountOpen ? <AccountDropdown user={currentUser} /> : null}
+      {isAccountOpen ? <AccountDropdown user={currentUser.user} /> : null}
 
       {!currentUser ? (
         <React.Fragment>
@@ -53,7 +53,7 @@ const Header = ({
           </div>
         </React.Fragment>
       ) : (
-        <UserAvatar user={currentUser} />
+        <UserAvatar user={currentUser.user} />
       )}
     </div>
   </div>

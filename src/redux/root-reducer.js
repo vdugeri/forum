@@ -10,7 +10,7 @@ import messagesReducer from "./messages/messages.reducer";
 const persistConfig = {
   key: "root",
   storage,
-  whitelist: ["posts", "topics"]
+  whitelist: ["user"]
 };
 
 const rootReducer = combineReducers({

@@ -4,7 +4,8 @@ export const addPostToList = (state, post) => {
 };
 
 export const selectPost = (postList, id) => {
-  return postList.find(post => post.id === id);
+  console.log({ postList, id });
+  return postList.find(post => post._id === id);
 };
 
 export const getPostList = () => {

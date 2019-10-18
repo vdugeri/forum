@@ -1,8 +1,7 @@
 import userActionTypes from "./user.types";
-import userData from "./user.data";
 
 const INITIAL_STATE = {
-  currentUser: userData.currentUser,
+  currentUser: null,
   error: null,
   isLoading: false,
   modalShown: false,
@@ -13,12 +12,14 @@ const userReducer = (state = INITIAL_STATE, { type, payload }) => {
   switch (type) {
     case userActionTypes.LOGIN_START:
     case userActionTypes.SIGNUP_START:
+    case userActionTypes.SIGN_OUT_START:
       return {
         ...state,
         isLoading: true
       };
     case userActionTypes.LOGIN_FAILURE:
     case userActionTypes.SIGNUP_FAILURE:
+    case userActionTypes.SIGN_OUT_FAILURE:
       return {
         ...state,
         error: payload,
@@ -41,6 +42,12 @@ const userReducer = (state = INITIAL_STATE, { type, payload }) => {
       return {
         ...state,
         isAccountOpen: !state.isAccountOpen
+      };
+    case userActionTypes.SIGN_OUT_SUCCESS:
+      return {
+        ...state,
+        currentUser: null,
+        isLoading: false
       };
     default:
       return state;

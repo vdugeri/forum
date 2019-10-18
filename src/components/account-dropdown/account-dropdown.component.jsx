@@ -3,11 +3,14 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
 import ForwardLink from "../forward-link/forward-link.component";
-import { toggleAccountDropdown } from "../../redux/user/user.actions";
+import {
+  toggleAccountDropdown,
+  userSignoutStart
+} from "../../redux/user/user.actions";
 
 import "./account-dropdown.styles.scss";
 
-const AccountDropdown = ({ user, toggleDropdown }) => (
+const AccountDropdown = ({ user, toggleDropdown, onSignoutStart }) => (
   <div
     className="account-dropdown"
     onMouseLeave={toggleDropdown}
@@ -23,12 +26,15 @@ const AccountDropdown = ({ user, toggleDropdown }) => (
       <ForwardLink linkText="Help & contects" linkUrl="/help-contact" />
     </div>
 
-    <div className="account-dropdown__logout">Log out</div>
+    <div className="account-dropdown__logout" onClick={onSignoutStart}>
+      Log out
+    </div>
   </div>
 );
 
 const mapDispatchToProps = dispatch => ({
-  toggleDropdown: () => dispatch(toggleAccountDropdown())
+  toggleDropdown: () => dispatch(toggleAccountDropdown()),
+  onSignoutStart: () => dispatch(userSignoutStart())
 });
 
 export default connect(

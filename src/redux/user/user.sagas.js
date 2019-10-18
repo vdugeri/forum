@@ -1,20 +1,23 @@
 import { all, call, put, takeLatest } from "redux-saga/effects";
-import axios from "axios";
+import axios from "../../utils/http-client";
 
 import userActionTypes from "./user.types";
 import {
   userSignInFailure,
   userSignInSuccess,
   userSignUpFailure,
-  userSignUpSuccess
+  userSignUpSuccess,
+  userSignoutFailure,
+  userSignoutSuccess
 } from "./user.actions";
-
-const endpoint = "/auth/login";
 
 export function* userSignIn({ payload }) {
   try {
-    const res = yield axios.post(endpoint, payload);
-    yield put(userSignInSuccess(res.data));
+    const endpoint = "/auth/login";
+    const {
+      data: { user }
+    } = yield axios.post(endpoint, payload);
+    yield put(userSignInSuccess(user));
   } catch (error) {
     yield put(userSignInFailure(error));
   }
@@ -22,10 +25,21 @@ export function* userSignIn({ payload }) {
 
 export function* userSignUp({ payload }) {
   try {
-    const res = yield axios.post(endpoint, payload);
-    yield put(userSignUpSuccess(res.data));
+    const endpoint = "/auth/signup";
+    const {
+      data: { user }
+    } = yield axios.post(endpoint, payload);
+    yield put(userSignUpSuccess(user));
   } catch (error) {
     yield put(userSignUpFailure(error));
+  }
+}
+
+export function* userSignout() {
+  try {
+    yield put(userSignoutSuccess());
+  } catch (error) {
+    yield put(userSignoutFailure(error));
   }
 }
 
@@ -37,6 +51,10 @@ export function* onSignUpStart() {
   yield takeLatest(userActionTypes.SIGNUP_START, userSignUp);
 }
 
+export function* onSignoutStart() {
+  yield takeLatest(userActionTypes.SIGN_OUT_START, userSignout);
+}
+
 export function* userSagas() {
-  yield all([call(onSignInStart), call(onSignUpStart)]);
+  yield all([call(onSignInStart), call(onSignUpStart), call(onSignoutStart)]);
 }

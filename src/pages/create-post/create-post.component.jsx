@@ -13,7 +13,8 @@ import WithSpinner from "../../components/with-spinner/with-spinner.component";
 import { selectTopicList } from "../../redux/topics/topics.selectors";
 import {
   selectModalShown,
-  selectIsLoading
+  selectIsLoading,
+  selectCurrentUser
 } from "../../redux/user/user.selectors";
 import { startPostCreate } from "../../redux/posts/posts.actions";
 import { toggleModalStatus } from "../../redux/user/user.actions";
@@ -24,13 +25,14 @@ const RegisterModalWithSpinner = WithSpinner(RegisterModal);
 
 const CreatePost = ({
   topics,
+  currentUser,
   onStartPostCreate,
   modalShown,
   toggleModalStatus,
   isLoading
 }) => {
   const [postData, setPostData] = useState({
-    anon: false,
+    author: currentUser,
     title: "",
     body: "",
     topicId: ""
@@ -46,11 +48,14 @@ const CreatePost = ({
 
   const handleSubmit = e => {
     e.preventDefault();
+    if (!currentUser) {
+      toggleModalStatus();
+      return;
+    }
     onStartPostCreate(postData);
   };
 
-  const { anon, title, body, topicId } = postData;
-
+  const { anon, title, body, topicId, author } = postData;
   return (
     <React.Fragment>
       {modalShown ? <RegisterModalWithSpinner isLoading={isLoading} /> : null}
@@ -58,24 +63,24 @@ const CreatePost = ({
         <h2>Write a post</h2>
         <div className="create-post__author">
           <div className="create-post__author--details">
-            <div className="create-post__author--image">{anon ? "?" : "#"}</div>
+            <div className="create-post__author--image">
+              {anon
+                ? "?"
+                : author
+                ? author.user.firstName.substring(0, 1)
+                : "#"}
+            </div>
             <span>
               {anon ? (
                 "Anonymous"
+              ) : author ? (
+                <span>{author.user.firstName}</span>
               ) : (
                 <div className="add-user" onClick={toggleModalStatus}>
                   Add username
                 </div>
               )}
             </span>
-          </div>
-          <div className="create-post__author--anon">
-            <CustomCheckbox
-              label="Post anonymously"
-              handleChange={handleChange}
-              name="anon"
-              value={anon}
-            />
           </div>
         </div>
         <div className="create-post__post">
@@ -87,6 +92,7 @@ const CreatePost = ({
             name="title"
             value={title}
             required
+            autoFocus
           />
 
           <span>What's going on?*</span>
@@ -105,7 +111,7 @@ const CreatePost = ({
               <TopicSelect
                 topic={topic}
                 handleChange={handleChange}
-                key={topic.id}
+                key={topic._id}
                 value={topicId}
               />
             ))}
@@ -119,6 +125,7 @@ const CreatePost = ({
 
 const mapStatetoProps = createStructuredSelector({
   topics: selectTopicList,
+  currentUser: selectCurrentUser,
   modalShown: selectModalShown,
   isLoading: selectIsLoading
 });

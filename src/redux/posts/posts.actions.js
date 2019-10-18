@@ -15,9 +15,9 @@ export const postCreateFailure = error => ({
   payload: error
 });
 
-export const openPostStart = id => ({
+export const openPostStart = post => ({
   type: postsActionTypes.OPEN_POST_START,
-  payload: id
+  payload: post
 });
 
 export const openPostSuccess = post => ({

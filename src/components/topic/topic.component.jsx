@@ -9,7 +9,7 @@ import "./topic.styles.scss";
 const Topic = ({ topic, setCurrentTopic }) => (
   <Link
     className="category"
-    to={`/${topic.linkUrl}`}
+    to={`${topic.linkUrl}`}
     onClick={() => setCurrentTopic(topic)}
   >
     <div className="category__icon">

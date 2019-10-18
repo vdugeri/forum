@@ -1,5 +1,5 @@
 import { all, call, put, takeLatest } from "redux-saga/effects";
-import axios from "axios";
+import axios from "../../utils/http-client";
 
 import postsActionTypes from "./posts.types";
 import {

@@ -7,7 +7,6 @@ import logo from "../../assets/logo.png";
 import "./auth-menu.styles.scss";
 
 const AuthMenu = ({ match }) => {
-  console.log(match);
   return (
     <div className="auth-menu">
       <div className="auth-menu__logo">

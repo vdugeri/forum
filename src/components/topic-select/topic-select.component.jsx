@@ -11,7 +11,7 @@ const TopicSelect = ({ topic, handleChange }) => {
         label={topic.name}
         name="topicId"
         handleChange={handleChange}
-        value={topic.id}
+        value={topic._id}
       />
     </div>
   );

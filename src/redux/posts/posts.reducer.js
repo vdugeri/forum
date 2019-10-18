@@ -1,13 +1,8 @@
 import postsActionTypes from "./posts.types";
-import {
-  addPostToList,
-  selectPost,
-  getPostList,
-  addReplyToPost
-} from "./posts.utils";
+import { addPostToList, selectPost, addReplyToPost } from "./posts.utils";
 
 const INITIAL_STATE = {
-  postList: getPostList(),
+  postList: [],
   isPostLoading: false,
   currentPost: null,
   error: null
@@ -42,7 +37,7 @@ const postsReducer = (state = INITIAL_STATE, { type, payload }) => {
     case postsActionTypes.OPEN_POST_SUCCESS:
       return {
         ...state,
-        currentPost: selectPost(state.postList, payload),
+        currentPost: payload,
         isPostLoading: false
       };
     case postsActionTypes.REPLY_CREATE_SUCCESS:

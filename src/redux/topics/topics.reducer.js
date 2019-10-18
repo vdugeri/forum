@@ -1,10 +1,11 @@
 import topicActionTypes from "./topics.types";
-import topicsData from "./topics.data";
 
 const INITIAL_STATE = {
-  topicList: topicsData,
+  topicList: [],
   currentTopic: null,
-  isOpen: false
+  isOpen: false,
+  isFetchingTopics: false,
+  error: null
 };
 
 const topicsReducer = (state = INITIAL_STATE, { type, payload }) => {
@@ -18,6 +19,23 @@ const topicsReducer = (state = INITIAL_STATE, { type, payload }) => {
       return {
         ...state,
         currentTopic: payload
+      };
+    case topicActionTypes.START_FETCH_TOPICS:
+      return {
+        ...state,
+        isFetchingTopics: true
+      };
+    case topicActionTypes.FETCH_TOPICS_SUCCESS:
+      return {
+        ...state,
+        topicList: payload,
+        isFetchingTopics: false
+      };
+    case topicActionTypes.FETCH_TOPICS_FAILURE:
+      return {
+        ...state,
+        error: payload,
+        isFetchingTopics: false
       };
     default:
       return state;

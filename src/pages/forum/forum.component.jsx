@@ -22,7 +22,7 @@ import "./forum.styles.scss";
 
 const Forum = ({ topics, currentTopic, onFetchPostsStart, posts }) => {
   useEffect(() => {
-    onFetchPostsStart(currentTopic.id);
+    onFetchPostsStart(currentTopic._id);
   });
   return (
     <div className="forum">
@@ -33,7 +33,7 @@ const Forum = ({ topics, currentTopic, onFetchPostsStart, posts }) => {
       </div>
       <div className="forum__links">
         {topics.map(topic => (
-          <TopicLink topic={topic} key={topic.id} />
+          <TopicLink topic={topic} key={topic._id} />
         ))}
       </div>
       <WritePost />

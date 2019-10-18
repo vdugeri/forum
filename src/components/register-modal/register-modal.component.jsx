@@ -11,7 +11,7 @@ import { userSignUpStart } from "../../redux/user/user.actions";
 
 import "./register-modal.styles.scss";
 
-const RegisterModal = ({ toggleModalStatus, onSignupStart }) => {
+const RegisterModal = ({ toggleModalStatus, onSignupStart, match }) => {
   const [userCreds, setUserCreds] = useState({
     emailAddress: "",
     firstName: "",
@@ -95,7 +95,7 @@ const RegisterModal = ({ toggleModalStatus, onSignupStart }) => {
           </CustomButton>
           <span>
             By registering a new account I agree to the
-            <Link to="/terms-conditions">terms &amp; conditions</Link>
+            <Link to="/terms-conditions">Terms &amp; Conditions</Link>
           </span>
           <span>
             Already have an account? <Link to="/login">Sign in</Link>

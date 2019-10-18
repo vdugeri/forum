@@ -10,7 +10,7 @@ import "./user-avatar.styles.scss";
 const UserAvatar = ({ user, toggleDropdown }) => (
   <div className="user-avatar" onClick={toggleDropdown}>
     {user.image ? (
-      <img src={user.image} alt={user.username} />
+      <img src={user.image} alt={user.firstName} />
     ) : (
       <div className="user-avatar__initial">
         {titleCase(user.firstName.substring(0, 1))}

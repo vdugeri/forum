@@ -16,3 +16,8 @@ export const selectCurrentTopic = createSelector(
   [selectTopics],
   topics => topics.currentTopic
 );
+
+export const selectIsFetchingTopics = createSelector(
+  [selectTopics],
+  topics => topics.isFetchingTopics
+);
