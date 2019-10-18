@@ -6,7 +6,6 @@ import CustomInput from "../../components/custom-input/custom-input.component";
 import CustomTextarea from "../../components/custom-textarea/custom-textarea.component";
 import CustomButton from "../../components/custom-button/custom-button.component";
 import TopicSelect from "../../components/topic-select/topic-select.component";
-import CustomCheckbox from "../../components/custom-checkbox/custom-checkbox.component";
 import RegisterModal from "../../components/register-modal/register-modal.component";
 import WithSpinner from "../../components/with-spinner/with-spinner.component";
 

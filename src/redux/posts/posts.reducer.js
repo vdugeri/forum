@@ -1,5 +1,5 @@
 import postsActionTypes from "./posts.types";
-import { addPostToList, selectPost, addReplyToPost } from "./posts.utils";
+import { addPostToList, addReplyToPost } from "./posts.utils";
 
 const INITIAL_STATE = {
   postList: [],
