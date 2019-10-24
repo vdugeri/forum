@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@tinymce/tinymce-react": "^3.3.2",
     "axios": "^0.19.0",
     "localforage": "^1.7.3",
     "moment": "^2.24.0",
@@ -16,7 +17,8 @@
     "redux-logger": "^3.0.6",
     "redux-persist": "^6.0.0",
     "redux-saga": "^1.1.1",
-    "reselect": "^4.0.0"
+    "reselect": "^4.0.0",
+    "tinymce": "^5.1.0"
   },
   "scripts": {
     "start": "react-scripts start",

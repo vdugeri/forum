@@ -10,6 +10,15 @@
     margin-bottom: 2rem;
   }
 
+  &__button {
+    & button {
+      margin-top: 2rem;
+      width: 2rem;
+      height: 4rem;
+      align-self: center;
+    }
+  }
+
   &__topics {
     display: grid;
     grid-template-columns: auto auto;
@@ -75,12 +84,5 @@
       color: #fff;
       font-weight: 600;
     }
-  }
-
-  & button {
-    margin-top: 2rem;
-    width: 2rem;
-    height: 4rem;
-    align-self: center;
   }
 }

@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
+import { Editor } from "@tinymce/tinymce-react";
 
 import CustomInput from "../../components/custom-input/custom-input.component";
-import CustomTextarea from "../../components/custom-textarea/custom-textarea.component";
 import CustomButton from "../../components/custom-button/custom-button.component";
 import TopicSelect from "../../components/topic-select/topic-select.component";
 import RegisterModal from "../../components/register-modal/register-modal.component";
@@ -21,6 +21,7 @@ import { toggleModalStatus } from "../../redux/user/user.actions";
 import "./create-post.styles.scss";
 
 const RegisterModalWithSpinner = WithSpinner(RegisterModal);
+const apiKey = "3cq7hq90hsskgf80ga6yd94dnrod09v4xq4z2f4ir2em6wb0";
 
 const CreatePost = ({
   topics,
@@ -44,7 +45,9 @@ const CreatePost = ({
 
     setPostData({ ...postData, [name]: value });
   };
-
+  const handleEditorChange = e => {
+    setPostData({ ...postData, body: e.target.getContent() });
+  };
   const handleSubmit = e => {
     e.preventDefault();
     if (!currentUser) {
@@ -95,14 +98,34 @@ const CreatePost = ({
           />
 
           <span>What's going on?*</span>
-          <CustomTextarea
-            label="Add details here"
-            handleChange={handleChange}
-            type="text"
-            name="body"
-            value={body}
-            rows="5"
-            required
+          <Editor
+            apiKey={apiKey}
+            initialValue={body}
+            init={{
+              height: 500,
+              menubar: false,
+              plugins: [
+                "advlist autolink lists link image charmap print preview anchor",
+                "searchreplace visualblocks fullscreen codesample",
+                "insertdatetime media table paste help wordcount"
+              ],
+              codesample_languages: [
+                { text: "HTML/XML", value: "markup" },
+                { text: "JavaScript", value: "javascript" },
+                { text: "CSS", value: "css" },
+                { text: "PHP", value: "php" },
+                { text: "Ruby", value: "ruby" },
+                { text: "Python", value: "python" },
+                { text: "Java", value: "java" },
+                { text: "C", value: "c" },
+                { text: "C#", value: "csharp" },
+                { text: "C++", value: "cpp" }
+              ],
+              toolbar: `undo redo | formatselect | bold italic backcolor | 
+             alignleft aligncenter alignright alignjustify | 
+             bullist numlist outdent indent | removeformat | help | codesample`
+            }}
+            onChange={handleEditorChange}
           />
           <span className="create-post__topics--heading">Add my post to*</span>
           <div className="create-post__topics">
@@ -116,7 +139,9 @@ const CreatePost = ({
             ))}
           </div>
         </div>
-        <CustomButton primary>Post</CustomButton>
+        <div className="create-post__button">
+          <CustomButton primary>Post</CustomButton>
+        </div>
       </form>
     </React.Fragment>
   );
