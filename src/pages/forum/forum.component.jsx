@@ -36,7 +36,6 @@ const Forum = ({
   useEffect(() => {
     onFetchPostsStart(currentTopic._id);
   }, [currentTopic, onFetchPostsStart]);
-  console.log(isLoading);
   return (
     <div className="forum">
       <BackLink linkText="All Topics" linkUrl="/" />
