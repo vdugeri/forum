@@ -25,7 +25,9 @@ const PostOverview = ({ post, onOpenPostStart }) => (
       <Link to={`/posts/${post._id}`} onClick={() => onOpenPostStart(post)}>
         <h2 className="post-overview__topic">{post.title}</h2>
       </Link>
-      <p className="post-overview__summary">{post.body.substring(0, 200)}...</p>
+      <div className="post-overview__summary">
+        <p dangerouslySetInnerHTML={{ __html: post.body.substring(0, 200) }} />
+      </div>
       <span>Be the first to reply</span>
     </div>
   </div>

@@ -8,7 +8,7 @@ import "./topic-link.styles.scss";
 
 const TopicLink = ({ topic, setCurrentTopic }) => (
   <Link
-    to={`/${topic.linkUrl}`}
+    to={topic.linkUrl}
     className="topic-link"
     onClick={() => setCurrentTopic(topic)}
   >

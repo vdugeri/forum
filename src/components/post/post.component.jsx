@@ -20,7 +20,9 @@ const Post = ({ post }) => {
       <div className="post__title">
         <h2>{post.title}</h2>
       </div>
-      <div className="post__body">{post.body}</div>
+      <div className="post__body">
+        <p dangerouslySetInnerHTML={{ __html: post.body }} />
+      </div>
       <div className="post__reply">
         <div onClick={handleClick}>Reply</div>
       </div>

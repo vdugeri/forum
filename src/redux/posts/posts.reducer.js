@@ -13,22 +13,30 @@ const postsReducer = (state = INITIAL_STATE, { type, payload }) => {
     case postsActionTypes.START_CREATE_POST:
     case postsActionTypes.OPEN_POST_START:
     case postsActionTypes.FETCH_POSTS_START:
+    case postsActionTypes.FETCH_USER_POSTS_START:
       return {
         ...state,
         isPostLoading: true
       };
     case postsActionTypes.CREATE_POST_SUCCESS:
-    case postsActionTypes.FETCH_POSTS_SUCCESS:
       return {
         ...state,
         postList: addPostToList(state, payload),
         isPostLoading: false,
         error: null
       };
+    case postsActionTypes.FETCH_POSTS_SUCCESS:
+    case postsActionTypes.FETCH_USER_POSTS_SUCCESS:
+      return {
+        isPostLoading: false,
+        postList: payload,
+        error: null
+      };
     case postsActionTypes.CREATE_POST_FAILURE:
     case postsActionTypes.OPEN_POST_FAILURE:
     case postsActionTypes.REPLY_CREATE_FAILURE:
     case postsActionTypes.FETCH_POSTS_FAILURE:
+    case postsActionTypes.FETCH_USER_POSTS_FAILURE:
       return {
         ...state,
         error: payload,

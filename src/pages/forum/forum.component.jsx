@@ -7,6 +7,7 @@ import SearchField from "../../components/search-field/search-field.component";
 import WritePost from "../../components/write-post/write-post.component";
 import BackLink from "../../components/back-link/back-link.component";
 import PostPreview from "../../components/post-preview/post-preview.component";
+import WithSpinner from "../../components/with-spinner/with-spinner.component";
 
 import titleCase from "../../utils/title-case";
 import removeDashes from "../../utils/remove-dashes";
@@ -16,14 +17,26 @@ import {
   selectCurrentTopic
 } from "../../redux/topics/topics.selectors";
 import { fetchPostsStart } from "../../redux/posts/posts.actions";
-import { selectPostList } from "../../redux/posts/post.selectors";
+import {
+  selectPostList,
+  selectIsPostLoading
+} from "../../redux/posts/post.selectors";
 
 import "./forum.styles.scss";
 
-const Forum = ({ topics, currentTopic, onFetchPostsStart, posts }) => {
+const PostPreviewWithSpinner = WithSpinner(PostPreview);
+
+const Forum = ({
+  topics,
+  currentTopic,
+  onFetchPostsStart,
+  posts,
+  isLoading
+}) => {
   useEffect(() => {
     onFetchPostsStart(currentTopic._id);
-  });
+  }, [currentTopic, onFetchPostsStart]);
+  console.log(isLoading);
   return (
     <div className="forum">
       <BackLink linkText="All Topics" linkUrl="/" />
@@ -39,7 +52,11 @@ const Forum = ({ topics, currentTopic, onFetchPostsStart, posts }) => {
       <WritePost />
       <h2 className="forum__posts-heading">Recent Posts</h2>
       {posts.map(post => (
-        <PostPreview post={post} key={post.id} />
+        <PostPreviewWithSpinner
+          isLoading={isLoading}
+          post={post}
+          key={post._id}
+        />
       ))}
     </div>
   );
@@ -48,7 +65,8 @@ const Forum = ({ topics, currentTopic, onFetchPostsStart, posts }) => {
 const mapStateToProps = createStructuredSelector({
   topics: selectTopicList,
   currentTopic: selectCurrentTopic,
-  posts: selectPostList
+  posts: selectPostList,
+  isLoading: selectIsPostLoading
 });
 
 const mapDispatchToProps = dispatch => ({

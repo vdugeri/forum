@@ -21,7 +21,7 @@ const AccountDropdown = ({ user, toggleDropdown, onSignoutStart }) => (
       <Link to="/settings">Account settings &amp; payments</Link>
     </div>
     <div className="account-dropdown__links">
-      <ForwardLink linkText="My Posts" linkUrl={`/users/${user.id}/posts`} />
+      <ForwardLink linkText="My Posts" linkUrl={`/dashboard/posts`} />
       <ForwardLink linkText="Messages" linkUrl="/dashboard/messages" />
       <ForwardLink linkText="Help & contects" linkUrl="/help-contact" />
     </div>

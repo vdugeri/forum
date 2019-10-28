@@ -13,6 +13,7 @@ import PostPage from "./pages/post-page/post-page.component";
 import Dashboard from "./pages/dashboard/dashboard.component";
 import Messages from "./pages/messages/messages.component";
 import WithSpinner from "./components/with-spinner/with-spinner.component";
+import UserPosts from "./pages/user-posts/user-posts.component";
 
 import {
   selectCurrentUser,
@@ -72,6 +73,7 @@ function App({
         <Route path="/posts/:id" component={PostPage} />
         <Route exact path="/dashboard" component={Dashboard} />
         <Route path="/dashboard/messages" component={Messages} />
+        <Route path="/dashboard/posts" component={UserPosts} />
       </Switch>
     </div>
   );
