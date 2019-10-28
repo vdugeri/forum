@@ -1,8 +1,6 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
-
-import Post from "../../components/post/post.component";
 import PostPreview from "../../components/post-preview/post-preview.component";
 
 import { selectCurrentUser } from "../../redux/user/user.selectors";

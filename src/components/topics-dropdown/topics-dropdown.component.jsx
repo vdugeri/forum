@@ -21,7 +21,7 @@ const TopicsDropdown = ({ topics, history, toggleTopicsDropdown }) => {
     <div className="topic-dropdown" onMouseLeave={toggleTopicsDropdown}>
       <h2>Community</h2>
       {topics.map(topic => (
-        <TopicStrip topic={topic} key={topic.id} />
+        <TopicStrip topic={topic} key={topic._id} />
       ))}
       <div className="topic-dropdown__cta">
         <span>Have a question?</span>

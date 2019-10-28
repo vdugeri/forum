@@ -73,7 +73,12 @@ function App({
         <Route path="/posts/:id" component={PostPage} />
         <Route exact path="/dashboard" component={Dashboard} />
         <Route path="/dashboard/messages" component={Messages} />
-        <Route path="/dashboard/posts" component={UserPosts} />
+        <Route
+          path="/dashboard/posts"
+          component={() =>
+            currentUser ? <UserPosts /> : <Redirect to="/login" />
+          }
+        />
       </Switch>
     </div>
   );
