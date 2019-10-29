@@ -7,7 +7,6 @@ import "./post.styles.scss";
 const Post = ({ post }) => {
   useEffect(() => {
     document.querySelectorAll("pre code").forEach(block => {
-      console.log(block);
       hljs.highlightBlock(block);
     });
   }, []);

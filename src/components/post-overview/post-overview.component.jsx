@@ -13,7 +13,6 @@ import "./post-overview.styles.scss";
 const PostOverview = ({ post, onOpenPostStart }) => {
   useEffect(() => {
     document.querySelectorAll("pre code").forEach(block => {
-      console.log(block);
       hljs.highlightBlock(block);
     });
   }, []);

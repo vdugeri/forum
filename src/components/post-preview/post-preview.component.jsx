@@ -14,7 +14,6 @@ import "./post-preview.styles.scss";
 const PostPreview = ({ post, openPost }) => {
   useEffect(() => {
     document.querySelectorAll("pre code").forEach(block => {
-      console.log(block);
       hljs.highlightBlock(block);
     });
   }, []);
