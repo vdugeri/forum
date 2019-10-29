@@ -8,12 +8,11 @@ import { selectCurrentUser } from "../../redux/user/user.selectors";
 import { fetchUserPostsStart } from "../../redux/posts/posts.actions";
 
 import "./user-posts.styles.scss";
-import { selectIsPostLoading } from "../../redux/posts/post.selectors";
 
-const UserPosts = ({ currentUser, onFetchUserPosts, isLoading }) => {
+const UserPosts = ({ currentUser, onFetchUserPosts }) => {
   useEffect(() => {
     onFetchUserPosts(currentUser.user._id);
-  }, []);
+  }, [currentUser, onFetchUserPosts]);
   return (
     <div className="user-posts">
       <PostList />
@@ -22,8 +21,7 @@ const UserPosts = ({ currentUser, onFetchUserPosts, isLoading }) => {
 };
 
 const mapStateToProps = createStructuredSelector({
-  currentUser: selectCurrentUser,
-  isLoading: selectIsPostLoading
+  currentUser: selectCurrentUser
 });
 
 const mapDispatchToProps = dispatch => ({
