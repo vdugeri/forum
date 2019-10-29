@@ -29,7 +29,8 @@ const CreatePost = ({
   onStartPostCreate,
   modalShown,
   toggleModalStatus,
-  isLoading
+  isLoading,
+  history
 }) => {
   const [postData, setPostData] = useState({
     author: currentUser,
@@ -55,6 +56,7 @@ const CreatePost = ({
       return;
     }
     onStartPostCreate(postData);
+    history.push("/dashboard/posts");
   };
 
   const { anon, title, body, topicId, author } = postData;

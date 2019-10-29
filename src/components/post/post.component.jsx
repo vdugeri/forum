@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
+import hljs from "highlight.js";
+import "highlight.js/styles/hopscotch.css";
 
 import "./post.styles.scss";
 
 const Post = ({ post }) => {
+  useEffect(() => {
+    document.querySelectorAll("pre code").forEach(block => {
+      console.log(block);
+      hljs.highlightBlock(block);
+    });
+  }, []);
   const handleClick = () => {
     console.log("hello");
   };

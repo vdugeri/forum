@@ -3,6 +3,7 @@ import { addPostToList, addReplyToPost } from "./posts.utils";
 
 const INITIAL_STATE = {
   postList: [],
+  userPosts: [],
   isPostLoading: false,
   currentPost: null,
   error: null
@@ -26,10 +27,16 @@ const postsReducer = (state = INITIAL_STATE, { type, payload }) => {
         error: null
       };
     case postsActionTypes.FETCH_POSTS_SUCCESS:
-    case postsActionTypes.FETCH_USER_POSTS_SUCCESS:
       return {
         isPostLoading: false,
         postList: payload,
+        error: null
+      };
+    case postsActionTypes.FETCH_USER_POSTS_SUCCESS:
+      return {
+        ...state,
+        // isPostLoading: false,
+        userPosts: payload,
         error: null
       };
     case postsActionTypes.CREATE_POST_FAILURE:

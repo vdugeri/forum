@@ -16,3 +16,8 @@ export const selectPostList = createSelector(
   [selectPost],
   posts => posts.postList
 );
+
+export const selectUserPosts = createSelector(
+  [selectPost],
+  posts => posts.userPosts
+);

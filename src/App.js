@@ -21,18 +21,21 @@ import {
 } from "./redux/user/user.selectors";
 import { selectIsFetchingTopics } from "./redux/topics/topics.selectors";
 import { startFetchTopics } from "./redux/topics/topics.actions";
+import { selectIsPostLoading } from "./redux/posts/post.selectors";
 
 import "./App.css";
 
 const RegisterWithSpinner = WithSpinner(Register);
 const LoginWithSpinner = WithSpinner(Login);
 const HomePageWithSpinner = WithSpinner(Homepage);
+const UserPostsWithSpinner = WithSpinner(UserPosts);
 
 function App({
   currentUser,
   isUserLoading,
   isFetchingTopics,
-  onStartFetchTopics
+  onStartFetchTopics,
+  isPostsLoading
 }) {
   useEffect(() => {
     onStartFetchTopics();
@@ -76,7 +79,11 @@ function App({
         <Route
           path="/dashboard/posts"
           component={() =>
-            currentUser ? <UserPosts /> : <Redirect to="/login" />
+            currentUser ? (
+              <UserPosts isLoading={isPostsLoading} />
+            ) : (
+              <Redirect to="/login" />
+            )
           }
         />
       </Switch>
@@ -87,7 +94,8 @@ function App({
 const mapStateToProps = createStructuredSelector({
   isUserLoading: selectIsLoading,
   currentUser: selectCurrentUser,
-  isFetchingTopics: selectIsFetchingTopics
+  isFetchingTopics: selectIsFetchingTopics,
+  isPostsLoading: selectIsPostLoading
 });
 
 const mapDispatchToProps = dispatch => ({

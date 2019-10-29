@@ -1,30 +1,29 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useCallback } from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
-import PostPreview from "../../components/post-preview/post-preview.component";
+
+import PostList from "../../components/post-list/post-list.component";
 
 import { selectCurrentUser } from "../../redux/user/user.selectors";
 import { fetchUserPostsStart } from "../../redux/posts/posts.actions";
-import { selectPostList } from "../../redux/posts/post.selectors";
 
 import "./user-posts.styles.scss";
+import { selectIsPostLoading } from "../../redux/posts/post.selectors";
 
-const UserPosts = ({ posts, currentUser, onFetchUserPosts }) => {
+const UserPosts = ({ currentUser, onFetchUserPosts, isLoading }) => {
   useEffect(() => {
     onFetchUserPosts(currentUser.user._id);
-  }, [currentUser, onFetchUserPosts]);
+  }, []);
   return (
     <div className="user-posts">
-      {posts.map(post => (
-        <PostPreview post={post} key={post._id} />
-      ))}
+      <PostList />
     </div>
   );
 };
 
 const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
-  posts: selectPostList
+  isLoading: selectIsPostLoading
 });
 
 const mapDispatchToProps = dispatch => ({
