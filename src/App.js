@@ -33,8 +33,7 @@ function App({
   currentUser,
   isUserLoading,
   isFetchingTopics,
-  onStartFetchTopics,
-  isPostsLoading
+  onStartFetchTopics
 }) {
   useEffect(() => {
     onStartFetchTopics();
@@ -75,11 +74,12 @@ function App({
         <Route path="/posts/:id" component={PostPage} />
         <Route
           exact
-          path="/dashboard"
+          path="/dashboard/"
           component={() =>
             currentUser ? <Dashboard /> : <Redirect to="/login" />
           }
         />
+        <Route path="/dashboard/posts" component={UserPosts} />
         <Route path="/dashboard/messages" component={Messages} />
       </Switch>
     </div>
