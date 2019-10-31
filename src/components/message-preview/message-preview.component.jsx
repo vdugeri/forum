@@ -10,13 +10,13 @@ const MessagePreview = ({ message, readMessage }) => (
   <div className="message-preview" onClick={() => readMessage(message)}>
     <div className="message-preview__header">
       <div className="message-preview__image">
-        <img src={message.sender.image} alt={message.sender.username} />
+        {message.sender.firstName.substring(0, 1)}
       </div>
       <div className="message-preview__designation">
-        {message.sender.designation}
+        {message.sender.firstName}
       </div>
       <div className="message-preview__date">
-        {moment(message.createdAt).calendar()}
+        {moment(message.created_at).calendar()}
       </div>
     </div>
     <div className="message-preview__sender-name">{`${message.sender.firstName} ${message.sender.lastName}`}</div>

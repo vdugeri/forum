@@ -1,6 +1,8 @@
 .messages {
   display: flex;
-  min-height: 100vh;
+  min-height: 90vh;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #e7e7e7;
 
   &__preview-area {
     border-right: 1px solid #e7e7e7;
@@ -11,5 +13,13 @@
   &__message-area {
     background-color: #f8f8f8;
     width: 50%;
+
+    &--body {
+      height: 90%;
+    }
+
+    &--composer {
+      height: 10%;
+    }
   }
 }

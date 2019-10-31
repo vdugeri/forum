@@ -19,6 +19,14 @@
     width: 5rem;
     height: 5rem;
     border-radius: 50%;
+    background-color: #b8c0c0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 2rem;
+    font-family: "Domine" serif;
+    font-weight: 700;
 
     & img {
       width: 100%;

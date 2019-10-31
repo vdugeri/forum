@@ -11,3 +11,8 @@ export const selectCurrentMessage = createSelector(
   [selectMessages],
   messages => messages.currentMessage
 );
+
+export const selectMessageReciver = createSelector(
+  [selectMessages],
+  messages => messages.receiver
+);
