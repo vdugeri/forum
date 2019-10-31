@@ -35,7 +35,6 @@ const postsReducer = (state = INITIAL_STATE, { type, payload }) => {
     case postsActionTypes.FETCH_USER_POSTS_SUCCESS:
       return {
         ...state,
-        // isPostLoading: false,
         userPosts: payload,
         error: null
       };

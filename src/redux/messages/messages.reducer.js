@@ -1,8 +1,7 @@
 import messagesActionTypes from "./message.types";
-import messagesData from "./messages.data";
 
 const INITIAL_STATE = {
-  messageList: messagesData,
+  messageList: [],
   error: null,
   currentMessage: null,
   isFetchingMessages: false

@@ -10,9 +10,6 @@ const Post = ({ post }) => {
       hljs.highlightBlock(block);
     });
   }, []);
-  const handleClick = () => {
-    console.log("hello");
-  };
   return (
     <div className="post">
       <div className="post__author">
@@ -31,7 +28,7 @@ const Post = ({ post }) => {
         <p dangerouslySetInnerHTML={{ __html: post.body }} />
       </div>
       <div className="post__reply">
-        <div onClick={handleClick}>Reply</div>
+        <div>Reply</div>
       </div>
     </div>
   );

@@ -13,7 +13,7 @@ import PostPage from "./pages/post-page/post-page.component";
 import Dashboard from "./pages/dashboard/dashboard.component";
 import Messages from "./pages/messages/messages.component";
 import WithSpinner from "./components/with-spinner/with-spinner.component";
-import UserPosts from "./pages/user-posts/user-posts.component";
+import UserPosts from "./components/user-posts/user-posts.component";
 
 import {
   selectCurrentUser,
@@ -28,7 +28,6 @@ import "./App.css";
 const RegisterWithSpinner = WithSpinner(Register);
 const LoginWithSpinner = WithSpinner(Login);
 const HomePageWithSpinner = WithSpinner(Homepage);
-const UserPostsWithSpinner = WithSpinner(UserPosts);
 
 function App({
   currentUser,
@@ -57,7 +56,7 @@ function App({
             !currentUser ? (
               <LoginWithSpinner isLoading={isUserLoading} {...props} />
             ) : (
-              <Redirect to="/" />
+              <Redirect to="/dashboard" />
             )
           }
         />
@@ -74,18 +73,14 @@ function App({
         <Route path="/posts/create" component={CreatePost} />
         <Route path="/forum/:topic" component={Forum} />
         <Route path="/posts/:id" component={PostPage} />
-        <Route exact path="/dashboard" component={Dashboard} />
-        <Route path="/dashboard/messages" component={Messages} />
         <Route
-          path="/dashboard/posts"
+          exact
+          path="/dashboard"
           component={() =>
-            currentUser ? (
-              <UserPosts isLoading={isPostsLoading} />
-            ) : (
-              <Redirect to="/login" />
-            )
+            currentUser ? <Dashboard /> : <Redirect to="/login" />
           }
         />
+        <Route path="/dashboard/messages" component={Messages} />
       </Switch>
     </div>
   );

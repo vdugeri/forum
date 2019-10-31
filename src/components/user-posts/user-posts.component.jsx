@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
-import PostList from "../../components/post-list/post-list.component";
+import PostList from "../post-list/post-list.component";
 
 import { selectCurrentUser } from "../../redux/user/user.selectors";
 import { fetchUserPostsStart } from "../../redux/posts/posts.actions";
