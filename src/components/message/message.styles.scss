@@ -22,7 +22,7 @@
       justify-content: center;
       color: #fff;
       font-size: 2rem;
-      font-family: "Domine" serif;
+      font-family: "Domine", serif;
       font-weight: 700;
       border-radius: 50%;
 
@@ -38,7 +38,9 @@
     display: flex;
     margin-top: 1rem;
     margin-left: 5rem;
-    line-height: 1.7;
-    font-size: 1.4rem;
+    line-height: 2;
+    font-size: 1.3rem;
+    font-family: "Domine", serif;
+    font-weight: 300;
   }
 }

@@ -4,7 +4,8 @@ import { connect } from "react-redux";
 
 import MessagePreview from "../../components/message-preview/message-preview.component";
 import Message from "../../components/message/message.component";
-import MessageComposer from "../../components/message-composer/message-compose.component";
+import MessageComposer from "../../components/message-composer/message-composer.component";
+import Quote from "../../components/quote/quote.component";
 
 import {
   selectMessageList,
@@ -33,7 +34,7 @@ const Messages = ({
       </div>
       <div className="messages__message-area">
         <div className="messages__message-area--body">
-          {currentMessage ? <Message message={currentMessage} /> : null}
+          {currentMessage ? <Message message={currentMessage} /> : <Quote />}
         </div>
         {currentMessage ? (
           <div className="messages__message-area--composer">

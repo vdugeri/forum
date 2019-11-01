@@ -10,7 +10,11 @@ const MessagePreview = ({ message, readMessage }) => (
   <div className="message-preview" onClick={() => readMessage(message)}>
     <div className="message-preview__header">
       <div className="message-preview__image">
-        {message.sender.firstName.substring(0, 1)}
+        {message.sender.image ? (
+          <img src={message.sender.image} alt={message.sender.firstName} />
+        ) : (
+          message.sender.firstName.substring(0, 1)
+        )}
       </div>
       <div className="message-preview__designation">
         {message.sender.firstName}

@@ -12,20 +12,23 @@ import Topic from "../../components/topic/topic.component";
 import { selectTopicList } from "../../redux/topics/topics.selectors";
 
 import "./welcome.styles.scss";
+import {
+  selectCurrentUser,
+  selectShowWelcomeModal
+} from "../../redux/user/user.selectors";
 
-const user = { firstName: "Verem" };
 const carePerson = { name: "Kaitlyn", image: profileImage };
 
-const Welcome = ({ showWelcome, topics }) => (
+const Welcome = ({ showWelcome, topics, currentUser }) => (
   <div className="welcome">
     {showWelcome ? (
-      <WelcomeModal newUser={user} carePerson={carePerson} />
+      <WelcomeModal newUser={currentUser} carePerson={carePerson} />
     ) : null}
     <div className="welcome__waving-hand">
       <WavingHand />
     </div>
 
-    <h2 className="welcome__salutation">Hi, {user.firstName}</h2>
+    <h2 className="welcome__salutation">Hi, {currentUser.user.firstName}</h2>
     <p className="welcome__welcome-text">
       Welcome to Vanillatots, the digital home for educational content.
     </p>
@@ -47,7 +50,9 @@ const Welcome = ({ showWelcome, topics }) => (
 );
 
 const mapStateTopProps = createStructuredSelector({
-  topics: selectTopicList
+  topics: selectTopicList,
+  currentUser: selectCurrentUser,
+  showWelcome: selectShowWelcomeModal
 });
 
 export default connect(mapStateTopProps)(Welcome);

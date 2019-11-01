@@ -8,13 +8,16 @@ import { selectUserPosts } from "../../redux/posts/post.selectors";
 
 import "./post-list.styles.scss";
 
-const PostList = ({ posts }) => (
-  <div className="post-list">
-    {posts.map(post => (
-      <PostPreview post={post} key={post._id} />
-    ))}
-  </div>
-);
+const PostList = ({ posts }) => {
+  console.log(posts);
+  return (
+    <div className="post-list">
+      {posts.map(post => (
+        <PostPreview post={post} key={post._id} />
+      ))}
+    </div>
+  );
+};
 
 const mapStateToProps = createStructuredSelector({
   posts: selectUserPosts

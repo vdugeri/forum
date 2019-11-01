@@ -21,3 +21,8 @@ export const selectIsAccountOpen = createSelector(
   [selectUser],
   user => user.isAccountOpen
 );
+
+export const selectShowWelcomeModal = createSelector(
+  [selectUser],
+  user => user.showWelcomeModal
+);

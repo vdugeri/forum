@@ -50,3 +50,7 @@ export const toggleModalStatus = () => ({
 export const toggleAccountDropdown = () => ({
   type: userActionTypes.TOGGLE_ACCOUNT_DROPDOWN
 });
+
+export const closeWelcomeModal = () => ({
+  type: userActionTypes.CLOSE_WELCOME_MODAL
+});

@@ -1,13 +1,18 @@
 import React from "react";
+import { connect } from "react-redux";
 
 import CustomButton from "../custom-button/custom-button.component";
 
+import { closeWelcomeModal } from "../../redux/user/user.actions";
+
 import "./welcome-modal.styles.scss";
 
-const WelcomeModal = ({ newUser, carePerson }) => (
+const WelcomeModal = ({ newUser, carePerson, closeModal }) => (
   <div className="welcome-modal__overlay">
     <div className="welcome-modal__content">
-      <div className="welcome-modal__content--close">&#10005;</div>
+      <div className="welcome-modal__content--close" onClick={closeModal}>
+        &#10005;
+      </div>
       <div className="welcome-modal__profile-image">
         <img src={carePerson.image} alt={carePerson.name} />
       </div>
@@ -25,9 +30,18 @@ const WelcomeModal = ({ newUser, carePerson }) => (
         <span className="welcome-modal__signature">{carePerson.name}</span>
       </p>
 
-      <CustomButton primary>Got it</CustomButton>
+      <CustomButton primary onClick={closeModal}>
+        Got it
+      </CustomButton>
     </div>
   </div>
 );
 
-export default WelcomeModal;
+const mapDispatchToProps = dispatch => ({
+  closeModal: () => dispatch(closeWelcomeModal())
+});
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(WelcomeModal);

@@ -5,7 +5,8 @@ const INITIAL_STATE = {
   error: null,
   isLoading: false,
   modalShown: false,
-  isAccountOpen: false
+  isAccountOpen: false,
+  showWelcomeModal: false
 };
 
 const userReducer = (state = INITIAL_STATE, { type, payload }) => {
@@ -26,12 +27,19 @@ const userReducer = (state = INITIAL_STATE, { type, payload }) => {
         isLoading: false
       };
     case userActionTypes.LOGIN_SUCCESS:
-    case userActionTypes.SIGNUP_SUCCESS:
       return {
         ...state,
         currentUser: payload,
         error: null,
         isLoading: false
+      };
+    case userActionTypes.SIGNUP_SUCCESS:
+      return {
+        ...state,
+        currentUser: payload,
+        error: null,
+        isLoading: false,
+        showWelcomeModal: true
       };
     case userActionTypes.TOGGLE_REGISTRATION_MODAL:
       return {
@@ -48,6 +56,11 @@ const userReducer = (state = INITIAL_STATE, { type, payload }) => {
         ...state,
         currentUser: null,
         isLoading: false
+      };
+    case userActionTypes.CLOSE_WELCOME_MODAL:
+      return {
+        ...state,
+        showWelcomeModal: false
       };
     default:
       return state;

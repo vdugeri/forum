@@ -18,10 +18,11 @@ import {
 import { startPostCreate } from "../../redux/posts/posts.actions";
 import { toggleModalStatus } from "../../redux/user/user.actions";
 
+import { EDITOR_API_KEY } from "../../config";
+
 import "./create-post.styles.scss";
 
 const RegisterModalWithSpinner = WithSpinner(RegisterModal);
-const apiKey = "3cq7hq90hsskgf80ga6yd94dnrod09v4xq4z2f4ir2em6wb0";
 
 const CreatePost = ({
   topics,
@@ -101,10 +102,10 @@ const CreatePost = ({
 
           <span>What's going on?*</span>
           <Editor
-            apiKey={apiKey}
+            apiKey={EDITOR_API_KEY}
             initialValue={body}
             init={{
-              height: 500,
+              height: 300,
               menubar: false,
               plugins: [
                 "advlist autolink lists link image charmap print preview anchor",

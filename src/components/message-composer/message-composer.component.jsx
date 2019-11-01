@@ -14,12 +14,7 @@ import { selectCurrentUser } from "../../redux/user/user.selectors";
 
 import "./message-composer.styles.scss";
 
-const MessageComposer = ({
-  currentMessage,
-  receiver,
-  currentUser,
-  onSendMessage
-}) => {
+const MessageComposer = ({ currentMessage, currentUser, onSendMessage }) => {
   const [message, setMessage] = useState("");
 
   const handleChange = e => {

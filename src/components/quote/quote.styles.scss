@@ -1,0 +1,28 @@
+.quote {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &-container {
+  }
+
+  & h2 {
+    font-size: 3.5rem;
+    font-weight: 600;
+    font-family: "Domine", serif;
+    color: #253632;
+    border-bottom: 1.2px solid #e7e7e7;
+    display: block;
+    width: 50%;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+  }
+
+  & blockquote {
+    width: 50%;
+    font-size: 1.4rem;
+    font-family: "Domine", serif;
+    line-height: 2;
+    font-weight: 300;
+  }
+}

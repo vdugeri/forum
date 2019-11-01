@@ -65,7 +65,7 @@ function App({
             !currentUser ? (
               <RegisterWithSpinner isLoading={isUserLoading} {...props} />
             ) : (
-              <Redirect to="/" />
+              <Redirect to="/dashboard" />
             )
           }
         />
@@ -79,8 +79,14 @@ function App({
             currentUser ? <Dashboard /> : <Redirect to="/login" />
           }
         />
-        <Route path="/dashboard/posts" component={UserPosts} />
-        <Route path="/dashboard/messages" component={Messages} />
+        <Route
+          path="/dashboard/posts"
+          component={() => (currentUser ? <UserPosts /> : <Redirect to="/" />)}
+        />
+        <Route
+          path="/dashboard/messages"
+          component={() => (currentUser ? <Messages /> : <Redirect to="/" />)}
+        />
       </Switch>
     </div>
   );

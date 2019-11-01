@@ -17,7 +17,10 @@ export function* sendMessage({ payload }) {
     } = yield axios.post(endpoint, payload);
     yield put(sendMessageSuccess(message));
   } catch (error) {
-    yield put(sendMessageFailure(error));
+    const {
+      response: { data }
+    } = error;
+    yield put(sendMessageFailure(data));
   }
 }
 
@@ -29,7 +32,10 @@ export function* fetchMessages({ payload }) {
     } = yield axios.get(endpoint);
     yield put(fetchMessagesSuccess(messages));
   } catch (error) {
-    yield put(fetchMessagesFailure(error));
+    const {
+      response: { data }
+    } = error;
+    yield put(fetchMessagesFailure(data));
   }
 }
 
