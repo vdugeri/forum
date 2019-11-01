@@ -1,9 +1,12 @@
 .quote {
   display: flex;
-  align-items: center;
-  justify-content: center;
-
   &-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-left: 4rem;
+    margin-top: 30rem;
   }
 
   & h2 {
@@ -14,7 +17,6 @@
     border-bottom: 1.2px solid #e7e7e7;
     display: block;
     width: 50%;
-    margin-bottom: 2rem;
     padding-bottom: 1rem;
   }
 

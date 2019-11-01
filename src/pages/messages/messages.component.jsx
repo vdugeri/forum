@@ -33,11 +33,11 @@ const Messages = ({
         ))}
       </div>
       <div className="messages__message-area">
-        <div className="messages__message-area--body">
+        <div>
           {currentMessage ? <Message message={currentMessage} /> : <Quote />}
         </div>
         {currentMessage ? (
-          <div className="messages__message-area--composer">
+          <div>
             <MessageComposer />
           </div>
         ) : null}

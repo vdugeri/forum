@@ -58,7 +58,6 @@ export function* fetchPosts({ payload }) {
 
 export function* fetchUserPosts({ payload }) {
   try {
-    console.log("sagas", payload);
     const endpoint = `/users/${payload}/posts`;
     const {
       data: { posts }
