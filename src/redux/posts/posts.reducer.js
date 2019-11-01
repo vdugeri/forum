@@ -36,6 +36,7 @@ const postsReducer = (state = INITIAL_STATE, { type, payload }) => {
       return {
         ...state,
         userPosts: payload,
+        isPostLoading: false,
         error: null
       };
     case postsActionTypes.CREATE_POST_FAILURE:

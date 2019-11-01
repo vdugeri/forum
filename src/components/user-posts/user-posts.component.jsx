@@ -1,34 +1,25 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
-import PostList from "../post-list/post-list.component";
+import PostPreview from "../post-preview/post-preview.component";
 
-import { selectCurrentUser } from "../../redux/user/user.selectors";
-import { fetchUserPostsStart } from "../../redux/posts/posts.actions";
+import { selectUserPosts } from "../../redux/posts/post.selectors";
 
 import "./user-posts.styles.scss";
 
-const UserPosts = ({ currentUser, onFetchUserPosts }) => {
-  useEffect(() => {
-    onFetchUserPosts(currentUser.user._id);
-  }, [currentUser, onFetchUserPosts]);
+const UserPosts = ({ posts }) => {
   return (
     <div className="user-posts">
-      <PostList />
+      {posts.map(post => (
+        <PostPreview post={post} key={post._id} />
+      ))}
     </div>
   );
 };
 
 const mapStateToProps = createStructuredSelector({
-  currentUser: selectCurrentUser
+  posts: selectUserPosts
 });
 
-const mapDispatchToProps = dispatch => ({
-  onFetchUserPosts: userId => dispatch(fetchUserPostsStart(userId))
-});
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(UserPosts);
+export default connect(mapStateToProps)(UserPosts);

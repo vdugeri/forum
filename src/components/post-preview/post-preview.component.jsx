@@ -46,7 +46,9 @@ const PostPreview = ({ post, openPost }) => {
         />
       </div>
       <span>
-        <Link to={`/posts/${post.id}`}>Be the first to reply</Link>
+        <Link to={`/posts/${post._id}`} onClick={() => openPost(post)}>
+          Be the first to reply
+        </Link>
       </span>
     </div>
   );

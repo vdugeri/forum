@@ -10,7 +10,6 @@ import { selectUserPosts } from "../../redux/posts/post.selectors";
 import "./post-list.styles.scss";
 
 const PostList = ({ posts }) => {
-  console.log(posts);
   return (
     <React.Fragment>
       {posts.length ? (

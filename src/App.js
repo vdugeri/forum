@@ -22,6 +22,7 @@ import {
 import { selectIsFetchingTopics } from "./redux/topics/topics.selectors";
 import { startFetchTopics } from "./redux/topics/topics.actions";
 import { selectIsPostLoading } from "./redux/posts/post.selectors";
+import { fetchUserPostsStart } from "./redux/posts/posts.actions";
 
 import "./App.css";
 
@@ -33,11 +34,19 @@ function App({
   currentUser,
   isUserLoading,
   isFetchingTopics,
-  onStartFetchTopics
+  onStartFetchTopics,
+  onFetchUserPosts
 }) {
   useEffect(() => {
     onStartFetchTopics();
   }, [onStartFetchTopics]);
+
+  useEffect(() => {
+    if (currentUser) {
+      onFetchUserPosts(currentUser.user._id);
+    }
+  }, [currentUser, onFetchUserPosts]);
+
   return (
     <div className="App">
       <Header />
@@ -100,7 +109,8 @@ const mapStateToProps = createStructuredSelector({
 });
 
 const mapDispatchToProps = dispatch => ({
-  onStartFetchTopics: () => dispatch(startFetchTopics())
+  onStartFetchTopics: () => dispatch(startFetchTopics()),
+  onFetchUserPosts: userId => dispatch(fetchUserPostsStart(userId))
 });
 
 export default connect(
