@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import hljs from "highlight.js";
 import "highlight.js/styles/hopscotch.css";
 
+import CreateReply from "../create-reply/create-reply.component";
+
 import "./post.styles.scss";
 
 const Post = ({ post }) => {
@@ -27,9 +29,10 @@ const Post = ({ post }) => {
       <div className="post__body">
         <p dangerouslySetInnerHTML={{ __html: post.body }} />
       </div>
-      <div className="post__reply">
+      {/* <div className="post__reply">
         <div>Reply</div>
-      </div>
+      </div> */}
+      <CreateReply />
     </div>
   );
 };

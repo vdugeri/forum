@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
+import { Editor } from "@tinymce/tinymce-react";
 
 import CustomTextarea from "../custom-textarea/custom-textarea.component";
 import CustomButton from "../custom-button/custom-button.component";
-import RegisterModal from "../register-modal/register-modal.component";
 import CustomCheckbox from "../custom-checkbox/custom-checkbox.component";
 
 import { toggleModalStatus } from "../../redux/user/user.actions";
@@ -12,14 +12,11 @@ import { selectModalShown } from "../../redux/user/user.selectors";
 import { selectCurrentPost } from "../../redux/posts/post.selectors";
 import { startCreateReply } from "../../redux/posts/posts.actions";
 
+import { EDITOR_API_KEY } from "../../config";
+
 import "./create-reply.styles.scss";
 
-const CreateReply = ({
-  modalShown,
-  toggleRegisterModal,
-  currentPost,
-  onCreateReplyStart
-}) => {
+const CreateReply = ({ currentPost, onCreateReplyStart }) => {
   const [reply, setReply] = useState({
     text: "",
     user: "",
@@ -36,39 +33,35 @@ const CreateReply = ({
   const handleSubmit = () => {
     onCreateReplyStart(reply);
   };
-  const { anon, text } = reply;
+  const { text } = reply;
   return (
     <div className="create-reply" id="reply">
-      {modalShown ? <RegisterModal /> : null}
-
       <div className="create-reply__author">
-        <div className="create-reply__author--image">{anon ? "?" : "#"}</div>
-        {anon ? (
-          <div className="create-reply__author--username anon">Anonymous</div>
-        ) : (
-          <div
-            className="create-reply__author--username"
-            onClick={toggleRegisterModal}
-          >
-            Add username
-          </div>
-        )}
-        <div className="create-reply__author--anon">
-          <CustomCheckbox
-            handleChange={handleChange}
-            label="Post anonymously"
-            name="anon"
-          />
-        </div>
+        <div className="create-reply__author--image"></div>
       </div>
       <div className="create-reply__field">
-        <CustomTextarea
+        <Editor
+          apiKey={EDITOR_API_KEY}
+          height={300}
+          init={{
+            menubar: false,
+            plugins: [
+              "advlist autolink lists link image charmap print preview anchor",
+              "searchreplace visualblocks fullscreen codesample",
+              "insertdatetime media table paste help wordcount"
+            ],
+            toolbar: `undo redo | formatselect | bold italic backcolor | 
+             alignleft aligncenter alignright alignjustify | 
+             bullist numlist outdent indent | removeformat | help | codesample`
+          }}
+        />
+        {/* <CustomTextarea
           rows="6"
           name="text"
           value={text}
           handleChange={handleChange}
           label="Write your reply..."
-        />
+        /> */}
       </div>
       <CustomButton onClick={handleSubmit} primary>
         Reply to this post
