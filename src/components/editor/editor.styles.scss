@@ -1,0 +1,16 @@
+.editor {
+  border: 1px solid #e7e7e7;
+  min-height: 10rem;
+  font-size: 1.4rem;
+  font-family: "Domine", serif;
+}
+
+.ck-content {
+  min-height: 10rem;
+}
+
+.ck.ck-editor__editable:not(.ck-editor__nested-editable).ck-focused {
+  outline: none;
+  border: 0;
+  box-shadow: none;
+}

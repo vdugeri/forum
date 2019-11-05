@@ -1,10 +1,18 @@
 import React from "react";
-import EditorJs from "@editorjs/editorjs";
+import CKEditor from "@ckeditor/ckeditor5-react";
+import InlineEditor from "@ckeditor/ckeditor5-build-inline";
 
 import "./editor.styles.scss";
 
-const editor = new EditorJs("codex-editor");
-
-const Editor = () => <div className="editor" id="codex-editor"></div>;
+const Editor = ({ handleChange, name }) => (
+  <div className="editor">
+    <CKEditor
+      editor={InlineEditor}
+      onChange={handleChange}
+      name={name}
+      type="textarea"
+    />
+  </div>
+);
 
 export default Editor;

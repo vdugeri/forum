@@ -21,3 +21,13 @@ export const selectUserPosts = createSelector(
   [selectPost],
   posts => posts.userPosts
 );
+
+export const selectPostReplies = createSelector(
+  [selectPost],
+  posts => posts.postReplies
+);
+
+export const selectIsRepliesLoading = createSelector(
+  [selectPost],
+  posts => posts.isRepliesLoading
+);

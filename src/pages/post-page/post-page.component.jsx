@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { createStructuredSelector } from "reselect";
 import { connect } from "react-redux";
 
@@ -13,36 +13,63 @@ import WritePost from "../../components/write-post/write-post.component";
 
 import {
   selectCurrentPost,
-  selectIsPostLoading
+  selectIsPostLoading,
+  selectIsRepliesLoading
 } from "../../redux/posts/post.selectors";
+import { startFetchReply } from "../../redux/posts/posts.actions";
 
 import "./post-page.styles.scss";
 
 const PostWithSpinner = WithSpinner(Post);
+const ReplyWithSpinner = WithSpinner(Reply);
 
-const PostPage = ({ currentPost, isPostLoading, showReply }) => (
-  <div className="post-page">
-    <BackLink linkText="All Topics" linkUrl="/" />
-    <div className="post-page__header">
-      <h2>Join The Conversation</h2>
-      <SearchField placeholder="what are you looking for?" />
+const PostPage = ({
+  currentPost,
+  isPostLoading,
+  showReply,
+  isRepliesLoading,
+  onFetchReplies
+}) => {
+  useEffect(() => {
+    onFetchReplies(currentPost._id);
+  }, []);
+  return (
+    <div className="post-page">
+      <BackLink linkText="All Topics" linkUrl="/" />
+      <div className="post-page__header">
+        <h2>Join The Conversation</h2>
+        <SearchField placeholder="what are you looking for?" />
+      </div>
+      <PostWithSpinner isLoading={isPostLoading} />
+      <div className="post-page__create-reply">
+        {showReply ? <CreateReply /> : null}
+      </div>
+      {currentPost.replies.map(reply => (
+        <ReplyWithSpinner
+          isLoading={isRepliesLoading}
+          reply={reply}
+          key={reply._id}
+        />
+      ))}
+      <div className="post-page__write-post">
+        <WritePost />
+      </div>
+      {/* <ExplorePractitioners topExperts={users.topExperts} /> */}
     </div>
-    <PostWithSpinner isLoading={isPostLoading} post={currentPost} />
-    {showReply ? <CreateReply /> : null}
-
-    {currentPost.replies.map(reply => (
-      <Reply reply={reply} key={reply.id} />
-    ))}
-    <div className="post-page__write-post">
-      <WritePost />
-    </div>
-    {/* <ExplorePractitioners topExperts={users.topExperts} /> */}
-  </div>
-);
+  );
+};
 
 const mapStateToProps = createStructuredSelector({
   currentPost: selectCurrentPost,
-  isPostLoading: selectIsPostLoading
+  isPostLoading: selectIsPostLoading,
+  isRepliesLoading: selectIsRepliesLoading
 });
 
-export default connect(mapStateToProps)(PostPage);
+const mapDispatchToProps = dispatch => ({
+  onFetchReplies: postId => dispatch(startFetchReply(postId))
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(PostPage);

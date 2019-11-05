@@ -39,13 +39,28 @@ export const startCreateReply = replyData => ({
   payload: replyData
 });
 
-export const createReplySuccess = reply => ({
+export const createReplySuccess = postWithReplies => ({
   type: postsActionTypes.REPLY_CREATE_SUCCESS,
-  payload: reply
+  payload: postWithReplies
 });
 
 export const createReplyFailure = error => ({
   type: postsActionTypes.CREATE_POST_FAILURE,
+  payload: error
+});
+
+export const startFetchReply = postId => ({
+  type: postsActionTypes.REPLY_FETCH_START,
+  payload: postId
+});
+
+export const fetchReplySuccess = replies => ({
+  type: postsActionTypes.REPLY_FETCH_SUCCESS,
+  payload: replies
+});
+
+export const fetchReplyFailure = error => ({
+  type: postsActionTypes.REPLY_FETCH_FAILURE,
   payload: error
 });
 

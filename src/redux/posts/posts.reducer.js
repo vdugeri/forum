@@ -1,12 +1,14 @@
 import postsActionTypes from "./posts.types";
-import { addPostToList, addReplyToPost } from "./posts.utils";
+import { addPostToList } from "./posts.utils";
 
 const INITIAL_STATE = {
   postList: [],
   userPosts: [],
   isPostLoading: false,
+  isRepliesLoading: false,
   currentPost: null,
-  error: null
+  error: null,
+  postReplies: []
 };
 
 const postsReducer = (state = INITIAL_STATE, { type, payload }) => {
@@ -41,7 +43,6 @@ const postsReducer = (state = INITIAL_STATE, { type, payload }) => {
       };
     case postsActionTypes.CREATE_POST_FAILURE:
     case postsActionTypes.OPEN_POST_FAILURE:
-    case postsActionTypes.REPLY_CREATE_FAILURE:
     case postsActionTypes.FETCH_POSTS_FAILURE:
     case postsActionTypes.FETCH_USER_POSTS_FAILURE:
       return {
@@ -55,10 +56,32 @@ const postsReducer = (state = INITIAL_STATE, { type, payload }) => {
         currentPost: payload,
         isPostLoading: false
       };
+    case postsActionTypes.REPLY_CREATE_START:
+    case postsActionTypes.REPLY_FETCH_START:
+      return {
+        ...state,
+        isRepliesLoading: true
+      };
     case postsActionTypes.REPLY_CREATE_SUCCESS:
       return {
         ...state,
-        currentPost: addReplyToPost(state.currentPost, payload)
+        isRepliesLoading: false,
+        currentPost: payload,
+        error: null
+      };
+    case postsActionTypes.REPLY_FETCH_SUCCESS:
+      return {
+        ...state,
+        postReplies: payload,
+        isRepliesLoading: false,
+        error: null
+      };
+    case postsActionTypes.REPLY_FETCH_FAILURE:
+    case postsActionTypes.REPLY_CREATE_FAILURE:
+      return {
+        ...state,
+        isRepliesLoading: false,
+        error: payload
       };
     default:
       return state;

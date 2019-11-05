@@ -8,17 +8,24 @@ const Reply = ({ reply }) => (
   <div className="reply">
     <div className="reply__author">
       <div className="reply__author--image">
-        <img src={reply.author.image} alt={reply.author.name} />
+        {reply.author.image ? (
+          <img src={reply.author.image} alt={reply.author.name} />
+        ) : (
+          <span>{reply.author.firstName.substring(0, 1)}</span>
+        )}
       </div>
       <div className="reply__author--credentials">
-        <span className="name">{reply.author.name}</span>
-        <span className="designation">{reply.author.designation}</span>
+        <span className="name">{reply.author.firstName}</span>
+        <span className="designation">{reply.created_at}</span>
         {reply.author.isPractitioner ? (
           <span className="cta">Book Appointment</span>
         ) : null}
       </div>
     </div>
-    <p className="reply__text">{reply.text}</p>
+    <p
+      className="reply__text"
+      dangerouslySetInnerHTML={{ __html: reply.text }}
+    ></p>
     <div className="reply__cta">
       {reply.author.isPractitioner ? (
         <div>

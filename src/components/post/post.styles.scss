@@ -6,6 +6,10 @@
   border-bottom: 1px solid #ccc;
   padding-bottom: 4rem;
 
+  &__create-reply {
+    margin-top: 4rem;
+  }
+
   &__author {
     display: flex;
     align-self: flex-start;

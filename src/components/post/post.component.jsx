@@ -1,8 +1,12 @@
 import React, { useEffect } from "react";
+import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
 import hljs from "highlight.js";
 import "highlight.js/styles/hopscotch.css";
 
 import CreateReply from "../create-reply/create-reply.component";
+
+import { selectCurrentPost } from "../../redux/posts/post.selectors";
 
 import "./post.styles.scss";
 
@@ -32,9 +36,15 @@ const Post = ({ post }) => {
       {/* <div className="post__reply">
         <div>Reply</div>
       </div> */}
-      <CreateReply />
+      <div className="post__create-reply">
+        <CreateReply />
+      </div>
     </div>
   );
 };
 
-export default Post;
+const mapStateToProps = createStructuredSelector({
+  post: selectCurrentPost
+});
+
+export default connect(mapStateToProps)(Post);
