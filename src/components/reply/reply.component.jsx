@@ -1,4 +1,5 @@
 import React from "react";
+import moment from "moment";
 
 import CustomButton from "../custom-button/custom-button.component";
 
@@ -16,7 +17,9 @@ const Reply = ({ reply }) => (
       </div>
       <div className="reply__author--credentials">
         <span className="name">{reply.author.firstName}</span>
-        <span className="designation">{reply.created_at}</span>
+        <span className="designation">
+          {moment(reply.created_at).calendar()}
+        </span>
         {reply.author.isPractitioner ? (
           <span className="cta">Book Appointment</span>
         ) : null}

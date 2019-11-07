@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { createStructuredSelector } from "reselect";
 import { connect } from "react-redux";
 
@@ -21,18 +21,8 @@ import { startFetchReply } from "../../redux/posts/posts.actions";
 import "./post-page.styles.scss";
 
 const PostWithSpinner = WithSpinner(Post);
-const ReplyWithSpinner = WithSpinner(Reply);
 
-const PostPage = ({
-  currentPost,
-  isPostLoading,
-  showReply,
-  isRepliesLoading,
-  onFetchReplies
-}) => {
-  useEffect(() => {
-    onFetchReplies(currentPost._id);
-  }, []);
+const PostPage = ({ currentPost, isPostLoading, showReply }) => {
   return (
     <div className="post-page">
       <BackLink linkText="All Topics" linkUrl="/" />
@@ -45,11 +35,7 @@ const PostPage = ({
         {showReply ? <CreateReply /> : null}
       </div>
       {currentPost.replies.map(reply => (
-        <ReplyWithSpinner
-          isLoading={isRepliesLoading}
-          reply={reply}
-          key={reply._id}
-        />
+        <Reply reply={reply} key={reply._id} />
       ))}
       <div className="post-page__write-post">
         <WritePost />

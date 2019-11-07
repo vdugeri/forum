@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
+import moment from "moment";
 import hljs from "highlight.js";
 import "highlight.js/styles/hopscotch.css";
 
@@ -24,7 +25,7 @@ const Post = ({ post }) => {
         </div>
         <div>
           <div className="post__author--name">{post.author.firstName}</div>
-          <div className="post__date">{post.createdAt}</div>
+          <div className="post__date">{moment(post.created_at).calendar()}</div>
         </div>
       </div>
       <div className="post__title">
