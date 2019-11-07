@@ -1,8 +1,8 @@
 import React from "react";
 
-import CustomRadioButton from "../custom-radio-button/custom-radio-button.component";
+import CustomRadioButton from "components/custom-radio-button/custom-radio-button.component";
 
-import "./topic-select.styles.scss";
+import "components/topic-select/topic-select.styles.scss";
 
 const TopicSelect = ({ topic, handleChange }) => {
   return (

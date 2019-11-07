@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./expert-photo.styles.scss";
+import "components/expert-photo/expert-photo.styles.scss";
 
 const ExpertPhoto = ({ photo }) => (
   <div className="expert-photo">

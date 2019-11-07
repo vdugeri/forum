@@ -1,8 +1,8 @@
 import React from "react";
 
-import { ReactComponent as SearchIcon } from "../../assets/icons/magnifying-glass.svg";
+import { ReactComponent as SearchIcon } from "assets/icons/magnifying-glass.svg";
 
-import "./search-field.styles.scss";
+import "components/search-field/search-field.styles.scss";
 
 const SearchField = ({ value, placeholder, handleChange }) => (
   <div className="search-field">

@@ -2,18 +2,15 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
-import CustomButton from "../custom-button/custom-button.component";
-import Editor from "../editor/editor.component";
+import CustomButton from "components/custom-button/custom-button.component";
+import Editor from "components/editor/editor.component";
 
 import { toggleModalStatus } from "../../redux/user/user.actions";
-import {
-  selectModalShown,
-  selectCurrentUser
-} from "../../redux/user/user.selectors";
-import { selectCurrentPost } from "../../redux/posts/post.selectors";
-import { startCreateReply } from "../../redux/posts/posts.actions";
+import { selectModalShown, selectCurrentUser } from "redux/user/user.selectors";
+import { selectCurrentPost } from "redux/posts/post.selectors";
+import { startCreateReply } from "redux/posts/posts.actions";
 
-import "./create-reply.styles.scss";
+import "components/create-reply/create-reply.styles.scss";
 
 const CreateReply = ({ currentPost, onCreateReplyStart, currentUser }) => {
   const [reply, setReply] = useState({

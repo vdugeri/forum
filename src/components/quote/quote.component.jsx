@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./quote.styles.scss";
+import "components/quote/quote.styles.scss";
 
 const Quote = () => (
   <div className="quote">

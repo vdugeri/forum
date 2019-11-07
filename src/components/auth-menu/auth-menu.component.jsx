@@ -2,9 +2,9 @@ import React from "react";
 import { withRouter } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-import logo from "../../assets/logo.png";
+import logo from "assets/logo.png";
 
-import "./auth-menu.styles.scss";
+import "components/auth-menu/auth-menu.styles.scss";
 
 const AuthMenu = ({ match }) => {
   return (

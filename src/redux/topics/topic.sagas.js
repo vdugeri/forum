@@ -1,9 +1,12 @@
 import { all, call, put, takeLatest } from "redux-saga/effects";
 
-import axios from "../../utils/http-client";
+import axios from "utils/http-client";
 
-import { fetchTopicsFailure, fetchTopicsSuccess } from "./topics.actions";
-import topicsActionTypes from "./topics.types";
+import {
+  fetchTopicsFailure,
+  fetchTopicsSuccess
+} from "redux/topics/topics.actions";
+import topicsActionTypes from "redux/topics/topics.types";
 
 const endpoint = "/topics";
 

@@ -1,4 +1,4 @@
-import userActionTypes from "./user.types";
+import userActionTypes from "redux/user/user.types";
 
 export const userSignInStart = userCreds => ({
   type: userActionTypes.LOGIN_START,

@@ -1,11 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import CustomButton from "../custom-button/custom-button.component";
+import CustomButton from "components/custom-button/custom-button.component";
 
-import { closeWelcomeModal } from "../../redux/user/user.actions";
+import { closeWelcomeModal } from "redux/user/user.actions";
 
-import "./welcome-modal.styles.scss";
+import "components/welcome-modal/welcome-modal.styles.scss";
 
 const WelcomeModal = ({ newUser, carePerson, closeModal }) => (
   <div className="welcome-modal__overlay">

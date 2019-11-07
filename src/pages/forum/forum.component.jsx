@@ -2,27 +2,27 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
-import TopicLink from "../../components/topic-link/topic-link.component";
-import SearchField from "../../components/search-field/search-field.component";
-import WritePost from "../../components/write-post/write-post.component";
-import BackLink from "../../components/back-link/back-link.component";
-import PostPreview from "../../components/post-preview/post-preview.component";
-import WithSpinner from "../../components/with-spinner/with-spinner.component";
+import TopicLink from "components/topic-link/topic-link.component";
+import SearchField from "components/search-field/search-field.component";
+import WritePost from "components/write-post/write-post.component";
+import BackLink from "components/back-link/back-link.component";
+import PostPreview from "components/post-preview/post-preview.component";
+import WithSpinner from "components/with-spinner/with-spinner.component";
 
-import titleCase from "../../utils/title-case";
-import removeDashes from "../../utils/remove-dashes";
+import titleCase from "utils/title-case";
+import removeDashes from "utils/remove-dashes";
 
 import {
   selectTopicList,
   selectCurrentTopic
-} from "../../redux/topics/topics.selectors";
-import { fetchPostsStart } from "../../redux/posts/posts.actions";
+} from "redux/topics/topics.selectors";
+import { fetchPostsStart } from "redux/posts/posts.actions";
 import {
   selectPostList,
   selectIsPostLoading
-} from "../../redux/posts/post.selectors";
+} from "redux/posts/post.selectors";
 
-import "./forum.styles.scss";
+import "pages/forum/forum.styles.scss";
 
 const PostPreviewWithSpinner = WithSpinner(PostPreview);
 

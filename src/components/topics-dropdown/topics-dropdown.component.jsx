@@ -3,13 +3,13 @@ import { createStructuredSelector } from "reselect";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 
-import TopicStrip from "../topic-strip/topic-strip.component";
-import CustomButton from "../custom-button/custom-button.component";
+import TopicStrip from "components/topic-strip/topic-strip.component";
+import CustomButton from "components/custom-button/custom-button.component";
 
-import { selectTopicList } from "../../redux/topics/topics.selectors";
-import { toggleTopicsDropdown } from "../../redux/topics/topics.actions";
+import { selectTopicList } from "redux/topics/topics.selectors";
+import { toggleTopicsDropdown } from "redux/topics/topics.actions";
 
-import "./topics-dropdown.styles.scss";
+import "components/topics-dropdown/topics-dropdown.styles.scss";
 
 const TopicsDropdown = ({ topics, history, toggleTopicsDropdown }) => {
   const goToPostPage = () => {

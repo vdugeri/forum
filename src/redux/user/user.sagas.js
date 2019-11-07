@@ -1,7 +1,7 @@
 import { all, call, put, takeLatest } from "redux-saga/effects";
-import axios from "../../utils/http-client";
+import axios from "utils/http-client";
 
-import userActionTypes from "./user.types";
+import userActionTypes from "redux/user/user.types";
 import {
   userSignInFailure,
   userSignInSuccess,

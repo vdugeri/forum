@@ -2,23 +2,23 @@ import React from "react";
 import { createStructuredSelector } from "reselect";
 import { connect } from "react-redux";
 
-import Post from "../../components/post/post.component";
-import WithSpinner from "../../components/with-spinner/with-spinner.component";
-import CreateReply from "../../components/create-reply/create-reply.component";
-import Reply from "../../components/reply/reply.component";
-import SearchField from "../../components/search-field/search-field.component";
-import BackLink from "../../components/back-link/back-link.component";
-// import ExplorePractitioners from "../../components/explore-practitioners/explore-practitioners.component";
-import WritePost from "../../components/write-post/write-post.component";
+import Post from "components/post/post.component";
+import WithSpinner from "components/with-spinner/with-spinner.component";
+import CreateReply from "components/create-reply/create-reply.component";
+import Reply from "components/reply/reply.component";
+import SearchField from "components/search-field/search-field.component";
+import BackLink from "components/back-link/back-link.component";
+// import ExplorePractitioners from "components/explore-practitioners/explore-practitioners.component";
+import WritePost from "components/write-post/write-post.component";
 
 import {
   selectCurrentPost,
   selectIsPostLoading,
   selectIsRepliesLoading
-} from "../../redux/posts/post.selectors";
-import { startFetchReply } from "../../redux/posts/posts.actions";
+} from "redux/posts/post.selectors";
+import { startFetchReply } from "redux/posts/posts.actions";
 
-import "./post-page.styles.scss";
+import "pages/post-page/post-page.styles.scss";
 
 const PostWithSpinner = WithSpinner(Post);
 

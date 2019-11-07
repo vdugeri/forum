@@ -1,13 +1,13 @@
 import { all, call, put, takeLatest } from "redux-saga/effects";
 
-import messagesActionTypes from "./message.types";
-import axios from "../../utils/http-client";
+import messagesActionTypes from "redux/messages/message.types";
+import axios from "utils/http-client";
 import {
   sendMessageSuccess,
   sendMessageFailure,
   fetchMessagesFailure,
   fetchMessagesSuccess
-} from "./messages.actions";
+} from "redux/messages/messages.actions";
 
 export function* sendMessage({ payload }) {
   try {

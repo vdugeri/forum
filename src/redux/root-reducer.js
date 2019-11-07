@@ -2,10 +2,10 @@ import { combineReducers } from "redux";
 import { persistReducer } from "redux-persist";
 import storage from "localforage";
 
-import userReducer from "./user/user.reducer";
-import topicsReducer from "./topics/topics.reducer";
-import postsReducer from "./posts/posts.reducer";
-import messagesReducer from "./messages/messages.reducer";
+import userReducer from "redux/user/user.reducer";
+import topicsReducer from "redux/topics/topics.reducer";
+import postsReducer from "redux/posts/posts.reducer";
+import messagesReducer from "redux/messages/messages.reducer";
 
 const persistConfig = {
   key: "root",

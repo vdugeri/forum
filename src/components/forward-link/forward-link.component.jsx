@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import "./forward-link.styles.scss";
+import "components/forward-link/forward-link.styles.scss";
 
 const ForwardLink = ({ linkText, linkUrl }) => (
   <Link to={linkUrl} className="forward-link">

@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./custom-input.styles.scss";
+import "components/custom-input/custom-input.styles.scss";
 
 const CustomInput = ({ label, handleChange, type, ...otherProps }) => (
   <div className="custom-input">

@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import CustomButton from "../custom-button/custom-button.component";
+import CustomButton from "components/custom-button/custom-button.component";
 
-import "./write-post.styles.scss";
+import "components/write-post/write-post.styles.scss";
 
 const WritePost = () => (
   <div className="write-post">

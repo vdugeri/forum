@@ -2,16 +2,16 @@ import React from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
-import SearchField from "../../components/search-field/search-field.component";
-import Topic from "../../components/topic/topic.component";
-import PopularTopics from "../../components/popular-topics/popular-topics.component";
-import WritePost from "../../components/write-post/write-post.component";
-// import ExplorePractitioners from "../../components/explore-practitioners/explore-practitioners.component";
+import SearchField from "components/search-field/search-field.component";
+import Topic from "components/topic/topic.component";
+import PopularTopics from "components/popular-topics/popular-topics.component";
+import WritePost from "components/write-post/write-post.component";
+// import ExplorePractitioners from "components/explore-practitioners/explore-practitioners.component";
 
-import { selectTopicList } from "../../redux/topics/topics.selectors";
-import { startFetchTopics } from "../../redux/topics/topics.actions";
+import { selectTopicList } from "redux/topics/topics.selectors";
+import { startFetchTopics } from "redux/topics/topics.actions";
 
-import "./homepage.styles.scss";
+import "pages/homepage/homepage.styles.scss";
 
 const Homepage = ({ topics }) => {
   return (

@@ -1,7 +1,7 @@
 import { all, call, put, takeLatest } from "redux-saga/effects";
-import axios from "../../utils/http-client";
+import axios from "utils/http-client";
 
-import postsActionTypes from "./posts.types";
+import postsActionTypes from "redux/posts/posts.types";
 import {
   postCreateSuccess,
   postCreateFailure,
@@ -15,7 +15,7 @@ import {
   fetchUserPostsSuccess,
   fetchReplyFailure,
   fetchReplySuccess
-} from "./posts.actions";
+} from "redux/posts/posts.actions";
 
 let endpoint = "/posts";
 const repliesEndpoint = "/replies";

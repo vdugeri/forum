@@ -5,11 +5,11 @@ import { connect } from "react-redux";
 import hljs from "highlight.js";
 import "highlight.js/styles/hopscotch.css";
 
-import titleCase from "../../utils/title-case";
+import titleCase from "utils/title-case";
 
-import { openPostStart } from "../../redux/posts/posts.actions";
+import { openPostStart } from "redux/posts/posts.actions";
 
-import "./post-preview.styles.scss";
+import "components/post-preview/post-preview.styles.scss";
 
 const PostPreview = ({ post, openPost }) => {
   useEffect(() => {

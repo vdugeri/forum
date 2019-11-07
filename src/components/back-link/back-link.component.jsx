@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import "./back-link.styles.scss";
+import "components/back-link/back-link.styles.scss";
 
 const BackLink = ({ linkText, linkUrl }) => (
   <Link to={linkUrl} className="back-link">

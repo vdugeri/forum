@@ -1,4 +1,4 @@
-import messagesActionTypes from "./message.types";
+import messagesActionTypes from "redux/messages/message.types";
 
 export const setCurrentMessage = message => ({
   type: messagesActionTypes.SET_CURRENT_MESSAGE,

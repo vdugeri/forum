@@ -3,21 +3,21 @@ import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import { withRouter, Link } from "react-router-dom";
 
-import logo from "../../assets/logo.png";
+import logo from "assets/logo.png";
 
-import CustomButton from "../custom-button/custom-button.component";
-import TopicsDropdown from "../topics-dropdown/topics-dropdown.component";
-import AccountDropdown from "../account-dropdown/account-dropdown.component";
-import UserAvatar from "../user-avatar/user-avatar.component";
+import CustomButton from "components/custom-button/custom-button.component";
+import TopicsDropdown from "components/topics-dropdown/topics-dropdown.component";
+import AccountDropdown from "components/account-dropdown/account-dropdown.component";
+import UserAvatar from "components/user-avatar/user-avatar.component";
 
-import { selectIsOpen } from "../../redux/topics/topics.selectors";
-import { toggleTopicsDropdown } from "../../redux/topics/topics.actions";
+import { selectIsOpen } from "redux/topics/topics.selectors";
+import { toggleTopicsDropdown } from "redux/topics/topics.actions";
 import {
   selectCurrentUser,
   selectIsAccountOpen
-} from "../../redux/user/user.selectors";
+} from "redux/user/user.selectors";
 
-import "./header.styles.scss";
+import "components/header/header.styles.scss";
 
 const Header = ({
   history,

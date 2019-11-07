@@ -1,9 +1,9 @@
 import React from "react";
 
-import PostOverview from "../post-overview/post-overview.component";
-import ForwardLink from "../forward-link/forward-link.component";
+import PostOverview from "components/post-overview/post-overview.component";
+import ForwardLink from "components/forward-link/forward-link.component";
 
-import "./popular-topics.styles.scss";
+import "components/popular-topics/popular-topics.styles.scss";
 
 const PopularTopics = ({ topic }) => (
   <div className="popular-topics">

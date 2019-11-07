@@ -2,17 +2,17 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
-import { ReactComponent as PaperPlane } from "../../assets/icons/paperplane.svg";
-import CustomTextArea from "../../components/custom-textarea/custom-textarea.component";
+import { ReactComponent as PaperPlane } from "assets/icons/paperplane.svg";
+import CustomTextArea from "components/custom-textarea/custom-textarea.component";
 
-import { startSendMessage } from "../../redux/messages/messages.actions";
+import { startSendMessage } from "redux/messages/messages.actions";
 import {
   selectCurrentMessage,
   selectMessageReciver
-} from "../../redux/messages/messages.selectors";
-import { selectCurrentUser } from "../../redux/user/user.selectors";
+} from "redux/messages/messages.selectors";
+import { selectCurrentUser } from "redux/user/user.selectors";
 
-import "./message-composer.styles.scss";
+import "components/message-composer/message-composer.styles.scss";
 
 const MessageComposer = ({ currentMessage, currentUser, onSendMessage }) => {
   const [message, setMessage] = useState("");

@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
-import CustomInput from "../custom-input/custom-input.component";
-import CustomButton from "../custom-button/custom-button.component";
+import CustomInput from "components/custom-input/custom-input.component";
+import CustomButton from "components/custom-button/custom-button.component";
 
-import { toggleModalStatus } from "../../redux/user/user.actions";
+import { toggleModalStatus } from "redux/user/user.actions";
 
-import { userSignUpStart } from "../../redux/user/user.actions";
+import { userSignUpStart } from "redux/user/user.actions";
 
-import "./register-modal.styles.scss";
+import "components/register-modal/register-modal.styles.scss";
 
 const RegisterModal = ({ toggleModalStatus, onSignupStart, match }) => {
   const [userCreds, setUserCreds] = useState({

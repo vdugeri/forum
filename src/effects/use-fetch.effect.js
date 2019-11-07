@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-import {} from "../redux/posts/posts.actions";
+import {} from "redux/posts/posts.actions";
 
 const useFetch = url => {
   const [data, setData] = useState(null);

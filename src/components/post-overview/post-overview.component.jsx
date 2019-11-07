@@ -4,11 +4,11 @@ import { connect } from "react-redux";
 import hljs from "highlight.js";
 import "highlight.js/styles/hopscotch.css";
 
-import { openPostStart } from "../../redux/posts/posts.actions";
+import { openPostStart } from "redux/posts/posts.actions";
 
-import titleCase from "../../utils/title-case";
+import titleCase from "utils/title-case";
 
-import "./post-overview.styles.scss";
+import "components/post-overview/post-overview.styles.scss";
 
 const PostOverview = ({ post, onOpenPostStart }) => {
   useEffect(() => {

@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./custom-textarea.styles.scss";
+import "components/custom-textarea/custom-textarea.styles.scss";
 
 const CustomTextarea = ({
   name,

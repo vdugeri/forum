@@ -2,9 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
-import { toggleTopicsDropdown } from "../../redux/topics/topics.actions";
+import { toggleTopicsDropdown } from "redux/topics/topics.actions";
 
-import "./topic-strip.styles.scss";
+import "components/topic-strip/topic-strip.styles.scss";
 
 const TopicStrip = ({ topic, toggleTopicsDropdown }) => (
   <div className="topic-strip">

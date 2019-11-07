@@ -2,13 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
-import ForwardLink from "../forward-link/forward-link.component";
+import ForwardLink from "components/forward-link/forward-link.component";
 import {
   toggleAccountDropdown,
   userSignoutStart
-} from "../../redux/user/user.actions";
+} from "redux/user/user.actions";
 
-import "./account-dropdown.styles.scss";
+import "components/account-dropdown/account-dropdown.styles.scss";
 
 const AccountDropdown = ({ user, toggleDropdown, onSignoutStart }) => (
   <div

@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import { ReactComponent as EmptyBook } from "../../assets/icons/book.svg";
-import CustomButton from "../custom-button/custom-button.component";
+import { ReactComponent as EmptyBook } from "assets/icons/book.svg";
+import CustomButton from "components/custom-button/custom-button.component";
 
-import "./no-posts.styles.scss";
+import "components/no-posts/no-posts.styles.scss";
 
 const NoPosts = () => (
   <div className="no-posts">

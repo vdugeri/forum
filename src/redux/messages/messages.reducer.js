@@ -1,4 +1,4 @@
-import messagesActionTypes from "./message.types";
+import messagesActionTypes from "redux/messages/message.types";
 
 const INITIAL_STATE = {
   messageList: [],

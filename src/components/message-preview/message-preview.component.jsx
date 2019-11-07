@@ -2,9 +2,9 @@ import React from "react";
 import moment from "moment";
 import { connect } from "react-redux";
 
-import { setCurrentMessage } from "../../redux/messages/messages.actions";
+import { setCurrentMessage } from "redux/messages/messages.actions";
 
-import "./message-preview.styles.scss";
+import "components/message-preview/message-preview.styles.scss";
 
 const MessagePreview = ({ message, readMessage }) => (
   <div className="message-preview" onClick={() => readMessage(message)}>

@@ -1,4 +1,4 @@
-import postsActionTypes from "./posts.types";
+import postsActionTypes from "redux/posts/posts.types";
 
 export const startPostCreate = postData => ({
   type: postsActionTypes.START_CREATE_POST,

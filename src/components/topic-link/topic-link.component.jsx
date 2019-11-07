@@ -2,9 +2,9 @@ import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
-import { setCurrentTopic } from "../../redux/topics/topics.actions";
+import { setCurrentTopic } from "redux/topics/topics.actions";
 
-import "./topic-link.styles.scss";
+import "components/topic-link/topic-link.styles.scss";
 
 const TopicLink = ({ topic, setCurrentTopic }) => (
   <Link

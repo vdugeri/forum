@@ -1,7 +1,7 @@
 import React from "react";
 import moment from "moment";
 
-import "./message.styles.scss";
+import "components/message/message.styles.scss";
 
 const Message = ({ message }) => (
   <div className="message">

@@ -1,11 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import titleCase from "../../utils/title-case";
+import titleCase from "utils/title-case";
 
-import { toggleAccountDropdown } from "../../redux/user/user.actions";
+import { toggleAccountDropdown } from "redux/user/user.actions";
 
-import "./user-avatar.styles.scss";
+import "components/user-avatar/user-avatar.styles.scss";
 
 const UserAvatar = ({ user, toggleDropdown }) => (
   <div className="user-avatar" onClick={toggleDropdown}>

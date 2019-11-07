@@ -2,12 +2,12 @@ import React from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
-import PostPreview from "../post-preview/post-preview.component";
-import NoPosts from "../no-posts/no-posts.component";
+import PostPreview from "components/post-preview/post-preview.component";
+import NoPosts from "components/no-posts/no-posts.component";
 
-import { selectUserPosts } from "../../redux/posts/post.selectors";
+import { selectUserPosts } from "redux/posts/post.selectors";
 
-import "./post-list.styles.scss";
+import "components/post-list/post-list.styles.scss";
 
 const PostList = ({ posts }) => {
   return (

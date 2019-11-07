@@ -3,19 +3,19 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
-import { ReactComponent as WavingHand } from "../../assets/icons/waving-hand.svg";
-import WelcomeModal from "../../components/welcome-modal/welcome-modal.component";
-import CustomButton from "../../components/custom-button/custom-button.component";
-import profileImage from "../../assets/images/profile_image.jpg";
-import Topic from "../../components/topic/topic.component";
+import { ReactComponent as WavingHand } from "assets/icons/waving-hand.svg";
+import WelcomeModal from "components/welcome-modal/welcome-modal.component";
+import CustomButton from "components/custom-button/custom-button.component";
+import profileImage from "assets/images/profile_image.jpg";
+import Topic from "components/topic/topic.component";
 
-import { selectTopicList } from "../../redux/topics/topics.selectors";
+import { selectTopicList } from "redux/topics/topics.selectors";
 
-import "./welcome.styles.scss";
+import "components/welcome/welcome.styles.scss";
 import {
   selectCurrentUser,
   selectShowWelcomeModal
-} from "../../redux/user/user.selectors";
+} from "redux/user/user.selectors";
 
 const carePerson = { name: "Kaitlyn", image: profileImage };
 

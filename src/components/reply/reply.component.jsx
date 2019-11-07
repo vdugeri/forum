@@ -1,9 +1,9 @@
 import React from "react";
 import moment from "moment";
 
-import CustomButton from "../custom-button/custom-button.component";
+import CustomButton from "components/custom-button/custom-button.component";
 
-import "./reply.styles.scss";
+import "components/reply/reply.styles.scss";
 
 const Reply = ({ reply }) => (
   <div className="reply">

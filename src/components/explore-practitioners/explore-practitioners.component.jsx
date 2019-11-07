@@ -1,9 +1,9 @@
 import React from "react";
 
-import ExpertPhoto from "../expert-photo/expert-photo.component";
-import CustomButton from "../custom-button/custom-button.component";
+import ExpertPhoto from "components/expert-photo/expert-photo.component";
+import CustomButton from "components/custom-button/custom-button.component";
 
-import "./explore-practitioners.styles.scss";
+import "components/explore-practitioners/explore-practitioners.styles.scss";
 
 const ExplorePractitioners = ({ topExperts }) => (
   <div className="explore">

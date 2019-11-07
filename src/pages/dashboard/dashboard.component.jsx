@@ -1,8 +1,8 @@
 import React from "react";
 
-import Welcome from "../../components/welcome/welcome.component";
+import Welcome from "components/welcome/welcome.component";
 
-import "./dashboard.styles.scss";
+import "pages/dashboard/dashboard.styles.scss";
 
 const Dashboard = () => <Welcome />;
 

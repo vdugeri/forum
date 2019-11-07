@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./custom-checkbox.styles.scss";
+import "components/custom-checkbox/custom-checkbox.styles.scss";
 
 const CustomCheckbox = ({ handleChange, label, name }) => (
   <label className="container">

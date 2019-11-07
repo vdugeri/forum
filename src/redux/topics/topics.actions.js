@@ -1,4 +1,4 @@
-import topicActionTypes from "./topics.types";
+import topicActionTypes from "redux/topics/topics.types";
 
 export const toggleTopicsDropdown = () => ({
   type: topicActionTypes.TOGGLE_TOPIC_DROPDOWN

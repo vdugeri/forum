@@ -1,4 +1,4 @@
-import topicActionTypes from "./topics.types";
+import topicActionTypes from "redux/topics/topics.types";
 
 const INITIAL_STATE = {
   topicList: [],

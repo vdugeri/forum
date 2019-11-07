@@ -5,11 +5,11 @@ import moment from "moment";
 import hljs from "highlight.js";
 import "highlight.js/styles/hopscotch.css";
 
-import CreateReply from "../create-reply/create-reply.component";
+import CreateReply from "components/create-reply/create-reply.component";
 
-import { selectCurrentPost } from "../../redux/posts/post.selectors";
+import { selectCurrentPost } from "redux/posts/post.selectors";
 
-import "./post.styles.scss";
+import "components/post/post.styles.scss";
 
 const Post = ({ post }) => {
   useEffect(() => {

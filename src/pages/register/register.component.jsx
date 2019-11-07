@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 
-import CustomInput from "../../components/custom-input/custom-input.component";
-import CustomButton from "../../components/custom-button/custom-button.component";
-import AuthMenu from "../../components/auth-menu/auth-menu.component";
+import CustomInput from "components/custom-input/custom-input.component";
+import CustomButton from "components/custom-button/custom-button.component";
+import AuthMenu from "components/auth-menu/auth-menu.component";
 
-import { userSignUpStart } from "../../redux/user/user.actions";
+import { userSignUpStart } from "redux/user/user.actions";
 
-import "./register.styles.scss";
+import "pages/register/register.styles.scss";
 
 const Register = ({ onSignUpStart }) => {
   const [userCreds, setUserCreds] = useState({
