@@ -22,8 +22,10 @@ const repliesEndpoint = "/replies";
 
 export function* createPost({ payload }) {
   try {
-    const { data } = yield axios.post(endpoint, payload);
-    yield put(postCreateSuccess(data));
+    const {
+      data: { post }
+    } = yield axios.post(endpoint, payload);
+    yield put(postCreateSuccess(post));
   } catch (error) {
     yield put(postCreateFailure(error));
   }

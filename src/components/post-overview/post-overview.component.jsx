@@ -38,7 +38,11 @@ const PostOverview = ({ post, onOpenPostStart }) => {
             dangerouslySetInnerHTML={{ __html: post.body.substring(0, 200) }}
           />
         </div>
-        <span>Be the first to reply</span>
+        <Link to={`/posts/${post._id}`} onClick={() => openPostStart(post)}>
+          <span>
+            {post.replies.length ? `View all replies` : `Be the first to reply`}
+          </span>
+        </Link>
       </div>
     </div>
   );

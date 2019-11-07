@@ -1,5 +1,9 @@
-export const addPostToList = (state, post) => {
-  return [...state.postList, post];
+export const addPostToList = (postList, post) => {
+  return [...postList, post];
+};
+
+export const addToUserPost = (userPosts, post) => {
+  return [...userPosts, post];
 };
 
 export const selectPost = (postList, id) => {

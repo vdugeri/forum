@@ -1,5 +1,5 @@
 import postsActionTypes from "redux/posts/posts.types";
-import { addPostToList } from "redux/posts/posts.utils";
+import { addPostToList, addToUserPost } from "redux/posts/posts.utils";
 
 const INITIAL_STATE = {
   postList: [],
@@ -24,7 +24,8 @@ const postsReducer = (state = INITIAL_STATE, { type, payload }) => {
     case postsActionTypes.CREATE_POST_SUCCESS:
       return {
         ...state,
-        postList: addPostToList(state, payload),
+        postList: addPostToList(state.postList, payload),
+        userPosts: addToUserPost(state.userPosts, payload),
         isPostLoading: false,
         error: null
       };
