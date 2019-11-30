@@ -67,4 +67,14 @@
     color: #00856f;
     cursor: pointer;
   }
+
+  &__login {
+    margin: 2rem 0;
+    font-size: 1.4rem;
+    font-weight: 600;
+    cursor: pointer;
+    & a {
+      color: #00856f;
+    }
+  }
 }

@@ -8,7 +8,7 @@ import postsReducer from "redux/posts/posts.reducer";
 import messagesReducer from "redux/messages/messages.reducer";
 
 const persistConfig = {
-  key: "root",
+  key: "forum",
   storage,
   whitelist: ["user", "topics", "posts"]
 };

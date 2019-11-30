@@ -14,7 +14,7 @@ const PopularTopics = ({ topic }) => (
           <img src={topic.icon} alt={topic.name} />
         </div>
         <div className="popular-topics__posts">
-          {topic.posts.map(post => (
+          {topic.posts.slice(0, 4).map(post => (
             <PostOverview post={post} key={post._id} />
           ))}
         </div>

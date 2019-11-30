@@ -15,7 +15,7 @@ import "components/create-reply/create-reply.styles.scss";
 const CreateReply = ({ currentPost, onCreateReplyStart, currentUser }) => {
   const [reply, setReply] = useState({
     text: "",
-    author: currentUser.user,
+    author: currentUser ? currentUser.user : null,
     post: currentPost._id
   });
   const handleChange = (e, editor) => {
@@ -49,7 +49,4 @@ const mapDispatchToProps = dispatch => ({
   onCreateReplyStart: replyData => dispatch(startCreateReply(replyData))
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(CreateReply);
+export default connect(mapStateToProps, mapDispatchToProps)(CreateReply);

@@ -1,17 +1,21 @@
 import React, { useEffect } from "react";
-import { connect } from "react-redux";
-import { createStructuredSelector } from "reselect";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import moment from "moment";
 import hljs from "highlight.js";
 import "highlight.js/styles/hopscotch.css";
 
 import CreateReply from "components/create-reply/create-reply.component";
+import CustomButton from "components/custom-button/custom-button.component";
 
 import { selectCurrentPost } from "redux/posts/post.selectors";
+import { selectCurrentUser } from "redux/user/user.selectors";
 
 import "components/post/post.styles.scss";
 
-const Post = ({ post }) => {
+const Post = () => {
+  const post = useSelector(selectCurrentPost);
+  const currentUser = useSelector(selectCurrentUser);
   useEffect(() => {
     document.querySelectorAll("pre code").forEach(block => {
       hljs.highlightBlock(block);
@@ -34,18 +38,17 @@ const Post = ({ post }) => {
       <div className="post__body">
         <p dangerouslySetInnerHTML={{ __html: post.body }} />
       </div>
-      {/* <div className="post__reply">
-        <div>Reply</div>
-      </div> */}
-      <div className="post__create-reply">
-        <CreateReply />
-      </div>
+      {currentUser ? (
+        <div className="post__create-reply">
+          <CreateReply />
+        </div>
+      ) : (
+        <div className="post__login">
+          <Link to="/login">Log In to Reply</Link>
+        </div>
+      )}
     </div>
   );
 };
 
-const mapStateToProps = createStructuredSelector({
-  post: selectCurrentPost
-});
-
-export default connect(mapStateToProps)(Post);
+export default Post;

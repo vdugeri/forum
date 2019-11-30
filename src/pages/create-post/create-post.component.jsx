@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
+import { withRouter } from "react-router-dom";
 
 import CustomInput from "components/custom-input/custom-input.component";
 import CustomButton from "components/custom-button/custom-button.component";
@@ -61,7 +62,9 @@ const CreatePost = ({
   const { anon, title, body, topicId, author } = postData;
   return (
     <React.Fragment>
-      {modalShown ? <RegisterModalWithSpinner isLoading={isLoading} /> : null}
+      {modalShown && !currentUser ? (
+        <RegisterModalWithSpinner isLoading={isLoading} />
+      ) : null}
       <form onSubmit={handleSubmit} className="create-post">
         <h2>Write a post</h2>
         <div className="create-post__author">
@@ -135,4 +138,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStatetoProps,
   mapDispatchToProps
-)(CreatePost);
+)(withRouter(CreatePost));

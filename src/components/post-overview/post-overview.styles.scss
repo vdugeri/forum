@@ -3,9 +3,10 @@
   flex-direction: column;
   margin-top: 2rem;
 
-  &:nth-child(1),
-  &:nth-child(2) {
-    border-bottom: 1px solid #ccc;
+  &:nth-child(3),
+  &:nth-child(4) {
+    border-top: 1px solid #ccc;
+    padding-top: 3rem;
   }
 
   &--author-image {

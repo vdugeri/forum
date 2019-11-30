@@ -15,10 +15,7 @@ import Messages from "pages/messages/messages.component";
 import WithSpinner from "components/with-spinner/with-spinner.component";
 import UserPosts from "components/user-posts/user-posts.component";
 
-import {
-  selectCurrentUser,
-  selectIsLoading
-} from "redux/user/user.selectors";
+import { selectCurrentUser, selectIsLoading } from "redux/user/user.selectors";
 import { selectIsFetchingTopics } from "redux/topics/topics.selectors";
 import { startFetchTopics } from "redux/topics/topics.actions";
 import { selectIsPostLoading } from "redux/posts/post.selectors";
@@ -70,7 +67,7 @@ function App({
         />
         <Route
           path="/register"
-          render={props =>
+          component={props =>
             !currentUser ? (
               <RegisterWithSpinner isLoading={isUserLoading} {...props} />
             ) : (
@@ -78,7 +75,16 @@ function App({
             )
           }
         />
-        <Route path="/posts/create" component={CreatePost} />
+        <Route
+          path="/posts/create"
+          component={props =>
+            !currentUser ? (
+              <LoginWithSpinner isLoading={isUserLoading} {...props} />
+            ) : (
+              <CreatePost />
+            )
+          }
+        />
         <Route path="/forum/:topic" component={Forum} />
         <Route path="/posts/:id" component={PostPage} />
         <Route
@@ -113,7 +119,4 @@ const mapDispatchToProps = dispatch => ({
   onFetchUserPosts: userId => dispatch(fetchUserPostsStart(userId))
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

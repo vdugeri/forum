@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import hljs from "highlight.js";
@@ -11,6 +12,7 @@ import titleCase from "utils/title-case";
 import "components/post-overview/post-overview.styles.scss";
 
 const PostOverview = ({ post, onOpenPostStart }) => {
+  const dispatch = useDispatch();
   useEffect(() => {
     document.querySelectorAll("pre code").forEach(block => {
       hljs.highlightBlock(block);
@@ -35,10 +37,15 @@ const PostOverview = ({ post, onOpenPostStart }) => {
         </Link>
         <div className="post-overview__summary">
           <p
-            dangerouslySetInnerHTML={{ __html: post.body.substring(0, 200) }}
+            dangerouslySetInnerHTML={{
+              __html: post.body.substring(0, 300) + " ..."
+            }}
           />
         </div>
-        <Link to={`/posts/${post._id}`} onClick={() => openPostStart(post)}>
+        <Link
+          to={`/posts/${post._id}`}
+          onClick={() => dispatch(openPostStart(post))}
+        >
           <span>
             {post.replies.length ? `View all replies` : `Be the first to reply`}
           </span>
@@ -52,7 +59,4 @@ const mapDispatchToProps = dispatch => ({
   onOpenPostStart: postId => dispatch(openPostStart(postId))
 });
 
-export default connect(
-  null,
-  mapDispatchToProps
-)(PostOverview);
+export default connect(null, mapDispatchToProps)(PostOverview);
