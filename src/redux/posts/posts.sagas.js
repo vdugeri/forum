@@ -45,6 +45,7 @@ export function* replyToPost({ payload }) {
       data: { post }
     } = yield axios.post(repliesEndpoint, payload);
     yield put(createReplySuccess(post));
+    window.location.reload();
   } catch (error) {
     yield put(createReplyFailure(error));
   }
