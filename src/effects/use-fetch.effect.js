@@ -1,24 +1,75 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { useEffect, useReducer } from "react";
+import axios from "utils/http-client";
 
-import {} from "redux/posts/posts.actions";
+const actionTypes = {
+  FETCH_START: "FETCH_START",
+  FETCH_SUCCESS: "FETCH_SUCCESS",
+  FETCH_FAILURE: "FETCH_FAILURE"
+};
 
-const useFetch = url => {
-  const [data, setData] = useState(null);
-  const [error, setError] = useState(null);
+const useFetchReducer = (state, { type, payload }) => {
+  switch (type) {
+    case actionTypes.FETCH_START:
+      return {
+        ...state,
+        loading: true,
+        isError: false
+      };
+    case actionTypes.FETCH_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        isError: false,
+        data: payload
+      };
+    case actionTypes.FETCH_FAILURE:
+      return {
+        ...state,
+        loading: false,
+        isError: true
+      };
+    default:
+      return state;
+  }
+};
+
+const useFetch = (url, initialData) => {
+  const [state, dispatch] = useReducer(useFetchReducer, {
+    isError: false,
+    loading: false,
+    data: initialData
+  });
   useEffect(() => {
+    let didCancel = false;
     const fetchData = async () => {
+      dispatch({ type: actionTypes.FETCH_START });
+
       try {
         const res = await axios.get(url);
-        setData(res.data);
+        console.log("[x]", res);
+        if (!didCancel) {
+          dispatch({
+            type: actionTypes.FETCH_SUCCESS,
+            payload: res.data
+          });
+        }
       } catch (error) {
-        setError(error);
+        if (!didCancel) {
+          dispatch({
+            type: actionTypes.FETCH_FAILURE,
+            payload: error
+          });
+        }
       }
     };
     fetchData();
+
+    return () => {
+      didCancel = true;
+    };
   }, [url]);
 
-  return { data, error };
+  return [state];
 };
 
 export default useFetch;

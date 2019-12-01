@@ -6,7 +6,6 @@ import hljs from "highlight.js";
 import "highlight.js/styles/hopscotch.css";
 
 import CreateReply from "components/create-reply/create-reply.component";
-import CustomButton from "components/custom-button/custom-button.component";
 
 import { selectCurrentPost } from "redux/posts/post.selectors";
 import { selectCurrentUser } from "redux/user/user.selectors";
