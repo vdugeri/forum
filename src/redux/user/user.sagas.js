@@ -8,7 +8,9 @@ import {
   userSignUpFailure,
   userSignUpSuccess,
   userSignoutFailure,
-  userSignoutSuccess
+  userSignoutSuccess,
+  updateUserAccountFailure,
+  udpateUserAccountSuccess
 } from "./user.actions";
 
 export function* userSignIn({ payload }) {
@@ -43,6 +45,16 @@ export function* userSignout() {
   }
 }
 
+export function* updateAccount({ payload }) {
+  try {
+    const { data } = yield axios.put(`/users/${payload._id}`, payload);
+
+    yield put(udpateUserAccountSuccess(data));
+  } catch (error) {
+    yield put(updateUserAccountFailure(error));
+  }
+}
+
 export function* onSignInStart() {
   yield takeLatest(userActionTypes.LOGIN_START, userSignIn);
 }
@@ -55,6 +67,15 @@ export function* onSignoutStart() {
   yield takeLatest(userActionTypes.SIGN_OUT_START, userSignout);
 }
 
+export function* onUpdateUserAccount() {
+  yield takeLatest(userActionTypes.UPDATE_USER_ACCOUNT_START, updateAccount);
+}
+
 export function* userSagas() {
-  yield all([call(onSignInStart), call(onSignUpStart), call(onSignoutStart)]);
+  yield all([
+    call(onSignInStart),
+    call(onSignUpStart),
+    call(onSignoutStart),
+    call(onUpdateUserAccount)
+  ]);
 }

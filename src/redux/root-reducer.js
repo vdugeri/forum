@@ -10,7 +10,7 @@ import messagesReducer from "redux/messages/messages.reducer";
 const persistConfig = {
   key: "forum",
   storage,
-  whitelist: ["user", "topics", "posts"]
+  whitelist: ["topics", "posts", "user"]
 };
 
 const rootReducer = combineReducers({

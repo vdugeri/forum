@@ -17,7 +17,8 @@ const CustomButton = ({ children, primary, ghost, large, ...otherProps }) => (
 CustomButton.propTypes = {
   ghost: PropTypes.bool,
   primary: PropTypes.bool,
-  large: PropTypes.bool
+  large: PropTypes.bool,
+  disabled: PropTypes.bool
 };
 
 export default CustomButton;

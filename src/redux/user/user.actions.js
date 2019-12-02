@@ -54,3 +54,18 @@ export const toggleAccountDropdown = () => ({
 export const closeWelcomeModal = () => ({
   type: userActionTypes.CLOSE_WELCOME_MODAL
 });
+
+export const updateUserAccountStart = user => ({
+  type: userActionTypes.UPDATE_USER_ACCOUNT_START,
+  payload: user
+});
+
+export const udpateUserAccountSuccess = user => ({
+  type: userActionTypes.UPDATE_USER_ACCOUNT_SUCCESS,
+  payload: user
+});
+
+export const updateUserAccountFailure = error => ({
+  type: userActionTypes.UPDATE_USER_ACCOUNT_FAILURE,
+  payload: error
+});

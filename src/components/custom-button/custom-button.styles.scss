@@ -30,4 +30,9 @@
       background-color: #123304;
     }
   }
+
+  &:disabled {
+    background-color: #b7c0c0;
+    cursor: default;
+  }
 }

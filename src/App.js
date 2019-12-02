@@ -22,6 +22,7 @@ import { startFetchTopics } from "redux/topics/topics.actions";
 import { selectIsPostLoading } from "redux/posts/post.selectors";
 
 import "./App.css";
+import EditAccount from "components/edit-account/edit-account.component";
 
 const RegisterWithSpinner = WithSpinner(Register);
 const LoginWithSpinner = WithSpinner(Login);
@@ -101,6 +102,13 @@ function App({
           exact
           component={() =>
             currentUser ? <AccountPage /> : <Redirect to="/login" />
+          }
+        />
+        <Route
+          path="/account/edit"
+          exact
+          component={() =>
+            currentUser ? <EditAccount /> : <Redirect to="/login" />
           }
         />
       </Switch>

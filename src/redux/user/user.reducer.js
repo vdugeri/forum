@@ -14,13 +14,16 @@ const userReducer = (state = INITIAL_STATE, { type, payload }) => {
     case userActionTypes.LOGIN_START:
     case userActionTypes.SIGNUP_START:
     case userActionTypes.SIGN_OUT_START:
+    case userActionTypes.UPDATE_USER_ACCOUNT_START:
       return {
         ...state,
-        isLoading: true
+        isLoading: true,
+        error: null
       };
     case userActionTypes.LOGIN_FAILURE:
     case userActionTypes.SIGNUP_FAILURE:
     case userActionTypes.SIGN_OUT_FAILURE:
+    case userActionTypes.UPDATE_USER_ACCOUNT_FAILURE:
       return {
         ...state,
         error: payload,
@@ -34,6 +37,7 @@ const userReducer = (state = INITIAL_STATE, { type, payload }) => {
         isLoading: false
       };
     case userActionTypes.SIGNUP_SUCCESS:
+    case userActionTypes.UPDATE_USER_ACCOUNT_SUCCESS:
       return {
         ...state,
         currentUser: payload,

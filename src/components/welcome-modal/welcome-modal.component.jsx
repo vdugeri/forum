@@ -18,9 +18,9 @@ const WelcomeModal = ({ newUser, carePerson, closeModal }) => (
       </div>
       <div className="welcome-modal__salutation">Hi, {newUser.firstName}</div>
       <p className="welcome-modal__message">
-        I’m {carePerson.name}, your personal Tales Care Coordinator. Welcome to
-        Maven! I’m here to answer any question and recommend the best
-        practitioners to talk to based on your needs.
+        I’m {carePerson.name}, your personal Vanillatots Care Coordinator.
+        Welcome to Vanillatots! I’m here to answer any question and recommend
+        the best experts to talk to based on your needs.
       </p>
       <p className="welcome-modal__action">
         Send me a message anytime and let me know how I can help!
@@ -41,7 +41,4 @@ const mapDispatchToProps = dispatch => ({
   closeModal: () => dispatch(closeWelcomeModal())
 });
 
-export default connect(
-  null,
-  mapDispatchToProps
-)(WelcomeModal);
+export default connect(null, mapDispatchToProps)(WelcomeModal);
