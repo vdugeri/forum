@@ -18,7 +18,7 @@ const AccountDropdown = ({ user, toggleDropdown, onSignoutStart }) => (
   >
     <div className="account-dropdown__username">
       <h2>{`${user.firstName} ${user.lastName}`}</h2>
-      <Link to="/settings">Account settings &amp; payments</Link>
+      <Link to="/account">Account settings &amp; payments</Link>
     </div>
     <div className="account-dropdown__links">
       <ForwardLink linkText="My Posts" linkUrl={`/dashboard/posts`} />
@@ -37,7 +37,4 @@ const mapDispatchToProps = dispatch => ({
   onSignoutStart: () => dispatch(userSignoutStart())
 });
 
-export default connect(
-  null,
-  mapDispatchToProps
-)(AccountDropdown);
+export default connect(null, mapDispatchToProps)(AccountDropdown);

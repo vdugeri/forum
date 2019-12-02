@@ -14,6 +14,7 @@ import Dashboard from "pages/dashboard/dashboard.component";
 import Messages from "pages/messages/messages.component";
 import WithSpinner from "components/with-spinner/with-spinner.component";
 import UserPosts from "components/user-posts/user-posts.component";
+import AccountPage from "pages/account/account.component";
 
 import { selectCurrentUser, selectIsLoading } from "redux/user/user.selectors";
 import { selectIsFetchingTopics } from "redux/topics/topics.selectors";
@@ -93,6 +94,14 @@ function App({
         <Route
           path="/dashboard/messages"
           component={() => (currentUser ? <Messages /> : <Redirect to="/" />)}
+        />
+
+        <Route
+          path="/account"
+          exact
+          component={() =>
+            currentUser ? <AccountPage /> : <Redirect to="/login" />
+          }
         />
       </Switch>
     </div>

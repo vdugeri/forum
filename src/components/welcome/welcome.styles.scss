@@ -23,7 +23,7 @@
   }
 
   &__welcome-text {
-    font-size: 1.4rem;
+    font-size: 1.8rem;
     width: 60%;
     display: flex;
     align-items: center;
@@ -37,8 +37,8 @@
   &__intro {
     margin-top: 4rem;
     margin-bottom: 2rem;
-    font-family: "Domine", serif;
-    font-size: 1.6rem;
+    font-family: "Domaine Display Semibold", serif;
+    font-size: 1.8rem;
     font-weight: 400;
   }
 
@@ -52,15 +52,16 @@
   }
 
   &__info-header {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     font-weight: 600;
     margin-top: 2rem;
+    font-family: "Domaine Display Semibold", serif;
   }
 
   &__info {
     display: flex;
     margin-top: 3rem;
-    font-size: 1.4rem;
+    font-size: 1.8rem;
     font-weight: 400;
   }
 

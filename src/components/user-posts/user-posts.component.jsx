@@ -19,6 +19,7 @@ const UserPosts = () => {
       {loading && <Loader />}
       {posts && posts.length ? (
         <div className="user-posts">
+          <h2>My Posts</h2>
           {posts.map(post => (
             <PostPreview post={post} key={post._id} />
           ))}

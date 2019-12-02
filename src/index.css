@@ -1,3 +1,54 @@
+@font-face {
+  font-family: "Proxima Nova Thin";
+  src: url("assets/fonts/proxima-nova-thin.otf");
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "Proxima Nova Regular";
+  src: url("assets/fonts/ProximaNova-Regular.otf");
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "Proxima Nova Light";
+  src: url("assets/fonts/Proxima-Nova-ScOsf-Light.otf");
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "Proxima Nova bold";
+  src: url("assets/fonts/Proxima-Nova-Bold.otf");
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "Proxima Nova Extrabold";
+  src: url("assets/fonts/Proxima-Nova-Extrabold.otf");
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "Domaine Display Regular";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Domaine Display Regular"),
+    url("assets/fonts/DomaineDisp-Regular.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Domaine Display Semibold";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Domaine Display Semibold"),
+    url("assets/fonts/DomaineDisp-Semibold.woff") format("woff");
+}
+
 *,
 *::before,
 *::after {
@@ -10,12 +61,13 @@ html {
   line-height: 1.45;
   font-size: 62.5%;
   font-weight: 300;
+  color: #263633;
 }
 
 body {
   margin: 0;
-  font-family: "Open Sans", sans-serif;
-  -webkit-font-smoothing: antialiased;
+  font-family: "Proxima Nova Regular", sans-serif;
+  -webkit-font-smoothing: grayscale;
   -moz-osx-font-smoothing: grayscale;
 }
 

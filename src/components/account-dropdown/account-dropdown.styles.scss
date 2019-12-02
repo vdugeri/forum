@@ -4,7 +4,7 @@ $color-black: #000;
   flex-direction: column;
   background-color: #fff;
   position: fixed;
-  top: 9%;
+  top: 8%;
   right: 2%;
   box-shadow: 0 0 2rem rgba($color-black, 0.14);
   border: 1px solid #e7e7e7;
@@ -14,14 +14,14 @@ $color-black: #000;
   z-index: 999;
 
   &__username {
-    font-family: "Domine", serif;
+    font-family: "Domaine Display Semibold", serif;
     color: #263633;
 
     & a {
       text-decoration: none;
       color: #08561f;
       font-family: "Open sans", sans-serif;
-      font-size: 1.4rem;
+      font-size: 1.6rem;
     }
   }
 
@@ -29,13 +29,15 @@ $color-black: #000;
     margin-top: 1rem;
     & a {
       border-bottom: 1px solid #e7e7e7;
-      font-size: 1.3rem;
+      font-size: 1.6rem;
+      font-weight: 300;
+      font-family: "Proxima Nova Regular", sans-serif;
     }
   }
 
   &__logout {
     margin-top: 1rem;
-    font-size: 1.3rem;
+    font-size: 1.6rem;
     cursor: pointer;
   }
 }
