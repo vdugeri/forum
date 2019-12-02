@@ -29,7 +29,7 @@ const Header = ({
   <div className="header">
     <div className="header__logo">
       <Link to="/">
-        <img src={logo} alt="folktales logo" />
+        <img src={logo} alt="vanillatots logo" />
       </Link>
     </div>
     <div className="header__nav">

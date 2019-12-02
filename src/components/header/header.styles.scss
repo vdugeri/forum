@@ -13,7 +13,6 @@
     align-items: center;
     justify-content: center;
     width: 10%;
-    margin-left: 2rem;
     cursor: pointer;
     object-fit: contain;
 
@@ -36,7 +35,7 @@
     grid-template-columns: auto auto auto;
     grid-column-gap: 2rem;
     align-items: center;
-    margin-right: 2rem;
+    margin-right: 4rem;
     margin-left: auto;
     position: relative;
     &--item {
