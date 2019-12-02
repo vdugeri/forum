@@ -33,11 +33,12 @@ const Header = ({
       </Link>
     </div>
     <div className="header__nav">
+      {currentUser && <div className="header__nav--item">Find Experts</div>}
       <div onClick={toggleTopicsDropdown} className="header__nav--item">
         Community
       </div>
-      {isDropdownOpen ? <TopicsDropdown /> : null}
-      {isAccountOpen ? <AccountDropdown user={currentUser.user} /> : null}
+      {isDropdownOpen && <TopicsDropdown />}
+      {isAccountOpen && <AccountDropdown user={currentUser.user} />}
 
       {!currentUser ? (
         <React.Fragment>
@@ -53,7 +54,9 @@ const Header = ({
           </div>
         </React.Fragment>
       ) : (
-        <UserAvatar user={currentUser.user} />
+        <>
+          <UserAvatar user={currentUser.user} />
+        </>
       )}
     </div>
   </div>
@@ -69,7 +72,4 @@ const mapDispatchToProps = dispatch => ({
   toggleTopicsDropdown: () => dispatch(toggleTopicsDropdown())
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(withRouter(Header));
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Header));
