@@ -24,8 +24,6 @@ const postsReducer = (state = INITIAL_STATE, { type, payload }) => {
     case postsActionTypes.CREATE_POST_SUCCESS:
       return {
         ...state,
-        postList: addPostToList(state.postList, payload),
-        userPosts: addToUserPost(state.userPosts, payload),
         isPostLoading: false,
         error: null
       };

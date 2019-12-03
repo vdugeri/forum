@@ -10,6 +10,10 @@
   text-decoration: none;
   color: inherit;
 
+  &:active {
+    outline: none;
+  }
+
   &:first-child {
     border-top: 1px solid #ccc;
   }

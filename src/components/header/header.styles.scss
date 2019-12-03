@@ -7,6 +7,10 @@
   font-weight: 400;
   border-bottom: 1px solid #e6e6e6;
   font-family: "Proxima Nova Bold";
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+  background-color: #fff;
 
   &__logo {
     display: flex;
