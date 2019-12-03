@@ -1,5 +1,4 @@
 import postsActionTypes from "redux/posts/posts.types";
-import { addPostToList, addToUserPost } from "redux/posts/posts.utils";
 
 const INITIAL_STATE = {
   postList: [],
