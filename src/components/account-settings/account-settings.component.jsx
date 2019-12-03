@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { selectCurrentUser } from "redux/user/user.selectors";
 import { Link } from "react-router-dom";
 
-import Tag from "components/tag/tag.component";
+import Chip from "components/chip/chip.component";
 import Button from "components/custom-button/custom-button.component";
 
 import "./account-settings.styles.scss";
@@ -43,14 +43,14 @@ const AccountSettings = () => {
         <div className="account-settings__block">
           <span>
             <h4>Primary Skill:</h4>
-            <Tag label={user.primarySkill} />
+            <Chip label={user.primarySkill} />
           </span>
         </div>
         <div className="account-settings__block">
           <h4>Other Skills:</h4>
           <span className="tags">
             {user.otherSkills.map((skill, index) => (
-              <Tag label={skill} key={index} />
+              <Chip label={skill} key={index} />
             ))}
           </span>
         </div>

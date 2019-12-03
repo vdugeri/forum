@@ -51,7 +51,7 @@
       &.tags {
         display: grid;
         grid-template-columns: auto auto;
-        margin-top: 1rem;
+        grid-gap: 1rem;
       }
 
       & h4 {

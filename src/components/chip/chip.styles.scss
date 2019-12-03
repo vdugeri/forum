@@ -1,0 +1,24 @@
+.chip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  height: 30px;
+  font-size: 16px;
+  line-height: 50px;
+  border-radius: 25px;
+  background-color: #f1f1f1;
+
+  &__close {
+    color: #888;
+    font-weight: 700;
+    float: right;
+    font-size: 2rem;
+    margin-left: auto;
+    cursor: pointer;
+
+    &:hover {
+      color: #ff3c00cc;
+    }
+  }
+}

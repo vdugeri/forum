@@ -25,4 +25,12 @@
       margin-top: 2rem;
     }
   }
+
+  &__other-skills {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 1rem;
+    margin-top: 1rem;
+    font-size: 1.6rem;
+  }
 }

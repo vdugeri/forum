@@ -10,7 +10,9 @@ const CustomInput = ({ label, handleChange, type, ...otherProps }) => (
       {...otherProps}
       className="custom-input__field"
     />
-    {label && !otherProps.value ? <label>{label}</label> : ""}
+    {label && (
+      <label className={!otherProps.value ? "" : "has-value"}>{label}</label>
+    )}
   </div>
 );
 

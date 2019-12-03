@@ -6,6 +6,7 @@ import Input from "components/custom-input/custom-input.component";
 import Button from "components/custom-button/custom-button.component";
 import Dropdown from "components/dropdown/dropdown.component";
 import Loader from "components/loader/loader.component";
+import Chip from "components/chip/chip.component";
 
 import { updateUserAccountStart } from "redux/user/user.actions";
 
@@ -32,6 +33,7 @@ const EditAccount = () => {
 
   const [userData, setUserData] = useState(user);
   const [dirty, setDirty] = useState(false);
+  const [newSkill, setNewSkill] = useState("");
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -44,13 +46,32 @@ const EditAccount = () => {
     setDirty(true);
   };
 
+  const handleClose = skill => {
+    let otherSkills = new Set(userData.otherSkills);
+    otherSkills.delete(skill);
+    otherSkills = Array.from(otherSkills);
+    setUserData({ ...userData, otherSkills });
+    setDirty(true);
+  };
+
+  const addSkill = e => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      const otherSkills = userData.otherSkills;
+      setUserData({ ...userData, otherSkills: [...otherSkills, newSkill] });
+      setNewSkill("");
+      setDirty(true);
+    }
+  };
+
   const {
     emailAddress,
     phone,
     firstName,
     lastName,
     location,
-    primarySkill
+    primarySkill,
+    otherSkills
   } = userData;
 
   return (
@@ -103,10 +124,30 @@ const EditAccount = () => {
             selected={location}
           />
 
+          <Input
+            label="Add Skills"
+            name="otherSkills"
+            onKeyDown={addSkill}
+            value={newSkill}
+            onChange={e => setNewSkill(e.target.value)}
+          />
+
+          <div className="edit-account__other-skills">
+            {otherSkills.map((skill, index) => (
+              <Chip
+                label={skill}
+                closeable={true}
+                key={index}
+                onClose={handleClose}
+              />
+            ))}
+          </div>
+
           <Button primary disabled={!dirty}>
             Save Changes
           </Button>
         </form>
+        <h3>Payment Settings</h3>
       </div>
     </>
   );
