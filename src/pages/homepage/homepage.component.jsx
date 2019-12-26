@@ -1,19 +1,22 @@
 import React from "react";
-import { connect } from "react-redux";
-import { createStructuredSelector } from "reselect";
+import { useSelector } from "react-redux";
 
 import SearchField from "components/search-field/search-field.component";
 import Topic from "components/topic/topic.component";
 import PopularTopics from "components/popular-topics/popular-topics.component";
 import WritePost from "components/write-post/write-post.component";
-// import ExplorePractitioners from "components/explore-practitioners/explore-practitioners.component";
-
+import ExplorePractitioners from "components/explore-practitioners/explore-practitioners.component";
+import useFetch from "effects/use-fetch.effect";
 import { selectTopicList } from "redux/topics/topics.selectors";
-import { startFetchTopics } from "redux/topics/topics.actions";
+import WithSpinner from "components/with-spinner/with-spinner.component";
 
 import "pages/homepage/homepage.styles.scss";
 
-const Homepage = ({ topics }) => {
+const PractionersWithSpinner = WithSpinner(ExplorePractitioners);
+
+const Homepage = () => {
+  const topics = useSelector(selectTopicList);
+  const [{ data: topExperts, loading }] = useFetch("/experts?limit=3", []);
   return (
     <div className="homepage">
       <div className="homepage__header">
@@ -33,21 +36,9 @@ const Homepage = ({ topics }) => {
           <PopularTopics topic={topic} key={topic._id} />
         ))}
       </div>
-
-      {/* <ExplorePractitioners topExperts={users.topExperts} /> */}
+      <PractionersWithSpinner isLoading={loading} topExperts={topExperts} />
     </div>
   );
 };
 
-const mapStateToProps = createStructuredSelector({
-  topics: selectTopicList
-});
-
-const mapDispatchToProps = dispatch => ({
-  onFetchTopicsStart: () => dispatch(startFetchTopics())
-});
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Homepage);
+export default Homepage;

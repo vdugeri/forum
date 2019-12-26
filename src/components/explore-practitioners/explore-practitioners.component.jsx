@@ -9,7 +9,7 @@ const ExplorePractitioners = ({ topExperts }) => (
   <div className="explore">
     <div className="explore__experts">
       {topExperts.map(expert => (
-        <ExpertPhoto photo={expert.photo} key={expert.id} />
+        <ExpertPhoto photo={expert.image} key={expert._id} />
       ))}
     </div>
     <h2 className="explore__heading">Need an expert's advice?</h2>
