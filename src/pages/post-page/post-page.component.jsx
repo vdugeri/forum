@@ -1,6 +1,5 @@
 import React from "react";
-import { createStructuredSelector } from "reselect";
-import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 
 import Post from "components/post/post.component";
 import WithSpinner from "components/with-spinner/with-spinner.component";
@@ -10,19 +9,21 @@ import SearchField from "components/search-field/search-field.component";
 import BackLink from "components/back-link/back-link.component";
 // import ExplorePractitioners from "components/explore-practitioners/explore-practitioners.component";
 import WritePost from "components/write-post/write-post.component";
-
-import {
-  selectCurrentPost,
-  selectIsPostLoading,
-  selectIsRepliesLoading
-} from "redux/posts/post.selectors";
-import { startFetchReply } from "redux/posts/posts.actions";
+import useFetch from "effects/use-fetch.effect";
 
 import "pages/post-page/post-page.styles.scss";
 
 const PostWithSpinner = WithSpinner(Post);
 
-const PostPage = ({ currentPost, isPostLoading, showReply }) => {
+const PostPage = ({ showReply, match }) => {
+  const {
+    params: { id }
+  } = match;
+
+  const url = `/posts/${id}`;
+
+  const [{ data: currentPost, loading }] = useFetch(url, { replies: [] });
+
   return (
     <div className="post-page">
       <BackLink linkText="All Topics" linkUrl="/" />
@@ -30,7 +31,7 @@ const PostPage = ({ currentPost, isPostLoading, showReply }) => {
         <h2>Join The Conversation</h2>
         <SearchField placeholder="what are you looking for?" />
       </div>
-      <PostWithSpinner isLoading={isPostLoading} />
+      <PostWithSpinner isLoading={loading} />
       <div className="post-page__create-reply">
         {showReply ? <CreateReply /> : null}
       </div>
@@ -45,17 +46,4 @@ const PostPage = ({ currentPost, isPostLoading, showReply }) => {
   );
 };
 
-const mapStateToProps = createStructuredSelector({
-  currentPost: selectCurrentPost,
-  isPostLoading: selectIsPostLoading,
-  isRepliesLoading: selectIsRepliesLoading
-});
-
-const mapDispatchToProps = dispatch => ({
-  onFetchReplies: postId => dispatch(startFetchReply(postId))
-});
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(PostPage);
+export default withRouter(PostPage);

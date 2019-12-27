@@ -1,17 +1,26 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import moment from "moment";
-import { connect } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { selectCurrentUser } from "redux/user/user.selectors";
+import { ReactComponent as DeleteIcon } from "assets/icons/delete.svg";
 import hljs from "highlight.js";
 import "highlight.js/styles/hopscotch.css";
 
 import titleCase from "utils/title-case";
 
-import { openPostStart } from "redux/posts/posts.actions";
+import { openPostStart, deletePostStart } from "redux/posts/posts.actions";
 
 import "components/post-preview/post-preview.styles.scss";
 
 const PostPreview = ({ post, openPost }) => {
+  const currentUser = useSelector(selectCurrentUser);
+  const dispatch = useDispatch();
+
+  const ownsPost = () => {
+    return currentUser.user._id === post.author._id;
+  };
+
   useEffect(() => {
     document.querySelectorAll("pre code").forEach(block => {
       hljs.highlightBlock(block);
@@ -19,6 +28,12 @@ const PostPreview = ({ post, openPost }) => {
   }, []);
   return (
     <div className="post-preview">
+      {ownsPost() && (
+        <DeleteIcon
+          className="icon-small"
+          onClick={() => dispatch(deletePostStart(post._id))}
+        />
+      )}
       <div className="post-preview__author">
         <div className="post-preview__author--image">
           {post.author.firstName.substring(0, 1).toUpperCase()}
@@ -34,7 +49,10 @@ const PostPreview = ({ post, openPost }) => {
       </div>
 
       <span className="post-preview__title">
-        <Link to={`/posts/${post._id}`} onClick={() => openPost(post)}>
+        <Link
+          to={`/posts/${post._id}`}
+          onClick={() => dispatch(openPostStart(post))}
+        >
           {post.title}
         </Link>
       </span>
@@ -46,7 +64,10 @@ const PostPreview = ({ post, openPost }) => {
         />
       </div>
       <span>
-        <Link to={`/posts/${post._id}`} onClick={() => openPost(post)}>
+        <Link
+          to={`/posts/${post._id}`}
+          onClick={() => dispatch(openPostStart(post))}
+        >
           {post.replies.length ? `View all replies` : `Be the first to reply`}
         </Link>
       </span>
@@ -54,11 +75,4 @@ const PostPreview = ({ post, openPost }) => {
   );
 };
 
-const mapDispatchToProps = dispatch => ({
-  openPost: post => dispatch(openPostStart(post))
-});
-
-export default connect(
-  null,
-  mapDispatchToProps
-)(PostPreview);
+export default PostPreview;

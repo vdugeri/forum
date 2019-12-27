@@ -93,3 +93,17 @@ export const fetchUserPostsFailure = error => ({
   type: postsActionTypes.FETCH_USER_POSTS_FAILURE,
   payload: error
 });
+
+export const deletePostStart = postId => ({
+  type: postsActionTypes.DELETE_POST_START,
+  payload: postId
+});
+
+export const deletePostSuccess = () => ({
+  type: postsActionTypes.DELETE_POST_SUCCESS
+});
+
+export const deletePostFailure = error => ({
+  type: postsActionTypes.DELETE_POST_FAILURE,
+  payload: error
+});

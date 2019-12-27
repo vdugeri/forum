@@ -16,6 +16,7 @@ const postsReducer = (state = INITIAL_STATE, { type, payload }) => {
     case postsActionTypes.OPEN_POST_START:
     case postsActionTypes.FETCH_POSTS_START:
     case postsActionTypes.FETCH_USER_POSTS_START:
+    case postsActionTypes.DELETE_POST_START:
       return {
         ...state,
         isPostLoading: true
@@ -43,6 +44,7 @@ const postsReducer = (state = INITIAL_STATE, { type, payload }) => {
     case postsActionTypes.OPEN_POST_FAILURE:
     case postsActionTypes.FETCH_POSTS_FAILURE:
     case postsActionTypes.FETCH_USER_POSTS_FAILURE:
+    case postsActionTypes.DELETE_POST_FAILURE:
       return {
         ...state,
         error: payload,
@@ -80,6 +82,11 @@ const postsReducer = (state = INITIAL_STATE, { type, payload }) => {
         ...state,
         isRepliesLoading: false,
         error: payload
+      };
+    case postsActionTypes.DELETE_POST_SUCCESS:
+      return {
+        ...state,
+        isPostLoading: false
       };
     default:
       return state;

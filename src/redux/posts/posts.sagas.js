@@ -14,7 +14,9 @@ import {
   fetchUserPostsFailure,
   fetchUserPostsSuccess,
   fetchReplyFailure,
-  fetchReplySuccess
+  fetchReplySuccess,
+  deletePostFailure,
+  deletePostSuccess
 } from "redux/posts/posts.actions";
 
 let endpoint = "/posts";
@@ -90,6 +92,16 @@ export function* fetchReplies({ payload }) {
   }
 }
 
+export function* deletePost({ payload }) {
+  try {
+    const endpoint = `/posts/${payload}`;
+    yield axios.delete(endpoint);
+    yield put(deletePostSuccess());
+  } catch (error) {
+    yield put(deletePostFailure(error));
+  }
+}
+
 export function* onCreatePostStart() {
   yield takeLatest(postsActionTypes.START_CREATE_POST, createPost);
 }
@@ -114,6 +126,10 @@ export function* onFetchRepliesStart() {
   yield takeLatest(postsActionTypes.REPLY_FETCH_START, fetchReplies);
 }
 
+export function* onDeletePost() {
+  yield takeLatest(postsActionTypes.DELETE_POST_START, deletePost);
+}
+
 export function* postsSagas() {
   yield all([
     call(onCreatePostStart),
@@ -121,6 +137,7 @@ export function* postsSagas() {
     call(onAddReply),
     call(onFetchPosts),
     call(onFetchUserPostsStart),
-    call(onFetchRepliesStart)
+    call(onFetchRepliesStart),
+    call(onDeletePost)
   ]);
 }

@@ -9,11 +9,15 @@ import { selectUserPosts } from "redux/posts/post.selectors";
 import "components/user-posts/user-posts.styles.scss";
 import { selectCurrentUser } from "redux/user/user.selectors";
 import Loader from "components/loader/loader.component";
+import WithSpinner from "components/with-spinner/with-spinner.component";
+
+const PostPreviewWithSpinner = WithSpinner(PostPreview);
 
 const UserPosts = () => {
   const currentUser = useSelector(selectCurrentUser);
-  const [{ data, loading }] = useFetch(`/users/${currentUser.user._id}/posts`);
-  const posts = data ? data.posts : [];
+  const url = `/users/${currentUser.user._id}/posts`;
+  const [{ data, loading }] = useFetch(url, []);
+  const { posts } = data;
   return (
     <>
       {loading && <Loader />}
@@ -21,7 +25,11 @@ const UserPosts = () => {
         <div className="user-posts">
           <h2>My Posts</h2>
           {posts.map(post => (
-            <PostPreview post={post} key={post._id} />
+            <PostPreviewWithSpinner
+              isLoading={loading}
+              post={post}
+              key={post._id}
+            />
           ))}
         </div>
       ) : (
