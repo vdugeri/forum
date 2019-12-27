@@ -9,11 +9,11 @@ import "highlight.js/styles/hopscotch.css";
 
 import titleCase from "utils/title-case";
 
-import { openPostStart, deletePostStart } from "redux/posts/posts.actions";
+import { deletePostStart } from "redux/posts/posts.actions";
 
 import "components/post-preview/post-preview.styles.scss";
 
-const PostPreview = ({ post, openPost }) => {
+const PostPreview = ({ post }) => {
   const currentUser = useSelector(selectCurrentUser);
   const dispatch = useDispatch();
 
@@ -49,12 +49,7 @@ const PostPreview = ({ post, openPost }) => {
       </div>
 
       <span className="post-preview__title">
-        <Link
-          to={`/posts/${post._id}`}
-          onClick={() => dispatch(openPostStart(post))}
-        >
-          {post.title}
-        </Link>
+        <Link to={`/posts/${post._id}`}>{post.title}</Link>
       </span>
       <div className="post-preview__body">
         <p
@@ -64,10 +59,7 @@ const PostPreview = ({ post, openPost }) => {
         />
       </div>
       <span>
-        <Link
-          to={`/posts/${post._id}`}
-          onClick={() => dispatch(openPostStart(post))}
-        >
+        <Link to={`/posts/${post._id}`}>
           {post.replies.length ? `View all replies` : `Be the first to reply`}
         </Link>
       </span>
