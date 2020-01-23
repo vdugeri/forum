@@ -1,4 +1,7 @@
-.topic-link {
+import styled from "styled-components";
+import { Link } from "react-router-dom";
+
+export const StyledLink = styled(Link)`
   display: flex;
   width: 100%;
   align-items: center;
@@ -17,10 +20,10 @@
   &:first-child {
     border-top: 1px solid #ccc;
   }
+`;
 
-  &__icon {
-    color: #00856f;
-    font-size: 3rem;
-    font-weight: 500;
-  }
-}
+export const TopicLinkIcon = styled.span`
+  color: #00856f;
+  font-size: 3rem;
+  font-weight: 500;
+`;
