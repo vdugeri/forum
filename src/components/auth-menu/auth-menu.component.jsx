@@ -1,6 +1,11 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
-import { Link } from "react-router-dom";
+import {
+  MenuLink,
+  MenuLogo,
+  MenuWrapper,
+  LinksWrapper
+} from "components/auth-menu/auth-menu.styles";
 
 import logo from "assets/logo.png";
 
@@ -8,25 +13,19 @@ import "components/auth-menu/auth-menu.styles.scss";
 
 const AuthMenu = ({ match }) => {
   return (
-    <div className="auth-menu">
-      <div className="auth-menu__logo">
+    <MenuWrapper>
+      <MenuLogo>
         <img src={logo} alt="tales" />
-      </div>
-      <div className="auth-menu__links">
-        <Link
-          to="/login"
-          className={`${match.path === "/login" ? "current-link" : ""}`}
-        >
+      </MenuLogo>
+      <LinksWrapper>
+        <MenuLink to="/login" current={match.path === "/login"}>
           Sign In
-        </Link>
-        <Link
-          to="/register"
-          className={`${match.path === "/register" ? "current-link" : ""}`}
-        >
+        </MenuLink>
+        <MenuLink to="/register" current={match.path === "/register"}>
           Create account
-        </Link>
-      </div>
-    </div>
+        </MenuLink>
+      </LinksWrapper>
+    </MenuWrapper>
   );
 };
 

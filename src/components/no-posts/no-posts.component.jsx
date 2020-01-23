@@ -1,23 +1,26 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import {
+  StyledLink,
+  Message,
+  Title,
+  IconContainer,
+  Wrapper
+} from "components/no-posts/no-posts.styles";
 
 import { ReactComponent as EmptyBook } from "assets/icons/book.svg";
 import CustomButton from "components/custom-button/custom-button.component";
 
-import "components/no-posts/no-posts.styles.scss";
-
 const NoPosts = () => (
-  <div className="no-posts">
-    <div className="no-posts__icon-container">
+  <Wrapper>
+    <IconContainer>
       <EmptyBook className="no-posts__icon" />
-    </div>
-    <h2>You don't have any posts yet</h2>
-    <span>Posts will appear once you've posted something</span>
-
+    </IconContainer>
+    <Title>You don't have any posts yet</Title>
+    <Message>Posts will appear once you've posted something</Message>
     <CustomButton primary>
-      <Link to="/posts/create">Create Post</Link>
+      <StyledLink to="/posts/create">Create Post</StyledLink>
     </CustomButton>
-  </div>
+  </Wrapper>
 );
 
 export default NoPosts;
