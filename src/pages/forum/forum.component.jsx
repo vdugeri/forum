@@ -5,7 +5,7 @@ import { createStructuredSelector } from "reselect";
 import TopicLink from "components/topic-link/topic-link.component";
 import SearchField from "components/search-field/search-field.component";
 import WritePost from "components/write-post/write-post.component";
-import BackLink from "components/back-link/back-link.component";
+import BackLink from "components/back-link/backlink.component";
 import PostPreview from "components/post-preview/post-preview.component";
 import WithSpinner from "components/with-spinner/with-spinner.component";
 
@@ -72,7 +72,4 @@ const mapDispatchToProps = dispatch => ({
   onFetchPostsStart: topicId => dispatch(fetchPostsStart(topicId))
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Forum);
+export default connect(mapStateToProps, mapDispatchToProps)(Forum);

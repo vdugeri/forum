@@ -6,7 +6,7 @@ import WithSpinner from "components/with-spinner/with-spinner.component";
 import CreateReply from "components/create-reply/create-reply.component";
 import Reply from "components/reply/reply.component";
 import SearchField from "components/search-field/search-field.component";
-import BackLink from "components/back-link/back-link.component";
+import BackLink from "components/back-link/backlink.component";
 import ExplorePractitioners from "components/explore-practitioners/explore-practitioners.component";
 import WritePost from "components/write-post/write-post.component";
 import useFetch from "effects/use-fetch.effect";
