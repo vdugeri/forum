@@ -5,11 +5,14 @@ import { withRouter } from "react-router-dom";
 
 import TopicStrip from "components/topic-strip/topic-strip.component";
 import CustomButton from "components/custom-button/custom-button.component";
+import {
+  DropdownHeading,
+  DropdownFooter,
+  DropdownWrapper
+} from "components/topics-dropdown/topics-dropdown.styles";
 
 import { selectTopicList } from "redux/topics/topics.selectors";
 import { toggleTopicsDropdown } from "redux/topics/topics.actions";
-
-import "components/topics-dropdown/topics-dropdown.styles.scss";
 
 const TopicsDropdown = ({ topics, history, toggleTopicsDropdown }) => {
   const goToPostPage = () => {
@@ -18,18 +21,18 @@ const TopicsDropdown = ({ topics, history, toggleTopicsDropdown }) => {
   };
 
   return (
-    <div className="topic-dropdown" onMouseLeave={toggleTopicsDropdown}>
-      <h2>Community</h2>
+    <DropdownWrapper onMouseLeave={toggleTopicsDropdown}>
+      <DropdownHeading>Community</DropdownHeading>
       {topics.map(topic => (
         <TopicStrip topic={topic} key={topic._id} />
       ))}
-      <div className="topic-dropdown__cta">
+      <DropdownFooter>
         <span>Have a question?</span>
         <CustomButton ghost onClick={goToPostPage}>
           Write a post
         </CustomButton>
-      </div>
-    </div>
+      </DropdownFooter>
+    </DropdownWrapper>
   );
 };
 

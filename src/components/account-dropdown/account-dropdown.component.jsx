@@ -4,32 +4,29 @@ import { connect } from "react-redux";
 
 import ForwardLink from "components/forward-link/forward-link.component";
 import {
+  LogoutLink,
+  LinksWrapper,
+  UsernameWrapper,
+  Container
+} from "components/account-dropdown/account-dropdown.styles";
+import {
   toggleAccountDropdown,
   userSignoutStart
 } from "redux/user/user.actions";
 
-import "components/account-dropdown/account-dropdown.styles.scss";
-
 const AccountDropdown = ({ user, toggleDropdown, onSignoutStart }) => (
-  <div
-    className="account-dropdown"
-    onMouseLeave={toggleDropdown}
-    onClick={toggleDropdown}
-  >
-    <div className="account-dropdown__username">
+  <Container onMouseLeave={toggleDropdown} onClick={toggleDropdown}>
+    <UsernameWrapper>
       <h2>{`${user.firstName} ${user.lastName}`}</h2>
       <Link to="/account">Account settings &amp; payments</Link>
-    </div>
-    <div className="account-dropdown__links">
+    </UsernameWrapper>
+    <LinksWrapper className="account-dropdown__links">
       <ForwardLink linkText="My Posts" linkUrl={`/dashboard/posts`} />
       <ForwardLink linkText="Messages" linkUrl="/dashboard/messages" />
       <ForwardLink linkText="Help &amp; contact" linkUrl="/help-contact" />
-    </div>
-
-    <div className="account-dropdown__logout" onClick={onSignoutStart}>
-      Log out
-    </div>
-  </div>
+    </LinksWrapper>
+    <LogoutLink onClick={onSignoutStart}>Log out</LogoutLink>
+  </Container>
 );
 
 const mapDispatchToProps = dispatch => ({
