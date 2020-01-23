@@ -1,29 +1,21 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+
+import { TopicLink, TopicIcon, TopicName } from "components/topic/topic.styles";
 
 import { setCurrentTopic } from "redux/topics/topics.actions";
 
-import "components/topic/topic.styles.scss";
-
 const Topic = ({ topic, setCurrentTopic }) => (
-  <Link
-    className="category"
-    to={`${topic.linkUrl}`}
-    onClick={() => setCurrentTopic(topic)}
-  >
-    <div className="category__icon">
+  <TopicLink to={`${topic.linkUrl}`} onClick={() => setCurrentTopic(topic)}>
+    <TopicIcon>
       <img src={topic.icon} alt={topic.name} />
-    </div>
-    <div className="category__name">{topic.name}</div>
-  </Link>
+    </TopicIcon>
+    <TopicName>{topic.name}</TopicName>
+  </TopicLink>
 );
 
 const mapDispatchToProps = dispatch => ({
   setCurrentTopic: topic => dispatch(setCurrentTopic(topic))
 });
 
-export default connect(
-  null,
-  mapDispatchToProps
-)(Topic);
+export default connect(null, mapDispatchToProps)(Topic);

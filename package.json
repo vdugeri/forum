@@ -40,6 +40,7 @@
     "redux-persist": "^6.0.0",
     "redux-saga": "^1.1.1",
     "reselect": "^4.0.0",
+    "styled-components": "^5.0.0",
     "tinymce": "^5.1.0"
   },
   "scripts": {
