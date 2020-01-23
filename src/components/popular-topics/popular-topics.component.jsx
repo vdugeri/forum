@@ -3,10 +3,14 @@ import { useDispatch } from "react-redux";
 
 import PostOverview from "components/post-overview/post-overview.component";
 import ForwardLink from "components/forward-link/forward-link.component";
+import {
+  Wrapper,
+  PostsWrapper,
+  PopularPosts,
+  Header
+} from "components/popular-topics/popular-topics.styles";
 
 import { setCurrentTopic } from "redux/topics/topics.actions";
-
-import "components/popular-topics/popular-topics.styles.scss";
 
 const PopularTopics = ({ topic }) => {
   const dispatch = useDispatch();
@@ -14,28 +18,28 @@ const PopularTopics = ({ topic }) => {
     dispatch(setCurrentTopic(topic));
   };
   return (
-    <div className="popular-topics">
+    <Wrapper>
       {topic.posts.length ? (
-        <React.Fragment>
-          <div className="popular-topics__header">
+        <>
+          <Header>
             <h2>Popular in {topic.name}</h2>
             <img src={topic.icon} alt={topic.name} />
-          </div>
-          <div className="popular-topics__posts">
+          </Header>
+          <PostsWrapper>
             {topic.posts.slice(0, 4).map(post => (
               <PostOverview post={post} key={post._id} />
             ))}
-          </div>
-          <div className="popular-topics__popular-posts">
+          </PostsWrapper>
+          <PopularPosts>
             <ForwardLink
               linkText="View all popular posts"
               linkUrl={topic.linkUrl}
               onClick={handleClick}
             />
-          </div>
-        </React.Fragment>
+          </PopularPosts>
+        </>
       ) : null}
-    </div>
+    </Wrapper>
   );
 };
 
