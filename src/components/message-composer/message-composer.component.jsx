@@ -4,15 +4,19 @@ import { createStructuredSelector } from "reselect";
 
 import { ReactComponent as PaperPlane } from "assets/icons/paperplane.svg";
 import CustomTextArea from "components/custom-textarea/custom-textarea.component";
+import {
+  ComposerContainer,
+  ComposerInput,
+  SendButton
+} from "components/message-composer/message-composer.styles";
 
 import { startSendMessage } from "redux/messages/messages.actions";
+
 import {
   selectCurrentMessage,
   selectMessageReciver
 } from "redux/messages/messages.selectors";
 import { selectCurrentUser } from "redux/user/user.selectors";
-
-import "components/message-composer/message-composer.styles.scss";
 
 const MessageComposer = ({ currentMessage, currentUser, onSendMessage }) => {
   const [message, setMessage] = useState("");
@@ -32,19 +36,19 @@ const MessageComposer = ({ currentMessage, currentUser, onSendMessage }) => {
   };
 
   return (
-    <div className="message-composer">
-      <div className="message-composer__input">
+    <ComposerContainer>
+      <ComposerInput>
         <CustomTextArea
           name="message"
           placeholder="Message here..."
           handleChange={handleChange}
           value={message}
         />
-      </div>
-      <div className="message-composer__send-button" onClick={handleClick}>
+      </ComposerInput>
+      <SendButton onClick={handleClick}>
         <PaperPlane />
-      </div>
-    </div>
+      </SendButton>
+    </ComposerContainer>
   );
 };
 
@@ -58,7 +62,4 @@ const mapDispatchToProps = dispatch => ({
   onSendMessage: message => dispatch(startSendMessage(message))
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(MessageComposer);
+export default connect(mapStateToProps, mapDispatchToProps)(MessageComposer);

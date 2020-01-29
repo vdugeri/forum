@@ -2,6 +2,12 @@ import React from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import { withRouter, Link } from "react-router-dom";
+import {
+  HeaderWrapper,
+  HeaderLogo,
+  Nav,
+  NavItem
+} from "components/header/header.styles";
 
 import logo from "assets/logo.png";
 
@@ -26,40 +32,38 @@ const Header = ({
   isAccountOpen,
   currentUser
 }) => (
-  <div className="header">
-    <div className="header__logo">
+  <HeaderWrapper>
+    <HeaderLogo>
       <Link to="/">
         <img src={logo} alt="vanillatots logo" />
       </Link>
-    </div>
-    <div className="header__nav">
-      {currentUser && <div className="header__nav--item">Find Experts</div>}
-      <div onClick={toggleTopicsDropdown} className="header__nav--item">
-        Community
-      </div>
+    </HeaderLogo>
+    <Nav>
+      {currentUser && <NavItem>Find Experts</NavItem>}
+      <NavItem onClick={toggleTopicsDropdown}>Community</NavItem>
       {isDropdownOpen && <TopicsDropdown />}
       {isAccountOpen && <AccountDropdown user={currentUser.user} />}
 
       {!currentUser ? (
         <React.Fragment>
-          <div className="header__nav--item">
+          <NavItem>
             <CustomButton onClick={() => history.push("/login")} ghost>
               Sign in
             </CustomButton>
-          </div>
-          <div className="header__nav--item">
+          </NavItem>
+          <NavItem>
             <CustomButton primary onClick={() => history.push("/register")}>
               Create account
             </CustomButton>
-          </div>
+          </NavItem>
         </React.Fragment>
       ) : (
         <>
           <UserAvatar user={currentUser.user} />
         </>
       )}
-    </div>
-  </div>
+    </Nav>
+  </HeaderWrapper>
 );
 
 const mapStateToProps = createStructuredSelector({

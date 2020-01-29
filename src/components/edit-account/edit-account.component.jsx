@@ -17,8 +17,6 @@ import {
 
 import { updateUserAccountStart } from "redux/user/user.actions";
 
-import "./edit-account.styles.scss";
-
 const locations = [
   { value: "Garki", id: 1 },
   { value: "Wuse", id: 2 },

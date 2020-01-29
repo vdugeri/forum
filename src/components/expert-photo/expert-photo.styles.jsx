@@ -1,4 +1,6 @@
-.expert-photo {
+import styled from "styled-components";
+
+export const ExpertPhotoContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -14,4 +16,4 @@
     border-radius: 50%;
     border: 3px solid #fff;
   }
-}
+`;

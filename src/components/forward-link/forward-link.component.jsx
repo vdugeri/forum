@@ -1,13 +1,14 @@
 import React from "react";
-import { Link } from "react-router-dom";
-
-import "components/forward-link/forward-link.styles.scss";
+import {
+  StyledLink,
+  LinkIcon
+} from "components/forward-link/forward-link.styles";
 
 const ForwardLink = ({ linkText, linkUrl, ...otherProps }) => (
-  <Link to={linkUrl} {...otherProps} className="forward-link">
-    <span className="forward-link__text">{linkText}</span>
-    <span className="forward-link__icon">&#8250;</span>
-  </Link>
+  <StyledLink to={linkUrl} {...otherProps}>
+    <span>{linkText}</span>
+    <LinkIcon>&#8250;</LinkIcon>
+  </StyledLink>
 );
 
 export default ForwardLink;

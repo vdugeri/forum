@@ -33,14 +33,9 @@ const Messages = ({
         ))}
       </div>
       <div className="messages__message-area">
-        <div>
-          {currentMessage ? <Message message={currentMessage} /> : <Quote />}
-        </div>
-        {currentMessage ? (
-          <div>
-            <MessageComposer />
-          </div>
-        ) : null}
+        {currentMessage ? <Message message={currentMessage} /> : <Quote />}
+
+        {currentMessage && <MessageComposer />}
       </div>
     </div>
   );
@@ -56,7 +51,4 @@ const mapDispatchToProps = dispatch => ({
   onFetchMessages: user => dispatch(startFetchMessages(user))
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Messages);
+export default connect(mapStateToProps, mapDispatchToProps)(Messages);

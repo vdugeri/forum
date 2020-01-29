@@ -1,11 +1,10 @@
 import React from "react";
-
-import "./loader.styles.scss";
+import { Spinner, SpinnerOverlay } from "components/loader/loader.styles";
 
 const Loader = () => (
-  <div className="spinner-overlay">
-    <div className="spinner-container"></div>
-  </div>
+  <SpinnerOverlay>
+    <Spinner></Spinner>
+  </SpinnerOverlay>
 );
 
 export default Loader;

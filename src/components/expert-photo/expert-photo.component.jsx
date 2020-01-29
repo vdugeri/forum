@@ -1,11 +1,10 @@
 import React from "react";
-
-import "components/expert-photo/expert-photo.styles.scss";
+import { ExpertPhotoContainer } from "components/expert-photo/expert-photo.styles";
 
 const ExpertPhoto = ({ photo }) => (
-  <div className="expert-photo">
+  <ExpertPhotoContainer>
     <img src={photo} alt="expert" />
-  </div>
+  </ExpertPhotoContainer>
 );
 
 export default ExpertPhoto;
