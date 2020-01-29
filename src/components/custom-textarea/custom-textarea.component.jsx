@@ -1,6 +1,9 @@
 import React from "react";
-
-import "components/custom-textarea/custom-textarea.styles.scss";
+import {
+  TextareaContainer,
+  TextareaField,
+  TextareaLabel
+} from "components/custom-textarea/custom-textarea.styles";
 
 const CustomTextarea = ({
   name,
@@ -9,16 +12,15 @@ const CustomTextarea = ({
   handleChange,
   ...otherProps
 }) => (
-  <div className="custom-textarea">
-    <textarea
+  <TextareaContainer className="custom-textarea">
+    <TextareaField
       name={name}
       value={value}
       onChange={handleChange}
-      className="custom-textarea__field"
       {...otherProps}
-    ></textarea>
-    {label && !value ? <label>{label}</label> : null}
-  </div>
+    ></TextareaField>
+    {label && !value ? <TextareaLabel>{label}</TextareaLabel> : null}
+  </TextareaContainer>
 );
 
 export default CustomTextarea;
