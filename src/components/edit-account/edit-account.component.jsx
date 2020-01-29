@@ -8,6 +8,13 @@ import Dropdown from "components/dropdown/dropdown.component";
 import Loader from "components/loader/loader.component";
 import Chip from "components/chip/chip.component";
 
+import {
+  EditAccountWrapper,
+  AccountHeading,
+  SkillsWrapper,
+  EditForm
+} from "components/edit-account/edit-account-styles";
+
 import { updateUserAccountStart } from "redux/user/user.actions";
 
 import "./edit-account.styles.scss";
@@ -77,9 +84,9 @@ const EditAccount = () => {
   return (
     <>
       {isLoading && <Loader />}
-      <div className="edit-account">
-        <h3>Account Settings</h3>
-        <form onSubmit={handleSubmit}>
+      <EditAccountWrapper>
+        <AccountHeading>Account Settings</AccountHeading>
+        <EditForm onSubmit={handleSubmit}>
           <Input
             name="firstName"
             type="text"
@@ -132,7 +139,7 @@ const EditAccount = () => {
             onChange={e => setNewSkill(e.target.value)}
           />
 
-          <div className="edit-account__other-skills">
+          <SkillsWrapper>
             {otherSkills.map((skill, index) => (
               <Chip
                 label={skill}
@@ -141,14 +148,14 @@ const EditAccount = () => {
                 onClose={handleClose}
               />
             ))}
-          </div>
+          </SkillsWrapper>
 
           <Button primary disabled={!dirty}>
             Save Changes
           </Button>
-        </form>
+        </EditForm>
         <h3>Payment Settings</h3>
-      </div>
+      </EditAccountWrapper>
     </>
   );
 };
