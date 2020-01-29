@@ -15,8 +15,6 @@ import {
 import Chip from "components/chip/chip.component";
 import Button from "components/custom-button/custom-button.component";
 
-import "./account-settings.styles.scss";
-
 const AccountSettings = () => {
   const currentUser = useSelector(selectCurrentUser);
   const { user } = currentUser;

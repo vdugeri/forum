@@ -1,24 +1,8 @@
 import React from "react";
-import PropTypes from "prop-types";
+import { Button } from "components/custom-button/custom-button-styles";
 
-import "components/custom-button/custom-button.styles.scss";
-
-const CustomButton = ({ children, primary, ghost, large, ...otherProps }) => (
-  <button
-    {...otherProps}
-    className={`btn ${ghost ? "btn--ghost" : ""} ${
-      primary ? "btn--primary" : ""
-    } ${large ? "large" : ""}`}
-  >
-    {children}
-  </button>
-);
-
-CustomButton.propTypes = {
-  ghost: PropTypes.bool,
-  primary: PropTypes.bool,
-  large: PropTypes.bool,
-  disabled: PropTypes.bool
+const CustomButton = ({ children, ...otherProps }) => {
+  return <Button {...otherProps}>{children}</Button>;
 };
 
 export default CustomButton;

@@ -21,7 +21,7 @@ const ExplorePractitioners = ({ topExperts }) => (
       Send a private message or video chat with a variety of specialists 24/7 on
       your own time.
     </Message>
-    <CustomButton ghost>Explore practitioners</CustomButton>
+    <CustomButton ghost={true}>Explore practitioners</CustomButton>
   </ExploreExpertsWrapper>
 );
 

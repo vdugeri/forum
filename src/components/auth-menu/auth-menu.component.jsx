@@ -9,13 +9,11 @@ import {
 
 import logo from "assets/logo.png";
 
-import "components/auth-menu/auth-menu.styles.scss";
-
 const AuthMenu = ({ match }) => {
   return (
     <MenuWrapper>
       <MenuLogo>
-        <img src={logo} alt="tales" />
+        <img src={logo} alt="vanillatots" />
       </MenuLogo>
       <LinksWrapper>
         <MenuLink to="/login" current={match.path === "/login"}>

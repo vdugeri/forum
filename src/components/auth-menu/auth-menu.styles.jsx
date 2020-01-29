@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 export const MenuWrapper = styled.div`
   display: flex;
@@ -52,3 +53,11 @@ export const MenuLink = styled(Link)`
       border-bottom: 3.5px solid #00856f;
     `}
 `;
+
+MenuLink.defaultProps = {
+  current: false
+};
+
+MenuLink.propTypes = {
+  current: PropTypes.bool
+};
