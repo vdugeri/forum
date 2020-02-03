@@ -11,7 +11,13 @@ import ExplorePractitioners from "components/explore-practitioners/explore-pract
 import WritePost from "components/write-post/write-post.component";
 import useFetch from "effects/use-fetch.effect";
 
-import "pages/post-page/post-page.styles.scss";
+import {
+  PostPageWrapper,
+  PageHeader,
+  CreateWrapper,
+  CreateReplyWrapper
+} from "pages/post-page/post-page.styles";
+
 import Loader from "components/loader/loader.component";
 
 const PostWithSpinner = WithSpinner(Post);
@@ -23,37 +29,43 @@ const PostPage = ({ showReply, match }) => {
   } = match;
 
   const url = `/posts/${id}`;
-  const [{ data: currentPost, loading }] = useFetch(url);
+  const [{ data: currentPost, loading, isError }] = useFetch(url, {
+    author: { firstName: "" }
+  });
   const [{ data: topExperts, loading: loadingExperts }] = useFetch(
     "/experts?limit=3",
     []
   );
+  console.log(isError, loading);
   return (
     <>
-      {loading && <Loader />}
-      <div className="post-page">
-        <BackLink linkText="All Topics" linkUrl="/" />
-        <div className="post-page__header">
-          <h2>Join The Conversation</h2>
-          <SearchField placeholder="what are you looking for?" />
-        </div>
-        <PostWithSpinner isLoading={loading} />
-        <div className="post-page__create-reply">
-          {showReply ? <CreateReply /> : null}
-        </div>
-        {currentPost &&
-          currentPost.replies &&
-          currentPost.replies.map(reply => (
-            <Reply reply={reply} key={reply._id} />
-          ))}
-        <div className="post-page__write-post">
-          <WritePost />
-        </div>
-        <ExplorePractitionersWithSpinner
-          isLoading={loadingExperts}
-          topExperts={topExperts}
-        />
-      </div>
+      {loading ? (
+        <Loader />
+      ) : (
+        <PostPageWrapper>
+          <BackLink linkText="All Topics" linkUrl="/" />
+          <PageHeader>
+            <h2>Join The Conversation</h2>
+            <SearchField placeholder="what are you looking for?" />
+          </PageHeader>
+          <PostWithSpinner isLoading={loading} post={currentPost} />
+          <CreateReplyWrapper>
+            {showReply ? <CreateReply /> : null}
+          </CreateReplyWrapper>
+          {currentPost &&
+            currentPost.replies &&
+            currentPost.replies.map(reply => (
+              <Reply reply={reply} key={reply._id} />
+            ))}
+          <CreateWrapper>
+            <WritePost />
+          </CreateWrapper>
+          <ExplorePractitionersWithSpinner
+            isLoading={loadingExperts}
+            topExperts={topExperts}
+          />
+        </PostPageWrapper>
+      )}
     </>
   );
 };

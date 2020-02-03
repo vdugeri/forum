@@ -4,16 +4,24 @@ import { Link } from "react-router-dom";
 import moment from "moment";
 import hljs from "highlight.js";
 import "highlight.js/styles/hopscotch.css";
+import {
+  PostWrapper,
+  PostAuthor,
+  AuthorImage,
+  AuthorName,
+  PostDate,
+  PostTitle,
+  PostBody,
+  ReplyPost,
+  PostLogin
+} from "components/post/post.styles";
 
 import CreateReply from "components/create-reply/create-reply.component";
 
-import { selectCurrentPost } from "redux/posts/post.selectors";
 import { selectCurrentUser } from "redux/user/user.selectors";
 
-import "components/post/post.styles.scss";
-
-const Post = () => {
-  const post = useSelector(selectCurrentPost);
+const Post = ({ post }) => {
+  console.log(post);
   const currentUser = useSelector(selectCurrentUser);
   useEffect(() => {
     document.querySelectorAll("pre code").forEach(block => {
@@ -21,32 +29,32 @@ const Post = () => {
     });
   }, []);
   return (
-    <div className="post">
-      <div className="post__author">
-        <div className="post__author--image">
+    <PostWrapper>
+      <PostAuthor>
+        <AuthorImage>
           {post.author.firstName.substring(0, 1).toUpperCase()}
-        </div>
+        </AuthorImage>
         <div>
-          <div className="post__author--name">{post.author.firstName}</div>
-          <div className="post__date">{moment(post.created_at).calendar()}</div>
+          <AuthorName>{post.author.firstName}</AuthorName>
+          <PostDate>{moment(post.created_at).calendar()}</PostDate>
         </div>
-      </div>
-      <div className="post__title">
+      </PostAuthor>
+      <PostTitle>
         <h2>{post.title}</h2>
-      </div>
-      <div className="post__body">
+      </PostTitle>
+      <PostBody>
         <p dangerouslySetInnerHTML={{ __html: post.body }} />
-      </div>
+      </PostBody>
       {currentUser ? (
-        <div className="post__create-reply">
-          <CreateReply />
-        </div>
+        <ReplyPost>
+          <CreateReply post={post} />
+        </ReplyPost>
       ) : (
-        <div className="post__login">
+        <PostLogin>
           <Link to="/login">Log In to Reply</Link>
-        </div>
+        </PostLogin>
       )}
-    </div>
+    </PostWrapper>
   );
 };
 

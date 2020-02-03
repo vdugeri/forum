@@ -1,20 +1,21 @@
 import React from "react";
 
-import { ReactComponent as SearchIcon } from "assets/icons/magnifying-glass.svg";
-
-import "components/search-field/search-field.styles.scss";
+import {
+  SearchFieldWrapper,
+  SearchIcon,
+  SearchInput
+} from "components/search-field/search-field.styles";
 
 const SearchField = ({ value, placeholder, handleChange }) => (
-  <div className="search-field">
-    <input
+  <SearchFieldWrapper>
+    <SearchInput
       type="search"
-      className="search-field__input"
       placeholder={placeholder}
       onChange={handleChange}
       value={value}
     />
-    <SearchIcon className="search-field__icon" />
-  </div>
+    <SearchIcon />
+  </SearchFieldWrapper>
 );
 
 export default SearchField;

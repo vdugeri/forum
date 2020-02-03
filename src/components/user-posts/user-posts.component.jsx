@@ -6,7 +6,10 @@ import PostPreview from "components/post-preview/post-preview.component";
 import NoPosts from "components/no-posts/no-posts.component";
 import { selectUserPosts } from "redux/posts/post.selectors";
 
-import "components/user-posts/user-posts.styles.scss";
+import {
+  UserPostsWrapper,
+  Heading
+} from "components/user-posts/user-posts.styles.jsx";
 import { selectCurrentUser } from "redux/user/user.selectors";
 import Loader from "components/loader/loader.component";
 import WithSpinner from "components/with-spinner/with-spinner.component";
@@ -22,8 +25,8 @@ const UserPosts = () => {
     <>
       {loading && <Loader />}
       {posts && posts.length ? (
-        <div className="user-posts">
-          <h2>My Posts</h2>
+        <UserPostsWrapper className="user-posts">
+          <Heading>My Posts</Heading>
           {posts.map(post => (
             <PostPreviewWithSpinner
               isLoading={loading}
@@ -31,7 +34,7 @@ const UserPosts = () => {
               key={post._id}
             />
           ))}
-        </div>
+        </UserPostsWrapper>
       ) : (
         <NoPosts />
       )}

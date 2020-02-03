@@ -11,7 +11,18 @@ import Topic from "components/topic/topic.component";
 
 import { selectTopicList } from "redux/topics/topics.selectors";
 
-import "components/welcome/welcome.styles.scss";
+import {
+  WelcomeWrapper,
+  HandIconContainer,
+  WelcomeSalutation,
+  Text,
+  Intro,
+  TopicsContainer,
+  InfoHeader,
+  Info,
+  StyledLink,
+  StyledButton
+} from "components/welcome/welcome.styles.jsx";
 import {
   selectCurrentUser,
   selectShowWelcomeModal
@@ -20,33 +31,33 @@ import {
 const carePerson = { name: "Kaitlyn", image: profileImage };
 
 const Welcome = ({ showWelcome, topics, currentUser }) => (
-  <div className="welcome">
+  <WelcomeWrapper>
     {showWelcome ? (
       <WelcomeModal newUser={currentUser} carePerson={carePerson} />
     ) : null}
-    <div className="welcome__waving-hand">
+    <HandIconContainer>
       <WavingHand />
-    </div>
+    </HandIconContainer>
 
-    <h2 className="welcome__salutation">Hi, {currentUser.user.firstName}</h2>
-    <p className="welcome__welcome-text">
+    <WelcomeSalutation>Hi, {currentUser.user.firstName}</WelcomeSalutation>
+    <Text>
       Welcome to Vanillatots, the digital home for educational content.
-    </p>
-    <h2 className="welcome__intro">What can we help you with?</h2>
-    <div className="welcome__topics">
+    </Text>
+    <Intro>What can we help you with?</Intro>
+    <TopicsContainer>
       {topics.map(topic => (
         <Topic topic={topic} key={topic._id} />
       ))}
-    </div>
-    <span className="welcome__info-header">Just browsing?</span>
-    <p className="welcome__info">
+    </TopicsContainer>
+    <InfoHeader>Just browsing?</InfoHeader>
+    <Info>
       Check out our Community Forum. Ask anonymous questions, get answers from
       professionals and other learners who've been there.
-    </p>
-    <Link to="/">
-      <CustomButton ghost>Visit the Forum</CustomButton>
-    </Link>
-  </div>
+    </Info>
+    <StyledLink to="/">
+      <StyledButton ghost>Visit the Forum</StyledButton>
+    </StyledLink>
+  </WelcomeWrapper>
 );
 
 const mapStateTopProps = createStructuredSelector({

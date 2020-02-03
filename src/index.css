@@ -38,7 +38,7 @@
   font-style: normal;
   font-weight: normal;
   src: local("Domaine Display Regular"),
-    url("assets/fonts/DomaineDisp-Regular.woff") format("woff");
+    url("assets/fonts/DomaineDisp-Regular.woff"); /*format("woff");*/
 }
 
 @font-face {

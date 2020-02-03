@@ -23,8 +23,8 @@ export const MessageBody = styled.div`
   margin-top: 1rem;
   margin-left: 5rem;
   line-height: 2;
-  font-size: 1.8rem;
-  font-family: "Domaine", serif;
+  font-size: 1.6rem;
+  font-family: "Domaine Display Regular", serif;
   font-weight: 300;
 `;
 
@@ -37,7 +37,7 @@ export const MessageAuthorImage = styled.div`
   justify-content: center;
   color: #fff;
   font-size: 2rem;
-  font-family: "Domine", serif;
+  font-family: "Domaine Display Regular", serif;
   font-weight: 700;
   border-radius: 50%;
 

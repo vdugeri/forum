@@ -1,19 +1,17 @@
 import React from "react";
-
+import { TopicSelectWrapper } from "components/topic-select/topic-select.styles";
 import CustomRadioButton from "components/custom-radio-button/custom-radio-button.component";
-
-import "components/topic-select/topic-select.styles.scss";
 
 const TopicSelect = ({ topic, handleChange }) => {
   return (
-    <div className="topic-select">
+    <TopicSelectWrapper>
       <CustomRadioButton
         label={topic.name}
         name="topicId"
         handleChange={handleChange}
         value={topic._id}
       />
-    </div>
+    </TopicSelectWrapper>
   );
 };
 

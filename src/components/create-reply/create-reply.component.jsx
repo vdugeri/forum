@@ -7,16 +7,15 @@ import Editor from "components/editor/editor.component";
 
 import { toggleModalStatus } from "../../redux/user/user.actions";
 import { selectModalShown, selectCurrentUser } from "redux/user/user.selectors";
-import { selectCurrentPost } from "redux/posts/post.selectors";
 import { startCreateReply } from "redux/posts/posts.actions";
 
 import "components/create-reply/create-reply.styles.scss";
 
-const CreateReply = ({ currentPost, onCreateReplyStart, currentUser }) => {
+const CreateReply = ({ post, onCreateReplyStart, currentUser }) => {
   const [reply, setReply] = useState({
     text: "",
     author: currentUser ? currentUser.user : null,
-    post: currentPost._id
+    post: post._id
   });
   const handleChange = (e, editor) => {
     const value = editor.getData();
@@ -40,7 +39,6 @@ const CreateReply = ({ currentPost, onCreateReplyStart, currentUser }) => {
 
 const mapStateToProps = createStructuredSelector({
   modalShown: selectModalShown,
-  currentPost: selectCurrentPost,
   currentUser: selectCurrentUser
 });
 

@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
+import { PostListWrapper } from "components/post-list/post-list.styles";
 
 import PostPreview from "components/post-preview/post-preview.component";
 import NoPosts from "components/no-posts/no-posts.component";
@@ -13,11 +14,11 @@ const PostList = ({ posts }) => {
   return (
     <React.Fragment>
       {posts.length ? (
-        <div className="post-list">
+        <PostListWrapper>
           {posts.map(post => (
             <PostPreview post={post} key={post._id} />
           ))}
-        </div>
+        </PostListWrapper>
       ) : (
         <NoPosts />
       )}

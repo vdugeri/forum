@@ -40,6 +40,7 @@ const useFetch = (url, initialData) => {
     data: initialData
   });
   useEffect(() => {
+    console.log(url);
     let didCancel = false;
     const fetchData = async () => {
       dispatch({ type: actionTypes.FETCH_START });

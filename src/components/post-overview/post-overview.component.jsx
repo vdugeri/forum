@@ -3,13 +3,21 @@ import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import hljs from "highlight.js";
+import {
+  OverviewDetails,
+  OverviewDate,
+  OverviewTopic,
+  AuthorImage,
+  OverviewWrapper,
+  OverviewAuthor,
+  Metadata,
+  MetadataRight
+} from "components/post-overview/post-overview.styles";
 import "highlight.js/styles/hopscotch.css";
 
 import { openPostStart } from "redux/posts/posts.actions";
 
 import titleCase from "utils/title-case";
-
-import "components/post-overview/post-overview.styles.scss";
 
 const PostOverview = ({ post, onOpenPostStart }) => {
   const dispatch = useDispatch();
@@ -19,21 +27,19 @@ const PostOverview = ({ post, onOpenPostStart }) => {
     });
   }, []);
   return (
-    <div className="post-overview">
-      <div className="post-overview__metadata">
-        <div className="post-overview--author-image">
+    <OverviewWrapper>
+      <Metadata>
+        <AuthorImage>
           {post.author.firstName.substring(0, 1).toUpperCase()}
-        </div>
-        <div className="post-overview__metadata--right">
-          <div className="post-overview__author">
-            {titleCase(post.author.firstName)}
-          </div>
-          <div className="post-overview__date">{post.createdAt}</div>
-        </div>
-      </div>
-      <div className="post-overview__details">
+        </AuthorImage>
+        <MetadataRight>
+          <OverviewAuthor>{titleCase(post.author.firstName)}</OverviewAuthor>
+          <OverviewDate>{post.createdAt}</OverviewDate>
+        </MetadataRight>
+      </Metadata>
+      <OverviewDetails>
         <Link to={`/posts/${post._id}`} onClick={() => onOpenPostStart(post)}>
-          <h2 className="post-overview__topic">{post.title}</h2>
+          <OverviewTopic>{post.title}</OverviewTopic>
         </Link>
         <div className="post-overview__summary">
           <p
@@ -50,8 +56,8 @@ const PostOverview = ({ post, onOpenPostStart }) => {
             {post.replies.length ? `View all replies` : `Be the first to reply`}
           </span>
         </Link>
-      </div>
-    </div>
+      </OverviewDetails>
+    </OverviewWrapper>
   );
 };
 

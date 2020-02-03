@@ -1,17 +1,21 @@
 import React from "react";
-
-import "components/quote/quote.styles.scss";
+import {
+  QuoteWrapper,
+  QuoteContainer,
+  Heading,
+  BlockQuote
+} from "components/quote/quote.styles";
 
 const Quote = () => (
-  <div className="quote">
-    <div className="quote-container">
-      <h2>Messages</h2>
-      <blockquote>
+  <QuoteWrapper className="quote">
+    <QuoteContainer className="quote-container">
+      <Heading>Messages</Heading>
+      <BlockQuote>
         "The man who does not read books has no advantage over the man who can
         not read them."
-      </blockquote>
-    </div>
-  </div>
+      </BlockQuote>
+    </QuoteContainer>
+  </QuoteWrapper>
 );
 
 export default Quote;
