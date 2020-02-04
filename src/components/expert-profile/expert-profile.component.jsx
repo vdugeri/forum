@@ -60,6 +60,7 @@ const ExpertProfile = ({ expert, onClose }) => {
           </Paragraph>
         </About>
         <Footer>
+          <Button ghost>Message Expert</Button>
           <Button primary>Contact Expert</Button>
         </Footer>
       </ProfileContainer>

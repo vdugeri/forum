@@ -99,9 +99,10 @@ export const Footer = styled.div`
   border-top: 1px solid #ccc;
   width: 100%;
   margin-left: 0;
+  display: flex;
 
   & button {
-    margin: 0 10%;
+    margin-left: 2rem;
   }
 `;
 
