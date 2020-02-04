@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const ExploreExpertsWrapper = styled.div`
   display: flex;
@@ -37,4 +38,9 @@ export const Message = styled.div`
   align-items: center;
   margin-top: 1rem;
   margin-bottom: 2rem;
+`;
+
+export const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: inherit;
 `;

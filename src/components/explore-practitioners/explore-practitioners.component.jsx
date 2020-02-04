@@ -6,7 +6,8 @@ import {
   ExploreExpertsWrapper,
   Experts,
   ExpertsHeading,
-  Message
+  Message,
+  StyledLink
 } from "components/explore-practitioners/explore-practitioners.styles";
 
 const ExplorePractitioners = ({ topExperts }) => (
@@ -21,7 +22,9 @@ const ExplorePractitioners = ({ topExperts }) => (
       Send a private message or video chat with a variety of specialists 24/7 on
       your own time.
     </Message>
-    <CustomButton ghost={true}>Explore practitioners</CustomButton>
+    <CustomButton ghost={true}>
+      <StyledLink to="/dashboard/book">Explore practitioners</StyledLink>
+    </CustomButton>
   </ExploreExpertsWrapper>
 );
 
