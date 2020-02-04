@@ -122,8 +122,8 @@ function App({
         />
         <Route
           path="/dashboard/book/:subject"
-          component={() =>
-            currentUser ? <ExpertList /> : <Redirect to="/login" />
+          component={props =>
+            currentUser ? <ExpertList {...props} /> : <Redirect to="/login" />
           }
         />
       </Switch>
