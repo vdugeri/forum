@@ -11,7 +11,8 @@ import {
   OverviewWrapper,
   OverviewAuthor,
   Metadata,
-  MetadataRight
+  MetadataRight,
+  OverviewSummary
 } from "components/post-overview/post-overview.styles";
 import "highlight.js/styles/hopscotch.css";
 
@@ -41,13 +42,13 @@ const PostOverview = ({ post, onOpenPostStart }) => {
         <Link to={`/posts/${post._id}`} onClick={() => onOpenPostStart(post)}>
           <OverviewTopic>{post.title}</OverviewTopic>
         </Link>
-        <div className="post-overview__summary">
-          <p
-            dangerouslySetInnerHTML={{
-              __html: post.body.substring(0, 300) + " ..."
-            }}
-          />
-        </div>
+
+        <OverviewSummary
+          dangerouslySetInnerHTML={{
+            __html: post.body.substring(0, 300) + " ..."
+          }}
+        />
+
         <Link
           to={`/posts/${post._id}`}
           onClick={() => dispatch(openPostStart(post))}

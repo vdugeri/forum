@@ -81,3 +81,8 @@ export const OverviewAuthor = styled.div`
   display: flex;
   align-self: flex-start;
 `;
+
+export const OverviewSummary = styled.p`
+  font-size: 1.6rem;
+  font-family: "Domaine Display Regular", serif;
+`;
