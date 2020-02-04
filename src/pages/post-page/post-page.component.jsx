@@ -29,14 +29,14 @@ const PostPage = ({ showReply, match }) => {
   } = match;
 
   const url = `/posts/${id}`;
-  const [{ data: currentPost, loading, isError }] = useFetch(url, {
+  const [{ data: currentPost, loading }] = useFetch(url, {
     author: { firstName: "" }
   });
   const [{ data: topExperts, loading: loadingExperts }] = useFetch(
     "/experts?limit=3",
     []
   );
-  console.log(isError, loading);
+
   return (
     <>
       {loading ? (
