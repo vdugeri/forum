@@ -13,8 +13,3 @@ export const fetchExpertsFailure = error => ({
   type: expertsActionTypes.FETCH_EXPERTS_FAILURE,
   payload: error
 });
-
-export const selectExpert = expert => ({
-  type: expertsActionTypes.SELECT_EXPERT,
-  payload: expert
-});

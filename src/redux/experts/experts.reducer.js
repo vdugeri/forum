@@ -3,8 +3,7 @@ import expertsActionTypes from "redux/experts/experts.types";
 const INITIAL_STATE = {
   error: null,
   isFetchingExperts: false,
-  expertList: [],
-  selectedExpert: null
+  expertList: []
 };
 
 const expertsReducer = (state = INITIAL_STATE, { type, payload }) => {
@@ -28,11 +27,6 @@ const expertsReducer = (state = INITIAL_STATE, { type, payload }) => {
         ...state,
         isFetchingExperts: false,
         error: payload
-      };
-    case expertsActionTypes.SELECT_EXPERT:
-      return {
-        ...state,
-        selectedExpert: payload
       };
 
     default:

@@ -113,8 +113,19 @@ function App({
             currentUser ? <EditAccount /> : <Redirect to="/login" />
           }
         />
-        <Route exact path="/dashboard/book" component={BookExpert} />
-        <Route path="/dashboard/book/:subject" component={ExpertList} />
+        <Route
+          exact
+          path="/dashboard/book"
+          component={() =>
+            currentUser ? <BookExpert /> : <Redirect to="/login" />
+          }
+        />
+        <Route
+          path="/dashboard/book/:subject"
+          component={() =>
+            currentUser ? <ExpertList /> : <Redirect to="/login" />
+          }
+        />
       </Switch>
     </div>
   );

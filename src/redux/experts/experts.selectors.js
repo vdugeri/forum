@@ -6,8 +6,3 @@ export const selectExpertList = createSelector(
   [selectExperts],
   experts => experts.expertList
 );
-
-export const selectExpert = createSelector(
-  [selectExperts],
-  experts => experts.selectedExpert
-);
