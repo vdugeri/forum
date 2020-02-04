@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 export const StyledLink = styled(Link)`
   display: flex;
@@ -13,6 +14,18 @@ export const StyledLink = styled(Link)`
   text-decoration: none;
   color: inherit;
 `;
+
+export const LinkText = styled.span`
+  color: ${props => props.color};
+`;
+
+LinkText.defaultProps = {
+  color: "inherit"
+};
+
+LinkText.propTypes = {
+  color: PropTypes.string
+};
 
 export const LinkIcon = styled.span`
   color: #00856f;
