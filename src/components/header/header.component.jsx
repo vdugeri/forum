@@ -39,7 +39,11 @@ const Header = ({
       </Link>
     </HeaderLogo>
     <Nav>
-      {currentUser && <NavItem>Find Experts</NavItem>}
+      {currentUser && (
+        <NavItem onClick={() => history.push("/dashboard/book")}>
+          Find Experts
+        </NavItem>
+      )}
       <NavItem onClick={toggleTopicsDropdown}>Community</NavItem>
       {isDropdownOpen && <TopicsDropdown />}
       {isAccountOpen && <AccountDropdown user={currentUser.user} />}

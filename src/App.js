@@ -15,6 +15,9 @@ import Messages from "pages/messages/messages.component";
 import WithSpinner from "components/with-spinner/with-spinner.component";
 import UserPosts from "components/user-posts/user-posts.component";
 import AccountPage from "pages/account/account.component";
+import BookExpert from "pages/book/book.component";
+import EditAccount from "components/edit-account/edit-account.component";
+import ExpertList from "pages/expert-list/expert-list.component";
 
 import { selectCurrentUser, selectIsLoading } from "redux/user/user.selectors";
 import { selectIsFetchingTopics } from "redux/topics/topics.selectors";
@@ -22,7 +25,6 @@ import { startFetchTopics } from "redux/topics/topics.actions";
 import { selectIsPostLoading } from "redux/posts/post.selectors";
 
 import "./App.css";
-import EditAccount from "components/edit-account/edit-account.component";
 
 const RegisterWithSpinner = WithSpinner(Register);
 const LoginWithSpinner = WithSpinner(Login);
@@ -111,6 +113,8 @@ function App({
             currentUser ? <EditAccount /> : <Redirect to="/login" />
           }
         />
+        <Route exact path="/dashboard/book" component={BookExpert} />
+        <Route path="/dashboard/book/:subject" component={ExpertList} />
       </Switch>
     </div>
   );

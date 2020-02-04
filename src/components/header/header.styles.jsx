@@ -11,7 +11,7 @@ export const HeaderWrapper = styled.div`
   font-family: "Proxima Nova Bold";
   position: sticky;
   top: 0;
-  z-index: 9999;
+  z-index: 1;
   background-color: #fff;
 `;
 

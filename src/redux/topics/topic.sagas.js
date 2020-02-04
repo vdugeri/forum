@@ -10,12 +10,10 @@ import topicsActionTypes from "redux/topics/topics.types";
 
 const endpoint = "/topics";
 
-export function* fetchTopics({ payload }) {
+export function* fetchTopics() {
   try {
-    const {
-      data: { topics }
-    } = yield axios.get(endpoint);
-    yield put(fetchTopicsSuccess(topics));
+    const { data } = yield axios.get(endpoint);
+    yield put(fetchTopicsSuccess(data));
   } catch (error) {
     yield put(fetchTopicsFailure(error));
   }
