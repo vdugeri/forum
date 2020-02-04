@@ -28,7 +28,7 @@ const PostPreview = ({ post }) => {
   const dispatch = useDispatch();
 
   const ownsPost = () => {
-    return currentUser.user._id === post.author._id;
+    return currentUser && currentUser.user._id === post.author._id;
   };
 
   useEffect(() => {
