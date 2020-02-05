@@ -8,7 +8,9 @@ import {
   ProfileLink,
   ExpertPhoto,
   StyledLink,
-  NameContainer
+  NameContainer,
+  String,
+  Icon
 } from "components/expert-box/expert-box.styles";
 import PropTypes from "prop-types";
 
@@ -25,11 +27,10 @@ const ExpertBox = ({ expert, handleClick }) => (
     </DetailBox>
     <Availability>Next Availability: Today at 10:00 AM</Availability>
     <ProfileLink>
-      <StyledLink
-        linkText="View Profile and availability"
-        color="#02856E"
-        onClick={handleClick}
-      />
+      <StyledLink onClick={handleClick}>
+        <String>View Profile and Availability</String>
+        <Icon>&#8250;</Icon>
+      </StyledLink>
     </ProfileLink>
   </Container>
 );

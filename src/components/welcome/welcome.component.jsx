@@ -1,11 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
+import { withRouter } from "react-router-dom";
 
 import { ReactComponent as WavingHand } from "assets/icons/waving-hand.svg";
 import WelcomeModal from "components/welcome-modal/welcome-modal.component";
 import profileImage from "assets/images/profile_image.jpg";
-import Topic from "components/topic/topic.component";
 
 import { selectTopicList } from "redux/topics/topics.selectors";
 
@@ -27,10 +27,11 @@ import {
 } from "redux/user/user.selectors";
 import useFetch from "effects/use-fetch.effect";
 import Loader from "components/loader/loader.component";
+import HelpSubject from "components/help-subject/help-subject.component";
 
 const carePerson = { name: "Kaitlyn", image: profileImage };
 
-const Welcome = ({ showWelcome, currentUser }) => {
+const Welcome = ({ showWelcome, currentUser, history }) => {
   const [{ data: topics, loading }] = useFetch("/topics", []);
   return (
     <WelcomeWrapper>
@@ -51,7 +52,11 @@ const Welcome = ({ showWelcome, currentUser }) => {
       ) : (
         <TopicsContainer>
           {topics.map(topic => (
-            <Topic topic={topic} key={topic._id} />
+            <HelpSubject
+              subject={topic}
+              key={topic._id}
+              handleClick={() => history.push(`/dashboard/book/${topic.name}`)}
+            />
           ))}
         </TopicsContainer>
       )}
@@ -73,4 +78,4 @@ const mapStateTopProps = createStructuredSelector({
   showWelcome: selectShowWelcomeModal
 });
 
-export default connect(mapStateTopProps)(Welcome);
+export default connect(mapStateTopProps)(withRouter(Welcome));

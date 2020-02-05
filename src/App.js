@@ -18,6 +18,7 @@ import AccountPage from "pages/account/account.component";
 import BookExpert from "pages/book/book.component";
 import EditAccount from "components/edit-account/edit-account.component";
 import ExpertList from "pages/expert-list/expert-list.component";
+import Checkout from "pages/checkout/checkout.component";
 
 import { selectCurrentUser, selectIsLoading } from "redux/user/user.selectors";
 import { selectIsFetchingTopics } from "redux/topics/topics.selectors";
@@ -124,6 +125,12 @@ function App({
           path="/dashboard/book/:subject"
           component={props =>
             currentUser ? <ExpertList {...props} /> : <Redirect to="/login" />
+          }
+        />
+        <Route
+          path="/booking/checkout"
+          component={props =>
+            currentUser ? <Checkout {...props} /> : <Redirect to="/login" />
           }
         />
       </Switch>

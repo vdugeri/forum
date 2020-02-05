@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
 import { ListContainer, Heading } from "pages/expert-list/expert-list.styles";
 import BackLink from "components/back-link/backlink.component";
 import ExpertBox from "components/expert-box/expert-box.component";
@@ -7,12 +6,9 @@ import useFetch from "effects/use-fetch.effect";
 import Loader from "components/loader/loader.component";
 import ExpertProfile from "components/expert-profile/expert-profile.component";
 
-import { selectExpert } from "redux/experts/experts.actions";
-
 const ExpertList = ({ match }) => {
   const [{ data: experts, loading }] = useFetch("/experts", []);
   const [currExpert, setCurrExpert] = useState(null);
-  const dispatch = useDispatch();
   return (
     <ListContainer>
       {loading ? (

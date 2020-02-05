@@ -49,7 +49,7 @@ export const Intro = styled.h2`
 
 export const TopicsContainer = styled.div`
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-gap: 10px;
   width: 60%;
   border-bottom: 1px solid #e7e7e7;

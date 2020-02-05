@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { withRouter } from "react-router-dom";
 import { Button } from "components/custom-button/custom-button-styles";
 import {
   ProfileOverlay,
@@ -18,8 +19,10 @@ import {
   About,
   Paragraph
 } from "components/expert-profile/expert-profile.styles";
+import MessageModal from "components/message-modal/message-modal.component";
 
-const ExpertProfile = ({ expert, onClose }) => {
+const ExpertProfile = ({ expert, onClose, history }) => {
+  const [sendMessage, setSendMessage] = useState(false);
   return (
     <ProfileOverlay>
       <ProfileContainer>
@@ -39,7 +42,7 @@ const ExpertProfile = ({ expert, onClose }) => {
         </Qualifications>
         <Experience>
           <Heading>Experience</Heading>
-          <String>Head Teacher, Physicas at NYU</String>
+          <String>Head Teacher, Physics at Mart Andrews High</String>
         </Experience>
         <Education>
           <Heading>Education</Heading>
@@ -60,12 +63,24 @@ const ExpertProfile = ({ expert, onClose }) => {
           </Paragraph>
         </About>
         <Footer>
-          <Button ghost>Message Expert</Button>
-          <Button primary>Contact Expert</Button>
+          <Button ghost onClick={() => setSendMessage(true)}>
+            Message Expert
+          </Button>
+          <Button
+            primary
+            onClick={() =>
+              history.push(`/booking/checkout?expert=${expert._id}`)
+            }
+          >
+            Contact Expert
+          </Button>
         </Footer>
       </ProfileContainer>
+      {sendMessage && (
+        <MessageModal expert={expert} onClose={() => setSendMessage(false)} />
+      )}
     </ProfileOverlay>
   );
 };
 
-export default ExpertProfile;
+export default withRouter(ExpertProfile);

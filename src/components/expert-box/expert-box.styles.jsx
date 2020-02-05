@@ -58,8 +58,18 @@ export const ProfileLink = styled.div`
   padding: 1rem 4rem 1rem 4rem;
 `;
 
-export const StyledLink = styled(ForwardLink)`
-  padding: 0;
+export const StyledLink = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #02856e;
+  cursor: pointer;
 `;
 
-export const String = styled.p``;
+export const String = styled.span`
+  font-size: 1.8rem;
+`;
+
+export const Icon = styled.span`
+  font-size: 3rem;
+`;

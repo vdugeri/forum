@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const TextareaContainer = styled.div`
   position: relative;
-  min-height: 100%;
   width: 100%;
 `;
 
