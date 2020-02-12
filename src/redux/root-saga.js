@@ -5,6 +5,7 @@ import { postsSagas } from "redux/posts/posts.sagas";
 import { topicsSagas } from "redux/topics/topic.sagas";
 import { messagesSagas } from "redux/messages/messages.sagas";
 import { expertsSagas } from "redux/experts/experts.sagas";
+import { adminSagas } from "redux/admin/admin.sagas";
 
 export default function* rootSaga() {
   yield all([
@@ -12,6 +13,7 @@ export default function* rootSaga() {
     call(postsSagas),
     call(topicsSagas),
     call(messagesSagas),
-    call(expertsSagas)
+    call(expertsSagas),
+    call(adminSagas)
   ]);
 }

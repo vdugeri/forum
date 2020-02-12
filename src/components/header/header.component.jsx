@@ -23,52 +23,61 @@ import {
   selectIsAccountOpen
 } from "redux/user/user.selectors";
 
-import "components/header/header.styles.scss";
-
 const Header = ({
   history,
   isDropdownOpen,
   toggleTopicsDropdown,
   isAccountOpen,
   currentUser
-}) => (
-  <HeaderWrapper>
-    <HeaderLogo>
-      <Link to="/">
-        <img src={logo} alt="vanillatots logo" />
-      </Link>
-    </HeaderLogo>
-    <Nav>
-      {currentUser && (
-        <NavItem onClick={() => history.push("/dashboard/book")}>
-          Find Experts
-        </NavItem>
-      )}
-      <NavItem onClick={toggleTopicsDropdown}>Community</NavItem>
-      {isDropdownOpen && <TopicsDropdown />}
-      {isAccountOpen && <AccountDropdown user={currentUser.user} />}
+}) => {
+  const {
+    location: { pathname }
+  } = history;
+  const isAdmin = pathname.indexOf("admin") !== -1;
+  return (
+    <HeaderWrapper>
+      <HeaderLogo>
+        <Link to="/">
+          <img src={logo} alt="vanillatots logo" />
+        </Link>
+      </HeaderLogo>
+      <Nav>
+        {currentUser && (
+          <NavItem onClick={() => history.push("/dashboard/book")}>
+            Find Experts
+          </NavItem>
+        )}
+        <NavItem onClick={toggleTopicsDropdown}>Community</NavItem>
+        {isDropdownOpen && <TopicsDropdown />}
+        {isAccountOpen && <AccountDropdown user={currentUser.user} />}
 
-      {!currentUser ? (
-        <React.Fragment>
-          <NavItem>
-            <CustomButton onClick={() => history.push("/login")} ghost>
-              Sign in
-            </CustomButton>
-          </NavItem>
-          <NavItem>
-            <CustomButton primary onClick={() => history.push("/register")}>
-              Create account
-            </CustomButton>
-          </NavItem>
-        </React.Fragment>
-      ) : (
-        <>
-          <UserAvatar user={currentUser.user} />
-        </>
-      )}
-    </Nav>
-  </HeaderWrapper>
-);
+        {!isAdmin && (
+          <>
+            {!currentUser ? (
+              <React.Fragment>
+                <NavItem>
+                  <CustomButton onClick={() => history.push("/login")} ghost>
+                    Sign in
+                  </CustomButton>
+                </NavItem>
+                <NavItem>
+                  <CustomButton
+                    primary
+                    onClick={() => history.push("/register")}
+                  >
+                    Create account
+                  </CustomButton>
+                </NavItem>
+              </React.Fragment>
+            ) : (
+              <>{currentUser && <UserAvatar user={currentUser.user} />}</>
+            )}
+          </>
+        )}
+      </Nav>
+    </HeaderWrapper>
+  );
+};
 
 const mapStateToProps = createStructuredSelector({
   isDropdownOpen: selectIsOpen,

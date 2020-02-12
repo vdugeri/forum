@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import ForwardLink from "components/forward-link/forward-link.component";
 
 export const Container = styled.div`
   display: flex;

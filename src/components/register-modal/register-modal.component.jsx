@@ -4,12 +4,22 @@ import { connect } from "react-redux";
 
 import CustomInput from "components/custom-input/custom-input.component";
 import CustomButton from "components/custom-button/custom-button.component";
+import {
+  ModalOverlay,
+  ModalContent,
+  Heading,
+  Paragraph,
+  CloseButton,
+  RegisterForm,
+  FormFirstRow,
+  FormMiddleRow,
+  StyledButton,
+  TermsWrapper
+} from "components/register-modal/register-modal.styles";
 
 import { toggleModalStatus } from "redux/user/user.actions";
 
 import { userSignUpStart } from "redux/user/user.actions";
-
-import "components/register-modal/register-modal.styles.scss";
 
 const RegisterModal = ({ toggleModalStatus, onSignupStart, match }) => {
   const [userCreds, setUserCreds] = useState({
@@ -33,19 +43,17 @@ const RegisterModal = ({ toggleModalStatus, onSignupStart, match }) => {
     toggleModalStatus();
   };
   return (
-    <div className="register-modal">
-      <div className="register-modal__content">
-        <div className="register-modal__close" onClick={toggleModalStatus}>
-          &#10005;
-        </div>
-        <h2>Join the conversation</h2>
-        <p>
+    <ModalOverlay>
+      <ModalContent>
+        <CloseButton onClick={toggleModalStatus}>&#10005;</CloseButton>
+        <Heading>Join the conversation</Heading>
+        <Paragraph>
           Ask a question and get an answer from our community and seasoned
           experts. Get advice on health, relationships, parenting issues and
           more. Discover. Learn. Share.
-        </p>
-        <form className="register-modal__form" onSubmit={handleSubmit}>
-          <div className="register-modal__form--first-row">
+        </Paragraph>
+        <RegisterForm onSubmit={handleSubmit}>
+          <FormFirstRow>
             <CustomInput
               type="email"
               name="emailAddress"
@@ -54,8 +62,8 @@ const RegisterModal = ({ toggleModalStatus, onSignupStart, match }) => {
               label="Email address"
               required
             />
-          </div>
-          <div className="register-modal__form--middle-row">
+          </FormFirstRow>
+          <FormMiddleRow className="register-modal__form--middle-row">
             <CustomInput
               type="text"
               value={firstName}
@@ -88,21 +96,21 @@ const RegisterModal = ({ toggleModalStatus, onSignupStart, match }) => {
               label="Password"
               required
             />
-          </div>
+          </FormMiddleRow>
 
-          <CustomButton type="submit" primary>
+          <StyledButton type="submit" primary>
             Register
-          </CustomButton>
-          <span>
+          </StyledButton>
+          <TermsWrapper>
             By registering a new account I agree to the
             <Link to="/terms-conditions">Terms &amp; Conditions</Link>
-          </span>
-          <span>
+          </TermsWrapper>
+          <TermsWrapper>
             Already have an account? <Link to="/login">Sign in</Link>
-          </span>
-        </form>
-      </div>
-    </div>
+          </TermsWrapper>
+        </RegisterForm>
+      </ModalContent>
+    </ModalOverlay>
   );
 };
 
@@ -111,7 +119,4 @@ const mapDispatchToProps = dispatch => ({
   toggleModalStatus: () => dispatch(toggleModalStatus())
 });
 
-export default connect(
-  null,
-  mapDispatchToProps
-)(RegisterModal);
+export default connect(null, mapDispatchToProps)(RegisterModal);

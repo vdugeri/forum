@@ -19,6 +19,7 @@ import BookExpert from "pages/book/book.component";
 import EditAccount from "components/edit-account/edit-account.component";
 import ExpertList from "pages/expert-list/expert-list.component";
 import Checkout from "pages/checkout/checkout.component";
+import AdminLogin from "pages/admin/login.component";
 
 import { selectCurrentUser, selectIsLoading } from "redux/user/user.selectors";
 import { selectIsFetchingTopics } from "redux/topics/topics.selectors";
@@ -54,7 +55,7 @@ function App({
         />
         <Route
           path="/login"
-          render={props =>
+          component={props =>
             !currentUser ? (
               <LoginWithSpinner isLoading={isUserLoading} {...props} />
             ) : (
@@ -133,6 +134,7 @@ function App({
             currentUser ? <Checkout {...props} /> : <Redirect to="/login" />
           }
         />
+        <Route exact path="/admin" component={AdminLogin} />
       </Switch>
     </div>
   );

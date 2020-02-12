@@ -1,5 +1,4 @@
 import React from "react";
-import { useSelector } from "react-redux";
 
 import SearchField from "components/search-field/search-field.component";
 import Topic from "components/topic/topic.component";

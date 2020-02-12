@@ -9,7 +9,7 @@ import { toggleAccountDropdown } from "redux/user/user.actions";
 
 const UserAvatar = ({ user, toggleDropdown }) => (
   <AvatarWrapper onClick={toggleDropdown}>
-    {user.image ? (
+    {user && user.image ? (
       <img src={user.image} alt={user.firstName} />
     ) : (
       <UserInitials>{titleCase(user.firstName.substring(0, 1))}</UserInitials>
