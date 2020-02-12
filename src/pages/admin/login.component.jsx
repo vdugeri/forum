@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { withRouter } from "react-router-dom";
 import {
   LoginOverlay,
   LoginContainer,
@@ -7,13 +8,12 @@ import {
   StyledButton,
   StyledInput
 } from "pages/admin/login.styles";
-import CustomInput from "components/custom-input/custom-input.component";
 import { Gap } from "components/message-modal/message-modal.styles";
 import { Heading } from "pages/expert-list/expert-list.styles";
 import { useDispatch } from "react-redux";
 import { adminLogin } from "redux/admin/admin.actions";
 
-const AdminLogin = () => {
+const AdminLogin = ({ history }) => {
   const [userCreds, setUserCreds] = useState({
     username: "",
     password: ""
@@ -30,7 +30,8 @@ const AdminLogin = () => {
         <LoginForm
           onSubmit={e => {
             e.preventDefault();
-            dispatch(adminLogin(userCreds));
+            history.push("/admin/dashboard");
+            // dispatch(adminLogin(userCreds));
           }}
         >
           <Heading size="22px">Sign In</Heading>
@@ -60,4 +61,4 @@ const AdminLogin = () => {
   );
 };
 
-export default AdminLogin;
+export default withRouter(AdminLogin);

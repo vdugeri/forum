@@ -20,6 +20,7 @@ import EditAccount from "components/edit-account/edit-account.component";
 import ExpertList from "pages/expert-list/expert-list.component";
 import Checkout from "pages/checkout/checkout.component";
 import AdminLogin from "pages/admin/login.component";
+import AdminDashboard from "pages/admin/dashboard.component";
 
 import { selectCurrentUser, selectIsLoading } from "redux/user/user.selectors";
 import { selectIsFetchingTopics } from "redux/topics/topics.selectors";
@@ -135,6 +136,7 @@ function App({
           }
         />
         <Route exact path="/admin" component={AdminLogin} />
+        <Route exact path="/admin/dashboard" component={AdminDashboard} />
       </Switch>
     </div>
   );
