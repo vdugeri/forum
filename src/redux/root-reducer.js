@@ -11,7 +11,7 @@ import expertsReducer from "redux/experts/experts.reducer";
 const persistConfig = {
   key: "forum",
   storage,
-  whitelist: ["topics", "posts", "user", "experts"]
+  whitelist: ["topics", "posts", "experts", "user"]
 };
 
 const rootReducer = combineReducers({

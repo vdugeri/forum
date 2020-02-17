@@ -42,7 +42,6 @@ function App({
   useEffect(() => {
     onStartFetchTopics();
   }, [onStartFetchTopics]);
-
   return (
     <div className="App">
       <Header />
@@ -135,8 +134,16 @@ function App({
             currentUser ? <Checkout {...props} /> : <Redirect to="/login" />
           }
         />
-        <Route exact path="/admin" component={AdminLogin} />
-        <Route exact path="/admin/dashboard" component={AdminDashboard} />
+        <Route
+          path="/admin"
+          component={props =>
+            currentUser && currentUser.user.isAdmin ? (
+              <AdminDashboard {...props} />
+            ) : (
+              <AdminLogin />
+            )
+          }
+        />
       </Switch>
     </div>
   );

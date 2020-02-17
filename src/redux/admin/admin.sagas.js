@@ -3,10 +3,13 @@ import adminActionTypes from "./admin.types";
 import { userSignInFailure, userSignInSuccess } from "redux/user/user.actions";
 import axios from "utils/http-client";
 
-function* adminLogin(payload) {
+function* adminLogin({ payload }) {
   try {
-    const { data } = yield axios.post("/admin/login", payload);
-    yield put(userSignInSuccess(data));
+    console.log({ payload });
+    const {
+      data: { userWithToken }
+    } = yield axios.post("/auth/login", payload);
+    yield put(userSignInSuccess(userWithToken));
   } catch (error) {
     yield put(userSignInFailure(error));
   }

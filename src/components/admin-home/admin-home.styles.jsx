@@ -1,16 +1,17 @@
 import styled, { css } from "styled-components";
 import PropTypes from "prop-types";
-import {Link} from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 export const Wrapper = styled.div`
   min-height: 92vh;
   width: 100%;
   background-color: #f7f8fa;
+  display: flex;
 `;
 
 export const Sidebar = styled.div`
   min-height: 92vh;
-  width: 10%;
+  width: 100%;
   background-color: #010a43;
   color: #fff;
   flex-direction: column;
@@ -41,7 +42,6 @@ MenuItem.defaultProps = {
 MenuItem.propTypes = {
   active: PropTypes.bool
 };
-
 
 export const StyledLink = styled(Link)`
   color: inherit;

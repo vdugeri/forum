@@ -15,13 +15,13 @@ import { adminLogin } from "redux/admin/admin.actions";
 
 const AdminLogin = ({ history }) => {
   const [userCreds, setUserCreds] = useState({
-    username: "",
+    emailAddress: "",
     password: ""
   });
 
   const dispatch = useDispatch();
 
-  const { username, password } = userCreds;
+  const { emailAddress, password } = userCreds;
 
   return (
     <LoginOverlay>
@@ -30,18 +30,17 @@ const AdminLogin = ({ history }) => {
         <LoginForm
           onSubmit={e => {
             e.preventDefault();
-            history.push("/admin/dashboard");
-            // dispatch(adminLogin(userCreds));
+            dispatch(adminLogin(userCreds));
           }}
         >
           <Heading size="22px">Sign In</Heading>
           <StyledInput
-            type="text"
-            name="username"
-            label="Username"
-            value={username}
+            type="email"
+            name="emailAddress"
+            label="Email Address"
+            value={emailAddress}
             handleChange={e =>
-              setUserCreds({ ...userCreds, username: e.target.value })
+              setUserCreds({ ...userCreds, emailAddress: e.target.value })
             }
           />
           <StyledInput
