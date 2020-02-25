@@ -1,15 +1,13 @@
 import React from "react";
 import {
-  ExpertTableContainer,
-  TableMenuContainer,
-  StyledButton,
-  ExpertsTable,
-  TableRow,
-  RowItem,
+  TableContainer,
   Image,
-  TableHeader,
+  Table,
+  TableHead,
+  TableRow,
   HeaderItem,
-  TableBody
+  TableItem,
+  HeaderRow
 } from "components/expert-table/expert-table.styles";
 import useFetch from "effects/use-fetch.effect";
 import Spinner from "components/loader/loader.component";
@@ -17,41 +15,40 @@ import Spinner from "components/loader/loader.component";
 const ExpertTable = () => {
   const [{ loading, data: experts }] = useFetch("/experts", [{ experts: [] }]);
   return (
-    <div>
-      <table>
-        <thead>
-          <tr>
-            <th>Photo</th>
-            <th>Name</th>
-            <th>Designation</th>
-            <th>Email Address</th>
-            <th>Location</th>
-            <th>Primary Skill</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          {loading ? (
-            <Spinner />
-          ) : (
-            <>
-              {experts.map((expert, index) => (
-                <tr key={index}>
-                  <td>
-                    <img src={expert.image} alt="expert" />
-                  </td>
-                  <td>{expert.name}</td>
-                  <td>{expert.designation}</td>
-                  <td>{expert.emailAddress}</td>
-                  <td>{expert.location}</td>
-                  <td>{expert.primarySkill}</td>
-                </tr>
-              ))}
-            </>
-          )}
-        </tbody>
-      </table>
-    </div>
+    <TableContainer>
+      {loading ? (
+        <Spinner />
+      ) : (
+        <Table>
+          <TableHead>
+            <HeaderRow>
+              <HeaderItem>&nbsp;</HeaderItem>
+              <HeaderItem>Photo</HeaderItem>
+              <HeaderItem>Name</HeaderItem>
+              <HeaderItem>Designation</HeaderItem>
+              <HeaderItem>Email Address</HeaderItem>
+              <HeaderItem>Location</HeaderItem>
+              <HeaderItem>Primary Skill</HeaderItem>
+            </HeaderRow>
+          </TableHead>
+          <tbody>
+            {experts.map((expert, index) => (
+              <TableRow key={index}>
+                <TableItem>&nbsp;</TableItem>
+                <TableItem>
+                  <Image src={expert.image} alt="expert" />
+                </TableItem>
+                <TableItem>{expert.name}</TableItem>
+                <TableItem>{expert.designation}</TableItem>
+                <TableItem>{expert.emailAddress}</TableItem>
+                <TableItem>{expert.location}</TableItem>
+                <TableItem>{expert.primarySkill}</TableItem>
+              </TableRow>
+            ))}
+          </tbody>
+        </Table>
+      )}
+    </TableContainer>
   );
 };
 
