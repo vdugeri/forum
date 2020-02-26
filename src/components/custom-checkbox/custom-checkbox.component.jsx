@@ -1,12 +1,12 @@
 import React from "react";
-import { CheckBoxContainer } from "components/custom-checkbox/custom-checkbox.styles";
+import { CheckButtonContainer } from "components/custom-checkbox/custom-checkbox.styles";
 
 const CustomCheckbox = ({ handleChange, label, name }) => (
-  <CheckBoxContainer>
+  <CheckButtonContainer>
     {label}
     <input type="checkbox" onChange={handleChange} name={name} />
     <span className="checkmark"></span>
-  </CheckBoxContainer>
+  </CheckButtonContainer>
 );
 
 export default CustomCheckbox;

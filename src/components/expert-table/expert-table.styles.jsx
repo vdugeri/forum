@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import CustomButton from "components/custom-button/custom-button.component";
 
-export const TableContainer = styled.div`
+export const ListContainer = styled.div`
   width: 100%;
   background-color: #eee;
   padding: 4rem 2rem;
@@ -23,6 +23,8 @@ export const Table = styled.table`
 export const TableHead = styled.thead`
   width: 100%;
   text-transform: uppercase;
+  border-bottom: 1px solid #dcdcdc;
+  background-color: #eee;
 `;
 
 export const Actions = styled.div`
@@ -50,8 +52,8 @@ export const TableRow = styled.tr`
 `;
 
 export const Image = styled.img`
-  width: 5rem;
-  height: 5rem;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
 `;
 
@@ -63,7 +65,11 @@ export const HeaderItem = styled.th`
 `;
 
 export const TableItem = styled.td`
-  padding: 0.6rem 2rem;
+  padding: 6px 10px;
+  & a {
+    text-decoration: none;
+    color: #00856f;
+  }
 `;
 
 export const Pagination = styled.div`
@@ -72,6 +78,10 @@ export const Pagination = styled.div`
   align-items: center;
   font-size: 1.8rem;
   background-color: #fff;
+  width: 100%;
+`;
+
+export const TableBody = styled.tbody`
   width: 100%;
 `;
 

@@ -51,7 +51,7 @@ const Header = ({
         {isDropdownOpen && <TopicsDropdown />}
         {isAccountOpen && <AccountDropdown user={currentUser.user} />}
 
-        {!isAdmin && (
+        {!isAdmin ? (
           <>
             {!currentUser ? (
               <React.Fragment>
@@ -73,6 +73,8 @@ const Header = ({
               <>{currentUser && <UserAvatar user={currentUser.user} />}</>
             )}
           </>
+        ) : (
+          <>{currentUser && <UserAvatar user={currentUser.user} />}</>
         )}
       </Nav>
     </HeaderWrapper>

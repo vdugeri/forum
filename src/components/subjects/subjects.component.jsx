@@ -1,17 +1,16 @@
 import React from "react";
-import { Link, withRouter } from "react-router-dom";
 import {
   ListContainer,
-  Image,
-  Table,
-  TableHead,
-  TableBody,
-  TableRow,
-  HeaderItem,
-  TableItem,
-  HeaderRow,
   Actions,
   StyledButton,
+  Table,
+  HeaderRow,
+  TableHead,
+  HeaderItem,
+  TableBody,
+  TableRow,
+  TableItem,
+  Image,
   Pagination,
   LinkContainer
 } from "components/expert-table/expert-table.styles";
@@ -19,16 +18,17 @@ import useFetch from "effects/use-fetch.effect";
 import Spinner from "components/loader/loader.component";
 import Icon from "components/icon/icon.component";
 
-const ExpertTable = ({ match }) => {
-  const [{ loading, data: experts }] = useFetch("/experts", [{ experts: [] }]);
-  console.log(match);
+const Subjects = () => {
+  const [{ data: topics, loading }] = useFetch("/topics", [{ topics: [] }]);
   return (
     <ListContainer>
       <Actions>
-        <span>Listing 1 - 10 of 50</span>
+        <span>
+          1 - {topics.length} of {topics.length}
+        </span>
         <StyledButton primary>
-          <Icon name="addUser" />
-          Add Expert
+          <Icon name="addTopic" />
+          Add Subject
         </StyledButton>
       </Actions>
       {loading ? (
@@ -37,27 +37,19 @@ const ExpertTable = ({ match }) => {
         <Table>
           <TableHead>
             <HeaderRow>
-              <HeaderItem>Photo</HeaderItem>
+              <HeaderItem>Icon</HeaderItem>
               <HeaderItem>Name</HeaderItem>
-              <HeaderItem>Designation</HeaderItem>
-              <HeaderItem>Email Address</HeaderItem>
-              <HeaderItem>Location</HeaderItem>
-              <HeaderItem>Primary Skill</HeaderItem>
+              <HeaderItem>Topic Link</HeaderItem>
             </HeaderRow>
           </TableHead>
           <TableBody>
-            {experts.map((expert, index) => (
+            {topics.map((topic, index) => (
               <TableRow key={index}>
                 <TableItem>
-                  <Image src={expert.image} alt="expert" />
+                  <Image src={topic.icon} alt="expert" />
                 </TableItem>
-                <TableItem>
-                  <Link to={`${match.path}/${expert._id}`}>{expert.name}</Link>
-                </TableItem>
-                <TableItem>{expert.designation}</TableItem>
-                <TableItem>{expert.emailAddress}</TableItem>
-                <TableItem>{expert.location}</TableItem>
-                <TableItem>{expert.primarySkill}</TableItem>
+                <TableItem>{topic.name}</TableItem>
+                <TableItem>{topic.linkUrl}</TableItem>
               </TableRow>
             ))}
           </TableBody>
@@ -76,6 +68,4 @@ const ExpertTable = ({ match }) => {
   );
 };
 
-export default withRouter(ExpertTable);
-
-export const Expert = () => <h2>Expert</h2>;
+export default Subjects;

@@ -1,14 +1,14 @@
 import React from "react";
 import { withRouter, Route, Switch } from "react-router-dom";
 import styled from "styled-components";
-import {
-  SideNav,
-  Users,
-  Subjects,
-  Admins
-} from "components/admin-home/admin-home.component";
+import { SideNav } from "components/admin-home/admin-home.component";
+import AdminUsers from "components/admin-users/admin-users.component";
 import AdminBoard from "components/admin-home/admin-board.component";
-import ExpertTable from 'components/expert-table/expert-table.component';
+import ExpertTable, {
+  Expert
+} from "components/expert-table/expert-table.component";
+import Subjects from "components/subjects/subjects.component";
+import Users from "components/users/users.component";
 
 const DashboardWrapper = styled.div`
   display: grid;
@@ -21,10 +21,11 @@ const AdminDashboard = ({ history }) => {
       <SideNav history={history} />
       <Switch>
         <Route exact path="/admin" component={AdminBoard} />
-        <Route path="/admin/experts" component={ExpertTable} />
+        <Route exact path="/admin/experts" component={ExpertTable} />
         <Route path="/admin/subjects" component={Subjects} />
-        <Route path="/admin/admins" component={Admins} />
+        <Route path="/admin/admins" component={AdminUsers} />
         <Route path="/admin/users" component={Users} />
+        <Route path="/admin/experts/:expertId" component={Expert} />
       </Switch>
     </DashboardWrapper>
   );
