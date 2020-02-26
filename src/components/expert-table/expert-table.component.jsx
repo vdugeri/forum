@@ -7,22 +7,34 @@ import {
   TableRow,
   HeaderItem,
   TableItem,
-  HeaderRow
+  HeaderRow,
+  Actions,
+  StyledButton,
+  Pagination,
+  LinkContainer
 } from "components/expert-table/expert-table.styles";
 import useFetch from "effects/use-fetch.effect";
 import Spinner from "components/loader/loader.component";
+import Icon from "components/icon/icon.component";
 
 const ExpertTable = () => {
   const [{ loading, data: experts }] = useFetch("/experts", [{ experts: [] }]);
   return (
     <TableContainer>
+      <Actions>
+        <span>Listing 1 - 10 of 50</span>
+        <StyledButton primary>
+          <Icon name="addUser" />
+          Add Expert
+        </StyledButton>
+      </Actions>
       {loading ? (
         <Spinner />
       ) : (
         <Table>
           <TableHead>
             <HeaderRow>
-              <HeaderItem>&nbsp;</HeaderItem>
+              {/* <HeaderItem>&nbsp;</HeaderItem> */}
               <HeaderItem>Photo</HeaderItem>
               <HeaderItem>Name</HeaderItem>
               <HeaderItem>Designation</HeaderItem>
@@ -34,7 +46,7 @@ const ExpertTable = () => {
           <tbody>
             {experts.map((expert, index) => (
               <TableRow key={index}>
-                <TableItem>&nbsp;</TableItem>
+                {/* <TableItem>&nbsp;</TableItem> */}
                 <TableItem>
                   <Image src={expert.image} alt="expert" />
                 </TableItem>
@@ -46,6 +58,15 @@ const ExpertTable = () => {
               </TableRow>
             ))}
           </tbody>
+          <Pagination>
+            <span>Page 1 of 1 </span>
+            <LinkContainer>
+              <Icon name="backArrow" />
+            </LinkContainer>
+            <LinkContainer>
+              <Icon name="nextArrow" />
+            </LinkContainer>
+          </Pagination>
         </Table>
       )}
     </TableContainer>
