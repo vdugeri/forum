@@ -3,18 +3,18 @@ import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import { withRouter } from "react-router-dom";
 
-import CustomInput from "components/custom-input/custom-input.component";
-import CustomButton from "components/custom-button/custom-button.component";
-import TopicSelect from "components/topic-select/topic-select.component";
-import RegisterModal from "components/register-modal/register-modal.component";
-import WithSpinner from "components/with-spinner/with-spinner.component";
+import CustomInput from "components/shared/custom-input/custom-input.component";
+import CustomButton from "components/shared/custom-button/custom-button.component";
+import TopicSelect from "components/topics/topic-select/topic-select.component";
+import RegisterModal from "components/auth/register-modal/register-modal.component";
+import WithSpinner from "components/shared/with-spinner/with-spinner.component";
 import Editor from "components/editor/editor.component";
 
 import { selectTopicList } from "redux/topics/topics.selectors";
 import {
   selectModalShown,
   selectIsLoading,
-  selectCurrentUser
+  selectCurrentUser,
 } from "redux/user/user.selectors";
 import { startPostCreate } from "redux/posts/posts.actions";
 import { toggleModalStatus } from "redux/user/user.actions";
@@ -30,16 +30,16 @@ const CreatePost = ({
   modalShown,
   toggleModalStatus,
   isLoading,
-  history
+  history,
 }) => {
   const [postData, setPostData] = useState({
     author: currentUser,
     title: "",
     body: "",
-    topicId: ""
+    topicId: "",
   });
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     const { target } = e;
     const value = target.type === "checkbox" ? target.checked : target.value;
     const { name } = target;
@@ -49,7 +49,7 @@ const CreatePost = ({
   const handleEditorChange = (e, editor) => {
     setPostData({ ...postData, body: editor.getData() });
   };
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     if (!currentUser) {
       toggleModalStatus();
@@ -105,7 +105,7 @@ const CreatePost = ({
           <Editor handleChange={handleEditorChange} value={body} />
           <span className="create-post__topics--heading">Add my post to*</span>
           <div className="create-post__topics">
-            {topics.map(topic => (
+            {topics.map((topic) => (
               <TopicSelect
                 topic={topic}
                 handleChange={handleChange}
@@ -127,12 +127,12 @@ const mapStatetoProps = createStructuredSelector({
   topics: selectTopicList,
   currentUser: selectCurrentUser,
   modalShown: selectModalShown,
-  isLoading: selectIsLoading
+  isLoading: selectIsLoading,
 });
 
-const mapDispatchToProps = dispatch => ({
-  onStartPostCreate: postData => dispatch(startPostCreate(postData)),
-  toggleModalStatus: () => dispatch(toggleModalStatus())
+const mapDispatchToProps = (dispatch) => ({
+  onStartPostCreate: (postData) => dispatch(startPostCreate(postData)),
+  toggleModalStatus: () => dispatch(toggleModalStatus()),
 });
 
 export default connect(

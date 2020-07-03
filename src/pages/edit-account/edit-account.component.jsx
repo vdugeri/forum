@@ -1,6 +1,6 @@
 import React from "react";
 
-import EditAccount from "components/edit-account/edit-account.component";
+import EditAccount from "components/accounts/edit-account/edit-account.component";
 
 const EditAccountPage = () => <EditAccount />;
 

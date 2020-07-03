@@ -3,7 +3,6 @@ import useFetch from "effects/use-fetch.effect";
 import {
   ListContainer,
   Actions,
-  StyledButton,
   Table,
   HeaderRow,
   TableHead,
@@ -11,12 +10,11 @@ import {
   TableBody,
   TableRow,
   TableItem,
-  Image,
   Pagination,
-  LinkContainer
-} from "components/expert-table/expert-table.styles";
-import Spinner from "components/loader/loader.component";
-import Icon from "components/icon/icon.component";
+  LinkContainer,
+} from "components/experts/expert-table/expert-table.styles";
+import Spinner from "components/shared/loader/loader.component";
+import Icon from "components/shared/icon/icon.component";
 
 const Users = () => {
   const [{ loading, data: users }] = useFetch("/users", [{ users: [] }]);

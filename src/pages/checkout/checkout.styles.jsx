@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import PropTypes from "prop-types";
-import CustomButton from "components/custom-button/custom-button.component";
+import CustomButton from "components/shared/custom-button/custom-button.component";
 
 export const Container = styled.div`
   display: flex;
@@ -47,17 +47,17 @@ export const NameContainer = styled.div`
   margin-left: 2rem;
 `;
 export const String = styled.span`
-  font-size: ${props => props.size};
-  color: ${props => props.color};
+  font-size: ${(props) => props.size};
+  color: ${(props) => props.color};
 `;
 String.defaultProps = {
   size: "16px",
-  color: "inherit"
+  color: "inherit",
 };
 
 String.propTypes = {
   size: PropTypes.string,
-  color: PropTypes.string
+  color: PropTypes.string,
 };
 export const ChargeContainer = styled.div`
   margin-left: 5rem;

@@ -6,21 +6,21 @@ import {
   HeaderWrapper,
   HeaderLogo,
   Nav,
-  NavItem
+  NavItem,
 } from "components/header/header.styles";
 
 import logo from "assets/logo.png";
 
-import CustomButton from "components/custom-button/custom-button.component";
-import TopicsDropdown from "components/topics-dropdown/topics-dropdown.component";
-import AccountDropdown from "components/account-dropdown/account-dropdown.component";
-import UserAvatar from "components/user-avatar/user-avatar.component";
+import CustomButton from "components/shared/custom-button/custom-button.component";
+import TopicsDropdown from "components/topics/topics-dropdown/topics-dropdown.component";
+import AccountDropdown from "components/accounts/account-dropdown/account-dropdown.component";
+import UserAvatar from "components/users/user-avatar/user-avatar.component";
 
 import { selectIsOpen } from "redux/topics/topics.selectors";
 import { toggleTopicsDropdown } from "redux/topics/topics.actions";
 import {
   selectCurrentUser,
-  selectIsAccountOpen
+  selectIsAccountOpen,
 } from "redux/user/user.selectors";
 
 const Header = ({
@@ -28,10 +28,10 @@ const Header = ({
   isDropdownOpen,
   toggleTopicsDropdown,
   isAccountOpen,
-  currentUser
+  currentUser,
 }) => {
   const {
-    location: { pathname }
+    location: { pathname },
   } = history;
   const isAdmin = pathname.indexOf("admin") !== -1;
   return (
@@ -84,11 +84,11 @@ const Header = ({
 const mapStateToProps = createStructuredSelector({
   isDropdownOpen: selectIsOpen,
   currentUser: selectCurrentUser,
-  isAccountOpen: selectIsAccountOpen
+  isAccountOpen: selectIsAccountOpen,
 });
 
-const mapDispatchToProps = dispatch => ({
-  toggleTopicsDropdown: () => dispatch(toggleTopicsDropdown())
+const mapDispatchToProps = (dispatch) => ({
+  toggleTopicsDropdown: () => dispatch(toggleTopicsDropdown()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Header));

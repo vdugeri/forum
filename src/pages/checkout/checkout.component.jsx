@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import queryString from "query-string";
 import CreditCardInput from "react-credit-card-input";
-import BackLink from "components/back-link/backlink.component";
+import BackLink from "components/shared/back-link/backlink.component";
 import {
   Container,
   ReviewContainer,
@@ -12,11 +12,11 @@ import {
   String,
   ChargeContainer,
   PaymentContainer,
-  StyledButton
+  StyledButton,
 } from "pages/checkout/checkout.styles";
 import useFetch from "effects/use-fetch.effect";
-import Loader from "components/loader/loader.component";
-import { Gap } from "components/message-modal/message-modal.styles";
+import Loader from "components/shared/loader/loader.component";
+import { Gap } from "components/messages/message-modal/message-modal.styles";
 
 const Checkout = ({ location }) => {
   const { expert } = queryString.parse(location.search);
@@ -56,23 +56,23 @@ const Checkout = ({ location }) => {
               <CreditCardInput
                 cardNumberInputProps={{
                   value: cardNumber,
-                  onChange: event =>
-                    setCard({ ...card, cardNumber: event.target.value })
+                  onChange: (event) =>
+                    setCard({ ...card, cardNumber: event.target.value }),
                 }}
                 cardExpiryInputProps={{
                   value: expiry,
-                  onChange: event =>
-                    setCard({ ...card, expiry: event.target.value })
+                  onChange: (event) =>
+                    setCard({ ...card, expiry: event.target.value }),
                 }}
                 cardCVCInputProps={{
                   value: cvv,
-                  onChange: event =>
-                    setCard({ ...card, cvv: event.target.value })
+                  onChange: (event) =>
+                    setCard({ ...card, cvv: event.target.value }),
                 }}
                 fieldStyle={{
                   border: "1px solid #ccc",
                   width: "80%",
-                  padding: "2rem 1rem"
+                  padding: "2rem 1rem",
                 }}
                 dangerTextStyle={{ fontSize: "18px" }}
               />

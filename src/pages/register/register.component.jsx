@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 
-import CustomInput from "components/custom-input/custom-input.component";
-import CustomButton from "components/custom-button/custom-button.component";
-import AuthMenu from "components/auth-menu/auth-menu.component";
+import CustomInput from "components/shared/custom-input/custom-input.component";
+import CustomButton from "components/shared/custom-button/custom-button.component";
+import AuthMenu from "components/auth/auth-menu/auth-menu.component";
 
 import { userSignUpStart } from "redux/user/user.actions";
 
@@ -14,15 +14,15 @@ const Register = ({ onSignUpStart }) => {
     firstName: "",
     lastName: "",
     emailAddress: "",
-    password: ""
+    password: "",
   });
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     const { name, value } = e.target;
     setUserCreds({ ...userCreds, [name]: value });
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     onSignUpStart(userCreds);
   };
@@ -71,11 +71,8 @@ const Register = ({ onSignUpStart }) => {
   );
 };
 
-const mapDispatchToProps = dispatch => ({
-  onSignUpStart: userCreds => dispatch(userSignUpStart(userCreds))
+const mapDispatchToProps = (dispatch) => ({
+  onSignUpStart: (userCreds) => dispatch(userSignUpStart(userCreds)),
 });
 
-export default connect(
-  null,
-  mapDispatchToProps
-)(Register);
+export default connect(null, mapDispatchToProps)(Register);

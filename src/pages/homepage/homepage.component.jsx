@@ -1,12 +1,12 @@
 import React from "react";
 
-import SearchField from "components/search-field/search-field.component";
-import Topic from "components/topic/topic.component";
-import PopularTopics from "components/popular-topics/popular-topics.component";
-import WritePost from "components/write-post/write-post.component";
-import ExplorePractitioners from "components/explore-practitioners/explore-practitioners.component";
+import SearchField from "components/shared/search-field/search-field.component";
+import Topic from "components/topics/topic/topic.component";
+import PopularTopics from "components/topics/popular-topics/popular-topics.component";
+import WritePost from "components/posts/write-post/write-post.component";
+import ExplorePractitioners from "components/experts/explore-experts/explore-practitioners.component";
 import useFetch from "effects/use-fetch.effect";
-import WithSpinner from "components/with-spinner/with-spinner.component";
+import WithSpinner from "components/shared/with-spinner/with-spinner.component";
 
 import "pages/homepage/homepage.styles.scss";
 
@@ -25,13 +25,13 @@ const Homepage = () => {
         </div>
       </div>
       <div className="homepage__categories">
-        {topics.map(topic => (
+        {topics.map((topic) => (
           <Topic topic={topic} key={topic._id} />
         ))}
       </div>
       <WritePost />
       <div className="homepage__popular">
-        {topics.map(topic => (
+        {topics.map((topic) => (
           <TopicsWithLoader
             isLoading={topicsLoading}
             topic={topic}

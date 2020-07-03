@@ -1,36 +1,36 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 
-import Post from "components/post/post.component";
-import WithSpinner from "components/with-spinner/with-spinner.component";
-import CreateReply from "components/create-reply/create-reply.component";
-import Reply from "components/reply/reply.component";
-import SearchField from "components/search-field/search-field.component";
-import BackLink from "components/back-link/backlink.component";
-import ExplorePractitioners from "components/explore-practitioners/explore-practitioners.component";
-import WritePost from "components/write-post/write-post.component";
+import Post from "components/posts/post/post.component";
+import WithSpinner from "components/shared/with-spinner/with-spinner.component";
+import CreateReply from "components/replies/create-reply/create-reply.component";
+import Reply from "components/replies/reply/reply.component";
+import SearchField from "components/shared/search-field/search-field.component";
+import BackLink from "components/shared/back-link/backlink.component";
+import ExplorePractitioners from "components/experts/explore-experts/explore-practitioners.component";
+import WritePost from "components/posts/write-post/write-post.component";
 import useFetch from "effects/use-fetch.effect";
 
 import {
   PostPageWrapper,
   PageHeader,
   CreateWrapper,
-  CreateReplyWrapper
+  CreateReplyWrapper,
 } from "pages/post-page/post-page.styles";
 
-import Loader from "components/loader/loader.component";
+import Loader from "components/shared/loader/loader.component";
 
 const PostWithSpinner = WithSpinner(Post);
 const ExplorePractitionersWithSpinner = WithSpinner(ExplorePractitioners);
 
 const PostPage = ({ showReply, match }) => {
   const {
-    params: { id }
+    params: { id },
   } = match;
 
   const url = `/posts/${id}`;
   const [{ data: currentPost, loading }] = useFetch(url, {
-    author: { firstName: "" }
+    author: { firstName: "" },
   });
   const [{ data: topExperts, loading: loadingExperts }] = useFetch(
     "/experts?limit=3",
@@ -54,7 +54,7 @@ const PostPage = ({ showReply, match }) => {
           </CreateReplyWrapper>
           {currentPost &&
             currentPost.replies &&
-            currentPost.replies.map(reply => (
+            currentPost.replies.map((reply) => (
               <Reply reply={reply} key={reply._id} />
             ))}
           <CreateWrapper>

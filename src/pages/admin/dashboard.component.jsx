@@ -1,13 +1,13 @@
 import React from "react";
 import { withRouter, Route, Switch } from "react-router-dom";
 import styled from "styled-components";
-import { SideNav } from "components/admin-home/admin-home.component";
-import AdminUsers from "components/admin-users/admin-users.component";
-import AdminBoard from "components/admin-home/admin-board.component";
+import { SideNav } from "components/admin/admin-home/admin-home.component";
+import AdminUsers from "components/admin/admin-users/admin-users.component";
+import AdminBoard from "components/admin/admin-home/admin-board.component";
 import ExpertTable, {
-  Expert
-} from "components/expert-table/expert-table.component";
-import Subjects from "components/subjects/subjects.component";
+  Expert,
+} from "components/experts/expert-table/expert-table.component";
+import Subjects from "components/topics/subjects/subjects.component";
 import Users from "components/users/users.component";
 
 const DashboardWrapper = styled.div`

@@ -1,5 +1,5 @@
 import React from "react";
-import SearchExperts from "components/search-experts/search-experts.component";
+import SearchExperts from "components/experts/search-experts/search-experts.component";
 import { BookExpertContainer } from "pages/book/book.styles";
 
 const BookExpert = () => (

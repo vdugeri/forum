@@ -12,11 +12,11 @@ import Forum from "pages/forum/forum.component";
 import PostPage from "pages/post-page/post-page.component";
 import Dashboard from "pages/dashboard/dashboard.component";
 import Messages from "pages/messages/messages.component";
-import WithSpinner from "components/with-spinner/with-spinner.component";
-import UserPosts from "components/user-posts/user-posts.component";
+import WithSpinner from "components/shared/with-spinner/with-spinner.component";
+import UserPosts from "components/posts/user-posts/user-posts.component";
 import AccountPage from "pages/account/account.component";
 import BookExpert from "pages/book/book.component";
-import EditAccount from "components/edit-account/edit-account.component";
+import EditAccount from "components/accounts/edit-account/edit-account.component";
 import ExpertList from "pages/expert-list/expert-list.component";
 import Checkout from "pages/checkout/checkout.component";
 import AdminLogin from "pages/admin/login.component";
@@ -37,7 +37,7 @@ function App({
   currentUser,
   isUserLoading,
   isFetchingTopics,
-  onStartFetchTopics
+  onStartFetchTopics,
 }) {
   useEffect(() => {
     onStartFetchTopics();
@@ -49,13 +49,13 @@ function App({
         <Route
           exact
           path="/"
-          render={props => (
+          render={(props) => (
             <HomePageWithSpinner isLoading={isFetchingTopics} {...props} />
           )}
         />
         <Route
           path="/login"
-          component={props =>
+          component={(props) =>
             !currentUser ? (
               <LoginWithSpinner isLoading={isUserLoading} {...props} />
             ) : (
@@ -65,7 +65,7 @@ function App({
         />
         <Route
           path="/register"
-          component={props =>
+          component={(props) =>
             !currentUser ? (
               <RegisterWithSpinner isLoading={isUserLoading} {...props} />
             ) : (
@@ -75,7 +75,7 @@ function App({
         />
         <Route
           path="/posts/create"
-          component={props =>
+          component={(props) =>
             !currentUser ? (
               <LoginWithSpinner isLoading={isUserLoading} {...props} />
             ) : (
@@ -124,19 +124,19 @@ function App({
         />
         <Route
           path="/dashboard/book/:subject"
-          component={props =>
+          component={(props) =>
             currentUser ? <ExpertList {...props} /> : <Redirect to="/login" />
           }
         />
         <Route
           path="/booking/checkout"
-          component={props =>
+          component={(props) =>
             currentUser ? <Checkout {...props} /> : <Redirect to="/login" />
           }
         />
         <Route
           path="/admin"
-          component={props =>
+          component={(props) =>
             currentUser && currentUser.user.isAdmin ? (
               <AdminDashboard {...props} />
             ) : (
@@ -153,11 +153,11 @@ const mapStateToProps = createStructuredSelector({
   isUserLoading: selectIsLoading,
   currentUser: selectCurrentUser,
   isFetchingTopics: selectIsFetchingTopics,
-  isPostsLoading: selectIsPostLoading
+  isPostsLoading: selectIsPostLoading,
 });
 
-const mapDispatchToProps = dispatch => ({
-  onStartFetchTopics: () => dispatch(startFetchTopics())
+const mapDispatchToProps = (dispatch) => ({
+  onStartFetchTopics: () => dispatch(startFetchTopics()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

@@ -6,9 +6,9 @@ import {
   LoginForm,
   Catchline,
   StyledButton,
-  StyledInput
+  StyledInput,
 } from "pages/admin/login.styles";
-import { Gap } from "components/message-modal/message-modal.styles";
+import { Gap } from "components/messages/message-modal/message-modal.styles";
 import { Heading } from "pages/expert-list/expert-list.styles";
 import { useDispatch } from "react-redux";
 import { adminLogin } from "redux/admin/admin.actions";
@@ -16,7 +16,7 @@ import { adminLogin } from "redux/admin/admin.actions";
 const AdminLogin = ({ history }) => {
   const [userCreds, setUserCreds] = useState({
     emailAddress: "",
-    password: ""
+    password: "",
   });
 
   const dispatch = useDispatch();
@@ -28,7 +28,7 @@ const AdminLogin = ({ history }) => {
       <Catchline>Help Educate the Child</Catchline>
       <LoginContainer>
         <LoginForm
-          onSubmit={e => {
+          onSubmit={(e) => {
             e.preventDefault();
             dispatch(adminLogin(userCreds));
           }}
@@ -39,7 +39,7 @@ const AdminLogin = ({ history }) => {
             name="emailAddress"
             label="Email Address"
             value={emailAddress}
-            handleChange={e =>
+            handleChange={(e) =>
               setUserCreds({ ...userCreds, emailAddress: e.target.value })
             }
           />
@@ -48,7 +48,7 @@ const AdminLogin = ({ history }) => {
             name="password"
             label="Password"
             value={password}
-            handleChange={e =>
+            handleChange={(e) =>
               setUserCreds({ ...userCreds, password: e.target.value })
             }
           />

@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import CustomButton from "components/custom-button/custom-button.component";
-import CustomInput from "components/custom-input/custom-input.component";
+import CustomButton from "components/shared/custom-button/custom-button.component";
+import CustomInput from "components/shared/custom-input/custom-input.component";
 
 export const LoginOverlay = styled.div`
   position: fixed;

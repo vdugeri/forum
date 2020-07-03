@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { ListContainer, Heading } from "pages/expert-list/expert-list.styles";
-import BackLink from "components/back-link/backlink.component";
-import ExpertBox from "components/expert-box/expert-box.component";
+import BackLink from "components/shared/back-link/backlink.component";
+import ExpertBox from "components/experts/expert-box/expert-box.component";
 import useFetch from "effects/use-fetch.effect";
-import Loader from "components/loader/loader.component";
-import ExpertProfile from "components/expert-profile/expert-profile.component";
+import Loader from "components/shared/loader/loader.component";
+import ExpertProfile from "components/experts/expert-profile/expert-profile.component";
 
 const ExpertList = ({ match }) => {
   const [{ data: experts, loading }] = useFetch("/experts", []);

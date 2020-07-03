@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
-import CustomInput from "components/custom-input/custom-input.component";
-import CustomButton from "components/custom-button/custom-button.component";
-import AuthMenu from "components/auth-menu/auth-menu.component";
+import CustomInput from "components/shared/custom-input/custom-input.component";
+import CustomButton from "components/shared/custom-button/custom-button.component";
+import AuthMenu from "components/auth/auth-menu/auth-menu.component";
 
 import { userSignInStart } from "redux/user/user.actions";
 
@@ -13,15 +13,15 @@ import "pages/login/login.styles.scss";
 const Login = ({ onSignInStart }) => {
   const [userCreds, setUserCreds] = useState({
     emailAddress: "",
-    password: ""
+    password: "",
   });
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     const { name, value } = e.target;
     setUserCreds({ ...userCreds, [name]: value });
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     onSignInStart(userCreds);
   };
@@ -57,11 +57,8 @@ const Login = ({ onSignInStart }) => {
   );
 };
 
-const mapDispatchToProps = dispatch => ({
-  onSignInStart: userCreds => dispatch(userSignInStart(userCreds))
+const mapDispatchToProps = (dispatch) => ({
+  onSignInStart: (userCreds) => dispatch(userSignInStart(userCreds)),
 });
 
-export default connect(
-  null,
-  mapDispatchToProps
-)(Login);
+export default connect(null, mapDispatchToProps)(Login);

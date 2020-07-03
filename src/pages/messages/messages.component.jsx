@@ -2,14 +2,14 @@ import React, { useEffect } from "react";
 import { createStructuredSelector } from "reselect";
 import { connect } from "react-redux";
 
-import MessagePreview from "components/message-preview/message-preview.component";
-import Message from "components/message/message.component";
-import MessageComposer from "components/message-composer/message-composer.component";
+import MessagePreview from "components/messages/message-preview/message-preview.component";
+import Message from "components/messages/message/message.component";
+import MessageComposer from "components/messages/message-composer/message-composer.component";
 import Quote from "components/quote/quote.component";
 
 import {
   selectMessageList,
-  selectCurrentMessage
+  selectCurrentMessage,
 } from "redux/messages/messages.selectors";
 import { selectCurrentUser } from "redux/user/user.selectors";
 import { startFetchMessages } from "redux/messages/messages.actions";
@@ -20,7 +20,7 @@ const Messages = ({
   userMessages,
   currentMessage,
   currentUser,
-  onFetchMessages
+  onFetchMessages,
 }) => {
   useEffect(() => {
     onFetchMessages(currentUser.user);
@@ -28,7 +28,7 @@ const Messages = ({
   return (
     <div className="messages">
       <div className="messages__preview-area">
-        {userMessages.map(message => (
+        {userMessages.map((message) => (
           <MessagePreview message={message} key={message._id} />
         ))}
       </div>
@@ -44,11 +44,11 @@ const Messages = ({
 const mapStateToProps = createStructuredSelector({
   userMessages: selectMessageList,
   currentMessage: selectCurrentMessage,
-  currentUser: selectCurrentUser
+  currentUser: selectCurrentUser,
 });
 
-const mapDispatchToProps = dispatch => ({
-  onFetchMessages: user => dispatch(startFetchMessages(user))
+const mapDispatchToProps = (dispatch) => ({
+  onFetchMessages: (user) => dispatch(startFetchMessages(user)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Messages);
