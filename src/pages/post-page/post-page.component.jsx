@@ -2,11 +2,11 @@ import React from "react";
 import { withRouter } from "react-router-dom";
 
 import Post from "components/posts/post/post.component";
-import WithSpinner from "components/shared/with-spinner/with-spinner.component";
+import WithSpinner from "components/shared/with-spinner.component";
 import CreateReply from "components/replies/create-reply/create-reply.component";
 import Reply from "components/replies/reply/reply.component";
-import SearchField from "components/shared/search-field/search-field.component";
-import BackLink from "components/shared/back-link/backlink.component";
+import SearchField from "components/shared/search-field.component";
+import BackLink from "components/shared/backlink.component";
 import ExplorePractitioners from "components/experts/explore-experts/explore-practitioners.component";
 import WritePost from "components/posts/write-post/write-post.component";
 import useFetch from "effects/use-fetch.effect";

@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 
 import PostOverview from "components/posts/post-overview/post-overview.component";
-import ForwardLink from "components/shared/forward-link/forward-link.component";
+import ForwardLink from "components/shared/forward-link.component";
 import {
   Wrapper,
   PostsWrapper,

@@ -12,8 +12,7 @@ import {
   SkillTags,
 } from "components/accounts/account-settings/account-settings.styles";
 
-import Chip from "components/shared/chip/chip.component";
-import Button from "components/shared/custom-button/custom-button.component";
+import { Button, Tag } from "components/shared";
 
 const AccountSettings = () => {
   const currentUser = useSelector(selectCurrentUser);
@@ -50,14 +49,14 @@ const AccountSettings = () => {
         <SettingsBlock>
           <BlockSection>
             <h4>Primary Skill:</h4>
-            <Chip label={user.primarySkill} />
+            <Tag label={user.primarySkill} />
           </BlockSection>
         </SettingsBlock>
         <SettingsBlock>
           <h4>Other Skills:</h4>
           <SkillTags>
             {user.otherSkills.map((skill, index) => (
-              <Chip label={skill} key={index} />
+              <Tag label={skill} key={index} />
             ))}
           </SkillTags>
         </SettingsBlock>

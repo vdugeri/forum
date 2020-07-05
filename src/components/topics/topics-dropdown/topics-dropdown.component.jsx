@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 
 import TopicStrip from "components/topics/topic-strip/topic-strip.component";
-import CustomButton from "components/shared/custom-button/custom-button.component";
+import { Button } from "components/shared";
 import {
   DropdownHeading,
   DropdownFooter,
@@ -28,9 +28,9 @@ const TopicsDropdown = ({ topics, history, toggleTopicsDropdown }) => {
       ))}
       <DropdownFooter>
         <span>Have a question?</span>
-        <CustomButton ghost onClick={goToPostPage}>
+        <Button ghost onClick={goToPostPage}>
           Write a post
-        </CustomButton>
+        </Button>
       </DropdownFooter>
     </DropdownWrapper>
   );

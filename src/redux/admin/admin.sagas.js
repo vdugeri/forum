@@ -5,11 +5,12 @@ import axios from "utils/http-client";
 
 function* adminLogin({ payload }) {
   try {
-    console.log({ payload });
     const {
-      data: { userWithToken }
+      data: { user },
+      headers: { authorization },
     } = yield axios.post("/auth/login", payload);
-    yield put(userSignInSuccess(userWithToken));
+    const token = authorization.split(" ")[1];
+    yield put(userSignInSuccess({ user, token }));
   } catch (error) {
     yield put(userSignInFailure(error));
   }

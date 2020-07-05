@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
-import ForwardLink from "components/shared/forward-link/forward-link.component";
+import ForwardLink from "components/shared/forward-link.component";
 import {
   LogoutLink,
   LinksWrapper,

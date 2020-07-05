@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import CustomButton from "components/shared/custom-button/custom-button.component";
+import { Button } from "components/shared";
 
 export const ModalOverlay = styled.div`
   position: fixed;
@@ -75,7 +75,7 @@ export const FormMiddleRow = styled.div`
   margin-bottom: 2rem;
 `;
 
-export const StyledButton = styled(CustomButton)`
+export const StyledButton = styled(Button)`
   margin: 2rem 0;
   align-self: center;
 `;

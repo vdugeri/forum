@@ -6,7 +6,8 @@ const INITIAL_STATE = {
   isLoading: false,
   modalShown: false,
   isAccountOpen: false,
-  showWelcomeModal: false
+  showWelcomeModal: false,
+  token: "",
 };
 
 const userReducer = (state = INITIAL_STATE, { type, payload }) => {
@@ -18,7 +19,7 @@ const userReducer = (state = INITIAL_STATE, { type, payload }) => {
       return {
         ...state,
         isLoading: true,
-        error: null
+        error: null,
       };
     case userActionTypes.LOGIN_FAILURE:
     case userActionTypes.SIGNUP_FAILURE:
@@ -27,14 +28,15 @@ const userReducer = (state = INITIAL_STATE, { type, payload }) => {
       return {
         ...state,
         error: payload,
-        isLoading: false
+        isLoading: false,
       };
     case userActionTypes.LOGIN_SUCCESS:
       return {
         ...state,
-        currentUser: payload,
+        currentUser: payload.user,
+        token: payload.token,
         error: null,
-        isLoading: false
+        isLoading: false,
       };
     case userActionTypes.SIGNUP_SUCCESS:
     case userActionTypes.UPDATE_USER_ACCOUNT_SUCCESS:
@@ -43,28 +45,28 @@ const userReducer = (state = INITIAL_STATE, { type, payload }) => {
         currentUser: payload,
         error: null,
         isLoading: false,
-        showWelcomeModal: true
+        showWelcomeModal: true,
       };
     case userActionTypes.TOGGLE_REGISTRATION_MODAL:
       return {
         ...state,
-        modalShown: !state.modalShown
+        modalShown: !state.modalShown,
       };
     case userActionTypes.TOGGLE_ACCOUNT_DROPDOWN:
       return {
         ...state,
-        isAccountOpen: !state.isAccountOpen
+        isAccountOpen: !state.isAccountOpen,
       };
     case userActionTypes.SIGN_OUT_SUCCESS:
       return {
         ...state,
         currentUser: null,
-        isLoading: false
+        isLoading: false,
       };
     case userActionTypes.CLOSE_WELCOME_MODAL:
       return {
         ...state,
-        showWelcomeModal: false
+        showWelcomeModal: false,
       };
     default:
       return state;

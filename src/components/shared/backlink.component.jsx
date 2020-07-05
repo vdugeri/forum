@@ -1,7 +1,8 @@
+import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-export const StyledLink = styled(Link)`
+const StyledLink = styled(Link)`
   display: flex;
   width: 100%;
   align-items: center;
@@ -24,3 +25,12 @@ export const BackLinkIcon = styled.span`
   margin-right: 0.5rem;
   margin-top: -6px;
 `;
+
+const BackLink = ({ linkText, linkUrl }) => (
+  <StyledLink to={linkUrl}>
+    <BackLinkIcon>&#8249;</BackLinkIcon>
+    {linkText}
+  </StyledLink>
+);
+
+export default BackLink;

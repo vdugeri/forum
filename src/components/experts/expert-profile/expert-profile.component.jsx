@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { withRouter } from "react-router-dom";
-import { Button } from "components/shared/custom-button/custom-button-styles";
 import {
   ProfileOverlay,
   ProfileContainer,
@@ -19,6 +18,7 @@ import {
   About,
   Paragraph,
 } from "components/experts/expert-profile/expert-profile.styles";
+import { Button } from "components/shared";
 import MessageModal from "components/messages/message-modal/message-modal.component";
 
 const ExpertProfile = ({ expert, onClose, history }) => {

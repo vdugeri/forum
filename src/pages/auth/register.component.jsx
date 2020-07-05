@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import AuthMenu from "components/auth/auth-menu/auth-menu.component";
 import { userSignUpStart } from "redux/user/user.actions";
-import { Button } from "components/shared/form/button";
-import { Input } from "components/shared/form/form";
-import { String } from "components/shared/form/string";
-import { Grid, Contain, Box } from "components/shared/form/layout";
+import { Button } from "components/shared/button";
+import { Input } from "components/shared/form";
+import { String } from "components/shared/string";
+import { Grid, Contain, Box } from "components/shared/layout";
 import { validateRegistration } from "pages/auth/validate";
 
 const Register = () => {

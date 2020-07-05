@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import CustomButton from "components/shared/custom-button/custom-button.component";
+import { Button } from "components/shared";
 
 export const ListContainer = styled.div`
   width: 100%;
@@ -7,7 +7,7 @@ export const ListContainer = styled.div`
   padding: 4rem 2rem;
 `;
 
-export const StyledButton = styled(CustomButton)`
+export const StyledButton = styled(Button)`
   border-radius: 5px;
   height: 5rem;
 `;

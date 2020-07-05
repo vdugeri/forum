@@ -6,16 +6,16 @@ import {
   Catchline,
 } from "pages/admin/login.styles";
 import { Heading } from "pages/experts/expert-list.styles";
-import { Button } from "components/shared/form/button";
+import { Button } from "components/shared/button";
 import { useDispatch } from "react-redux";
 import { adminLogin } from "redux/admin/admin.actions";
-import { Input } from "components/shared/form/form";
-import { Box, Grid } from "components/shared/form/layout";
+import { Input } from "components/shared/form";
+import { Box, Grid } from "components/shared/layout";
 import validateCreds from "pages/admin/validate";
 
 const AdminLogin = ({ history }) => {
   const [userCreds, setUserCreds] = useState({
-    emailAddress: "",
+    username: "",
     password: "",
   });
 
@@ -24,7 +24,7 @@ const AdminLogin = ({ history }) => {
   const dispatch = useDispatch();
 
   function handleLogin() {
-    const { isValid, errors } = validateCreds(emailAddress, password);
+    const { isValid, errors } = validateCreds(username, password);
 
     if (!isValid) {
       setFormErrors(errors);
@@ -34,7 +34,7 @@ const AdminLogin = ({ history }) => {
     dispatch(adminLogin(userCreds));
   }
 
-  const { emailAddress, password } = userCreds;
+  const { username, password } = userCreds;
 
   return (
     <LoginOverlay>
@@ -51,15 +51,15 @@ const AdminLogin = ({ history }) => {
           <Heading size="18px">Sign In</Heading>
           <Grid default="1fr" padVertical="30px">
             <Input
-              type="email"
-              name="emailAddress"
-              label="Email Address"
-              value={emailAddress}
+              type="text"
+              name="username"
+              label="Username"
+              value={username}
               required
-              error={formErrors.emailAddress}
+              error={formErrors.username}
               onChange={(e) => {
-                setUserCreds({ ...userCreds, emailAddress: e.target.value });
-                setFormErrors({ ...formErrors, emailAddress: "" });
+                setUserCreds({ ...userCreds, username: e.target.value });
+                setFormErrors({ ...formErrors, username: "" });
               }}
             />
             <Input

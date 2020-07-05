@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
-import CustomInput from "components/shared/custom-input/custom-input.component";
+import { Input } from "components/shared";
 
 import {
   ModalOverlay,
@@ -54,45 +54,45 @@ const RegisterModal = ({ toggleModalStatus, onSignupStart, match }) => {
         </Paragraph>
         <RegisterForm onSubmit={handleSubmit}>
           <FormFirstRow>
-            <CustomInput
+            <Input
               type="email"
               name="emailAddress"
               value={emailAddress}
-              handleChange={handleChange}
+              onChange={handleChange}
               label="Email address"
               required
             />
           </FormFirstRow>
           <FormMiddleRow className="register-modal__form--middle-row">
-            <CustomInput
+            <Input
               type="text"
               value={firstName}
               name="firstName"
-              handleChange={handleChange}
+              onChange={handleChange}
               label="First name"
               required
             />
-            <CustomInput
+            <Input
               type="text"
               value={lastName}
               name="lastName"
-              handleChange={handleChange}
+              onChange={handleChange}
               label="Last name"
               required
             />
-            <CustomInput
+            <Input
               type="text"
               value={username}
               name="username"
-              handleChange={handleChange}
+              onChange={handleChange}
               label="Username"
               required
             />
-            <CustomInput
+            <Input
               type="password"
               value={password}
               name="password"
-              handleChange={handleChange}
+              onChange={handleChange}
               label="Password"
               required
             />

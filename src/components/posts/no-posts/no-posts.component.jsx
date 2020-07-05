@@ -8,7 +8,7 @@ import {
 } from "components/posts/no-posts/no-posts.styles";
 
 import { ReactComponent as EmptyBook } from "assets/icons/book.svg";
-import CustomButton from "components/shared/custom-button/custom-button.component";
+import { Button } from "components/shared";
 
 const NoPosts = () => (
   <Wrapper>
@@ -17,9 +17,9 @@ const NoPosts = () => (
     </IconContainer>
     <Title>You don't have any posts yet</Title>
     <Message>Posts will appear once you've posted something</Message>
-    <CustomButton primary>
+    <Button>
       <StyledLink to="/posts/create">Create Post</StyledLink>
-    </CustomButton>
+    </Button>
   </Wrapper>
 );
 

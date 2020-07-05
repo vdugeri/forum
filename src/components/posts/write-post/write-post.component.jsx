@@ -1,7 +1,7 @@
 import React from "react";
-import { Box, Grid } from "components/shared/form/layout";
-import { String, Button, ButtonLink } from "components/shared/form";
-import { Theme } from "components/shared/form/theme";
+import { Box, Grid } from "components/shared/layout";
+import { String, Button, ButtonLink } from "components/shared";
+import { Theme } from "components/shared/theme";
 
 const WritePost = () => (
   <Box background={Theme.PrimaryGreyLight} pad="10px" radius="large">

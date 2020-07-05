@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import AuthMenu from "components/auth/auth-menu/auth-menu.component";
-import { Input } from "components/shared/form/form";
-import { Button } from "components/shared/form/button";
-import { String } from "components/shared/form/string";
-import { Grid, Contain, Gap, Box } from "components/shared/form/layout";
+import { Input } from "components/shared/form";
+import { Button } from "components/shared/button";
+import { String } from "components/shared/string";
+import { Grid, Contain, Gap, Box } from "components/shared/layout";
 import { userSignInStart } from "redux/user/user.actions";
 import { validateLogin } from "pages/auth/validate";
 

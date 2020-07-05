@@ -1,4 +1,11 @@
-import styled from "styled-components";
+import React from "react";
+import styled, { keyframes } from "styled-components";
+
+const spin = keyframes`
+to {
+      -webkit-transform: rotate(360deg);
+    }
+`;
 
 export const Spinner = styled.div`
   display: inline-block;
@@ -7,19 +14,8 @@ export const Spinner = styled.div`
   border: 3px solid rgba(195, 195, 195, 0.6);
   border-radius: 50%;
   border-top-color: #636767;
-  animation: spin 1s ease-in-out infinite;
-  -webkit-animation: spin 1s ease-in-out infinite;
-
-  @keyframes spin {
-    to {
-      -webkit-transform: rotate(360deg);
-    }
-  }
-  @-webkit-keyframes spin {
-    to {
-      -webkit-transform: rotate(360deg);
-    }
-  }
+  animation: ${spin} 1s ease-in-out infinite;
+  -webkit-animation: ${spin} 1s ease-in-out infinite;
 `;
 
 export const SpinnerOverlay = styled.div`
@@ -34,3 +30,11 @@ export const SpinnerOverlay = styled.div`
   background: rgba(0, 0, 0, 0.4);
   z-index: 9999;
 `;
+
+const Loader = () => (
+  <SpinnerOverlay>
+    <Spinner></Spinner>
+  </SpinnerOverlay>
+);
+
+export default Loader;

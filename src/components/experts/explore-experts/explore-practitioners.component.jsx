@@ -1,7 +1,7 @@
 import React from "react";
 
 import ExpertPhoto from "components/experts/expert-photo/expert-photo.component";
-import CustomButton from "components/shared/custom-button/custom-button.component";
+import { Button } from "components/shared";
 import {
   ExploreExpertsWrapper,
   Experts,
@@ -22,9 +22,9 @@ const ExplorePractitioners = ({ topExperts }) => (
       Send a private message or video chat with a variety of specialists 24/7 on
       your own time.
     </Message>
-    <CustomButton ghost={true}>
+    <Button ghost={true}>
       <StyledLink to="/dashboard/book">Explore practitioners</StyledLink>
-    </CustomButton>
+    </Button>
   </ExploreExpertsWrapper>
 );
 

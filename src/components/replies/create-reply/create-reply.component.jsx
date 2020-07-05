@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
-import CustomButton from "components/shared/custom-button/custom-button.component";
+import { Button } from "components/shared";
 import Editor from "components/editor/editor.component";
 
 import { toggleModalStatus } from "redux/user/user.actions";
@@ -30,9 +30,9 @@ const CreateReply = ({ post, onCreateReplyStart, currentUser }) => {
       <div className="create-reply__field">
         <Editor handleChange={handleChange} value={text} />
       </div>
-      <CustomButton onClick={handleSubmit} primary>
+      <Button onClick={handleSubmit} primary>
         Reply to this post
-      </CustomButton>
+      </Button>
     </div>
   );
 };

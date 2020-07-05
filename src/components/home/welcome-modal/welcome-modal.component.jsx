@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import CustomButton from "components/shared/custom-button/custom-button.component";
+import { Button } from "components/shared";
 
 import { closeWelcomeModal } from "redux/user/user.actions";
 
@@ -30,9 +30,9 @@ const WelcomeModal = ({ newUser, carePerson, closeModal }) => (
         <span className="welcome-modal__signature">{carePerson.name}</span>
       </p>
 
-      <CustomButton primary onClick={closeModal}>
+      <Button primary onClick={closeModal}>
         Got it
-      </CustomButton>
+      </Button>
     </div>
   </div>
 );

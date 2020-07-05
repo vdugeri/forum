@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import PropTypes from "prop-types";
-import CustomButton from "components/shared/custom-button/custom-button.component";
+import { Button } from "components/shared";
 
 export const Container = styled.div`
   display: flex;
@@ -72,6 +72,6 @@ export const PaymentContainer = styled.div`
   margin-left: 5rem;
 `;
 
-export const StyledButton = styled(CustomButton)`
+export const StyledButton = styled(Button)`
   width: 30%;
 `;

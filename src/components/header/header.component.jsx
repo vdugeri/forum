@@ -11,7 +11,7 @@ import {
 
 import logo from "assets/logo.png";
 
-import CustomButton from "components/shared/custom-button/custom-button.component";
+import { Button } from "components/shared";
 import TopicsDropdown from "components/topics/topics-dropdown/topics-dropdown.component";
 import AccountDropdown from "components/accounts/account-dropdown/account-dropdown.component";
 import UserAvatar from "components/users/user-avatar/user-avatar.component";
@@ -56,17 +56,14 @@ const Header = ({
             {!currentUser ? (
               <React.Fragment>
                 <NavItem>
-                  <CustomButton onClick={() => history.push("/login")} ghost>
+                  <Button onClick={() => history.push("/login")} ghost>
                     Sign in
-                  </CustomButton>
+                  </Button>
                 </NavItem>
                 <NavItem>
-                  <CustomButton
-                    primary
-                    onClick={() => history.push("/register")}
-                  >
+                  <Button primary onClick={() => history.push("/register")}>
                     Create account
-                  </CustomButton>
+                  </Button>
                 </NavItem>
               </React.Fragment>
             ) : (

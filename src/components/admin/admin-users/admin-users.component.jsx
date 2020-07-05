@@ -15,7 +15,7 @@ import {
 } from "components/experts/expert-table/expert-table.styles";
 import useFetch from "effects/use-fetch.effect";
 import Spinner from "components/shared/loader/loader.component";
-import Icon from "components/shared/icon/icon.component";
+import Icon from "components/shared/icon.component";
 
 const AdminUsers = () => {
   const [{ loading, data: users }] = useFetch("/users?admin=true", [

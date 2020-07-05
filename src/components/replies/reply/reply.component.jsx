@@ -1,7 +1,7 @@
 import React from "react";
 import moment from "moment";
 
-import CustomButton from "components/shared/custom-button/custom-button.component";
+import { Button } from "components/shared";
 
 import "components/replies/reply/reply.styles.scss";
 
@@ -35,7 +35,7 @@ const Reply = ({ reply }) => (
           <span>
             Have more questions for {reply.author.name.split(" ")[0]}?
           </span>
-          <CustomButton ghost>Send a private message</CustomButton>
+          <Button pale>Send a private message</Button>
         </div>
       ) : null}
     </div>

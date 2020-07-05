@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import StatContainer from "components/stat-container/stat-container.component";
-import Icon from "components/shared/icon/icon.component";
+import Icon from "components/shared/icon.component";
 
 const AdminBoardContainer = styled.div`
   display: grid;

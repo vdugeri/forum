@@ -1,15 +1,16 @@
 import React from "react";
 import { TopicSelectWrapper } from "components/topics/topic-select/topic-select.styles";
-import CustomRadioButton from "components/shared/custom-radio-button/custom-radio-button.component";
+import { SimpleCheckbox } from "components/shared/form";
 
 const TopicSelect = ({ topic, handleChange }) => {
   return (
     <TopicSelectWrapper>
-      <CustomRadioButton
+      <SimpleCheckbox
         label={topic.name}
         name="topicId"
         handleChange={handleChange}
-        value={topic._id}
+        value={topic.id}
+        type="radio"
       />
     </TopicSelectWrapper>
   );

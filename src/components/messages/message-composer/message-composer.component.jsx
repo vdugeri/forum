@@ -3,34 +3,34 @@ import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
 import { ReactComponent as PaperPlane } from "assets/icons/paperplane.svg";
-import CustomTextArea from "components/shared/custom-textarea/custom-textarea.component";
+import { TextArea } from "components/shared/form";
 import {
   ComposerContainer,
   ComposerInput,
-  SendButton
+  SendButton,
 } from "components/messages/message-composer/message-composer.styles";
 
 import { startSendMessage } from "redux/messages/messages.actions";
 
 import {
   selectCurrentMessage,
-  selectMessageReciver
+  selectMessageReciver,
 } from "redux/messages/messages.selectors";
 import { selectCurrentUser } from "redux/user/user.selectors";
 
 const MessageComposer = ({ currentMessage, currentUser, onSendMessage }) => {
   const [message, setMessage] = useState("");
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     const { value } = e.target;
     setMessage(value);
   };
 
-  const handleClick = e => {
+  const handleClick = (e) => {
     const newMessage = {
       receiver: currentMessage.sender,
       sender: currentUser.user._id,
-      text: message
+      text: message,
     };
     onSendMessage(newMessage);
   };
@@ -38,7 +38,7 @@ const MessageComposer = ({ currentMessage, currentUser, onSendMessage }) => {
   return (
     <ComposerContainer>
       <ComposerInput>
-        <CustomTextArea
+        <TextArea
           name="message"
           placeholder="Message here..."
           handleChange={handleChange}
@@ -55,11 +55,11 @@ const MessageComposer = ({ currentMessage, currentUser, onSendMessage }) => {
 const mapStateToProps = createStructuredSelector({
   currentMessage: selectCurrentMessage,
   receiver: selectMessageReciver,
-  currentUser: selectCurrentUser
+  currentUser: selectCurrentUser,
 });
 
-const mapDispatchToProps = dispatch => ({
-  onSendMessage: message => dispatch(startSendMessage(message))
+const mapDispatchToProps = (dispatch) => ({
+  onSendMessage: (message) => dispatch(startSendMessage(message)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(MessageComposer);

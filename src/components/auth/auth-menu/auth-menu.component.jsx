@@ -4,8 +4,8 @@ import {
   MenuLink,
   LogoImage,
 } from "components/auth/auth-menu/auth-menu.styles";
-import { Box, Grid } from "components/shared/form/layout";
-import { String } from "components/shared/form/string";
+import { Box, Grid } from "components/shared/layout";
+import { String } from "components/shared/string";
 
 import logo from "assets/logo.png";
 

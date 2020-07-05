@@ -3,11 +3,11 @@ import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
 import TopicLink from "components/topics/topic-link/topic-link.component";
-import SearchField from "components/shared/search-field/search-field.component";
+import SearchField from "components/shared/search-field.component";
 import WritePost from "components/posts/write-post/write-post.component";
-import BackLink from "components/shared/back-link/backlink.component";
+import BackLink from "components/shared/backlink.component";
 import PostPreview from "components/posts/post-preview/post-preview.component";
-import WithSpinner from "components/shared/with-spinner/with-spinner.component";
+import WithSpinner from "components/shared/with-spinner.component";
 
 import titleCase from "utils/title-case";
 import removeDashes from "utils/remove-dashes";

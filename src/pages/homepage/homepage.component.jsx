@@ -1,14 +1,14 @@
 import React from "react";
 
-import SearchField from "components/shared/search-field/search-field.component";
+import SearchField from "components/shared/search-field.component";
 import Topic from "components/topics/topic/topic.component";
 import PopularTopics from "components/topics/popular-topics/popular-topics.component";
 import WritePost from "components/posts/write-post/write-post.component";
 import ExplorePractitioners from "components/experts/explore-experts/explore-practitioners.component";
 import useFetch from "effects/use-fetch.effect";
-import WithSpinner from "components/shared/with-spinner/with-spinner.component";
-import { Contain, Box, Grid, Gap } from "components/shared/form/layout";
-import { String } from "components/shared/form/string";
+import WithSpinner from "components/shared/with-spinner.component";
+import { Contain, Box, Grid, Gap } from "components/shared/layout";
+import { String } from "components/shared/string";
 
 const PractionersWithSpinner = WithSpinner(ExplorePractitioners);
 const TopicsWithLoader = WithSpinner(PopularTopics);

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import CustomButton from "components/shared/custom-button/custom-button.component";
+import { Button } from "components/shared";
 
 export const WelcomeWrapper = styled.div`
   display: flex;
@@ -75,6 +75,6 @@ export const StyledLink = styled(Link)`
   color: inherit;
 `;
 
-export const StyledButton = styled(CustomButton)`
+export const StyledButton = styled(Button)`
   margin-top: 2rem;
 `;

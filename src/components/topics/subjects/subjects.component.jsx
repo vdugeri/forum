@@ -15,8 +15,8 @@ import {
   LinkContainer,
 } from "components/experts/expert-table/expert-table.styles";
 import useFetch from "effects/use-fetch.effect";
-import Spinner from "components/shared/with-spinner/with-spinner.component";
-import Icon from "components/shared/icon/icon.component";
+import Spinner from "components/shared/with-spinner.component";
+import Icon from "components/shared/icon.component";
 
 const Subjects = () => {
   const [{ data: topics, loading }] = useFetch("/topics", [{ topics: [] }]);

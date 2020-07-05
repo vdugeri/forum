@@ -12,7 +12,7 @@ import {
 } from "components/posts/user-posts/user-posts.styles.jsx";
 import { selectCurrentUser } from "redux/user/user.selectors";
 import Loader from "components/shared/loader/loader.component";
-import WithSpinner from "components/shared/with-spinner/with-spinner.component";
+import WithSpinner from "components/shared/with-spinner.component";
 
 const PostPreviewWithSpinner = WithSpinner(PostPreview);
 

@@ -2,11 +2,9 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import { selectCurrentUser, selectIsLoading } from "redux/user/user.selectors";
-import Input from "components/shared/custom-input/custom-input.component";
-import Button from "components/shared/custom-button/custom-button.component";
+import { Button, Input, Tag } from "components/shared";
 import Dropdown from "components/shared/dropdown/dropdown.component";
 import Loader from "components/shared/loader/loader.component";
-import Chip from "components/shared/chip/chip.component";
 
 import {
   EditAccountWrapper,
@@ -139,7 +137,7 @@ const EditAccount = () => {
 
           <SkillsWrapper>
             {otherSkills.map((skill, index) => (
-              <Chip
+              <Tag
                 label={skill}
                 closeable={true}
                 key={index}

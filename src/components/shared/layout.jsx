@@ -2,8 +2,8 @@ import React from "react";
 import styled, { css } from "styled-components";
 import { Link, useRouteMatch } from "react-router-dom";
 import PropTypes from "prop-types";
-import { media, Theme } from "components/shared/form/theme";
-import { String } from "components/shared/form/string";
+import { media, Theme } from "components/shared/theme";
+import { String } from "components/shared/string";
 import "assets/fonts/fonts/fonts.css";
 
 export const Layout = styled.div`

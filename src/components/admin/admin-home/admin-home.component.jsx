@@ -5,7 +5,7 @@ import {
   MenuItem,
   StyledLink,
 } from "components/admin/admin-home/admin-home.styles";
-import Icon from "components/shared/icon/icon.component";
+import Icon from "components/shared/icon.component";
 import AdminBoard from "components/admin/admin-home/admin-board.component";
 
 const AdminHome = () => <AdminBoard />;

@@ -1,8 +1,8 @@
-function validateCreds(emailAddress, password) {
+function validateCreds(useranme, password) {
   const errors = {};
 
-  if (!emailAddress || !emailAddress.trim()) {
-    errors["emailAddress"] = "emailAddress is required";
+  if (!useranme || !useranme.trim()) {
+    errors["username"] = "Useranme is required";
   }
 
   if (!password || !password.trim()) {

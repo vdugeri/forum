@@ -2,13 +2,20 @@ import React, { useState } from "react";
 import { connect, useSelector } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import { withRouter } from "react-router-dom";
-import CustomInput from "components/shared/custom-input/custom-input.component";
-import CustomButton from "components/shared/custom-button/custom-button.component";
+
 import TopicSelect from "components/topics/topic-select/topic-select.component";
 import RegisterModal from "components/auth/register-modal/register-modal.component";
-import WithSpinner from "components/shared/with-spinner/with-spinner.component";
+import WithSpinner from "components/shared/with-spinner.component";
 import Editor from "components/editor/editor.component";
-import { Contain, Grid, Box, String, Gap } from "components/shared/form";
+import {
+  Contain,
+  Grid,
+  Box,
+  String,
+  Gap,
+  Input,
+  Button,
+} from "components/shared";
 import { selectTopicList } from "redux/topics/topics.selectors";
 import {
   selectModalShown,
@@ -18,7 +25,7 @@ import {
 import { startPostCreate } from "redux/posts/posts.actions";
 import { toggleModalStatus } from "redux/user/user.actions";
 
-import "pages/create-post/create-post.styles.scss";
+import { AuthorImage } from "components/posts/post/post.styles";
 
 const RegisterModalWithSpinner = WithSpinner(RegisterModal);
 
@@ -59,38 +66,28 @@ const CreatePost = ({
     history.push("/dashboard/posts");
   };
 
-  const { anon, title, body, topicId, author } = postData;
+  const { title, body, topicId, author } = postData;
   return (
-    <Contain wide width="100%">
+    <Contain wide width="60%">
       {modalShown && !currentUser ? (
         <RegisterModalWithSpinner isLoading={isLoading} />
       ) : null}
-      <form onSubmit={handleSubmit} className="create-post">
+      <form onSubmit={handleSubmit}>
         <String size="2.5rem">Write a post</String>
         <Gap height="20px" />
-        <div className="create-post__author">
-          <div className="create-post__author--details">
-            <div className="create-post__author--image">
-              {anon ? "?" : author ? author.firstName.substring(0, 1) : "#"}
-            </div>
-            <span>
-              {anon ? (
-                "Anonymous"
-              ) : author ? (
-                <span>{author.firstName}</span>
-              ) : (
-                <div className="add-user" onClick={toggleModalStatus}>
-                  Add username
-                </div>
-              )}
-            </span>
-          </div>
-        </div>
-        <div className="create-post__post">
-          <span>*Title of your post</span>
-          <CustomInput
-            label="What's on your mind?"
-            handleChange={handleChange}
+        <Box>
+          <Box className="create-post__author--details">
+            <AuthorImage className="create-post__author--image">
+              {author && author.firstName.substring(0, 1)}
+            </AuthorImage>
+          </Box>
+        </Box>
+        <Gap height="20px" />
+        <Grid default="1fr" padVertical="30px">
+          <Input
+            label="Title of your post"
+            placeholder="What's on your mind?"
+            onChange={handleChange}
             type="text"
             name="title"
             value={title}
@@ -98,10 +95,14 @@ const CreatePost = ({
             autoFocus
           />
 
-          <span>What's going on?*</span>
-          <Editor handleChange={handleEditorChange} value={body} />
-          <span className="create-post__topics--heading">Add my post to*</span>
-          <div className="create-post__topics">
+          <Editor
+            onChange={handleEditorChange}
+            value={body}
+            label="What's going on?"
+          />
+          <Gap height="5px" />
+          <String size="1.8rem">Add my post to*</String>
+          <Grid default="auto auto">
             {topics.map((topic) => (
               <TopicSelect
                 topic={topic}
@@ -110,11 +111,12 @@ const CreatePost = ({
                 value={topicId}
               />
             ))}
-          </div>
-        </div>
-        <div className="create-post__button">
-          <CustomButton primary>Post</CustomButton>
-        </div>
+          </Grid>
+        </Grid>
+        <Gap height="20px" />
+        <Box rightAlign>
+          <Button>Publis Post</Button>
+        </Box>
       </form>
     </Contain>
   );

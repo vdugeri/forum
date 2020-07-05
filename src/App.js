@@ -12,7 +12,7 @@ import Forum from "pages/forum/forum.component";
 import PostPage from "pages/post-page/post-page.component";
 import Dashboard from "pages/dashboard/dashboard.component";
 import Messages from "pages/messages/messages.component";
-import WithSpinner from "components/shared/with-spinner/with-spinner.component";
+import WithSpinner from "components/shared/with-spinner.component";
 import UserPosts from "components/posts/user-posts/user-posts.component";
 import AccountPage from "pages/account/account.component";
 import BookExpert from "pages/experts/book.component";
@@ -136,7 +136,7 @@ function App({ isUserLoading, isFetchingTopics, onStartFetchTopics }) {
         <Route
           path="/admin"
           component={(props) =>
-            currentUser && currentUser.user.isAdmin ? (
+            currentUser && currentUser.isAdmin ? (
               <AdminDashboard {...props} />
             ) : (
               <AdminLogin />

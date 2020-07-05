@@ -19,10 +19,20 @@ export function* userSignIn({ payload }) {
     const endpoint = "/auth/login";
     const {
       data: { user },
+      headers: { authorization },
     } = yield axios.post(endpoint, payload);
-    yield put(userSignInSuccess(user));
+
+    const token = authorization.split(" ")[1];
+
+    yield put(userSignInSuccess({ user, token }));
   } catch (error) {
     yield put(userSignInFailure(error));
+    const { response } = error;
+    const { data } = response || {
+      data: { message: "Invalid username or password" },
+    };
+
+    Notification.open({ type: "error", message: data.message });
   }
 }
 

@@ -14,7 +14,7 @@ import {
   LinkContainer,
 } from "components/experts/expert-table/expert-table.styles";
 import Spinner from "components/shared/loader/loader.component";
-import Icon from "components/shared/icon/icon.component";
+import Icon from "components/shared/icon.component";
 
 const Users = () => {
   const [{ loading, data: users }] = useFetch("/users", [{ users: [] }]);

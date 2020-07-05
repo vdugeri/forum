@@ -3,7 +3,7 @@ import styled, { css } from "styled-components";
 import PropTypes from "prop-types";
 import { transparentize, darken } from "polished";
 import { Theme } from "./theme";
-import Icon from "components/shared/icon/icon.component";
+import Icon from "components/shared/icon.component";
 import "assets/fonts/fonts/fonts.css";
 
 export const RoundButton = styled.div`

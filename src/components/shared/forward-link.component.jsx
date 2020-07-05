@@ -1,3 +1,4 @@
+import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
@@ -16,15 +17,15 @@ export const StyledLink = styled(Link)`
 `;
 
 export const LinkText = styled.span`
-  color: ${props => props.color};
+  color: ${(props) => props.color};
 `;
 
 LinkText.defaultProps = {
-  color: "inherit"
+  color: "inherit",
 };
 
 LinkText.propTypes = {
-  color: PropTypes.string
+  color: PropTypes.string,
 };
 
 export const LinkIcon = styled.span`
@@ -32,3 +33,12 @@ export const LinkIcon = styled.span`
   font-size: 2.5rem;
   font-weight: 500;
 `;
+
+const ForwardLink = ({ linkText, linkUrl, ...otherProps }) => (
+  <StyledLink to={linkUrl} {...otherProps}>
+    <LinkText {...otherProps}>{linkText}</LinkText>
+    <LinkIcon>&#8250;</LinkIcon>
+  </StyledLink>
+);
+
+export default ForwardLink;

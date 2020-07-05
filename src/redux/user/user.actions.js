@@ -5,9 +5,9 @@ export const userSignInStart = (userCreds) => ({
   payload: userCreds,
 });
 
-export const userSignInSuccess = (user) => ({
+export const userSignInSuccess = ({ user, token }) => ({
   type: userActionTypes.LOGIN_SUCCESS,
-  payload: user,
+  payload: { user, token },
 });
 
 export const userSignInFailure = (error) => ({

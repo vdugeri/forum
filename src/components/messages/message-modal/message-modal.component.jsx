@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import CustomTextarea from "components/shared/custom-textarea/custom-textarea.component";
 import {
   ModalOverlay,
   ModalContainer,
@@ -12,7 +11,7 @@ import {
   IconContainer,
   FieldContainer,
 } from "components/messages/message-modal/message-modal.styles";
-import CustomButton from "components/shared/custom-button/custom-button.component";
+import { Button, TextArea } from "components/shared";
 import { String } from "components/experts/expert-box/expert-box.styles";
 
 const MessageModal = ({ expert, onClose }) => {
@@ -38,17 +37,17 @@ const MessageModal = ({ expert, onClose }) => {
         <Gap height="20px" />
         <Label>You can expect a response withing 24 hours</Label>
         <FieldContainer>
-          <CustomTextarea
+          <TextArea
             name="message"
             label="What's going on?"
             value={message}
-            handleChange={(e) => setMessage(e.target.value)}
+            onChange={(e) => setMessage(e.target.value)}
             rows="8"
           />
           <Gap height="30px" />
-          <CustomButton primary onClick={sendMessage}>
+          <Button primary onClick={sendMessage}>
             Send
-          </CustomButton>
+          </Button>
         </FieldContainer>
       </ModalContainer>
     </ModalOverlay>

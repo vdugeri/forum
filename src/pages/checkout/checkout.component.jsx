@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import queryString from "query-string";
 import CreditCardInput from "react-credit-card-input";
-import BackLink from "components/shared/back-link/backlink.component";
+import BackLink from "components/shared/backlink.component";
 import {
   Container,
   ReviewContainer,
