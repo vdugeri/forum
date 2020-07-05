@@ -1,18 +1,21 @@
 import React from "react";
-import {
-  Wrapper,
-  Title,
-  ButtonLink,
-} from "components/posts/write-post/write-post.styles";
-import CustomButton from "components/shared/custom-button/custom-button.component";
+import { Box, Grid } from "components/shared/form/layout";
+import { String, Button, ButtonLink } from "components/shared/form";
+import { Theme } from "components/shared/form/theme";
 
 const WritePost = () => (
-  <Wrapper>
-    <Title>Have a question of your own?</Title>
-    <ButtonLink to="/posts/create">
-      <CustomButton primary>Write a post</CustomButton>
-    </ButtonLink>
-  </Wrapper>
+  <Box background={Theme.PrimaryGreyLight} pad="10px" radius="large">
+    <Grid default="1fr 1fr">
+      <Box leftAlign>
+        <String size="1.8rem">Have a question of your own?</String>
+      </Box>
+      <Box rightAlign>
+        <ButtonLink to="/posts/create">
+          <Button>Write a post</Button>
+        </ButtonLink>
+      </Box>
+    </Grid>
+  </Box>
 );
 
 export default WritePost;

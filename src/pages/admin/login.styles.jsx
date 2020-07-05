@@ -1,6 +1,4 @@
 import styled from "styled-components";
-import CustomButton from "components/shared/custom-button/custom-button.component";
-import CustomInput from "components/shared/custom-input/custom-input.component";
 
 export const LoginOverlay = styled.div`
   position: fixed;
@@ -31,19 +29,6 @@ export const Catchline = styled.span`
   margin: 0 auto;
   font-size: 5rem;
   font-family: "Domaine Display Regular", serif;
-`;
-
-export const StyledButton = styled(CustomButton)`
-  background-color: #010a43;
-  padding: 2rem 2rem;
-  border-radius: 0;
-`;
-
-export const StyledInput = styled(CustomInput)`
-  &:focus,
-  &:active {
-    border-color: #010a43;
-  }
 `;
 
 export const LoginForm = styled.form`

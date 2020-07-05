@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
-import { connect } from "react-redux";
+import { connect, useSelector } from "react-redux";
 import { Route, Switch, Redirect } from "react-router-dom";
 import { createStructuredSelector } from "reselect";
 
 import Header from "components/header/header.component";
 import Homepage from "pages/homepage/homepage.component";
-import Login from "pages/login/login.component";
-import Register from "pages/register/register.component";
+import Login from "pages/auth/login.component";
+import Register from "pages/auth/register.component";
 import CreatePost from "pages/create-post/create-post.component";
 import Forum from "pages/forum/forum.component";
 import PostPage from "pages/post-page/post-page.component";
@@ -15,9 +15,9 @@ import Messages from "pages/messages/messages.component";
 import WithSpinner from "components/shared/with-spinner/with-spinner.component";
 import UserPosts from "components/posts/user-posts/user-posts.component";
 import AccountPage from "pages/account/account.component";
-import BookExpert from "pages/book/book.component";
+import BookExpert from "pages/experts/book.component";
 import EditAccount from "components/accounts/edit-account/edit-account.component";
-import ExpertList from "pages/expert-list/expert-list.component";
+import ExpertList from "pages/experts/expert-list.component";
 import Checkout from "pages/checkout/checkout.component";
 import AdminLogin from "pages/admin/login.component";
 import AdminDashboard from "pages/admin/dashboard.component";
@@ -28,20 +28,19 @@ import { startFetchTopics } from "redux/topics/topics.actions";
 import { selectIsPostLoading } from "redux/posts/post.selectors";
 
 import "./App.css";
+import "notyf/notyf.min.css";
 
 const RegisterWithSpinner = WithSpinner(Register);
 const LoginWithSpinner = WithSpinner(Login);
 const HomePageWithSpinner = WithSpinner(Homepage);
 
-function App({
-  currentUser,
-  isUserLoading,
-  isFetchingTopics,
-  onStartFetchTopics,
-}) {
+function App({ isUserLoading, isFetchingTopics, onStartFetchTopics }) {
   useEffect(() => {
     onStartFetchTopics();
   }, [onStartFetchTopics]);
+
+  const currentUser = useSelector(selectCurrentUser);
+
   return (
     <div className="App">
       <Header />

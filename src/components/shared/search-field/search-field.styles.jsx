@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { ReactComponent as Icon } from "assets/icons/magnifying-glass.svg";
+import { Theme } from "components/shared/form/theme";
 
 export const SearchFieldWrapper = styled.div`
   display: flex;
@@ -11,7 +12,7 @@ export const SearchIcon = styled(Icon)`
   height: 1.2rem;
   position: absolute;
   top: 40%;
-  left: 3%;
+  left: 2%;
   z-index: 999;
   fill: #333;
 `;
@@ -19,7 +20,7 @@ export const SearchIcon = styled(Icon)`
 export const SearchInput = styled.input`
   background-color: #f6f6f6;
   padding: 1.2rem 3rem;
-  width: 33rem;
+  width: 100%;
   outline: none;
   border: none;
   border-radius: 5rem;
@@ -28,9 +29,10 @@ export const SearchInput = styled.input`
 
   &:focus {
     transform: scale(1.1);
+    border: 1px solid ${Theme.PrimaryColor};
   }
 
   &:focus ~ ${SearchIcon} {
-    left: 0;
+    display: none;
   }
 `;

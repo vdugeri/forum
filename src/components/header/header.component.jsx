@@ -49,7 +49,7 @@ const Header = ({
         )}
         <NavItem onClick={toggleTopicsDropdown}>Community</NavItem>
         {isDropdownOpen && <TopicsDropdown />}
-        {isAccountOpen && <AccountDropdown user={currentUser.user} />}
+        {isAccountOpen && <AccountDropdown user={currentUser} />}
 
         {!isAdmin ? (
           <>
@@ -70,11 +70,11 @@ const Header = ({
                 </NavItem>
               </React.Fragment>
             ) : (
-              <>{currentUser && <UserAvatar user={currentUser.user} />}</>
+              <>{currentUser && <UserAvatar user={currentUser} />}</>
             )}
           </>
         ) : (
-          <>{currentUser && <UserAvatar user={currentUser.user} />}</>
+          <>{currentUser && <UserAvatar user={currentUser} />}</>
         )}
       </Nav>
     </HeaderWrapper>

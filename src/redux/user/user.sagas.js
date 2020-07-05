@@ -1,5 +1,6 @@
 import { all, call, put, takeLatest } from "redux-saga/effects";
 import axios from "utils/http-client";
+import Notification from "utils/notification";
 
 import userActionTypes from "redux/user/user.types";
 import {
@@ -10,14 +11,14 @@ import {
   userSignoutFailure,
   userSignoutSuccess,
   updateUserAccountFailure,
-  udpateUserAccountSuccess
+  udpateUserAccountSuccess,
 } from "./user.actions";
 
 export function* userSignIn({ payload }) {
   try {
     const endpoint = "/auth/login";
     const {
-      data: { user }
+      data: { user },
     } = yield axios.post(endpoint, payload);
     yield put(userSignInSuccess(user));
   } catch (error) {
@@ -25,15 +26,16 @@ export function* userSignIn({ payload }) {
   }
 }
 
-export function* userSignUp({ payload }) {
+export function* userSignUp({ payload: { userCreds } }) {
   try {
-    const endpoint = "/auth/signup";
-    const {
-      data: { user }
-    } = yield axios.post(endpoint, payload);
-    yield put(userSignUpSuccess(user));
+    const { data } = yield axios.post("/users", userCreds);
+    yield put(userSignUpSuccess(data));
   } catch (error) {
     yield put(userSignUpFailure(error));
+    const { response } = error;
+    const { data } = response || { data: { message: "Registration failed" } };
+
+    Notification.open({ type: "error", message: data.message });
   }
 }
 
@@ -76,6 +78,6 @@ export function* userSagas() {
     call(onSignInStart),
     call(onSignUpStart),
     call(onSignoutStart),
-    call(onUpdateUserAccount)
+    call(onUpdateUserAccount),
   ]);
 }

@@ -3,15 +3,15 @@ import { withRouter } from "react-router-dom";
 import {
   LoginOverlay,
   LoginContainer,
-  LoginForm,
   Catchline,
-  StyledButton,
-  StyledInput,
 } from "pages/admin/login.styles";
-import { Gap } from "components/messages/message-modal/message-modal.styles";
-import { Heading } from "pages/expert-list/expert-list.styles";
+import { Heading } from "pages/experts/expert-list.styles";
+import { Button } from "components/shared/form/button";
 import { useDispatch } from "react-redux";
 import { adminLogin } from "redux/admin/admin.actions";
+import { Input } from "components/shared/form/form";
+import { Box, Grid } from "components/shared/form/layout";
+import validateCreds from "pages/admin/validate";
 
 const AdminLogin = ({ history }) => {
   const [userCreds, setUserCreds] = useState({
@@ -19,7 +19,20 @@ const AdminLogin = ({ history }) => {
     password: "",
   });
 
+  const [formErrors, setFormErrors] = useState({});
+
   const dispatch = useDispatch();
+
+  function handleLogin() {
+    const { isValid, errors } = validateCreds(emailAddress, password);
+
+    if (!isValid) {
+      setFormErrors(errors);
+      return;
+    }
+
+    dispatch(adminLogin(userCreds));
+  }
 
   const { emailAddress, password } = userCreds;
 
@@ -27,34 +40,43 @@ const AdminLogin = ({ history }) => {
     <LoginOverlay>
       <Catchline>Help Educate the Child</Catchline>
       <LoginContainer>
-        <LoginForm
+        <Box
+          wide
+          width="80%"
+          pad="30px 0"
           onSubmit={(e) => {
             e.preventDefault();
-            dispatch(adminLogin(userCreds));
           }}
         >
-          <Heading size="22px">Sign In</Heading>
-          <StyledInput
-            type="email"
-            name="emailAddress"
-            label="Email Address"
-            value={emailAddress}
-            handleChange={(e) =>
-              setUserCreds({ ...userCreds, emailAddress: e.target.value })
-            }
-          />
-          <StyledInput
-            type="password"
-            name="password"
-            label="Password"
-            value={password}
-            handleChange={(e) =>
-              setUserCreds({ ...userCreds, password: e.target.value })
-            }
-          />
-          <Gap height="20px" />
-          <StyledButton primary>Login</StyledButton>
-        </LoginForm>
+          <Heading size="18px">Sign In</Heading>
+          <Grid default="1fr" padVertical="30px">
+            <Input
+              type="email"
+              name="emailAddress"
+              label="Email Address"
+              value={emailAddress}
+              required
+              error={formErrors.emailAddress}
+              onChange={(e) => {
+                setUserCreds({ ...userCreds, emailAddress: e.target.value });
+                setFormErrors({ ...formErrors, emailAddress: "" });
+              }}
+            />
+            <Input
+              type="password"
+              name="password"
+              label="Password"
+              value={password}
+              required
+              error={formErrors.password}
+              onChange={(e) => {
+                setUserCreds({ ...userCreds, password: e.target.value });
+                setFormErrors({ ...formErrors, password: "" });
+              }}
+            />
+            <Button onClick={handleLogin}>Login</Button>
+          </Grid>
+        </Box>
       </LoginContainer>
     </LoginOverlay>
   );

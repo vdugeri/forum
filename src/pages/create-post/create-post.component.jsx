@@ -1,15 +1,14 @@
 import React, { useState } from "react";
-import { connect } from "react-redux";
+import { connect, useSelector } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import { withRouter } from "react-router-dom";
-
 import CustomInput from "components/shared/custom-input/custom-input.component";
 import CustomButton from "components/shared/custom-button/custom-button.component";
 import TopicSelect from "components/topics/topic-select/topic-select.component";
 import RegisterModal from "components/auth/register-modal/register-modal.component";
 import WithSpinner from "components/shared/with-spinner/with-spinner.component";
 import Editor from "components/editor/editor.component";
-
+import { Contain, Grid, Box, String, Gap } from "components/shared/form";
 import { selectTopicList } from "redux/topics/topics.selectors";
 import {
   selectModalShown,
@@ -25,13 +24,14 @@ const RegisterModalWithSpinner = WithSpinner(RegisterModal);
 
 const CreatePost = ({
   topics,
-  currentUser,
   onStartPostCreate,
   modalShown,
   toggleModalStatus,
   isLoading,
   history,
 }) => {
+  const currentUser = useSelector(selectCurrentUser);
+
   const [postData, setPostData] = useState({
     author: currentUser,
     title: "",
@@ -61,26 +61,23 @@ const CreatePost = ({
 
   const { anon, title, body, topicId, author } = postData;
   return (
-    <React.Fragment>
+    <Contain wide width="100%">
       {modalShown && !currentUser ? (
         <RegisterModalWithSpinner isLoading={isLoading} />
       ) : null}
       <form onSubmit={handleSubmit} className="create-post">
-        <h2>Write a post</h2>
+        <String size="2.5rem">Write a post</String>
+        <Gap height="20px" />
         <div className="create-post__author">
           <div className="create-post__author--details">
             <div className="create-post__author--image">
-              {anon
-                ? "?"
-                : author
-                ? author.user.firstName.substring(0, 1)
-                : "#"}
+              {anon ? "?" : author ? author.firstName.substring(0, 1) : "#"}
             </div>
             <span>
               {anon ? (
                 "Anonymous"
               ) : author ? (
-                <span>{author.user.firstName}</span>
+                <span>{author.firstName}</span>
               ) : (
                 <div className="add-user" onClick={toggleModalStatus}>
                   Add username
@@ -119,7 +116,7 @@ const CreatePost = ({
           <CustomButton primary>Post</CustomButton>
         </div>
       </form>
-    </React.Fragment>
+    </Contain>
   );
 };
 

@@ -7,8 +7,8 @@ import WritePost from "components/posts/write-post/write-post.component";
 import ExplorePractitioners from "components/experts/explore-experts/explore-practitioners.component";
 import useFetch from "effects/use-fetch.effect";
 import WithSpinner from "components/shared/with-spinner/with-spinner.component";
-
-import "pages/homepage/homepage.styles.scss";
+import { Contain, Box, Grid, Gap } from "components/shared/form/layout";
+import { String } from "components/shared/form/string";
 
 const PractionersWithSpinner = WithSpinner(ExplorePractitioners);
 const TopicsWithLoader = WithSpinner(PopularTopics);
@@ -17,30 +17,37 @@ const Homepage = () => {
   const [{ data: topExperts, loading }] = useFetch("/experts?limit=3", []);
   const [{ data: topics, loading: topicsLoading }] = useFetch("/topics", []);
   return (
-    <div className="homepage">
-      <div className="homepage__header">
-        <div className="homepage__header--tag">Community</div>
-        <div className="homepage__header--search">
-          <SearchField placeholder="what are you looking for?" />
-        </div>
-      </div>
-      <div className="homepage__categories">
+    <Contain wide width="60%">
+      <Box pad="30px 0">
+        <Grid default="1fr 1fr">
+          <Box align="left">
+            <String size="2.5rem" bold>
+              Community
+            </String>
+          </Box>
+          <Box align="right">
+            <SearchField placeholder="what are you looking for?" />
+          </Box>
+        </Grid>
+      </Box>
+      <Grid default="repeat(3, 1fr)">
         {topics.map((topic) => (
-          <Topic topic={topic} key={topic._id} />
+          <Topic topic={topic} key={topic.id} />
         ))}
-      </div>
+      </Grid>
       <WritePost />
-      <div className="homepage__popular">
+      <Box>
         {topics.map((topic) => (
           <TopicsWithLoader
             isLoading={topicsLoading}
             topic={topic}
-            key={topic._id}
+            key={topic.id}
           />
         ))}
-      </div>
+      </Box>
+      <Gap height="60px" />
       <PractionersWithSpinner isLoading={loading} topExperts={topExperts} />
-    </div>
+    </Contain>
   );
 };
 

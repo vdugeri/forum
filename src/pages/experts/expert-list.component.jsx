@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ListContainer, Heading } from "pages/expert-list/expert-list.styles";
+import { ListContainer, Heading } from "pages/experts/expert-list.styles";
 import BackLink from "components/shared/back-link/backlink.component";
 import ExpertBox from "components/experts/expert-box/expert-box.component";
 import useFetch from "effects/use-fetch.effect";

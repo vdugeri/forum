@@ -42,7 +42,7 @@ const Welcome = ({ showWelcome, currentUser, history }) => {
         <WavingHand />
       </HandIconContainer>
 
-      <WelcomeSalutation>Hi, {currentUser.user.firstName}</WelcomeSalutation>
+      <WelcomeSalutation>Hi, {currentUser?.firstName}</WelcomeSalutation>
       <Text>
         Welcome to Vanillatots, the digital home for educational content.
       </Text>
