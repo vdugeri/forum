@@ -27,7 +27,7 @@
     "highlight.js": "^9.15.10",
     "localforage": "^1.7.3",
     "moment": "^2.24.0",
-    "node-sass": "^4.12.0",
+    "node-sass": "^4.13.1",
     "query-string": "^6.10.1",
     "react": "^16.10.1",
     "react-credit-card-input": "^1.1.5",
