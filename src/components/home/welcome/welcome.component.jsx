@@ -26,7 +26,7 @@ import {
   selectShowWelcomeModal,
 } from "redux/user/user.selectors";
 import useFetch from "effects/use-fetch.effect";
-import Loader from "components/shared/loader/loader.component";
+import Loader from "components/shared/loader.component";
 import HelpSubject from "components/help-subject/help-subject.component";
 
 const carePerson = { name: "Kaitlyn", image: profileImage };

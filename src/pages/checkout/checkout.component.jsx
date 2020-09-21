@@ -15,7 +15,7 @@ import {
   StyledButton,
 } from "pages/checkout/checkout.styles";
 import useFetch from "effects/use-fetch.effect";
-import Loader from "components/shared/loader/loader.component";
+import Loader from "components/shared/loader.component";
 import { Gap } from "components/messages/message-modal/message-modal.styles";
 
 const Checkout = ({ location }) => {

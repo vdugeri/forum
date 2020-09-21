@@ -34,6 +34,7 @@ const Header = ({
     location: { pathname },
   } = history;
   const isAdmin = pathname.indexOf("admin") !== -1;
+
   return (
     <HeaderWrapper>
       <HeaderLogo>

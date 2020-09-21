@@ -7,11 +7,12 @@ import topicsReducer from "redux/topics/topics.reducer";
 import postsReducer from "redux/posts/posts.reducer";
 import messagesReducer from "redux/messages/messages.reducer";
 import expertsReducer from "redux/experts/experts.reducer";
+import repliesReducer from "redux/replies/reducer";
 
 const persistConfig = {
   key: "forum",
   storage,
-  whitelist: ["topics", "posts", "experts", "user"]
+  whitelist: ["topics", "experts", "user"],
 };
 
 const rootReducer = combineReducers({
@@ -19,7 +20,8 @@ const rootReducer = combineReducers({
   topics: topicsReducer,
   posts: postsReducer,
   messages: messagesReducer,
-  experts: expertsReducer
+  experts: expertsReducer,
+  replies: repliesReducer,
 });
 
 export default persistReducer(persistConfig, rootReducer);

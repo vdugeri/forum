@@ -17,17 +17,18 @@ const PopularTopics = ({ topic }) => {
   const handleClick = () => {
     dispatch(setCurrentTopic(topic));
   };
+  console.log(topic);
   return (
     <Wrapper>
       {topic.posts.length ? (
         <>
           <Header>
             <h2>Popular in {topic.name}</h2>
-            <img src={topic.icon} alt={topic.name} />
+            <img src={topic.iconUrl} alt={topic.name} />
           </Header>
           <PostsWrapper>
             {topic.posts.slice(0, 4).map((post) => (
-              <PostOverview post={post} key={post._id} />
+              <PostOverview post={post} key={post.id} />
             ))}
           </PostsWrapper>
           <PopularPosts>

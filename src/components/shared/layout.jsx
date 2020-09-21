@@ -44,10 +44,10 @@ export const Grid = styled.div`
   ${(props) =>
     !props.rigid &&
     css`
-    ${media.desktop`
+      ${media.desktop`
       grid-template-columns: ${(props) => props.tablet};   
     `}
-    ${media.tablet`
+      ${media.tablet`
       grid-template-columns: ${(props) => props.tablet};   
       ${(props) =>
         props.mobilePad &&
@@ -63,7 +63,7 @@ export const Grid = styled.div`
           grid-gap: ${(props) => props.mobilePad};
         `}
     `}
-  `}
+    `}
 `;
 
 Grid.defaultProps = {
@@ -123,48 +123,48 @@ Gap.propTypes = {
 };
 
 export const Box = styled.div`
-text-align: ${(props) => props.align};
+  text-align: ${(props) => props.align};
+  ${(props) =>
+    props.flex &&
+    css`
+      display: flex;
+    `}
+  ${(props) =>
+    props.inline &&
+    css`
+      display: inline-block;
+    `}
 ${(props) =>
-  props.flex &&
-  css`
-    display: flex;
-  `}
-${(props) =>
-  props.inline &&
-  css`
-    display: inline-block;
-  `}
-${(props) =>
-  props.flexColumn &&
-  css`
-    flex-direction: column;
-  `}
+    props.flexColumn &&
+    css`
+      flex-direction: column;
+    `}
 padding: ${(props) => props.pad};
-position: ${(props) => props.position};
-${(props) =>
-  props.background &&
-  css`
-    background: ${(props) => props.background};
-  `}
-width: ${(props) => props.width};
-${(props) =>
-  props.maxWidth &&
-  css`
-    max-width: ${(props) => props.maxWidth};
-  `}
-height: ${(props) => props.height};
-${(props) =>
-  props.minHeight &&
-  css`
-    min-height: ${(props) => props.minHeight};
-  `}
+  position: ${(props) => props.position};
+  ${(props) =>
+    props.background &&
+    css`
+      background: ${(props) => props.background};
+    `}
+  width: ${(props) => props.width};
+  ${(props) =>
+    props.maxWidth &&
+    css`
+      max-width: ${(props) => props.maxWidth};
+    `}
+  height: ${(props) => props.height};
+  ${(props) =>
+    props.minHeight &&
+    css`
+      min-height: ${(props) => props.minHeight};
+    `}
 
-${(props) =>
-  props.fullscreen &&
-  css`
-    min-width: 100vh;
-    min-height: 100vh;
-  `}
+  ${(props) =>
+    props.fullscreen &&
+    css`
+      min-width: 100vh;
+      min-height: 100vh;
+    `}
   ${(props) =>
     props.verticalAlign &&
     css`
@@ -278,28 +278,28 @@ ${(props) =>
     `}
 
 ${(props) =>
-  props.tablet &&
-  css`
-    ${media.tablet`
+    props.tablet &&
+    css`
+      ${media.tablet`
         text-align: ${(props) => props.tablet.align};
         padding: ${(props) => props.tablet.pad};
         margin: ${(props) => props.tablet.margin};
     `}
-  `}
+    `}
 ${(props) =>
-  props.mobile &&
-  css`
-    ${media.phone`
+    props.mobile &&
+    css`
+      ${media.phone`
         text-align: ${(props) => props.mobile.align};
         padding: ${(props) => props.mobile.pad};
         margin: ${(props) => props.mobile.margin};
     `}
-  `}
+    `}
 ${(props) =>
-  props.bottomBorder &&
-  css`
-    border-bottom: 1px solid ${Theme.PrimaryBorderColor};
-  `}
+    props.bottomBorder &&
+    css`
+      border-bottom: 1px solid ${Theme.PrimaryBorderColor};
+    `}
   ${(props) =>
     props.topBorder &&
     css`

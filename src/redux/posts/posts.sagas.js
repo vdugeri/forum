@@ -1,5 +1,5 @@
 import { all, call, put, takeLatest } from "redux-saga/effects";
-import axios from "utils/http-client";
+import httpClient from "utils/http-client";
 
 import postsActionTypes from "redux/posts/posts.types";
 import {
@@ -7,137 +7,110 @@ import {
   postCreateFailure,
   openPostSuccess,
   openPostFailure,
-  createReplyFailure,
-  createReplySuccess,
   fetchPostsFailure,
   fetchPostsSuccess,
   fetchUserPostsFailure,
   fetchUserPostsSuccess,
-  fetchReplyFailure,
-  fetchReplySuccess,
   deletePostFailure,
-  deletePostSuccess
+  deletePostSuccess,
+  fetchPostRepliesFailure,
+  fetchPostRepliesSuccess,
 } from "redux/posts/posts.actions";
 
 let endpoint = "/posts";
-const repliesEndpoint = "/replies";
 
-export function* createPost({ payload }) {
+function* createPost({ payload }) {
   try {
-    const {
-      data: { post }
-    } = yield axios.post(endpoint, payload);
-    yield put(postCreateSuccess(post));
+    const { data } = yield httpClient.post(endpoint, payload);
+    yield put(postCreateSuccess(data));
   } catch (error) {
     yield put(postCreateFailure(error));
   }
 }
 
-export function* openPost({ payload }) {
+function* getPost({ payload: { postId } }) {
   try {
-    yield put(openPostSuccess(payload));
+    const { data } = yield httpClient.get(`/posts/${postId}`);
+    yield put(openPostSuccess(data));
   } catch (error) {
     yield put(openPostFailure(error));
   }
 }
 
-export function* replyToPost({ payload }) {
-  try {
-    const {
-      data: { post }
-    } = yield axios.post(repliesEndpoint, payload);
-    yield put(createReplySuccess(post));
-    window.location.reload();
-  } catch (error) {
-    yield put(createReplyFailure(error));
-  }
-}
-
-export function* fetchPosts({ payload }) {
+function* fetchPosts({ payload }) {
   try {
     endpoint = `/topics/${payload}/posts`;
     const {
-      data: { posts }
-    } = yield axios.get(endpoint);
+      data: { posts },
+    } = yield httpClient.get(endpoint);
     yield put(fetchPostsSuccess(posts));
   } catch (error) {
     yield put(fetchPostsFailure(error));
   }
 }
 
-export function* fetchUserPosts({ payload }) {
+function* fetchUserPosts({ payload }) {
   try {
     const endpoint = `/users/${payload}/posts`;
     const {
-      data: { posts }
-    } = yield axios.get(endpoint);
+      data: { posts },
+    } = yield httpClient.get(endpoint);
     yield put(fetchUserPostsSuccess(posts));
   } catch (error) {
     yield put(fetchUserPostsFailure(error));
   }
 }
 
-export function* fetchReplies({ payload }) {
-  try {
-    const endpoint = `/posts/${payload}/replies`;
-    const {
-      data: { replies }
-    } = yield axios.get(endpoint);
-    yield put(fetchReplySuccess(replies));
-  } catch (error) {
-    const {
-      response: { data }
-    } = error;
-    yield put(fetchReplyFailure(data));
-  }
-}
-
-export function* deletePost({ payload }) {
+function* deletePost({ payload }) {
   try {
     const endpoint = `/posts/${payload}`;
-    yield axios.delete(endpoint);
+    yield httpClient.delete(endpoint);
     yield put(deletePostSuccess());
   } catch (error) {
     yield put(deletePostFailure(error));
   }
 }
 
-export function* onCreatePostStart() {
+function* fetchReplies({ payload: { postId } }) {
+  try {
+    const { data } = yield httpClient.get(`/posts/${postId}/replies`);
+    yield put(fetchPostRepliesSuccess(data));
+  } catch (error) {
+    yield put(fetchPostRepliesFailure(error));
+  }
+}
+
+function* onCreatePost() {
   yield takeLatest(postsActionTypes.START_CREATE_POST, createPost);
 }
 
-export function* onOpenPostStart() {
-  yield takeLatest(postsActionTypes.OPEN_POST_START, openPost);
+function* onOpenPost() {
+  yield takeLatest(postsActionTypes.OPEN_POST_START, getPost);
 }
 
-export function* onAddReply() {
-  yield takeLatest(postsActionTypes.REPLY_CREATE_START, replyToPost);
-}
-
-export function* onFetchPosts() {
+function* onFetchPosts() {
   yield takeLatest(postsActionTypes.FETCH_POSTS_START, fetchPosts);
 }
 
-export function* onFetchUserPostsStart() {
+function* onFetchUserPosts() {
   yield takeLatest(postsActionTypes.FETCH_USER_POSTS_START, fetchUserPosts);
 }
 
-export function* onFetchRepliesStart() {
-  yield takeLatest(postsActionTypes.REPLY_FETCH_START, fetchReplies);
+function* onDeletePost() {
+  yield takeLatest(postsActionTypes.DELETE_POST_START, deletePost);
 }
 
-export function* onDeletePost() {
-  yield takeLatest(postsActionTypes.DELETE_POST_START, deletePost);
+function* onFetchReplies() {
+  yield takeLatest(postsActionTypes.START_FETCH_REPLIES, fetchReplies);
 }
 
 export function* postsSagas() {
   yield all([
-    call(onCreatePostStart),
-    call(onOpenPostStart),
-    call(onAddReply),
+    call(onCreatePost),
+    call(onOpenPost),
     call(onFetchPosts),
-    call(onFetchUserPostsStart),
-    call(onFetchRepliesStart),
-    call(onDeletePost)
+    call(onFetchUserPosts),
+    call(onDeletePost),
+    call(onFetchReplies),
   ]);
 }

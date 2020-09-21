@@ -1,7 +1,7 @@
 import { darken, lighten, transparentize, desaturate } from "polished";
 import { css } from "styled-components";
 
-const BrandColor = "#26856F";
+const BrandColor = "#33668F";
 const BrandGrey = "#8E8A98";
 
 export const Theme = {

@@ -6,39 +6,32 @@ import PostPreview from "components/posts/post-preview/post-preview.component";
 import NoPosts from "components/posts/no-posts/no-posts.component";
 import { selectUserPosts } from "redux/posts/post.selectors";
 
-import {
-  UserPostsWrapper,
-  Heading,
-} from "components/posts/user-posts/user-posts.styles.jsx";
+import { Heading } from "components/posts/user-posts/user-posts.styles.jsx";
 import { selectCurrentUser } from "redux/user/user.selectors";
-import Loader from "components/shared/loader/loader.component";
-import WithSpinner from "components/shared/with-spinner.component";
-
-const PostPreviewWithSpinner = WithSpinner(PostPreview);
+import Loader from "components/shared/loader.component";
+import { Box } from "components/shared/layout";
+import { Contain } from "components/shared/layout";
 
 const UserPosts = () => {
   const currentUser = useSelector(selectCurrentUser);
-  const url = `/users/${currentUser.user._id}/posts`;
-  const [{ data, loading }] = useFetch(url, []);
-  const { posts } = data;
+  const url = `/users/${currentUser.id}/posts`;
+  const [{ data: posts, loading }] = useFetch(url, { data: [] });
+
+  if (loading) return <Loader />;
+
   return (
-    <>
-      {loading && <Loader />}
-      {posts && posts.length ? (
-        <UserPostsWrapper className="user-posts">
+    <Contain wide width="100%">
+      {posts.data.length ? (
+        <Box width="100%" pad="0 30px">
           <Heading>My Posts</Heading>
-          {posts.map((post) => (
-            <PostPreviewWithSpinner
-              isLoading={loading}
-              post={post}
-              key={post._id}
-            />
+          {posts.data.map((post) => (
+            <PostPreview post={post} key={post.id} />
           ))}
-        </UserPostsWrapper>
+        </Box>
       ) : (
         <NoPosts />
       )}
-    </>
+    </Contain>
   );
 };
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Grid } from "components/shared/layout";
+import { Box, Grid } from "components/shared";
 import { String, Button, ButtonLink } from "components/shared";
 import { Theme } from "components/shared/theme";
 

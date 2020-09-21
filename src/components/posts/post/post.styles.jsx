@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Theme } from "components/shared/theme";
 
 export const PostWrapper = styled.div`
   display: flex;
@@ -19,7 +20,7 @@ export const AuthorImage = styled.div`
   width: 4rem;
   height: 4rem;
   border-radius: 50%;
-  background-color: #00413e;
+  background-color: ${Theme.PrimaryColor};
   color: #fff;
   margin-right: 0.5rem;
   display: flex;

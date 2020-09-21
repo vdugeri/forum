@@ -6,6 +6,7 @@ import { Button } from "components/shared";
 import { closeWelcomeModal } from "redux/user/user.actions";
 
 import "components/home/welcome-modal/welcome-modal.styles.scss";
+import { Box } from "components/shared/layout";
 
 const WelcomeModal = ({ newUser, carePerson, closeModal }) => (
   <div className="welcome-modal__overlay">
@@ -29,10 +30,11 @@ const WelcomeModal = ({ newUser, carePerson, closeModal }) => (
         <span className="welcome-modal__closing-salutation">Take care,</span>
         <span className="welcome-modal__signature">{carePerson.name}</span>
       </p>
-
-      <Button primary onClick={closeModal}>
-        Got it
-      </Button>
+      <Box flex pad="30px">
+        <Button primary onClick={closeModal}>
+          Got it
+        </Button>
+      </Box>
     </div>
   </div>
 );

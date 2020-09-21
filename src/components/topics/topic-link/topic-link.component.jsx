@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import {
   StyledLink,
-  TopicLinkIcon
+  TopicLinkIcon,
 } from "components/topics/topic-link/topic-link.styles";
 
 import { setCurrentTopic } from "redux/topics/topics.actions";
@@ -14,8 +14,8 @@ const TopicLink = ({ topic, setCurrentTopic }) => (
   </StyledLink>
 );
 
-const mapDispatchToProps = dispatch => ({
-  setCurrentTopic: topic => dispatch(setCurrentTopic(topic))
+const mapDispatchToProps = (dispatch) => ({
+  setCurrentTopic: (topic) => dispatch(setCurrentTopic(topic)),
 });
 
 export default connect(null, mapDispatchToProps)(TopicLink);

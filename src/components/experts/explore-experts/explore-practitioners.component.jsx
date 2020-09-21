@@ -13,7 +13,7 @@ import {
 const ExplorePractitioners = ({ topExperts }) => (
   <ExploreExpertsWrapper>
     <Experts>
-      {topExperts.map((expert) => (
+      {topExperts.data.map((expert) => (
         <ExpertPhoto photo={expert.image} key={expert._id} />
       ))}
     </Experts>

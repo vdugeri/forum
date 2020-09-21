@@ -34,7 +34,7 @@ export const PostsWrapper = styled.div`
   display: grid;
   grid-column-gap: 6rem;
   grid-row-gap: 2rem;
-  grid-template-columns: auto auto;
+  grid-template-columns: repeat(2, 1fr);
   margin-bottom: 2rem;
 `;
 

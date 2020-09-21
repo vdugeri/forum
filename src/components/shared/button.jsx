@@ -20,99 +20,100 @@ export const RoundButton = styled.div`
 `;
 
 export const Button = styled.div`
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    height: ${(props) => props.size};
-    border-radius: ${Theme.PrimaryRadius};
-    background: ${(props) => props.color};
-    color: #fff;
-    font-weight: bold;
-    transition: all 0.3s ease-out;
-    cursor: pointer;
-    padding: ${(props) => props.pad};
-		margin: ${(props) => props.margin};
-		font-size: 1.6rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: ${(props) => props.size};
+  border-radius: ${Theme.PrimaryRadius};
+  background: ${(props) => props.color};
+  color: #fff;
+  font-weight: bold;
+  transition: all 0.3s ease-out;
+  cursor: pointer;
+  padding: ${(props) => props.pad};
+  margin: ${(props) => props.margin};
+  font-size: 1.6rem;
 
-    &:hover{
-        background: ${(props) => darken(0.2, props.color)};
-    }
+  &:hover {
+    background: ${(props) => darken(0.2, props.color)};
+  }
 
-    ${(props) =>
-      props.pale &&
-      css`
-        background: ${(props) => props.paleBackground};
-        border: 1px solid ${(props) => props.color};
-        color: ${(props) => props.color};
-        &:hover {
-          background: ${(props) => darken(0.2, props.paleBackground)};
-          border: 1px solid ${(props) => darken(0.2, props.color)};
-          color: ${(props) => darken(0.2, props.color)};
-        }
-      `}
+  ${(props) =>
+    props.pale &&
+    css`
+      background: ${(props) => props.paleBackground};
+      border: 1px solid ${(props) => props.color};
+      color: ${(props) => props.color};
+      &:hover {
+        background: ${(props) => darken(0.2, props.paleBackground)};
+        border: 1px solid ${(props) => darken(0.2, props.color)};
+        color: ${(props) => darken(0.2, props.color)};
+      }
+    `}
 
-    ${(props) =>
-      props.disabled &&
-      css`
-        background: ${Theme.PrimaryGreyLight};
-        color: ${Theme.PrimaryGrey};
-        cursor: not-allowed;
-      `}
+  ${(props) =>
+    props.disabled &&
+    css`
+      background: ${Theme.PrimaryGreyLight};
+      color: ${Theme.PrimaryGrey};
+      cursor: not-allowed;
+      pointer-events: none;
+    `}
      ${(props) =>
-       props.round &&
-       css`
-         border-radius: calc(${(props) => props.size} / 2);
-       `}
-
-    ${(props) =>
-      props.anchor &&
-      css`
-        position: relative;
-        ${(props) =>
-          props.left
-            ? css`
-                padding-left: calc(${(props) => props.size} + 10px);
-              `
-            : css`
-                padding-right: calc(${(props) => props.size} + 10px);
-              `}
-        
-        & i{ 
-            ${Theme.Centered};
-            position: absolute;
-            ${(props) =>
-              props.left
-                ? css`
-                    left: 10px;
-                  `
-                : css`
-                    right: 10px;
-                  `}
-            top: 10px;
-            height: calc(${(props) => props.size} - 20px);
-            width: calc(${(props) => props.size} - 20px);
-            border-radius: ${Theme.PrimaryRadius};
-            ${(props) =>
-              props.round &&
-              css`
-                border-radius: 50%;
-              `}
-            background: ${(props) => darken(0.2, props.color)};
-             ${(props) =>
-               props.pale &&
-               css`
-                 background: ${(props) => darken(0.2, props.paleBackground)};
-                 height: calc(${(props) => props.size} - 22px);
-               `}
-        }
+    props.round &&
+    css`
+      border-radius: calc(${(props) => props.size} / 2);
     `}
 
     ${(props) =>
-      props.mini &&
-      css`
-        height: 30px;
-        font-size: 10px;
-      `}
+    props.anchor &&
+    css`
+      position: relative;
+      ${(props) =>
+        props.left
+          ? css`
+              padding-left: calc(${(props) => props.size} + 10px);
+            `
+          : css`
+              padding-right: calc(${(props) => props.size} + 10px);
+            `}
+
+      & i {
+        ${Theme.Centered};
+        position: absolute;
+        ${(props) =>
+          props.left
+            ? css`
+                left: 10px;
+              `
+            : css`
+                right: 10px;
+              `}
+        top: 10px;
+        height: calc(${(props) => props.size} - 20px);
+        width: calc(${(props) => props.size} - 20px);
+        border-radius: ${Theme.PrimaryRadius};
+        ${(props) =>
+          props.round &&
+          css`
+            border-radius: 50%;
+          `}
+        background: ${(props) => darken(0.2, props.color)};
+        ${(props) =>
+          props.pale &&
+          css`
+            background: ${(props) => darken(0.2, props.paleBackground)};
+            height: calc(${(props) => props.size} - 22px);
+          `}
+      }
+    `}
+
+    ${(props) =>
+    props.mini &&
+    css`
+      height: 30px;
+      font-size: 10px;
+    `}
 `;
 
 Button.defaultProps = {
@@ -137,33 +138,31 @@ Button.propTypes = {
 };
 
 export const IconBox = styled.div`
-    
-    width: ${(props) => props.size};
-    height: ${(props) => props.size};
-    background: ${(props) => props.color};
-    color: #fff;
+  width: ${(props) => props.size};
+  height: ${(props) => props.size};
+  background: ${(props) => props.color};
+  color: #fff;
+  ${(props) =>
+    props.pale &&
+    css`
+      background: ${(props) => transparentize(1, props.paleBackground)};
+      color: ${(props) => props.color};
+    `}
+  margin: ${(props) => props.margin};
+  border-radius: ${Theme.PrimaryRadius};
+  ${Theme.Centered};
+  display: ${(props) => props.display};
+  transition: all 0.3s ease-out;
+  cursor: pointer;
+  &:hover {
+    background: ${(props) => darken(0.2, props.color)};
     ${(props) =>
       props.pale &&
       css`
-        background: ${(props) => transparentize(1, props.paleBackground)};
+        background: ${(props) => transparentize(0.95, props.paleBackground)};
         color: ${(props) => props.color};
       `}
-    margin: ${(props) => props.margin};
-    border-radius: ${Theme.PrimaryRadius};
-    ${Theme.Centered};
-    display: ${(props) => props.display};
-    transition: all 0.3s ease-out;
-    cursor: pointer;
-    &:hover{
-        background: ${(props) => darken(0.2, props.color)};
-        ${(props) =>
-          props.pale &&
-          css`
-            background: ${(props) =>
-              transparentize(0.95, props.paleBackground)};
-            color: ${(props) => props.color};
-          `}
-    }
+  }
 `;
 
 IconBox.defaultProps = {
@@ -184,17 +183,17 @@ IconBox.propTypes = {
 };
 
 export const StatusBadge = styled.div`
-    height: ${(props) => props.height};
-    display: ${(props) => props.display};
-    background-color: ${(props) => transparentize(0.8, props.color)};
-    /* border: 1px solid  ${(props) => transparentize(0.3, props.color)}; */
-    color: ${(props) => props.color};
-    border-radius: ${(props) => props.radius};
-    align-items: center;
-    font-size: ${Theme.FontSize};
-    padding: 0 10px;
-    min-width: 70px;
-    justify-content: center;
+  height: ${(props) => props.height};
+  display: ${(props) => props.display};
+  background-color: ${(props) => transparentize(0.8, props.color)};
+  /* border: 1px solid  ${(props) => transparentize(0.3, props.color)}; */
+  color: ${(props) => props.color};
+  border-radius: ${(props) => props.radius};
+  align-items: center;
+  font-size: ${Theme.FontSize};
+  padding: 0 10px;
+  min-width: 70px;
+  justify-content: center;
 `;
 
 StatusBadge.defaultProps = {

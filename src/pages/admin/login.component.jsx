@@ -9,8 +9,7 @@ import { Heading } from "pages/experts/expert-list.styles";
 import { Button } from "components/shared/button";
 import { useDispatch } from "react-redux";
 import { adminLogin } from "redux/admin/admin.actions";
-import { Input } from "components/shared/form";
-import { Box, Grid } from "components/shared/layout";
+import { Input, Box, Grid } from "components/shared";
 import validateCreds from "pages/admin/validate";
 
 const AdminLogin = ({ history }) => {

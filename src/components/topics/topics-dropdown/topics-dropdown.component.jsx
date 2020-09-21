@@ -24,7 +24,7 @@ const TopicsDropdown = ({ topics, history, toggleTopicsDropdown }) => {
     <DropdownWrapper onMouseLeave={toggleTopicsDropdown}>
       <DropdownHeading>Community</DropdownHeading>
       {topics.map((topic) => (
-        <TopicStrip topic={topic} key={topic._id} />
+        <TopicStrip topic={topic} key={topic.id} />
       ))}
       <DropdownFooter>
         <span>Have a question?</span>

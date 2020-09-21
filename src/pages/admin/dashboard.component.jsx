@@ -15,17 +15,25 @@ const DashboardWrapper = styled.div`
   grid-template-columns: 10% 90%;
 `;
 
+const MainContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-left: 5%;
+`;
+
 const AdminDashboard = ({ history }) => {
   return (
     <DashboardWrapper>
       <SideNav history={history} />
       <Switch>
-        <Route exact path="/admin" component={AdminBoard} />
-        <Route exact path="/admin/experts" component={ExpertTable} />
-        <Route path="/admin/subjects" component={Subjects} />
-        <Route path="/admin/admins" component={AdminUsers} />
-        <Route path="/admin/users" component={Users} />
-        <Route path="/admin/experts/:expertId" component={Expert} />
+        <MainContent>
+          <Route exact path="/admin" component={AdminBoard} />
+          <Route exact path="/admin/experts" component={ExpertTable} />
+          <Route path="/admin/topics" component={Subjects} />
+          <Route path="/admin/admins" component={AdminUsers} />
+          <Route path="/admin/learners" component={Users} />
+          <Route path="/admin/experts/:expertId" component={Expert} />
+        </MainContent>
       </Switch>
     </DashboardWrapper>
   );

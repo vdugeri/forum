@@ -42,31 +42,35 @@ const CreatePost = ({
   const [postData, setPostData] = useState({
     author: currentUser,
     title: "",
-    body: "",
+    content: "",
     topicId: "",
   });
 
-  const handleChange = (e) => {
-    const { target } = e;
+  const handleChange = (event) => {
+    const { target } = event;
     const value = target.type === "checkbox" ? target.checked : target.value;
     const { name } = target;
 
     setPostData({ ...postData, [name]: value });
   };
-  const handleEditorChange = (e, editor) => {
-    setPostData({ ...postData, body: editor.getData() });
+
+  const handleEditorChange = (event, editor) => {
+    setPostData({ ...postData, content: editor.getData() });
   };
-  const handleSubmit = (e) => {
-    e.preventDefault();
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
     if (!currentUser) {
       toggleModalStatus();
       return;
     }
+
     onStartPostCreate(postData);
     history.push("/dashboard/posts");
   };
 
   const { title, body, topicId, author } = postData;
+
   return (
     <Contain wide width="60%">
       {modalShown && !currentUser ? (
@@ -76,8 +80,8 @@ const CreatePost = ({
         <String size="2.5rem">Write a post</String>
         <Gap height="20px" />
         <Box>
-          <Box className="create-post__author--details">
-            <AuthorImage className="create-post__author--image">
+          <Box>
+            <AuthorImage>
               {author && author.firstName.substring(0, 1)}
             </AuthorImage>
           </Box>
@@ -104,18 +108,22 @@ const CreatePost = ({
           <String size="1.8rem">Add my post to*</String>
           <Grid default="auto auto">
             {topics.map((topic) => (
-              <TopicSelect
-                topic={topic}
-                handleChange={handleChange}
-                key={topic._id}
-                value={topicId}
-              />
+              <Box key={topic.id}>
+                <TopicSelect
+                  topic={topic}
+                  handleChange={handleChange}
+                  value={topicId}
+                />
+                <Gap height="20px" />
+              </Box>
             ))}
           </Grid>
         </Grid>
         <Gap height="20px" />
         <Box rightAlign>
-          <Button>Publis Post</Button>
+          <Button onClick={handleSubmit} disabled={!postData.topicId}>
+            Publish Post
+          </Button>
         </Box>
       </form>
     </Contain>

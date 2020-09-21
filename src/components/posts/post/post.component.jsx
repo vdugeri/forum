@@ -1,8 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import moment from "moment";
-import hljs from "highlight.js";
 import "highlight.js/styles/hopscotch.css";
 import {
   PostWrapper,
@@ -19,32 +18,31 @@ import {
 import CreateReply from "components/replies/create-reply/create-reply.component";
 
 import { selectCurrentUser } from "redux/user/user.selectors";
+import { Gap } from "components/messages/message-modal/message-modal.styles";
 
 const Post = ({ post }) => {
-  console.log(post);
   const currentUser = useSelector(selectCurrentUser);
-  useEffect(() => {
-    document.querySelectorAll("pre code").forEach((block) => {
-      hljs.highlightBlock(block);
-    });
-  }, []);
+
+  const { author, title, content } = post;
+
   return (
     <PostWrapper>
       <PostAuthor>
         <AuthorImage>
-          {post.author.firstName.substring(0, 1).toUpperCase()}
+          {author.firstName?.substring(0, 1).toUpperCase()}
         </AuthorImage>
         <div>
-          <AuthorName>{post.author.firstName}</AuthorName>
-          <PostDate>{moment(post.created_at).calendar()}</PostDate>
+          <AuthorName>{author.firstName}</AuthorName>
+          <PostDate>{moment(post.createdAt).fromNow()}</PostDate>
         </div>
       </PostAuthor>
       <PostTitle>
-        <h2>{post.title}</h2>
+        <h2>{title}</h2>
       </PostTitle>
       <PostBody>
-        <p dangerouslySetInnerHTML={{ __html: post.body }} />
+        <p dangerouslySetInnerHTML={{ __html: content }} />
       </PostBody>
+      <Gap height="30px" />
       {currentUser ? (
         <ReplyPost>
           <CreateReply post={post} />

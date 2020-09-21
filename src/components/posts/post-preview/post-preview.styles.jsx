@@ -21,6 +21,7 @@ export const DeleteIcon = styled(Icon)`
 
 export const PreviewAuthorWrapper = styled.div`
   display: flex;
+  justify-content: space-around;
 `;
 
 export const AuthorName = styled.div`

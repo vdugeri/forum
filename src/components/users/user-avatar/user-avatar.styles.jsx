@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Theme } from "components/shared/theme";
 
 export const AvatarWrapper = styled.div`
   cursor: pointer;
@@ -12,7 +13,7 @@ export const AvatarWrapper = styled.div`
 export const UserInitials = styled.div`
   width: 4rem;
   height: 4rem;
-  background-color: #0e413e;
+  background-color: ${Theme.PrimaryColor};
   display: flex;
   align-items: center;
   justify-content: center;

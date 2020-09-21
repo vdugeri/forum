@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import hljs from "highlight.js";
+import moment from "moment";
 import "highlight.js/styles/hopscotch.css";
 import {
   OverviewDetails,
@@ -18,42 +18,35 @@ import {
 import { openPostStart } from "redux/posts/posts.actions";
 
 import titleCase from "utils/title-case";
-import { selectCurrentPost } from "redux/posts/post.selectors";
 
-const PostOverview = () => {
+const PostOverview = ({ post }) => {
   const dispatch = useDispatch();
-  const post = useSelector(selectCurrentPost);
-  useEffect(() => {
-    highlightCode();
-  }, []);
 
-  function highlightCode() {
-    document.querySelectorAll("pre code").forEach((block) => {
-      hljs.highlightBlock(block);
-    });
-  }
+  let { content, replies, id, createdAt, title, author } = post;
+
+  content = content?.length > 300 ? `${content.substring(0, 300)}...` : content;
 
   return (
     <OverviewWrapper>
       <Metadata>
         <AuthorImage>
-          {post?.author?.firstName?.substring(0, 1).toUpperCase()}
+          {author?.firstName?.substring(0, 1).toUpperCase()}
         </AuthorImage>
         <MetadataRight>
           <OverviewAuthor>
-            {post && titleCase(post?.author?.firstName)}
+            {author && titleCase(author?.firstName)}
           </OverviewAuthor>
-          <OverviewDate>{post?.createdAt}</OverviewDate>
+          <OverviewDate>{moment(createdAt).fromNow()}</OverviewDate>
         </MetadataRight>
       </Metadata>
       <OverviewDetails>
-        <Link to={`/posts/${post?.id}`} onClick={() => dispatch(post)}>
-          <OverviewTopic>{post?.title}</OverviewTopic>
+        <Link to={`/posts/${id}`} onClick={() => dispatch(post)}>
+          <OverviewTopic>{title}</OverviewTopic>
         </Link>
 
         <OverviewSummary
           dangerouslySetInnerHTML={{
-            __html: post?.body?.substring(0, 300) + " ...",
+            __html: content,
           }}
         />
 
@@ -62,9 +55,7 @@ const PostOverview = () => {
           onClick={() => dispatch(openPostStart(post))}
         >
           <span>
-            {post?.replies?.length
-              ? `View all replies`
-              : `Be the first to reply`}
+            {replies?.length ? `View all replies` : `Be the first to reply`}
           </span>
         </Link>
       </OverviewDetails>

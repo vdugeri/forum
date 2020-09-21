@@ -1,109 +1,117 @@
 import postsActionTypes from "redux/posts/posts.types";
 
-export const startPostCreate = postData => ({
+/*********************************************
+ *  Create Posts
+ *********************************************/
+
+export const startPostCreate = (postData) => ({
   type: postsActionTypes.START_CREATE_POST,
-  payload: postData
+  payload: postData,
 });
 
-export const postCreateSuccess = post => ({
+export const postCreateSuccess = (post) => ({
   type: postsActionTypes.CREATE_POST_SUCCESS,
-  payload: post
+  payload: post,
 });
 
-export const postCreateFailure = error => ({
+export const postCreateFailure = (error) => ({
   type: postsActionTypes.CREATE_POST_FAILURE,
-  payload: error
+  payload: error,
 });
 
-export const openPostStart = post => ({
+/*********************************************
+ *  Open Posts
+ *********************************************/
+
+export const openPostStart = (postId) => ({
   type: postsActionTypes.OPEN_POST_START,
-  payload: post
+  payload: { postId },
 });
 
-export const openPostSuccess = post => ({
+export const openPostSuccess = (post) => ({
   type: postsActionTypes.OPEN_POST_SUCCESS,
-  payload: post
+  payload: post,
 });
 
-export const openPostFailure = error => ({
+export const openPostFailure = (error) => ({
   type: postsActionTypes.OPEN_POST_FAILURE,
-  payload: error
+  payload: error,
 });
 
 export const toggleRegisterModal = () => ({
-  type: postsActionTypes.TOGGLE_REGISTER_MODAL
+  type: postsActionTypes.TOGGLE_REGISTER_MODAL,
 });
 
-export const startCreateReply = replyData => ({
-  type: postsActionTypes.REPLY_CREATE_START,
-  payload: replyData
-});
+/*********************************************
+ *  Fetch Posts
+ *********************************************/
 
-export const createReplySuccess = postWithReplies => ({
-  type: postsActionTypes.REPLY_CREATE_SUCCESS,
-  payload: postWithReplies
-});
-
-export const createReplyFailure = error => ({
-  type: postsActionTypes.CREATE_POST_FAILURE,
-  payload: error
-});
-
-export const startFetchReply = postId => ({
-  type: postsActionTypes.REPLY_FETCH_START,
-  payload: postId
-});
-
-export const fetchReplySuccess = replies => ({
-  type: postsActionTypes.REPLY_FETCH_SUCCESS,
-  payload: replies
-});
-
-export const fetchReplyFailure = error => ({
-  type: postsActionTypes.REPLY_FETCH_FAILURE,
-  payload: error
-});
-
-export const fetchPostsStart = topicId => ({
+export const fetchPostsStart = (topicId) => ({
   type: postsActionTypes.FETCH_POSTS_START,
-  payload: topicId
+  payload: topicId,
 });
 
-export const fetchPostsSuccess = posts => ({
+export const fetchPostsSuccess = (posts) => ({
   type: postsActionTypes.FETCH_POSTS_SUCCESS,
-  payload: posts
+  payload: posts,
 });
 
-export const fetchPostsFailure = error => ({
+export const fetchPostsFailure = (error) => ({
   type: postsActionTypes.FETCH_POSTS_FAILURE,
-  payload: error
+  payload: error,
 });
 
-export const fetchUserPostsStart = userId => ({
+/*********************************************
+ *  User Posts
+ *********************************************/
+
+export const fetchUserPostsStart = (userId) => ({
   type: postsActionTypes.FETCH_USER_POSTS_START,
-  payload: userId
+  payload: userId,
 });
 
-export const fetchUserPostsSuccess = posts => ({
+export const fetchUserPostsSuccess = (posts) => ({
   type: postsActionTypes.FETCH_USER_POSTS_SUCCESS,
-  payload: posts
+  payload: posts,
 });
 
-export const fetchUserPostsFailure = error => ({
+export const fetchUserPostsFailure = (error) => ({
   type: postsActionTypes.FETCH_USER_POSTS_FAILURE,
-  payload: error
+  payload: error,
 });
 
-export const deletePostStart = postId => ({
+/*********************************************
+ *  Delete Posts
+ *********************************************/
+
+export const deletePostStart = (postId) => ({
   type: postsActionTypes.DELETE_POST_START,
-  payload: postId
+  payload: postId,
 });
 
 export const deletePostSuccess = () => ({
-  type: postsActionTypes.DELETE_POST_SUCCESS
+  type: postsActionTypes.DELETE_POST_SUCCESS,
 });
 
-export const deletePostFailure = error => ({
+export const deletePostFailure = (error) => ({
   type: postsActionTypes.DELETE_POST_FAILURE,
-  payload: error
+  payload: error,
+});
+
+/*********************************************
+ *  Fetch Post replies
+ *********************************************/
+export const startFetchReplies = (postId) => ({
+  type: postsActionTypes.START_FETCH_REPLIES,
+  payload: { postId },
+});
+
+export const fetchPostRepliesSuccess = (replies) => ({
+  type: postsActionTypes.FETCH_REPLIES_SUCCESS,
+  payload: replies,
+});
+
+export const fetchPostRepliesFailure = (error) => ({
+  type: postsActionTypes.FETCH_REPLIES_FAILURE,
+  payload: error,
 });

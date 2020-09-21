@@ -1,6 +1,7 @@
 import styled, { css } from "styled-components";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
+import { Theme } from "components/shared/theme";
 
 export const MenuLogo = styled.div`
   width: 6rem;
@@ -31,8 +32,8 @@ export const MenuLink = styled(Link)`
   ${(props) =>
     props.current &&
     css`
-      color: #00856f;
-      border-bottom: 3.5px solid #00856f;
+      color: ${Theme.PrimaryColor};
+      border-bottom: 3.5px solid ${Theme.PrimaryColor};
     `}
 `;
 

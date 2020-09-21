@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { selectCurrentUser, selectIsLoading } from "redux/user/user.selectors";
 import { Button, Input, Tag } from "components/shared";
 import Dropdown from "components/shared/dropdown/dropdown.component";
-import Loader from "components/shared/loader/loader.component";
+import Loader from "components/shared/loader.component";
 
 import {
   EditAccountWrapper,

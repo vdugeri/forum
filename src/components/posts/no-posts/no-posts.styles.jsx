@@ -11,11 +11,6 @@ export const Wrapper = styled.div`
   & button {
     margin-top: 3rem;
   }
-
-  &__icon {
-    width: 5rem;
-    height: 5rem;
-  }
 `;
 
 export const IconContainer = styled.div`
@@ -26,6 +21,11 @@ export const IconContainer = styled.div`
   align-items: center;
   justify-content: center;
   border-radius: 50%;
+
+  & svg {
+    width: 70%;
+    height: auto;
+  }
 `;
 
 export const Title = styled.h2`

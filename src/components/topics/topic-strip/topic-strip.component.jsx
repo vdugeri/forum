@@ -4,12 +4,12 @@ import {
   StripWrapper,
   StripLink,
   StripName,
-  StripIconContainer
+  StripIconContainer,
 } from "components/topics/topic-strip/topic-strip.styles";
 
 import {
   toggleTopicsDropdown,
-  setCurrentTopic
+  setCurrentTopic,
 } from "redux/topics/topics.actions";
 
 const TopicStrip = ({ topic }) => {
@@ -21,11 +21,11 @@ const TopicStrip = ({ topic }) => {
           dispatch(toggleTopicsDropdown());
           dispatch(setCurrentTopic(topic));
         }}
-        to={`${topic.linkUrl}`}
+        to={`/forum/${topic.linkUrl}`}
       >
         <StripName>{topic.name}</StripName>
         <StripIconContainer>
-          <img src={topic.icon} alt={topic.name} />
+          <img src={topic.iconUrl} alt={topic.name} />
         </StripIconContainer>
       </StripLink>
     </StripWrapper>

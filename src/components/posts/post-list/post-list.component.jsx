@@ -11,12 +11,13 @@ import { selectUserPosts } from "redux/posts/post.selectors";
 import "components/posts/post-list/post-list.styles.scss";
 
 const PostList = ({ posts }) => {
+  console.log(posts);
   return (
     <React.Fragment>
       {posts.length ? (
         <PostListWrapper>
-          {posts.map(post => (
-            <PostPreview post={post} key={post._id} />
+          {posts.map((post) => (
+            <PostPreview post={post} key={post.id} />
           ))}
         </PostListWrapper>
       ) : (
@@ -27,7 +28,7 @@ const PostList = ({ posts }) => {
 };
 
 const mapStateToProps = createStructuredSelector({
-  posts: selectUserPosts
+  posts: selectUserPosts,
 });
 
 export default connect(mapStateToProps)(PostList);

@@ -12,7 +12,7 @@ const Icon = ({ name }) => (
           fill: "#fff",
           height: "30px",
           width: "30px",
-          marginBottom: "10px"
+          marginBottom: "10px",
         }}
       >
         <g>
@@ -52,7 +52,7 @@ const Icon = ({ name }) => (
           fill: "#fff",
           height: "30px",
           width: "30px",
-          marginBottom: "10px"
+          marginBottom: "10px",
         }}
       >
         <g>
@@ -169,7 +169,7 @@ const Icon = ({ name }) => (
           width: "30px",
           height: "30px",
           fill: "#fff",
-          marginBottom: "10px"
+          marginBottom: "10px",
         }}
       >
         <g id="Mechanic-2" data-name="Mechanic">
@@ -219,7 +219,7 @@ const Icon = ({ name }) => (
           width: "30px",
           height: "30px",
           fill: "#fff",
-          marginBottom: "10px"
+          marginBottom: "10px",
         }}
       >
         <g>
@@ -241,7 +241,7 @@ const Icon = ({ name }) => (
           width: "20px",
           height: "20px",
           fill: "#fff",
-          marginRight: "auto"
+          marginRight: "auto",
         }}
       >
         <g>
@@ -281,7 +281,7 @@ const Icon = ({ name }) => (
           enableBackground: "new 0 0 511.991 511.991",
           height: "20px",
           width: "20px",
-          fill: "#00856f"
+          fill: "#00856f",
         }}
       >
         <g>
@@ -306,7 +306,7 @@ const Icon = ({ name }) => (
           enableBackground: "new 0 0 511.995 511.995",
           height: "20px",
           width: "20px",
-          fill: "#00856f"
+          fill: "#00856f",
         }}
       >
         <g>
@@ -330,7 +330,7 @@ const Icon = ({ name }) => (
           width: "20px",
           height: "20px",
           fill: "#fff",
-          marginRight: "auto"
+          marginRight: "auto",
         }}
       >
         <path d="M72,496H368a111.991,111.991,0,0,0,48-213.179V120a8,8,0,0,0-2.343-5.657l-96-96A8,8,0,0,0,312,16H72A40.045,40.045,0,0,0,32,56V456A40.045,40.045,0,0,0,72,496ZM464,384a96,96,0,1,1-96-96A96.108,96.108,0,0,1,464,384ZM320,43.313,388.687,112H344a24.027,24.027,0,0,1-24-24ZM48,56A24.028,24.028,0,0,1,72,32H304V88a40.045,40.045,0,0,0,40,40h56V276.666A111.983,111.983,0,0,0,310.369,480H72a24.028,24.028,0,0,1-24-24Z" />
@@ -360,7 +360,7 @@ const Icon = ({ name }) => (
           enableBackground: "new 0 0 480 480",
           height: "50px",
           width: "50px",
-          fill: "#fff"
+          fill: "#fff",
         }}
       >
         <g>
@@ -503,6 +503,40 @@ const Icon = ({ name }) => (
           <rect x="15" y="49" width="6" height="2" />
           <path d="M58.171,14a3.8,3.8,0,0,0-2.707,1.122L52,18.586V5a3,3,0,0,0-3-3H5A3,3,0,0,0,2,5V59a3,3,0,0,0,3,3H49a3,3,0,0,0,3-3V29.414l8.878-8.878A3.828,3.828,0,0,0,58.171,14ZM4,5A1,1,0,0,1,5,4H49a1,1,0,0,1,1,1V8H4ZM50,59a1,1,0,0,1-1,1H5a1,1,0,0,1-1-1V10H50V20.586l-6,6v-3L33.414,13H10V57H44V37.414l6-6ZM26.126,44.46l-2.707,8.121,8.121-2.707L34.414,47,42,39.414V55H12V15H32V25H42v3.586l-13,13ZM29,44.414,31.586,47,30.46,48.126l-3.879,1.293,1.293-3.879Zm5-28L40.586,23H34ZM33,45.586,30.414,43,54,19.414,56.586,22ZM59.464,19.122,58,20.586,55.414,18l1.464-1.464a1.829,1.829,0,1,1,2.586,2.586Z" />
         </g>
+      </svg>
+    )}
+    {name === "dashboard" && (
+      <svg
+        version="1.1"
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+      >
+        <title>dashboard</title>
+        <path
+          fill="#fff"
+          d="M12.984 3h8.016v6h-8.016v-6zM12.984 21v-9.984h8.016v9.984h-8.016zM3 21v-6h8.016v6h-8.016zM3 12.984v-9.984h8.016v9.984h-8.016z"
+        ></path>
+      </svg>
+    )}
+    {name === "students" && (
+      <svg
+        version="1.1"
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 36 32"
+      >
+        <title>users</title>
+        <path
+          fill="#fff"
+          d="M24 24.082v-1.649c2.203-1.241 4-4.337 4-7.432 0-4.971 0-9-6-9s-6 4.029-6 9c0 3.096 1.797 6.191 4 7.432v1.649c-6.784 0.555-12 3.888-12 7.918h28c0-4.030-5.216-7.364-12-7.918z"
+        ></path>
+        <path
+          fill="#fff"
+          d="M10.225 24.854c1.728-1.13 3.877-1.989 6.243-2.513-0.47-0.556-0.897-1.176-1.265-1.844-0.95-1.726-1.453-3.627-1.453-5.497 0-2.689 0-5.228 0.956-7.305 0.928-2.016 2.598-3.265 4.976-3.734-0.529-2.39-1.936-3.961-5.682-3.961-6 0-6 4.029-6 9 0 3.096 1.797 6.191 4 7.432v1.649c-6.784 0.555-12 3.888-12 7.918h8.719c0.454-0.403 0.956-0.787 1.506-1.146z"
+        ></path>
       </svg>
     )}
   </>

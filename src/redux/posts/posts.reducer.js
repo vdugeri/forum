@@ -1,13 +1,14 @@
 import postsActionTypes from "redux/posts/posts.types";
+import RepliesActionTypes from "redux/replies/types";
 
 const INITIAL_STATE = {
   postList: [],
   userPosts: [],
   isPostLoading: false,
   isRepliesLoading: false,
-  currentPost: null,
+  currentPost: { author: {} },
   error: null,
-  postReplies: []
+  postReplies: { data: [] },
 };
 
 const postsReducer = (state = INITIAL_STATE, { type, payload }) => {
@@ -19,27 +20,64 @@ const postsReducer = (state = INITIAL_STATE, { type, payload }) => {
     case postsActionTypes.DELETE_POST_START:
       return {
         ...state,
-        isPostLoading: true
+        isPostLoading: true,
+      };
+    case postsActionTypes.REPLY_CREATE_START:
+    case postsActionTypes.START_FETCH_REPLIES:
+      return {
+        ...state,
+        isRepliesLoading: true,
+        error: null,
       };
     case postsActionTypes.CREATE_POST_SUCCESS:
       return {
         ...state,
         isPostLoading: false,
-        error: null
+        error: null,
       };
     case postsActionTypes.FETCH_POSTS_SUCCESS:
       return {
         isPostLoading: false,
         postList: payload,
-        error: null
+        error: null,
       };
     case postsActionTypes.FETCH_USER_POSTS_SUCCESS:
       return {
         ...state,
         userPosts: payload,
         isPostLoading: false,
-        error: null
+        error: null,
       };
+    case RepliesActionTypes.CREATE_REPLY_SUCCESS:
+      return {
+        ...state,
+        postReplies: updatePostReplies(state.postReplies, payload),
+      };
+    case postsActionTypes.OPEN_POST_SUCCESS:
+      return {
+        ...state,
+        currentPost: payload,
+        isPostLoading: false,
+      };
+    case postsActionTypes.REPLY_CREATE_SUCCESS:
+      return {
+        ...state,
+        isRepliesLoading: false,
+        currentPost: payload,
+        error: null,
+      };
+    case postsActionTypes.FETCH_REPLIES_SUCCESS:
+      return {
+        ...state,
+        postReplies: payload,
+        isRepliesLoading: false,
+      };
+    case postsActionTypes.DELETE_POST_SUCCESS:
+      return {
+        ...state,
+        isPostLoading: false,
+      };
+
     case postsActionTypes.CREATE_POST_FAILURE:
     case postsActionTypes.OPEN_POST_FAILURE:
     case postsActionTypes.FETCH_POSTS_FAILURE:
@@ -48,49 +86,25 @@ const postsReducer = (state = INITIAL_STATE, { type, payload }) => {
       return {
         ...state,
         error: payload,
-        isPostLoading: false
+        isPostLoading: false,
       };
-    case postsActionTypes.OPEN_POST_SUCCESS:
-      return {
-        ...state,
-        currentPost: payload,
-        isPostLoading: false
-      };
-    case postsActionTypes.REPLY_CREATE_START:
-    case postsActionTypes.REPLY_FETCH_START:
-      return {
-        ...state,
-        isRepliesLoading: true
-      };
-    case postsActionTypes.REPLY_CREATE_SUCCESS:
-      return {
-        ...state,
-        isRepliesLoading: false,
-        currentPost: payload,
-        error: null
-      };
-    case postsActionTypes.REPLY_FETCH_SUCCESS:
-      return {
-        ...state,
-        postReplies: payload,
-        isRepliesLoading: false,
-        error: null
-      };
-    case postsActionTypes.REPLY_FETCH_FAILURE:
+    case postsActionTypes.FETCH_REPLIES_FAILURE:
     case postsActionTypes.REPLY_CREATE_FAILURE:
       return {
         ...state,
         isRepliesLoading: false,
-        error: payload
+        error: payload,
       };
-    case postsActionTypes.DELETE_POST_SUCCESS:
-      return {
-        ...state,
-        isPostLoading: false
-      };
+
     default:
       return state;
   }
 };
+
+function updatePostReplies(replies, reply) {
+  const updatedReplies = { ...replies, data: [...replies.data, reply] };
+
+  return { ...updatedReplies };
+}
 
 export default postsReducer;

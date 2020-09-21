@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { withRouter } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 
 import Post from "components/posts/post/post.component";
 import WithSpinner from "components/shared/with-spinner.component";
@@ -18,55 +19,61 @@ import {
   CreateReplyWrapper,
 } from "pages/post-page/post-page.styles";
 
-import Loader from "components/shared/loader/loader.component";
+import { Contain, Gap } from "components/shared/layout";
+import { openPostStart, startFetchReplies } from "redux/posts/posts.actions";
+import {
+  selectCurrentPost,
+  selectIsPostLoading,
+  selectPostReplies,
+} from "redux/posts/post.selectors";
 
 const PostWithSpinner = WithSpinner(Post);
 const ExplorePractitionersWithSpinner = WithSpinner(ExplorePractitioners);
 
 const PostPage = ({ showReply, match }) => {
-  const {
-    params: { id },
-  } = match;
+  const { params } = match;
+  const { id } = params;
 
-  const url = `/posts/${id}`;
-  const [{ data: currentPost, loading }] = useFetch(url, {
-    author: { firstName: "" },
-  });
-  const [{ data: topExperts, loading: loadingExperts }] = useFetch(
-    "/experts?limit=3",
-    []
-  );
+  const dispatch = useDispatch();
+
+  const loading = useSelector(selectIsPostLoading);
+  const currentPost = useSelector(selectCurrentPost);
+  const postReplies = useSelector(selectPostReplies);
+
+  useEffect(() => {
+    dispatch(openPostStart(id));
+    dispatch(startFetchReplies(id));
+  }, [dispatch, id]);
+
+  const [
+    { data: topExperts, loading: loadingExperts },
+  ] = useFetch("/experts?limit=3", { data: [] });
 
   return (
-    <>
-      {loading ? (
-        <Loader />
-      ) : (
-        <PostPageWrapper>
-          <BackLink linkText="All Topics" linkUrl="/" />
-          <PageHeader>
-            <h2>Join The Conversation</h2>
-            <SearchField placeholder="what are you looking for?" />
-          </PageHeader>
-          <PostWithSpinner isLoading={loading} post={currentPost} />
-          <CreateReplyWrapper>
-            {showReply ? <CreateReply /> : null}
-          </CreateReplyWrapper>
-          {currentPost &&
-            currentPost.replies &&
-            currentPost.replies.map((reply) => (
-              <Reply reply={reply} key={reply._id} />
-            ))}
-          <CreateWrapper>
-            <WritePost />
-          </CreateWrapper>
-          <ExplorePractitionersWithSpinner
-            isLoading={loadingExperts}
-            topExperts={topExperts}
-          />
-        </PostPageWrapper>
-      )}
-    </>
+    <Contain wide width="100%">
+      <PostPageWrapper>
+        <BackLink linkText="All Topics" linkUrl="/" />
+        <PageHeader>
+          <h2>Join The Conversation</h2>
+          <SearchField placeholder="what are you looking for?" />
+        </PageHeader>
+        <PostWithSpinner isLoading={loading} post={currentPost} />
+        <CreateReplyWrapper>
+          {showReply ? <CreateReply /> : null}
+        </CreateReplyWrapper>
+        {postReplies.data.map((reply) => (
+          <Reply reply={reply} key={reply.id} />
+        ))}
+        <Gap height="30px" />
+        <CreateWrapper>
+          <WritePost />
+        </CreateWrapper>
+        <ExplorePractitionersWithSpinner
+          isLoading={loadingExperts}
+          topExperts={topExperts}
+        />
+      </PostPageWrapper>
+    </Contain>
   );
 };
 

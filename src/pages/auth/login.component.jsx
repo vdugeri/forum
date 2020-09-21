@@ -2,10 +2,16 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import AuthMenu from "components/auth/auth-menu/auth-menu.component";
-import { Input } from "components/shared/form";
-import { Button } from "components/shared/button";
-import { String } from "components/shared/string";
-import { Grid, Contain, Gap, Box } from "components/shared/layout";
+import {
+  Input,
+  Button,
+  String,
+  Grid,
+  Contain,
+  Gap,
+  Box,
+} from "components/shared";
+import { Theme } from "components/shared/theme";
 import { userSignInStart } from "redux/user/user.actions";
 import { validateLogin } from "pages/auth/validate";
 
@@ -66,12 +72,14 @@ const Login = ({ onSignInStart }) => {
         <Grid default="1fr 1fr">
           <Box leftAlign>
             <Link to="/reset-password">
-              <String color="#00856f" size="1.6rem">
+              <String color={Theme.PrimaryColor} size="1.6rem">
                 Forgot password?
               </String>
             </Link>
           </Box>
-          <Button onClick={handleLogin}>Sign In</Button>
+          <Button onClick={handleLogin} disabled={!username || !password}>
+            Sign In
+          </Button>
         </Grid>
       </Grid>
     </Contain>

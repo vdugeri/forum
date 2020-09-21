@@ -8,7 +8,7 @@ const TopicSelect = ({ topic, handleChange }) => {
       <SimpleCheckbox
         label={topic.name}
         name="topicId"
-        handleChange={handleChange}
+        onChange={handleChange}
         value={topic.id}
         type="radio"
       />

@@ -14,7 +14,9 @@ const PractionersWithSpinner = WithSpinner(ExplorePractitioners);
 const TopicsWithLoader = WithSpinner(PopularTopics);
 
 const Homepage = () => {
-  const [{ data: topExperts, loading }] = useFetch("/experts?limit=3", []);
+  const [{ data: topExperts, loading }] = useFetch("/experts?limit=3", {
+    data: [],
+  });
   const [{ data: topics, loading: topicsLoading }] = useFetch("/topics", []);
   return (
     <Contain wide width="60%">
@@ -30,11 +32,12 @@ const Homepage = () => {
           </Box>
         </Grid>
       </Box>
-      <Grid default="repeat(3, 1fr)">
+      <Grid default="repeat(3, 1fr)" padVertical="10px">
         {topics.map((topic) => (
           <Topic topic={topic} key={topic.id} />
         ))}
       </Grid>
+      <Gap height="30px" />
       <WritePost />
       <Box>
         {topics.map((topic) => (

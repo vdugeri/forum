@@ -17,7 +17,7 @@ import {
 const AccountDropdown = ({ user, toggleDropdown, onSignoutStart }) => (
   <Container onMouseLeave={toggleDropdown} onClick={toggleDropdown}>
     <UsernameWrapper>
-      <h2>{`${user.firstName} ${user.lastName}`}</h2>
+      <h2>{`${user?.firstName} ${user?.lastName}`}</h2>
       <Link to="/account">Account settings &amp; payments</Link>
     </UsernameWrapper>
     <LinksWrapper className="account-dropdown__links">
