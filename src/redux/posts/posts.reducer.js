@@ -2,7 +2,7 @@ import postsActionTypes from "redux/posts/posts.types";
 import RepliesActionTypes from "redux/replies/types";
 
 const INITIAL_STATE = {
-  postList: [],
+  postList: { data: [] },
   userPosts: [],
   isPostLoading: false,
   isRepliesLoading: false,
@@ -75,6 +75,7 @@ const postsReducer = (state = INITIAL_STATE, { type, payload }) => {
     case postsActionTypes.DELETE_POST_SUCCESS:
       return {
         ...state,
+        postList: updatePostList(state.postList, payload),
         isPostLoading: false,
       };
 
@@ -105,6 +106,12 @@ function updatePostReplies(replies, reply) {
   const updatedReplies = { ...replies, data: [...replies.data, reply] };
 
   return { ...updatedReplies };
+}
+
+function updatePostList(posts, postId) {
+  const postList = posts.data.filter((post) => post.id !== +postId);
+
+  return { ...posts, data: postList };
 }
 
 export default postsReducer;

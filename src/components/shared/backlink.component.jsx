@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { Theme } from "./theme";
 
 const StyledLink = styled(Link)`
   display: flex;
@@ -10,7 +11,7 @@ const StyledLink = styled(Link)`
   margin-bottom: 1.5rem;
   font-size: 1.6rem;
   text-decoration: none;
-  color: #00856f;
+  color: ${Theme.PrimaryColor};
   font-weight: 600;
 
   & .icon {

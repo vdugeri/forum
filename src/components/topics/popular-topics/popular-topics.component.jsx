@@ -17,7 +17,7 @@ const PopularTopics = ({ topic }) => {
   const handleClick = () => {
     dispatch(setCurrentTopic(topic));
   };
-  console.log(topic);
+
   return (
     <Wrapper>
       {topic.posts.length ? (

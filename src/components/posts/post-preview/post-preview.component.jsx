@@ -19,7 +19,7 @@ import {
 import titleCase from "utils/title-case";
 
 import { deletePostStart } from "redux/posts/posts.actions";
-import { Box } from "components/shared/layout";
+import { Box, Grid } from "components/shared/layout";
 
 const PostPreview = ({ post }) => {
   const dispatch = useDispatch();
@@ -31,18 +31,21 @@ const PostPreview = ({ post }) => {
   }, []);
   return (
     <PreviewWrapper>
-      <Box flex verticalAlign>
-        <AuthorImageWrapper>
-          {post.author.firstName.substring(0, 1).toUpperCase()}
-        </AuthorImageWrapper>
-        <AuthorDetail>
-          <AuthorName>{titleCase(post.author.firstName)}</AuthorName>
-          <PostDate>{moment(post.created_at).format("ll")}</PostDate>
-        </AuthorDetail>
-        <Box margin="0 0 0 80%">
-          <DeleteIcon onClick={() => dispatch(deletePostStart(post._id))} />
+      <Grid default="1fr 1fr" flex verticalAlign>
+        <Box flex>
+          <AuthorImageWrapper>
+            {post.author.firstName.substring(0, 1).toUpperCase()}
+          </AuthorImageWrapper>
+          <AuthorDetail>
+            <AuthorName>{titleCase(post.author.firstName)}</AuthorName>
+            <PostDate>{moment(post.createdAt).format("ll")}</PostDate>
+          </AuthorDetail>
         </Box>
-      </Box>
+
+        <Box margin="0 0 0 80%">
+          <DeleteIcon onClick={() => dispatch(deletePostStart(post.id))} />
+        </Box>
+      </Grid>
       <Title>
         <ReplyLink to={`/posts/${post.id}`}>{post.title}</ReplyLink>
       </Title>

@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
+import { Theme } from "./theme";
 
 export const StyledLink = styled(Link)`
   display: flex;
@@ -29,7 +30,7 @@ LinkText.propTypes = {
 };
 
 export const LinkIcon = styled.span`
-  color: #00856f;
+  color: ${Theme.PrimaryColor};
   font-size: 2.5rem;
   font-weight: 500;
 `;

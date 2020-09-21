@@ -22,7 +22,7 @@ import {
   selectIsPostLoading,
 } from "redux/posts/post.selectors";
 
-import "pages/forum/forum.styles.scss";
+import { Contain, Box, String, Grid } from "components/shared";
 
 const PostPreviewWithSpinner = WithSpinner(PostPreview);
 
@@ -34,30 +34,37 @@ const Forum = ({
   isLoading,
 }) => {
   useEffect(() => {
-    onFetchPostsStart(currentTopic._id);
+    onFetchPostsStart(currentTopic.id);
   }, [currentTopic, onFetchPostsStart]);
   return (
-    <div className="forum">
+    <Contain wide width="55%">
       <BackLink linkText="All Topics" linkUrl="/" />
-      <div className="forum__header">
-        <h2>{titleCase(removeDashes(currentTopic.name))}</h2>
+      <Grid default="1fr 1fr">
+        <String bold size="2.2rem">
+          {titleCase(removeDashes(currentTopic.name))}
+        </String>
         <SearchField placeholder="what are you looking for?" />
-      </div>
-      <div className="forum__links">
+      </Grid>
+      <Box pad="30px 0">
         {topics.map((topic) => (
-          <TopicLink topic={topic} key={topic._id} />
+          <TopicLink topic={topic} key={topic.id} />
         ))}
-      </div>
+      </Box>
       <WritePost />
-      <h2 className="forum__posts-heading">Recent Posts</h2>
-      {posts.map((post) => (
+      <Box bottomBordered pad="50px 0 0 0">
+        <String size="2rem" font={`"Domaine Display Semibold", serif`}>
+          Recent Posts
+        </String>
+      </Box>
+
+      {posts?.data.map((post) => (
         <PostPreviewWithSpinner
           isLoading={isLoading}
           post={post}
-          key={post._id}
+          key={post.id}
         />
       ))}
-    </div>
+    </Contain>
   );
 };
 

@@ -3,7 +3,6 @@ import { withRouter } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import Post from "components/posts/post/post.component";
-import WithSpinner from "components/shared/with-spinner.component";
 import CreateReply from "components/replies/create-reply/create-reply.component";
 import Reply from "components/replies/reply/reply.component";
 import SearchField from "components/shared/search-field.component";
@@ -26,9 +25,7 @@ import {
   selectIsPostLoading,
   selectPostReplies,
 } from "redux/posts/post.selectors";
-
-const PostWithSpinner = WithSpinner(Post);
-const ExplorePractitionersWithSpinner = WithSpinner(ExplorePractitioners);
+import Loader from "components/shared/loader.component";
 
 const PostPage = ({ showReply, match }) => {
   const { params } = match;
@@ -49,6 +46,8 @@ const PostPage = ({ showReply, match }) => {
     { data: topExperts, loading: loadingExperts },
   ] = useFetch("/experts?limit=3", { data: [] });
 
+  if (loading || loadingExperts) return <Loader />;
+
   return (
     <Contain wide width="100%">
       <PostPageWrapper>
@@ -57,21 +56,18 @@ const PostPage = ({ showReply, match }) => {
           <h2>Join The Conversation</h2>
           <SearchField placeholder="what are you looking for?" />
         </PageHeader>
-        <PostWithSpinner isLoading={loading} post={currentPost} />
+        <Post post={currentPost} />
         <CreateReplyWrapper>
           {showReply ? <CreateReply /> : null}
         </CreateReplyWrapper>
-        {postReplies.data.map((reply) => (
+        {postReplies?.data.map((reply) => (
           <Reply reply={reply} key={reply.id} />
         ))}
         <Gap height="30px" />
         <CreateWrapper>
           <WritePost />
         </CreateWrapper>
-        <ExplorePractitionersWithSpinner
-          isLoading={loadingExperts}
-          topExperts={topExperts}
-        />
+        <ExplorePractitioners topExperts={topExperts} />
       </PostPageWrapper>
     </Contain>
   );

@@ -40,10 +40,8 @@ function* getPost({ payload: { postId } }) {
 function* fetchPosts({ payload }) {
   try {
     endpoint = `/topics/${payload}/posts`;
-    const {
-      data: { posts },
-    } = yield httpClient.get(endpoint);
-    yield put(fetchPostsSuccess(posts));
+    const { data } = yield httpClient.get(endpoint);
+    yield put(fetchPostsSuccess(data));
   } catch (error) {
     yield put(fetchPostsFailure(error));
   }
@@ -65,7 +63,7 @@ function* deletePost({ payload }) {
   try {
     const endpoint = `/posts/${payload}`;
     yield httpClient.delete(endpoint);
-    yield put(deletePostSuccess());
+    yield put(deletePostSuccess(payload));
   } catch (error) {
     yield put(deletePostFailure(error));
   }

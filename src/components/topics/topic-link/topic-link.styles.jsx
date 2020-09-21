@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { Theme } from "components/shared/theme";
 
 export const StyledLink = styled(Link)`
   display: flex;
@@ -23,7 +24,7 @@ export const StyledLink = styled(Link)`
 `;
 
 export const TopicLinkIcon = styled.span`
-  color: #00856f;
+  color: ${Theme.PrimaryColor};
   font-size: 3rem;
   font-weight: 500;
 `;

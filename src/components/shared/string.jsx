@@ -6,80 +6,85 @@ import { Theme } from "./theme";
 import "assets/fonts/fonts/fonts.css";
 
 export const StringWrapper = styled.span`
+  ${(props) =>
+    props.size &&
+    css`
+      font-size: ${props.size};
+    `}
+  ${(props) =>
+    props.bold &&
+    css`
+      font-weight: bold;
+    `}
+    ${(props) =>
+    props.upper &&
+    css`
+      text-transform: uppercase;
+    `}
+    ${(props) =>
+    props.lower &&
+    css`
+      text-transform: lowercase;
+    `}
+    ${(props) =>
+    props.cap &&
+    css`
+      text-transform: capitalize;
+    `}
+    ${(props) =>
+    props.italic &&
+    css`
+      font-style: italic;
+    `}
+    ${(props) =>
+    props.noitalic &&
+    css`
+      font-style: normal;
+    `}
+    ${(props) =>
+    props.block &&
+    css`
+      display: block;
+      padding: ${(props) => props.pad};
+      margin: ${(props) => props.margin};
+    `}
+    ${(props) =>
+    props.ellipsis &&
+    css`
+      ${Theme.Truncate("100%")};
+    `}
+    ${(props) =>
+    props.inlineBlock &&
+    css`
+      display: inline-block;
+      padding: ${(props) => props.pad};
+      margin: ${(props) => props.margin};
+    `}
+    ${(props) =>
+    props.inline &&
+    css`
+      display: inline;
+    `}
+    ${(props) =>
+    props.fade &&
+    css`
+      opacity: 0.5;
+    `}
 		${(props) =>
-      props.size &&
-      css`
-        font-size: ${props.size};
-      `}
-    ${(props) =>
-      props.bold &&
-      css`
-        font-weight: bold;
-      `}
-    ${(props) =>
-      props.upper &&
-      css`
-        text-transform: uppercase;
-      `}
-    ${(props) =>
-      props.lower &&
-      css`
-        text-transform: lowercase;
-      `}
-    ${(props) =>
-      props.cap &&
-      css`
-        text-transform: capitalize;
-      `}
-    ${(props) =>
-      props.italic &&
-      css`
-        font-style: italic;
-      `}
-    ${(props) =>
-      props.noitalic &&
-      css`
-        font-style: normal;
-      `}
-    ${(props) =>
-      props.block &&
-      css`
-        display: block;
-        padding: ${(props) => props.pad};
-        margin: ${(props) => props.margin};
-      `}
-    ${(props) =>
-      props.ellipsis &&
-      css`
-        ${Theme.Truncate("100%")};
-      `}
-    ${(props) =>
-      props.inlineBlock &&
-      css`
-        display: inline-block;
-        padding: ${(props) => props.pad};
-        margin: ${(props) => props.margin};
-      `}
-    ${(props) =>
-      props.inline &&
-      css`
-        display: inline;
-      `}
-    ${(props) =>
-      props.fade &&
-      css`
-        opacity: 0.5;
-      `}
+    props.centered &&
+    css`
+      text-align: center;
+    `}
 		${(props) =>
-      props.centered &&
-      css`
-        text-align: center;
-      `}
-		${(props) =>
-      props.color &&
-      css`
-        color: ${props.color};
-      `}
+    props.color &&
+    css`
+      color: ${props.color};
+    `}
+      ${(props) =>
+    props.font &&
+    css`
+      font-family: ${props.font};
+    `}
 `;
 export const String = (props) => {
   return <StringWrapper {...props}>{props.children}</StringWrapper>;
@@ -149,50 +154,50 @@ SubTitle.propTypes = {
 };
 
 export const Icon = styled.i`
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: ${(props) => props.size}px;
-    height: ${(props) => props.size}px;
-    font-size: ${(props) => props.size - 4}px;
-    ${(props) =>
-      props.font &&
-      css`
-        font-size: ${(props) => props.font};
-      `}
-    ${(props) =>
-      props.color &&
-      css`
-        color: ${(props) => props.color};
-      `}
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: ${(props) => props.size}px;
+  height: ${(props) => props.size}px;
+  font-size: ${(props) => props.size - 4}px;
+  ${(props) =>
+    props.font &&
+    css`
+      font-size: ${(props) => props.font};
+    `}
+  ${(props) =>
+    props.color &&
+    css`
+      color: ${(props) => props.color};
+    `}
 
     ${(props) =>
-      props.boxed &&
-      css`
-        font-size: ${(props) => props.font};
-        width: ${(props) => props.size}px;
-        height: ${(props) => props.size}px;
-        background: ${(props) => props.bg};
-        &:hover {
-          background: ${(props) => props.bgHover};
-        }
-        ${(props) =>
-          props.round &&
-          css`
-            border-radius: 50%;
-          `}
-        ${(props) =>
-          props.curve &&
-          css`
-            border-radius: ${Theme.PrimaryRadius};
-          `}
-      `}
+    props.boxed &&
+    css`
+      font-size: ${(props) => props.font};
+      width: ${(props) => props.size}px;
+      height: ${(props) => props.size}px;
+      background: ${(props) => props.bg};
+      &:hover {
+        background: ${(props) => props.bgHover};
+      }
+      ${(props) =>
+        props.round &&
+        css`
+          border-radius: 50%;
+        `}
+      ${(props) =>
+        props.curve &&
+        css`
+          border-radius: ${Theme.PrimaryRadius};
+        `}
+    `}
     transition: all 0.3s ease-out;
-    ${(props) =>
-      props.rotate &&
-      css`
-        transform: rotateZ(${(props) => props.rotate});
-      `}
+  ${(props) =>
+    props.rotate &&
+    css`
+      transform: rotateZ(${(props) => props.rotate});
+    `}
 `;
 
 Icon.defaultProps = {
